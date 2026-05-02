@@ -115,18 +115,15 @@ public class SingleRowRefSection : ViewSection
             var cursorPos = ImGui.GetCursorPos();
             ImGui.SetCursorPos(new Vector2(cursorPos.X, cursorPos.Y + offsetY));
 
-            using (var group = ImRaii.Group())
+            using (ImRaii.Group())
             {
-                if (group)
-                {
-                    ImGui.TextUnformatted(_relatedCompendiumType.GetName(relatedRefRowId));
+                ImGui.TextUnformatted(_relatedCompendiumType.GetName(relatedRefRowId));
 
-                    if (!string.IsNullOrEmpty(subTitle))
+                if (!string.IsNullOrEmpty(subTitle))
+                {
+                    using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
                     {
-                        using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
-                        {
-                            ImGui.TextUnformatted(subTitle);
-                        }
+                        ImGui.TextUnformatted(subTitle);
                     }
                 }
             }

@@ -111,8 +111,7 @@ public class ImGuiService : AllaganLib.Interface.Services.ImGuiService
 
         if (ImGui.IsItemHovered() && !string.IsNullOrEmpty(tooltip))
         {
-            using var tooltipScope = ImRaii.Tooltip();
-            if (tooltipScope)
+            using (ImRaii.Tooltip())
             {
                 ImGui.Text(tooltip);
             }
@@ -229,20 +228,17 @@ public class ImGuiService : AllaganLib.Interface.Services.ImGuiService
         ImGui.TextDisabled("(?)");
         if (ImGui.IsItemHovered())
         {
-            using (var tooltip = ImRaii.Tooltip())
+            using (ImRaii.Tooltip())
             {
-                if (tooltip)
+                ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
+                ImGui.TextUnformatted(helpText);
+                ImGui.PopTextWrapPos();
+                if (imagePath != null)
                 {
-                    ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
-                    ImGui.TextUnformatted(helpText);
-                    ImGui.PopTextWrapPos();
-                    if (imagePath != null)
-                    {
-                        var sourceIcon = LoadImage(imagePath);
-                        ImGui.Image(sourceIcon.GetWrapOrEmpty().Handle, imageSize ??
-                                                                             new Vector2(200, 200) *
-                                                                             ImGui.GetIO().FontGlobalScale);
-                    }
+                    var sourceIcon = LoadImage(imagePath);
+                    ImGui.Image(sourceIcon.GetWrapOrEmpty().Handle, imageSize ??
+                                                                         new Vector2(200, 200) *
+                                                                         ImGui.GetIO().FontGlobalScale);
                 }
             }
         }
@@ -254,31 +250,28 @@ public class ImGuiService : AllaganLib.Interface.Services.ImGuiService
         ImGui.TextDisabled("(?)");
         if (ImGui.IsItemHovered())
         {
-            using (var tooltip = ImRaii.Tooltip())
+            using (ImRaii.Tooltip())
             {
-                if (tooltip)
+                ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
+                foreach (var line in helpText)
                 {
-                    ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
-                    foreach (var line in helpText)
+                    if (line == "")
                     {
-                        if (line == "")
-                        {
-                            ImGui.Separator();
-                        }
-                        else
-                        {
-                            ImGui.TextUnformatted(line);
-                        }
+                        ImGui.Separator();
                     }
+                    else
+                    {
+                        ImGui.TextUnformatted(line);
+                    }
+                }
 
-                    ImGui.PopTextWrapPos();
-                    if (imagePath != null)
-                    {
-                        var sourceIcon = LoadImage(imagePath);
-                        ImGui.Image(sourceIcon.GetWrapOrEmpty().Handle, imageSize ??
-                                                                             new Vector2(200, 200) *
-                                                                             ImGui.GetIO().FontGlobalScale);
-                    }
+                ImGui.PopTextWrapPos();
+                if (imagePath != null)
+                {
+                    var sourceIcon = LoadImage(imagePath);
+                    ImGui.Image(sourceIcon.GetWrapOrEmpty().Handle, imageSize ??
+                                                                         new Vector2(200, 200) *
+                                                                         ImGui.GetIO().FontGlobalScale);
                 }
             }
         }
@@ -592,12 +585,9 @@ public class ImGuiService : AllaganLib.Interface.Services.ImGuiService
                             new Vector2(iconSize, iconSize), Vector2.Zero, Vector2.One);
                         if (ImGui.IsItemHovered())
                         {
-                            using (var tooltip = ImRaii.Tooltip())
+                            using (ImRaii.Tooltip())
                             {
-                                if (tooltip)
-                                {
-                                    ImGui.Text(btn.Tooltip ?? btn.Label);
-                                }
+                                ImGui.Text(btn.Tooltip ?? btn.Label);
                             }
                         }
                     }
@@ -610,12 +600,9 @@ public class ImGuiService : AllaganLib.Interface.Services.ImGuiService
                         if (ImGui.IsItemHovered())
                         {
                             font.Pop();
-                            using (var tooltip = ImRaii.Tooltip())
+                            using (ImRaii.Tooltip())
                             {
-                                if (tooltip)
-                                {
-                                    ImGui.Text(btn.Tooltip);
-                                }
+                                ImGui.Text(btn.Tooltip);
                             }
                         }
                     }

@@ -180,18 +180,15 @@ public class CollectionRowRefSection : ViewSection
         var cursorPos = ImGui.GetCursorPos();
         ImGui.SetCursorPos(new Vector2(cursorPos.X, cursorPos.Y + offsetY));
 
-        using (var group = ImRaii.Group())
+        using (ImRaii.Group())
         {
-            if (group)
-            {
-                ImGui.TextUnformatted(title);
+            ImGui.TextUnformatted(title);
 
-                if (!string.IsNullOrEmpty(subTitle))
+            if (!string.IsNullOrEmpty(subTitle))
+            {
+                using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
                 {
-                    using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
-                    {
-                        ImGui.TextUnformatted(subTitle);
-                    }
+                    ImGui.TextUnformatted(subTitle);
                 }
             }
         }

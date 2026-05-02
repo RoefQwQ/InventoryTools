@@ -632,13 +632,10 @@ namespace InventoryTools.Ui
 
                                 if (ImGui.IsItemHovered())
                                 {
-                                    using (var tooltip = ImRaii.Tooltip())
+                                    using (ImRaii.Tooltip())
                                     {
-                                        if (tooltip)
-                                        {
-                                            ImGui.TextUnformatted(
-                                                "This will paste the contents of items copied via the 'Copy List Contents' menu above, it also will attempt to parse Teamcraft lists if one is in your clipboard. If you have a garland tools URL in your clipboard that points to a group, it will also attempt to parse that add it to your craft list.");
-                                        }
+                                        ImGui.TextUnformatted(
+                                            "This will paste the contents of items copied via the 'Copy List Contents' menu above, it also will attempt to parse Teamcraft lists if one is in your clipboard. If you have a garland tools URL in your clipboard that points to a group, it will also attempt to parse that add it to your craft list.");
                                     }
                                 }
 

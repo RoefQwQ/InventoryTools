@@ -83,34 +83,27 @@ public sealed class MapLinksViewSection : ViewSection
             var cursorPos = ImGui.GetCursorPos();
             ImGui.SetCursorPos(new Vector2(cursorPos.X, cursorPos.Y + offsetY));
 
-            using (var group = ImRaii.Group())
+            using (ImRaii.Group())
             {
-                if (group)
+                ImGui.TextUnformatted(entry.Name);
+
+                if (!string.IsNullOrEmpty(entry.Subtitle))
                 {
-
-                    ImGui.TextUnformatted(entry.Name);
-
-                    if (!string.IsNullOrEmpty(entry.Subtitle))
+                    using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
                     {
-                        using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
-                        {
-                            ImGui.TextUnformatted(entry.Subtitle);
-                        }
+                        ImGui.TextUnformatted(entry.Subtitle);
                     }
+                }
 
-                    if (ImGui.IsItemHovered() || ImGui.IsItemHovered(ImGuiHoveredFlags.AllowWhenOverlapped))
+                if (ImGui.IsItemHovered() || ImGui.IsItemHovered(ImGuiHoveredFlags.AllowWhenOverlapped))
+                {
+                    var loc = entry.Location;
+                    using (ImRaii.Tooltip())
                     {
-                        var loc = entry.Location;
-                        using (var tooltip = ImRaii.Tooltip())
-                        {
-                            if (tooltip)
-                            {
-                                ImGui.TextUnformatted(loc.FormattedName);
-                                ImGui.Separator();
-                                ImGui.Text($"X: {loc.MapX:0.0}");
-                                ImGui.Text($"Y: {loc.MapY:0.0}");
-                            }
-                        }
+                        ImGui.TextUnformatted(loc.FormattedName);
+                        ImGui.Separator();
+                        ImGui.Text($"X: {loc.MapX:0.0}");
+                        ImGui.Text($"Y: {loc.MapY:0.0}");
                     }
                 }
             }

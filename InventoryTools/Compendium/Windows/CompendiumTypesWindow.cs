@@ -97,13 +97,10 @@ public class CompendiumTypesWindow : GenericWindow
 
                         using (var group = ImRaii.Group())
                         {
-                            if (group)
+                            ImGui.TextUnformatted(compendiumType.Plural);
+                            using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudGrey))
                             {
-                                ImGui.TextUnformatted(compendiumType.Plural);
-                                using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudGrey))
-                                {
-                                    ImGui.TextWrapped(compendiumType.Description);
-                                }
+                                ImGui.TextWrapped(compendiumType.Description);
                             }
                         }
                     }

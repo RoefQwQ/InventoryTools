@@ -196,8 +196,7 @@ public class CompendiumMapFeaturesWindow : UintWindow
                         ImGui.SetCursorScreenPos(min);
                         var max = ImGui.GetItemRectMax();
 
-                        using var group = ImRaii.Group();
-                        if (group)
+                        using (ImRaii.Group())
                         {
                             if (icon.Item2 != null)
                             {

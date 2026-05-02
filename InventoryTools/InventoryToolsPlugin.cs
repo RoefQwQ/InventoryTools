@@ -36,6 +36,7 @@ using DalaMock.Shared.Classes;
 using DalaMock.Shared.Extensions;
 using Dalamud.Game.ClientState.Objects;
 using Dalamud.Interface.ImGuiFileDialog;
+using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using InventoryTools.Boot;
@@ -218,7 +219,7 @@ namespace InventoryTools
             builder.RegisterSingletonSelfAndInterfaces<CraftPricer>();
             builder.RegisterSingletonSelfAndInterfaces<CraftingCache>();
             builder.RegisterSingletonSelfAndInterfaces<DalamudFileDialogManager>();
-            builder.RegisterSingletonSelfAndInterfaces<DalamudWindowSystem>();
+            builder.RegisterSingletonSelfAndInterfaces<WindowSystem>();
             builder.RegisterSingletonSelfAndInterfaces<FileDialogManager>();
             builder.RegisterSingletonSelfAndInterfaces<FilterService>();
             builder.RegisterSingletonSelfAndInterfaces<FiltersPage>();

@@ -76,28 +76,22 @@ public class LevelViewSection : ViewSection
         var cursorPos = ImGui.GetCursorPos();
         ImGui.SetCursorPos(new Vector2(cursorPos.X, cursorPos.Y + offsetY));
 
-        using (var group = ImRaii.Group())
+        using (ImRaii.Group())
         {
-            if (group)
+            ImGui.TextUnformatted(name);
+            using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
             {
-                ImGui.TextUnformatted(name);
-                using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.TankBlue))
+                ImGui.TextUnformatted(_levelRow.FormattedName);
+            }
+
+            if (ImGui.IsItemHovered() || ImGui.IsItemHovered(ImGuiHoveredFlags.AllowWhenOverlapped))
+            {
+                using (var tooltip = ImRaii.Tooltip())
                 {
                     ImGui.TextUnformatted(_levelRow.FormattedName);
-                }
-
-                if (ImGui.IsItemHovered() || ImGui.IsItemHovered(ImGuiHoveredFlags.AllowWhenOverlapped))
-                {
-                    using (var tooltip = ImRaii.Tooltip())
-                    {
-                        if (tooltip)
-                        {
-                            ImGui.TextUnformatted(_levelRow.FormattedName);
-                            ImGui.Separator();
-                            ImGui.Text($"X: {_levelRow.MapX:0.0}");
-                            ImGui.Text($"Y: {_levelRow.MapY:0.0}");
-                        }
-                    }
+                    ImGui.Separator();
+                    ImGui.Text($"X: {_levelRow.MapX:0.0}");
+                    ImGui.Text($"Y: {_levelRow.MapY:0.0}");
                 }
             }
         }

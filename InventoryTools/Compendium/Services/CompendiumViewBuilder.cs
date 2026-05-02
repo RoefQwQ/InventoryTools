@@ -254,26 +254,23 @@ public class CompendiumViewBuilder
 
         ImGui.SameLine(0, iconTextPadding);
 
-        using (var group = ImRaii.Group())
+        using (ImRaii.Group())
         {
-            if (group)
+            ImGui.TextUnformatted(_title);
+
+            if (!string.IsNullOrEmpty(_subtitle))
             {
-                ImGui.TextUnformatted(_title);
-
-                if (!string.IsNullOrEmpty(_subtitle))
+                using (ImRaii.PushColor(ImGuiCol.Text, new Vector4(0.7f, 0.7f, 0.7f, 1.0f)))
                 {
-                    using (ImRaii.PushColor(ImGuiCol.Text, new Vector4(0.7f, 0.7f, 0.7f, 1.0f)))
-                    {
-                        ImGui.TextWrapped(_subtitle);
-                    }
+                    ImGui.TextWrapped(_subtitle);
                 }
+            }
 
-                if (!string.IsNullOrEmpty(_description))
+            if (!string.IsNullOrEmpty(_description))
+            {
+                using (ImRaii.PushColor(ImGuiCol.Text, new Vector4(0.6f, 0.6f, 0.6f, 1.0f)))
                 {
-                    using (ImRaii.PushColor(ImGuiCol.Text, new Vector4(0.6f, 0.6f, 0.6f, 1.0f)))
-                    {
-                        ImGui.TextWrapped(_description);
-                    }
+                    ImGui.TextWrapped(_description);
                 }
             }
         }
@@ -299,9 +296,10 @@ public class CompendiumViewBuilder
 
                 if (ImGui.IsItemHovered())
                 {
-                    using var tooltip = ImRaii.Tooltip();
-                    if (tooltip)
+                    using (ImRaii.Tooltip())
+                    {
                         ImGui.TextUnformatted(tag.HelpText);
+                    }
                 }
 
                 if (i != _tags.Count - 1)
@@ -324,9 +322,10 @@ public class CompendiumViewBuilder
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
-                    using var tooltip = ImRaii.Tooltip();
-                    if (tooltip)
+                    using (ImRaii.Tooltip())
+                    {
                         ImGui.TextUnformatted(button.HelpText);
+                    }
                 }
 
                 if (i != _buttons.Count - 1)

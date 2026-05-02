@@ -922,8 +922,7 @@ public class ItemInfoRenderService : IDisposable
         {
             _lastTooltipTime = _framework.LastUpdate;
             ImGui.SetNextWindowSizeConstraints( new System.Numerics.Vector2(250, -1), new System.Numerics.Vector2(1000,1000));
-            using var tt = ImRaii.Tooltip();
-            if (tt.Success)
+            using (ImRaii.Tooltip())
             {
                 if (itemSources.Count > 1)
                 {
@@ -1028,8 +1027,7 @@ public class ItemInfoRenderService : IDisposable
         else if(ImGui.IsItemHovered())
         {
             _lastTooltipTime = _framework.LastUpdate;
-            using var tt = ImRaii.Tooltip();
-            if (tt.Success)
+            using (ImRaii.Tooltip())
             {
                 ImGui.Text("No tooltip configured for " + (rendererType == RendererType.Source
                     ? this.GetSourceTypeName(firstItem.GetType())
