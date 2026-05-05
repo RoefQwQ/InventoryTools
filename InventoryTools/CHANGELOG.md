@@ -8,6 +8,11 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [15.0.1] - 2026-05-05
+
+### Fixed
+- Fix an issue that occurs when trying to open the "Open Map" menu for certain spearfishing items.
+
 ## [15.0.0] - 2026-05-02
 
 ### Changed
