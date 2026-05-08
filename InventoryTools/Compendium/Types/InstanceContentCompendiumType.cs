@@ -218,12 +218,14 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
         {
             RelatedRefs = relatedQuests,
-            HideIfEmpty = true,
+            HideWhenEmpty = true,
+            SectionKey = "related_quests",
             SectionName = "Related Quests"
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             RelatedRef = row.ContentFinderCondition.Value.TerritoryType.Value.AsUntypedRowRef(),
+            SectionKey = "related_map",
             SectionName = "Related Map"
         });
     }

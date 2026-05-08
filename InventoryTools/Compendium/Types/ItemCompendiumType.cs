@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AllaganLib.GameSheets.Caches;
+using AllaganLib.GameSheets.ItemSources;
 using AllaganLib.GameSheets.Model;
 using AllaganLib.GameSheets.Sheets;
 using AllaganLib.GameSheets.Sheets.Rows;
 using AllaganLib.Shared.Extensions;
 using AllaganLib.Shared.Misc;
+using CriticalCommonLib.Crafting;
 using CriticalCommonLib.Services;
 using DalaMock.Host.Mediator;
 using Dalamud.Game.Text;
@@ -27,11 +29,13 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
 {
     private readonly ItemSheet _itemSheet;
     private readonly IUnlockTrackerService _unlockTrackerService;
+    private readonly IItemObtainabilityService _obtainabilityService;
 
-    public ItemCompendiumType(ItemSheet itemSheet, CompendiumTable<ItemRow>.Factory tableFactory, CompendiumColumnBuilder<ItemRow>.Factory columnBuilder, CompendiumViewBuilder.Factory viewBuilderFactory, IUnlockTrackerService unlockTrackerService) : base(tableFactory, columnBuilder, viewBuilderFactory)
+    public ItemCompendiumType(ItemSheet itemSheet, CompendiumTable<ItemRow>.Factory tableFactory, CompendiumColumnBuilder<ItemRow>.Factory columnBuilder, CompendiumViewBuilder.Factory viewBuilderFactory, IUnlockTrackerService unlockTrackerService, IItemObtainabilityService obtainabilityService) : base(tableFactory, columnBuilder, viewBuilderFactory)
     {
         _itemSheet = itemSheet;
         _unlockTrackerService = unlockTrackerService;
+        _obtainabilityService = obtainabilityService;
     }
 
     public override ICompendiumTable<WindowState, MessageBase> BuildTable()
@@ -114,8 +118,25 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
             viewBuilder.AddTag("Desynthable", "Can the item be desynthed?");
         }
 
+        viewBuilder.AddItemSourcesSection(new ItemSourcesSectionOptions()
+        {
+            Sources = row.Sources,
+            SourceType = SourceType.Source,
+            SectionKey = "sources",
+            SectionName = "Sources",
+        });
+
+        viewBuilder.AddItemSourcesSection(new ItemSourcesSectionOptions()
+        {
+            Sources = row.Uses,
+            SourceType = SourceType.Use,
+            SectionKey = "uses",
+            SectionName = "Uses"
+        });
+
         viewBuilder.AddMetadataSection(new MetadataSectionOptions()
         {
+            SectionKey = "information",
             SectionName = "Information",
             Rows = new List<MetadataSectionOptions.Row>()
             {
@@ -135,24 +156,85 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
+            SectionKey = "desynthesis_class",
             SectionName = "Desynthesis Class",
-            RelatedRef = (RowRef)row.Base.ClassJobRepair
+            RelatedRef = (RowRef)row.Base.ClassJobRepair,
+            HideWhenEmpty = true
         });
         var sharedModels = row.GetSharedModels();
-        if (sharedModels.Count > 0)
+        viewBuilder.AddItemListSection(new ItemListSectionOptions()
         {
-            viewBuilder.AddItemListSection(new ItemListSectionOptions()
-            {
-                SectionName = "Shared Models",
-                Items = sharedModels.Select(c => new ItemInfo(c))
-            });
+            SectionKey = "shared_models",
+            SectionName = "Shared Models",
+            Items = sharedModels.Select(c => new ItemInfo(c)),
+            HideWhenEmpty = true
+        });
+
+        var (allRequirements, requirementRows) = BuildObtainabilityRows(row);
+        if (allRequirements.Count > 0)
+        {
+            viewBuilder.AddTag("Unlocked?", "Are all unlock requirements met for this item?", () =>
+                allRequirements.All(r => r.IsMet)
+                    ? ImGuiColors.ParsedGreen
+                    : ImGuiColors.DalamudRed);
         }
+
+        viewBuilder.AddMetadataSection(new MetadataSectionOptions()
+        {
+            SectionKey = "unlock_requirements",
+            SectionName = "Unlock Requirements",
+            Rows = requirementRows,
+            HideWhenEmpty = true
+        });
 
         viewBuilder.AddLink($"https://www.garlandtools.org/db/#item/{row.GarlandToolsId}", "Open in Garland Tools", "garlandtools");
         viewBuilder.AddLink($"https://ffxivteamcraft.com/db/en/item/{row.RowId}", "Open in Teamcraft", "teamcraft");
-        viewBuilder.AddLink($"https://universalis.app/market/{row.RowId}", "Open in Universalis", "universalis");
+        if (row.CanBePlacedOnMarket)
+        {
+            viewBuilder.AddLink($"https://universalis.app/market/{row.RowId}", "Open in Universalis", "universalis");
+        }
+
         viewBuilder.AddLink($"https://ffxiv.gamerescape.com/wiki/{HttpUtility.UrlEncode(row.GamerEscapeName)}?useskin=Vector", "Open in Gamerescape", "gamerescape");
         viewBuilder.AddLink($"https://ffxiv.consolegameswiki.com/wiki/{HttpUtility.UrlEncode(row.ConsoleGamesWikiName)}", "Open in Console Games Wiki", "consolegameswiki");
+    }
+
+    private (List<ObtainabilityRequirement> AllRequirements, List<MetadataSectionOptions.Row> Rows) BuildObtainabilityRows(ItemRow row)
+    {
+        var allRequirements = new List<ObtainabilityRequirement>();
+        var rows = new List<MetadataSectionOptions.Row>();
+
+        var sourcesToCheck = new (IngredientPreferenceType Type, string Label)[]
+        {
+            (IngredientPreferenceType.Crafting,    "Crafting"),
+            (IngredientPreferenceType.Mining,      "Mining"),
+            (IngredientPreferenceType.Botany,      "Botany"),
+            (IngredientPreferenceType.Fishing,     "Fishing"),
+            (IngredientPreferenceType.SpearFishing,"Spearfishing"),
+        };
+
+        foreach (var (preferenceType, label) in sourcesToCheck)
+        {
+            RecipeRow? recipe = null;
+            if (preferenceType == IngredientPreferenceType.Crafting)
+            {
+                recipe = row.Sources.OfType<ItemCraftResultSource>().FirstOrDefault()?.Recipe;
+                if (recipe == null) continue;
+            }
+
+            var requirements = _obtainabilityService.GetRequirements(row, preferenceType, recipe);
+            foreach (var req in requirements)
+            {
+                allRequirements.Add(req);
+                var captured = req;
+                rows.Add(new MetadataSectionOptions.Row
+                {
+                    Label = $"{label}: {captured.Description}",
+                    Value = () => captured.IsMet ? "Met" : "Not Met",
+                });
+            }
+        }
+
+        return (allRequirements, rows);
     }
 
     public override bool HasRow(uint rowId)

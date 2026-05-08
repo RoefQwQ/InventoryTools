@@ -29,7 +29,7 @@ public class SingleRowRefSection : ViewSection
 
     public delegate SingleRowRefSection Factory(SingleRowRefSectionOptions options);
 
-    public SingleRowRefSection(SingleRowRefSectionOptions options, ICompendiumTypeFactory compendiumTypeFactory, ImGuiService imGuiService, ITextureProvider textureProvider, MediatorService mediatorService) : base(imGuiService)
+    public SingleRowRefSection(SingleRowRefSectionOptions options, ICompendiumTypeFactory compendiumTypeFactory, ImGuiService imGuiService, ITextureProvider textureProvider, MediatorService mediatorService) : base(options, imGuiService)
     {
         _options = options;
         _textureProvider = textureProvider;
@@ -47,22 +47,22 @@ public class SingleRowRefSection : ViewSection
     }
 
     public override string SectionName => _options.SectionName ?? "Related " + (_relatedCompendiumType?.Singular ?? "Object");
-    public override bool ShouldDraw(SectionState sectionState)
+    public override bool IsEmpty(SectionState sectionState)
     {
         if (_relatedCompendiumType == null)
         {
             if (_refType == null)
             {
-                return false;
+                return true;
             }
         }
 
         if (_relatedCompendiumType != null && !_relatedCompendiumType.HasRow(relatedRefRowId))
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public override void DrawSection(SectionState sectionState)

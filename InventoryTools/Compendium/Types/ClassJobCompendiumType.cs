@@ -107,11 +107,13 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
         viewBuilder.SetupDefaults(this, row);
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
+            SectionKey = "base_class",
             SectionName = "Base Class",
             RelatedRef = (RowRef)row.Base.ClassJobParent
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
+            SectionKey = "soul_crystal",
             SectionName = "Soul Crystal",
             RelatedRef = (RowRef)row.Base.ItemSoulCrystal,
         });
@@ -120,6 +122,7 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
         {
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
+                SectionKey = "unlock_quest",
                 SectionName = "Unlock Quest",
                 RelatedRef = (RowRef)firstQuest.Value.Quest
             });
@@ -129,6 +132,7 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
         {
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
+                SectionKey = "unlock_quest",
                 SectionName = "Unlock Quest",
                 RelatedRef = (RowRef)row.Base.UnlockQuest
             });
@@ -136,11 +140,13 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
 
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
+            SectionKey = "relic_quest",
             SectionName = "Relic Quest",
             RelatedRef = (RowRef)row.Base.RelicQuest
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
+            SectionKey = "prerequisite_quest",
             SectionName = "Prerequisite Quest",
             RelatedRef = (RowRef)row.Base.Prerequisite
         });

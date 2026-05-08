@@ -39,9 +39,12 @@ public class InventoryToolsTestingPlugin : InventoryToolsPlugin
 {
     private Logger seriLog;
 
-    public InventoryToolsTestingPlugin(IDalamudPluginInterface pluginInterface, IPluginLog pluginLog, IFramework framework) : base(pluginInterface, pluginLog, framework)
+    public InventoryToolsTestingPlugin(MockReplacementContainer mockReplacementContainer, IDalamudPluginInterface pluginInterface, IPluginLog pluginLog, IFramework framework, IChatGui chatGui) : base(pluginInterface, pluginLog, framework, chatGui)
     {
+        ReplacementContainer = mockReplacementContainer;
     }
+
+    public override IReplacementContainer ReplacementContainer { get; }
 
     public override void PreBuild(IHostBuilder hostBuilder)
     {

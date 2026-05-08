@@ -350,6 +350,12 @@ namespace InventoryTools
         public bool SwitchFiltersAutomatically { get; set; } = true;
         public bool SwitchCraftListsAutomatically { get; set; } = true;
         private bool _tooltipCurrentCharacter;
+        private bool _tooltipDisplayGlamourReadySet;
+        private uint? _tooltipGlamourReadySetColor;
+        private GlamourReadySetDisplayMode _tooltipGlamourReadySetDisplayMode = GlamourReadySetDisplayMode.Detailed;
+        private bool _tooltipDisplayCofferLoot;
+        private uint? _tooltipCofferLootColor;
+        private List<InventorySearchScope>? _tooltipCofferLootScope;
         private bool _tooltipDisplayAmountOwned = true;
         private bool _tooltipDisplayUnlock;
         private List<ulong>? _tooltipDisplayUnlockCharacters = new();
@@ -436,6 +442,66 @@ namespace InventoryTools
             set
             {
                 _tooltipCurrentCharacter = value;
+                IsDirty = true;
+            }
+        }
+
+        public bool TooltipDisplayGlamourReadySet
+        {
+            get => _tooltipDisplayGlamourReadySet;
+            set
+            {
+                _tooltipDisplayGlamourReadySet = value;
+                IsDirty = true;
+            }
+        }
+
+        public uint? TooltipGlamourReadySetColor
+        {
+            get => _tooltipGlamourReadySetColor;
+            set
+            {
+                _tooltipGlamourReadySetColor = value;
+                IsDirty = true;
+            }
+        }
+
+        public GlamourReadySetDisplayMode TooltipGlamourReadySetDisplayMode
+        {
+            get => _tooltipGlamourReadySetDisplayMode;
+            set
+            {
+                _tooltipGlamourReadySetDisplayMode = value;
+                IsDirty = true;
+            }
+        }
+
+        public bool TooltipDisplayCofferLoot
+        {
+            get => _tooltipDisplayCofferLoot;
+            set
+            {
+                _tooltipDisplayCofferLoot = value;
+                IsDirty = true;
+            }
+        }
+
+        public uint? TooltipCofferLootColor
+        {
+            get => _tooltipCofferLootColor;
+            set
+            {
+                _tooltipCofferLootColor = value;
+                IsDirty = true;
+            }
+        }
+
+        public List<InventorySearchScope>? TooltipCofferLootScope
+        {
+            get => _tooltipCofferLootScope;
+            set
+            {
+                _tooltipCofferLootScope = value;
                 IsDirty = true;
             }
         }

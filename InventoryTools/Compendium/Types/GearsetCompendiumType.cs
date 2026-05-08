@@ -126,6 +126,6 @@ public class GearsetCompendiumType : CompendiumType<Gearset>
         viewBuilder.Icon = Icons.ArmorIcon;
         viewBuilder.Subtitle = itemCount + " " + (row.Items.Count == 1 ? "item" : "items");
         viewBuilder.AddLink("https://ffxiv.eorzeacollection.com/gearset/" + row.Key, "Open in Eorzea Collection", "ec");
-        viewBuilder.AddSection(_itemListSectionFactory.Invoke(new(){SectionName = "Set Items", Items = row.Items.Where(c => c.RowId != 0).Select(c => ItemInfo.Create(_itemSheet.GetRow(c.RowId)))}));
+        viewBuilder.AddSection(_itemListSectionFactory.Invoke(new(){SectionKey = "set_items", SectionName = "Set Items", Items = row.Items.Where(c => c.RowId != 0).Select(c => ItemInfo.Create(_itemSheet.GetRow(c.RowId)))}));
     }
 }

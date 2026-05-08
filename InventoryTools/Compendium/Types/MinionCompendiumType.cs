@@ -15,6 +15,7 @@ using InventoryTools.Compendium.Models;
 using InventoryTools.Compendium.Sections.Options;
 using InventoryTools.Compendium.Services;
 using InventoryTools.Localizers;
+using InventoryTools.Ui;
 using Lumina.Excel;
 using Lumina.Excel.Sheets;
 
@@ -158,6 +159,7 @@ public class MinionCompendiumType : CompendiumType<Companion>
         viewBuilder.AddTag("Action: " + transientInformation.SpecialActionName.ToImGuiString(), transientInformation.SpecialActionDescription.ToImGuiString());
         viewBuilder.AddInfoTableSection(new InfoTableSectionOptions()
         {
+            SectionKey = "stats",
             SectionName = "Stats",
             Items =
             [
@@ -171,14 +173,17 @@ public class MinionCompendiumType : CompendiumType<Companion>
         {
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
+                SectionKey = "related_item",
                 SectionName = "Related Item",
                 RelatedRef = relatedItem.Value.AsUntypedRowRef()
             });
             var itemSources = _itemInfoCache.GetItemSources(relatedItem.Value.RowId);
             viewBuilder.AddItemSourcesSection(new ItemSourcesSectionOptions()
             {
+                SectionKey = "sources",
                 SectionName = "Sources",
-                Sources = itemSources ?? []
+                Sources = itemSources ?? [],
+                SourceType = SourceType.Source
             });
         }
     }

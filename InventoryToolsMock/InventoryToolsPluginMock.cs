@@ -8,6 +8,8 @@ using CriticalCommonLib.Services;
 using CriticalCommonLib.Services.Ui;
 
 using DalaMock.Core.Mocks;
+using DalaMock.Core.Mocks.DalamudServices;
+using DalaMock.Core.Mocks.MockServices;
 using DalaMock.Core.Windows;
 using DalaMock.Shared.Interfaces;
 using Dalamud.Game.ClientState.Objects;
@@ -28,9 +30,12 @@ public class InventoryToolsPluginMock : InventoryToolsPlugin
 {
     private Logger seriLog;
 
-    public InventoryToolsPluginMock(IDalamudPluginInterface pluginInterface, IPluginLog pluginLog, IFramework framework) : base(pluginInterface, pluginLog, framework)
+    public InventoryToolsPluginMock(MockReplacementContainer mockReplacementContainer, IDalamudPluginInterface pluginInterface, IPluginLog pluginLog, IFramework framework, IChatGui chatGui) : base(pluginInterface, pluginLog, framework, chatGui)
     {
+        ReplacementContainer = mockReplacementContainer;
     }
+
+    public override IReplacementContainer ReplacementContainer { get; }
 
     public override void PreBuild(IHostBuilder hostBuilder)
     {
@@ -52,7 +57,6 @@ public class InventoryToolsPluginMock : InventoryToolsPlugin
             container.RegisterType<MockWindow>().SingleInstance();
             container.RegisterType<MockGameItemsWindow>().SingleInstance();
             container.RegisterType<IconBrowserWindow>().SingleInstance();
-            container.RegisterType<MockFont>().As<IFont>().SingleInstance();
             container.RegisterType<MockCharacterMonitor>().As<ICharacterMonitor>().SingleInstance();
             container.RegisterType<MockTeleporterIpc>().As<ITeleporterIpc>().SingleInstance();
             container.RegisterType<MockChatUtilities>().As<IChatUtilities>().SingleInstance();
@@ -60,7 +64,6 @@ public class InventoryToolsPluginMock : InventoryToolsPlugin
             container.RegisterType<MockGameUiManager>().As<IGameUiManager>().SingleInstance();
             container.RegisterType<MockClipboardService>().As<IClipboardService>().SingleInstance();
             container.RegisterType<MockSeTime>().As<ISeTime>().SingleInstance();
-            container.RegisterType<MockWindowSystem>().As<IWindowSystem>().SingleInstance();
             container.RegisterType<MockGameInteropService>().As<IGameInteropService>().SingleInstance();
             container.RegisterType<MockUnlockTrackerService>().As<IUnlockTrackerService>().SingleInstance();
             container.RegisterType<MockQuestManagerService>().AsImplementedInterfaces().SingleInstance();

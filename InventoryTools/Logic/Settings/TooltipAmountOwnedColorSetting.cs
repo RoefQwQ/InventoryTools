@@ -73,3 +73,21 @@ public class TooltipIngredientPatchTooltipColorSetting : GenericGameColorSetting
         this.DefaultValue = 540;
     }
 }
+public class TooltipGlamourReadySetColorSetting : GenericGameColorSetting
+{
+    public override uint? Order { get; } = 1;
+
+    public TooltipGlamourReadySetColorSetting(ILogger<TooltipGlamourReadySetColorSetting> logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet) : base("TooltipGlamourReadySetColor", "Text Colour", "When enabled, what colour should the text be for the 'Outfit Glamour' tooltip text be?", null, SettingCategory.ToolTips, SettingSubCategory.GlamourReadySet, "1.12.0.0", logger, imGuiService, uiColorSheet)
+    {
+        this.DefaultValue = 500;
+    }
+}
+public class TooltipCofferLootColorSetting : GenericGameColorSetting
+{
+    public override uint? Order { get; } = 1;
+
+    public TooltipCofferLootColorSetting(ILogger<TooltipCofferLootColorSetting> logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet) : base("TooltipCofferLootColor", "Text Colour", "When enabled, what colour should the text be for the 'Coffer Loot' tooltip text be?", null, SettingCategory.ToolTips, SettingSubCategory.CofferLoot, "1.12.0.0", logger, imGuiService, uiColorSheet)
+    {
+        this.DefaultValue = 541;
+    }
+}

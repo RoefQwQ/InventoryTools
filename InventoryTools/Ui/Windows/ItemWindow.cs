@@ -879,7 +879,7 @@ namespace InventoryTools.Ui
                 {
                     using (ImRaii.Tooltip())
                     {
-                        ImGui.TextUnformatted("This item has been combined into a single glamour ready item.");
+                        ImGui.TextUnformatted("This item has been combined into a single outfit glamour item.");
                     }
                 }
             }

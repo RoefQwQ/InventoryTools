@@ -8,6 +8,24 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [15.0.2] - 2026-05-09
+
+### Added
+- Coffer Loot tooltip, showing you how many items you have from a coffer or if an item is part of a coffer which one and how many items you have from it. The location is configurable.
+- Outfit Glamour tooltip, shows you how many items of a outfit glamour you already have in your armoire/glamour chest.
+- Recipe Unlocked column/filter, shows whether all requirements to craft this item (job level, mastery book, specialization) are met by the current character.
+- Compendium View windows can have their section layout edited, you can reorder/alter the visibility of individual sections.
+- Added a Hand-ins column to the Leve Compendium + View window
+
+### Changed
+- Plugin now uses async loading though some parts of the plugin still load sync(being worked on)
+- References to "Glamour Ready" where renamed to "Outfit Glamour" to match the game's naming
+
+### Fixed
+- Fixed a bug when closing certain windows that would throw an exception
+- When venture is the selected source in a craft list it'll now show how many you need to get along with the venture you need instead of just showing the venture name.
+- Fix the EXP reward shown for craft leves in the leve compendium
+
 ## [15.0.1] - 2026-05-05
 
 ### Fixed

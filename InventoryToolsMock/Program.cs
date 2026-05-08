@@ -1,9 +1,6 @@
-﻿using System.Numerics;
-using DalaMock.Core.DI;
-using DalaMock.Core.Mocks;
-using Dalamud.Bindings.ImGui;
+﻿using DalaMock.Core.Configuration;
+using DalaMock.Core.Plugin;
 using Dalamud.Game;
-using Lumina.Data;
 using Lumina.Excel.Sheets;
 
 namespace InventoryToolsMock
