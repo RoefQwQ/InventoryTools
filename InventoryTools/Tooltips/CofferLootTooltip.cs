@@ -23,14 +23,16 @@ public class CofferLootTooltip : BaseTooltip
     private readonly TooltipCofferLootScopeSetting _scopeSetting;
     private readonly IInventoryMonitor _inventoryMonitor;
     private readonly InventoryScopeCalculator _inventoryScopeCalculator;
+    private readonly IUnlockTrackerService _unlockTrackerService;
 
-    public CofferLootTooltip(ILogger<CofferLootTooltip> logger, TooltipCofferLootColorSetting colorSetting, TooltipDisplayCofferLootSetting displaySetting, TooltipCofferLootScopeSetting scopeSetting, IInventoryMonitor inventoryMonitor, InventoryScopeCalculator inventoryScopeCalculator, ItemSheet itemSheet, InventoryToolsConfiguration configuration, IGameGui gameGui, IChatGui chatGui) : base(6910, logger, itemSheet, configuration, gameGui, chatGui)
+    public CofferLootTooltip(ILogger<CofferLootTooltip> logger, TooltipCofferLootColorSetting colorSetting, TooltipDisplayCofferLootSetting displaySetting, TooltipCofferLootScopeSetting scopeSetting, IInventoryMonitor inventoryMonitor, InventoryScopeCalculator inventoryScopeCalculator, ItemSheet itemSheet, InventoryToolsConfiguration configuration, IGameGui gameGui, IChatGui chatGui, IUnlockTrackerService unlockTrackerService) : base(6910, logger, itemSheet, configuration, gameGui, chatGui)
     {
         _colorSetting = colorSetting;
         _displaySetting = displaySetting;
         _scopeSetting = scopeSetting;
         _inventoryMonitor = inventoryMonitor;
         _inventoryScopeCalculator = inventoryScopeCalculator;
+        _unlockTrackerService = unlockTrackerService;
     }
 
     public override bool IsEnabled => Configuration.DisplayTooltip && _displaySetting.CurrentValue(Configuration);
@@ -96,7 +98,7 @@ public class CofferLootTooltip : BaseTooltip
 
         if (lootItems.Count > 0)
         {
-            var ownedCount = lootItems.Count(loot => allItemsList.Any(i => i.ItemId == loot.RowId));
+            var ownedCount = lootItems.Count(loot => (_unlockTrackerService.IsUnlocked(loot, false) == true) ||  allItemsList.Any(i => i.ItemId == loot.RowId));
             newText += $"\nLoot: {ownedCount}/{lootItems.Count} items owned";
         }
         else
@@ -114,7 +116,7 @@ public class CofferLootTooltip : BaseTooltip
                     .Concat(cofferItem.GetUsesByType<ItemCardPackSource>(ItemInfoType.CardPack).Select(s => s.Item))
                     .DistinctBy(r => r.RowId)
                     .ToList();
-                var ownedFromCoffer = cofferLoot.Count(loot => allItemsList.Any(i => i.ItemId == loot.RowId));
+                var ownedFromCoffer = cofferLoot.Count(loot => (_unlockTrackerService.IsUnlocked(loot, false) == true) || allItemsList.Any(i => i.ItemId == loot.RowId));
                 newText += $"\n {cofferItem.NameString} ({ownedFromCoffer} of {cofferLoot.Count})";
             }
 

@@ -82,6 +82,25 @@ public class TooltipGlamourReadySetColorSetting : GenericGameColorSetting
         this.DefaultValue = 500;
     }
 }
+
+public class TooltipGlamourReadySetAcquiredColorSetting : GenericGameColorSetting
+{
+    public override uint? Order { get; } = 2;
+
+    public TooltipGlamourReadySetAcquiredColorSetting(ILogger<TooltipGlamourReadySetAcquiredColorSetting> logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet) : base("TooltipGlamourReadySetAcquiredColor", "Acquired Item Colour", "In detailed mode, what colour should acquired items be shown in?", null, SettingCategory.ToolTips, SettingSubCategory.GlamourReadySet, "1.13.0.0", logger, imGuiService, uiColorSheet)
+    {
+        this.DefaultValue = 45;
+    }
+}
+public class TooltipGlamourReadySetNotAcquiredColorSetting : GenericGameColorSetting
+{
+    public override uint? Order { get; } = 3;
+
+    public TooltipGlamourReadySetNotAcquiredColorSetting(ILogger<TooltipGlamourReadySetNotAcquiredColorSetting> logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet) : base("TooltipGlamourReadySetNotAcquiredColor", "Not Acquired Item Colour", "In detailed mode, what colour should not-yet-acquired items be shown in?", null, SettingCategory.ToolTips, SettingSubCategory.GlamourReadySet, "1.13.0.0", logger, imGuiService, uiColorSheet)
+    {
+        this.DefaultValue = 17;
+    }
+}
 public class TooltipCofferLootColorSetting : GenericGameColorSetting
 {
     public override uint? Order { get; } = 1;

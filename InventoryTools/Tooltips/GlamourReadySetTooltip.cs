@@ -21,18 +21,25 @@ public class GlamourReadySetTooltip : BaseTooltip
     private readonly TooltipGlamourReadySetColorSetting _colorSetting;
     private readonly TooltipDisplayGlamourReadySetSetting _displaySetting;
     private readonly TooltipGlamourReadySetDisplayModeSetting _displayModeSetting;
+    private readonly TooltipGlamourReadySetAcquiredColorSetting _acquiredColorSetting;
+    private readonly TooltipGlamourReadySetNotAcquiredColorSetting _notAcquiredColorSetting;
     private readonly IInventoryMonitor _inventoryMonitor;
     private readonly ICharacterMonitor _characterMonitor;
 
     public GlamourReadySetTooltip(ILogger<GlamourReadySetTooltip> logger,
         TooltipGlamourReadySetColorSetting colorSetting, TooltipDisplayGlamourReadySetSetting displaySetting,
-        TooltipGlamourReadySetDisplayModeSetting displayModeSetting, IInventoryMonitor inventoryMonitor,
+        TooltipGlamourReadySetDisplayModeSetting displayModeSetting,
+        TooltipGlamourReadySetAcquiredColorSetting acquiredColorSetting,
+        TooltipGlamourReadySetNotAcquiredColorSetting notAcquiredColorSetting,
+        IInventoryMonitor inventoryMonitor,
         ItemSheet itemSheet, InventoryToolsConfiguration configuration, IGameGui gameGui, IChatGui chatGui,
         ICharacterMonitor characterMonitor) : base(6909, logger, itemSheet, configuration, gameGui, chatGui)
     {
         _colorSetting = colorSetting;
         _displaySetting = displaySetting;
         _displayModeSetting = displayModeSetting;
+        _acquiredColorSetting = acquiredColorSetting;
+        _notAcquiredColorSetting = notAcquiredColorSetting;
         _inventoryMonitor = inventoryMonitor;
         _characterMonitor = characterMonitor;
     }
@@ -81,6 +88,8 @@ public class GlamourReadySetTooltip : BaseTooltip
 
         var newText = "";
         var mode = _displayModeSetting.CurrentValue(Configuration);
+        var baseColor = (ushort)(_colorSetting.CurrentValue(Configuration) ?? Configuration.TooltipColor ?? 1);
+        List<Payload>? detailedPayloads = null;
 
         if (isSet)
         {
@@ -113,12 +122,23 @@ public class GlamourReadySetTooltip : BaseTooltip
                 }
                 else
                 {
-                    newText += "\nOutfit Glamour\n";
-                    newText += ownershipLine;
+                    var acquiredColor = (ushort)(_acquiredColorSetting.CurrentValue(Configuration) ?? baseColor);
+                    var notAcquiredColor = (ushort)(_notAcquiredColorSetting.CurrentValue(Configuration) ?? baseColor);
+                    detailedPayloads = new List<Payload>();
+                    var header = "\nOutfit Glamour\n" + ownershipLine;
+                    detailedPayloads.Add(new UIForegroundPayload(baseColor));
+                    detailedPayloads.Add(new UIGlowPayload(0));
+                    detailedPayloads.Add(new TextPayload(header.TrimEnd('\n')));
+                    detailedPayloads.Add(new UIGlowPayload(0));
+                    detailedPayloads.Add(new UIForegroundPayload(0));
                     foreach (var component in source.SetItems)
                     {
                         var owned = IsOwnedInGlamourChestOrArmoire(component.RowId);
-                        newText += (owned ? SeIconChar.Glamoured.ToIconString() : SeIconChar.Cross.ToIconString()) + component.NameString + "\n";
+                        detailedPayloads.Add(new UIForegroundPayload(owned ? acquiredColor : notAcquiredColor));
+                        detailedPayloads.Add(new UIGlowPayload(0));
+                        detailedPayloads.Add(new TextPayload("\n" + (owned ? SeIconChar.Glamoured.ToIconString() : SeIconChar.Cross.ToIconString()) + " " + component.NameString));
+                        detailedPayloads.Add(new UIGlowPayload(0));
+                        detailedPayloads.Add(new UIForegroundPayload(0));
                     }
                 }
             }
@@ -154,33 +174,53 @@ public class GlamourReadySetTooltip : BaseTooltip
                 }
                 else
                 {
-                    newText += "\nPart of: " + source.ConvertedItem.NameString + "\n";
-                    newText += ownershipLine;
+                    var acquiredColor = (ushort)(_acquiredColorSetting.CurrentValue(Configuration) ?? baseColor);
+                    var notAcquiredColor = (ushort)(_notAcquiredColorSetting.CurrentValue(Configuration) ?? baseColor);
+                    detailedPayloads = new List<Payload>();
+                    var header = "\nPart of: " + source.ConvertedItem.NameString + "\n" + ownershipLine;
+                    detailedPayloads.Add(new UIForegroundPayload(baseColor));
+                    detailedPayloads.Add(new UIGlowPayload(0));
+                    detailedPayloads.Add(new TextPayload(header.TrimEnd('\n')));
+                    detailedPayloads.Add(new UIGlowPayload(0));
+                    detailedPayloads.Add(new UIForegroundPayload(0));
                     foreach (var component in source.SetItems)
                     {
                         var owned = IsOwnedInGlamourChestOrArmoire(component.RowId);
-                        newText += (owned ? SeIconChar.Glamoured.ToIconString() : SeIconChar.Cross.ToIconString()) + component.NameString + "\n";
+                        detailedPayloads.Add(new UIForegroundPayload(owned ? acquiredColor : notAcquiredColor));
+                        detailedPayloads.Add(new UIGlowPayload(0));
+                        detailedPayloads.Add(new TextPayload("\n" + (owned ? SeIconChar.Glamoured.ToIconString() : SeIconChar.Cross.ToIconString()) + " " + component.NameString));
+                        detailedPayloads.Add(new UIGlowPayload(0));
+                        detailedPayloads.Add(new UIForegroundPayload(0));
                     }
                 }
             }
         }
 
-        newText = newText.TrimEnd('\n');
-        if (newText != "")
+        if (detailedPayloads != null)
         {
-            var lines = new List<Payload>
-            {
-                new UIForegroundPayload((ushort)(_colorSetting.CurrentValue(Configuration) ?? Configuration.TooltipColor ?? 1)),
-                new UIGlowPayload(0),
-                new TextPayload(newText),
-                new UIGlowPayload(0),
-                new UIForegroundPayload(0),
-            };
-            foreach (var line in lines)
-            {
-                seStr.Payloads.Add(line);
-            }
+            foreach (var p in detailedPayloads)
+                seStr.Payloads.Add(p);
             SetTooltipString(stringArrayData, itemTooltipField, seStr);
+        }
+        else
+        {
+            newText = newText.TrimEnd('\n');
+            if (newText != "")
+            {
+                var lines = new List<Payload>
+                {
+                    new UIForegroundPayload(baseColor),
+                    new UIGlowPayload(0),
+                    new TextPayload(newText),
+                    new UIGlowPayload(0),
+                    new UIForegroundPayload(0),
+                };
+                foreach (var line in lines)
+                {
+                    seStr.Payloads.Add(line);
+                }
+                SetTooltipString(stringArrayData, itemTooltipField, seStr);
+            }
         }
     }
 
