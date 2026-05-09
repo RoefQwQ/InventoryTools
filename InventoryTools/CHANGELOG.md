@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.h
 - Recipe Unlocked column/filter, shows whether all requirements to craft this item (job level, mastery book, specialization) are met by the current character.
 - Compendium View windows can have their section layout edited, you can reorder/alter the visibility of individual sections.
 - Added a Hand-ins column to the Leve Compendium + View window
+- Added a /compendiumlist command for opening a specific compendium listing screen
 
 ### Changed
 - Plugin now uses async loading though some parts of the plugin still load sync(being worked on)
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.h
 - Fixed a bug when closing certain windows that would throw an exception
 - When venture is the selected source in a craft list it'll now show how many you need to get along with the venture you need instead of just showing the venture name.
 - Fix the EXP reward shown for craft leves in the leve compendium
+- Fixed the required items shown in the Custom Deliveries NPCs compendium view + split the items into tiers
 
 ## [15.0.1] - 2026-05-05
 
