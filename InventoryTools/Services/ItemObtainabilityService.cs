@@ -76,17 +76,18 @@ public class ItemObtainabilityService : IItemObtainabilityService
                 bookName));
         }
 
-        if (recipe.Base.IsSpecializationRequired)
-        {
-            // CraftType RowId 0-7 maps to ClassJob RowId 8-15 (Carpenter-Culinarian)
-            var classJobId = recipe.Base.CraftType.RowId + 8;
-            var isSpecialist = _classJobService.IsSpecialist(classJobId);
-            var jobName = recipe.CraftType?.FormattedName ?? "Crafter";
-            requirements.Add(new ObtainabilityRequirement(
-                ObtainabilityRequirementType.Specialization,
-                isSpecialist,
-                $"{jobName} Specialist"));
-        }
+        //Determine later if this is actually a thing
+        // if (recipe.Base.IsSpecializationRequired)
+        // {
+        //     // CraftType RowId 0-7 maps to ClassJob RowId 8-15 (Carpenter-Culinarian)
+        //     var classJobId = recipe.Base.CraftType.RowId + 8;
+        //     var isSpecialist = _classJobService.IsSpecialist(classJobId);
+        //     var jobName = recipe.CraftType?.FormattedName ?? "Crafter";
+        //     requirements.Add(new ObtainabilityRequirement(
+        //         ObtainabilityRequirementType.Specialization,
+        //         isSpecialist,
+        //         $"{jobName} Specialist"));
+        // }
     }
 
     private void AddGatheringRequirements(ItemRow item, IngredientPreferenceType preferenceType, List<ObtainabilityRequirement> requirements)
