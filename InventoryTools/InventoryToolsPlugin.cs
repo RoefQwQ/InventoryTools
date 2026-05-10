@@ -210,13 +210,12 @@ namespace InventoryTools
             builder.RegisterSingletonSelfAndInterfaces<ConfigurationWizardService>();
             builder.RegisterSingletonSelfAndInterfaces<ConfigurationWizardService>();
             builder.RegisterSingletonSelfAndInterfaces<ContainerAwareCsvLoader>();
-            builder.RegisterSingletonSelfAndInterfaces<CraftFiltersPage>();
+            builder.RegisterSingletonSelfAndInterfaces<ListsPage>();
             builder.RegisterSingletonSelfAndInterfaces<CraftGroupingLocalizer>();
             builder.RegisterSingletonSelfAndInterfaces<CraftItemLocalizer>();
             builder.RegisterSingletonSelfAndInterfaces<CraftPricer>();
             builder.RegisterSingletonSelfAndInterfaces<CraftingCache>();
             builder.RegisterSingletonSelfAndInterfaces<FilterService>();
-            builder.RegisterSingletonSelfAndInterfaces<FiltersPage>();
             builder.RegisterSingletonSelfAndInterfaces<GameInterface>();
             builder.RegisterSingletonSelfAndInterfaces<GameInteropService>();
             builder.RegisterSingletonSelfAndInterfaces<GameUiManager>();
@@ -224,7 +223,6 @@ namespace InventoryTools
             builder.RegisterSingletonSelfAndInterfaces<ImGuiMenuService>();
             builder.RegisterSingletonSelfAndInterfaces<ImGuiService>();
             builder.RegisterSingletonSelfAndInterfaces<ImGuiTooltipService>().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
-            builder.RegisterSingletonSelfAndInterfaces<ImportExportPage>();
             builder.RegisterSingletonSelfAndInterfaces<IngredientPatchService>();
             builder.RegisterSingletonSelfAndInterfaces<IngredientPreferenceLocalizer>();
             builder.RegisterSingletonSelfAndInterfaces<InventoryHistory>();

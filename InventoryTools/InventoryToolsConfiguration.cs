@@ -87,6 +87,7 @@ namespace InventoryTools
         private Dictionary<string, Vector4>? _vector4Settings = new();
         private Dictionary<string, Enum>? _enumSettings = new();
         private Dictionary<string, Dictionary<Type, bool>>? _typeDictionarySettings = new();
+        private Dictionary<string, List<string>>? _listSettings = new();
         private Dictionary<ItemInfoType, TooltipSourceSetting>? _tooltipInfoSourceSetting = new();
         private Dictionary<ItemInfoType, TooltipSourceSetting>? _tooltipInfoUseSetting = new();
 
@@ -1053,6 +1054,12 @@ namespace InventoryTools
             set => _vector4Settings = value;
         }
 
+        public Dictionary<string, List<string>> ListSettings
+        {
+            get => _listSettings ??= new Dictionary<string, List<string>>();
+            set => _listSettings = value;
+        }
+
 
         //Configuration Helpers
 
@@ -1185,6 +1192,29 @@ namespace InventoryTools
             else
             {
                 this.Vector4Settings[key] = newValue.Value;
+            }
+
+            this.IsDirty = true;
+        }
+
+        public List<TEnum>? Get<TEnum>(string key, List<TEnum>? defaultValue) where TEnum : struct, Enum
+        {
+            if (!this.ListSettings.TryGetValue(key, out var strings)) return defaultValue;
+            var result = new List<TEnum>();
+            foreach (var s in strings)
+                if (Enum.TryParse<TEnum>(s, out var val)) result.Add(val);
+            return result;
+        }
+
+        public void Set<TEnum>(string key, List<TEnum>? newValue) where TEnum : struct, Enum
+        {
+            if (newValue == null)
+            {
+                this.ListSettings.Remove(key);
+            }
+            else
+            {
+                this.ListSettings[key] = newValue.ConvertAll(v => v.ToString());
             }
 
             this.IsDirty = true;

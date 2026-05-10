@@ -8,6 +8,30 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [15.0.4] - 2026-05-10
+
+### Added
+- Shop NPC highlighting is now on by default when highlighting items. The option to adjust colours, and enable/disable the feature are available in the Shop Highlighting section of Settings -> Highlighting.
+- Added the ability to view/modify the item ingredient overrides for craft lists via a new tab in settings. This can also be edited in the default list and will be inherited in new lists.
+
+### Changed
+- Shop Highlighting settings were moved to their own sub-section in settings.
+- Reworked the Lists/Craft Lists/Import & Export pages in configuration into a single page with a new reordering system
+- The Ingredient Sourcing was reworked to provide easier reordering and a reset to default button
+
+### Fixed
+- Some coffers were auto-matched and the auto-matching did not take item level into account, this should reduce the false positives in coffers. 
+- Fixed a bug where the context menu additions would not show up when right clicking on a item in the try on window.
+- Allowed for larger list import codes to be pasted into the list import window.
+
+## [15.0.3] - 2026-05-09
+
+### Added
+- The colour of acquired/not acquired lines can be configured for the Outfit tooltip(when in detailed mode)
+
+### Fixed
+- Items that are unlocked and not stored are now considered when determining how many items in a set are owned in the Coffer Loot tooltip
+
 ## [15.0.2] - 2026-05-09
 
 ### Added

@@ -130,14 +130,14 @@
       },
       "AllaganLib.GameSheets": {
         "type": "Transitive",
-        "resolved": "2.2.1",
-        "contentHash": "TOddRqCbg+ZnQ1iDc/fOsNs6R8aoECBaIN4npfQZNRX9ePIE2Syh91aaeXkMiLrOHgy5cDksOkCCdUMN3bGqPA==",
+        "resolved": "2.2.2",
+        "contentHash": "0aunb4fv7O/FhimPQtQYHcB3Sd719qrjlIf59+QkitvXubw7vu56KBusUWaEPqAKnlRdTMNeI70eTn+1TCXwxA==",
         "dependencies": {
           "AllaganLib.Shared": "2.2.0",
           "Autofac": "9.0.0",
           "Autofac.Extensions.DependencyInjection": "10.0.0",
           "CSVFile": "3.2.1",
-          "LuminaSupplemental.Excel": "4.3.2"
+          "LuminaSupplemental.Excel": "4.3.3"
         }
       },
       "AllaganLib.Interface": {
@@ -255,8 +255,8 @@
       },
       "LuminaSupplemental.Excel": {
         "type": "Transitive",
-        "resolved": "4.3.2",
-        "contentHash": "LQmFXEH0OVHl1eZkxuRJ+p10daX4Z+r3CuVH9Ji6C0Sa3tedN85HijPANR0YoPnf1h/EjMvsxh3EDAV2JtM5xw==",
+        "resolved": "4.3.3",
+        "contentHash": "AK79cLkuN+B7g910ojHgXeZ1kMm3rVzWTSPzapdDHdJg1EgnDytM9Wm/B4RqMDx+kHFb6YhFukcninTf9WSvrA==",
         "dependencies": {
           "CSVFile": "3.2.1",
           "CsvHelper": "30.0.1",
@@ -718,7 +718,7 @@
       "criticalcommonlib": {
         "type": "Project",
         "dependencies": {
-          "AllaganLib.GameSheets": "[2.2.1, )",
+          "AllaganLib.GameSheets": "[2.2.2, )",
           "AllaganLib.Monitors": "[2.2.0, )",
           "AllaganLib.Shared": "[2.2.0, )",
           "DalaMock.Host": "[6.0.0, )",

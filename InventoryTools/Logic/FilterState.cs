@@ -265,9 +265,9 @@ namespace InventoryTools.Logic
             return itemHighlights;
         }
 
-        public HashSet<uint> GetItemIds(List<SearchResult>? resultOverride = null)
+        public HashSet<(uint, uint?)> GetItemIds(List<SearchResult>? resultOverride = null)
         {
-            var itemIds = new HashSet<uint>();
+            var itemIds = new HashSet<(uint, uint?)>();
             if (_characterMonitor.ActiveCharacterId == 0)
             {
                 return itemIds;
@@ -277,12 +277,22 @@ namespace InventoryTools.Logic
             {
                 if (FilterConfiguration.FilterType == FilterType.CraftFilter)
                 {
-                    itemIds = FilterConfiguration.CraftList.GetFlattenedMergedMaterials().Where(c => c.IngredientPreference.Type is IngredientPreferenceType.Buy or IngredientPreferenceType.Item or IngredientPreferenceType.HouseVendor).Select(c => c.Item.RowId).Distinct()
+                    itemIds = FilterConfiguration.CraftList.GetFlattenedMergedMaterials().Where(c => c.IngredientPreference.Type is IngredientPreferenceType.Buy or IngredientPreferenceType.Item or IngredientPreferenceType.HouseVendor).Select(c => (c.Item.RowId, (uint?)c.QuantityNeeded)).Distinct()
                         .ToHashSet();
                 }
                 else if (filterResult.Count != 0)
                 {
-                    itemIds = filterResult.Select(c => c.Item.RowId).Distinct().ToHashSet();
+                    var filterHighlightWhen = _highlightWhenFilter.CurrentValue(FilterConfiguration);
+                    var configurationHighlightWhen = _highlightWhenSetting.CurrentValue(_configuration);
+
+                    var isSearching = FilterTable?.IsSearching ?? false;
+                    var highlightWhenSearching = filterHighlightWhen is HighlightWhen.WhenSearching ||
+                            filterHighlightWhen == HighlightWhen.UseGlobalConfiguration &&
+                            configurationHighlightWhen == HighlightWhen.WhenSearching;
+                    if (isSearching && highlightWhenSearching || !highlightWhenSearching)
+                    {
+                        itemIds = filterResult.Select(c => (c.Item.RowId, (uint?)null)).Distinct().ToHashSet();
+                    }
                 }
             }
 

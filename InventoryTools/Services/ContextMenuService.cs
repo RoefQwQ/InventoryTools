@@ -38,6 +38,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
     private readonly ContextMenuAddToFavouritesSetting _addToFavouritesSetting;
     private readonly ContextMenuMoreInformationNpcsSetting _moreInformationNpcsSetting;
     private readonly ContextMenuMoreInformationMonstersSetting _moreInformationMonstersSetting;
+    private ulong? cachedHoverItemId = null;
     public const int SatisfactionSupplyItemIdx       = 84;
     public const int SatisfactionSupplyItem1Id       = 128 + 1 * 60;
     public const int SatisfactionSupplyItem2Id       = 128 + 2 * 60;
@@ -299,6 +300,16 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
         if (item == null)
         {
             var guiHoveredItem = _gameGui.HoveredItem;
+            if (guiHoveredItem == 0 && cachedHoverItemId != null)
+            {
+                Logger.LogDebug("Falling back to cached hovered item ID: {HoveredItemId}", guiHoveredItem);
+                guiHoveredItem = cachedHoverItemId.Value;
+                cachedHoverItemId = null;
+            }
+            else
+            {
+                Logger.LogDebug("Falling back to hovered item ID: {HoveredItemId}", guiHoveredItem);
+            }
             if (guiHoveredItem >= 2000000 || guiHoveredItem == 0) return null;
             item = (uint)guiHoveredItem % 500_000;
         }
@@ -558,14 +569,24 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
     public Task StartAsync(CancellationToken cancellationToken)
     {
         Logger.LogTrace("Started service {type} ({this})", GetType().Name, this);
+        _gameGui.HoveredItemChanged += HoveredItemChanged;
         ContextMenu.OnMenuOpened += MenuOpened;
         return Task.CompletedTask;
+    }
+
+    private void HoveredItemChanged(object? sender, ulong e)
+    {
+        if (e != 0)
+        {
+            cachedHoverItemId = e;
+        }
     }
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
         Logger.LogTrace("Stopping service {Type} ({This})", GetType().Name, this);
         ContextMenu.OnMenuOpened -= MenuOpened;
+        _gameGui.HoveredItemChanged -= HoveredItemChanged;
         Logger.LogTrace("Stopped service {Type} ({This})", GetType().Name, this);
         return Task.CompletedTask;
     }

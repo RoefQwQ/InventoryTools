@@ -111,9 +111,7 @@ namespace InventoryTools.Ui
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Misc));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Troubleshooting, null, true));
             _configPages.Add(new SeparatorPageItem("Data", true));
-            _configPages.Add(_configPageFactory.Invoke(typeof(FiltersPage)));
-            _configPages.Add(_configPageFactory.Invoke(typeof(CraftFiltersPage)));
-            _configPages.Add(_configPageFactory.Invoke(typeof(ImportExportPage)));
+            _configPages.Add(_configPageFactory.Invoke(typeof(ListsPage)));
             _configPages.Add(_configPageFactory.Invoke(typeof(CharacterRetainerPage)));
 
             _addFilterMenu = new PopupMenu("addFilter", PopupMenu.PopupMenuButtons.LeftRight,

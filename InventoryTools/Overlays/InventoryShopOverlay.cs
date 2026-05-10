@@ -42,7 +42,7 @@ public class InventoryShopOverlay : GameOverlay<AtkShop>, IAtkOverlayState
         {
             HasState = true;
             Clear();
-            _shopHighlighting.SetItems(newState.GetItemIds());
+            _shopHighlighting.SetItems(newState.GetItemIds().Select(c => c.Item1).ToList());
             return;
         }
 

@@ -32,5 +32,6 @@ namespace InventoryTools.Logic.Settings.Abstract
         IngredientPatch,
         GlamourReadySet,
         CofferLoot,
+        ShopHighlighting
     }
 }

@@ -2740,7 +2740,7 @@ namespace InventoryTools.Ui
                                          .GameItemFilter)));
                                 if (hasValues)
                                 {
-                                    using (var tabItem = ImRaii.TabItem(group.Key.ToString().ToSentence()))
+                                    using (var tabItem = ImRaii.TabItem(group.Key.ToString().ToSentence(), ImGuiTabItemFlags.NoReorder))
                                     {
                                         if (!tabItem.Success) continue;
                                         using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudWhite))
