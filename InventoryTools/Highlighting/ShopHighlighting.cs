@@ -349,7 +349,11 @@ public class ShopHighlighting : IDisposable
     {
         _namePlateGui.OnDataUpdate -= OnNamePlateUpdate;
         _framework.Update -= OnFrameworkUpdate;
-        ClearNpcHighlights();
+        if (!_framework.IsFrameworkUnloading)
+        {
+            ClearNpcHighlights();
+        }
+
         _addonLifecycle.UnregisterListener(AddonEvent.PostSetup, "Shop", AddonSetup);
         _addonLifecycle.UnregisterListener(AddonEvent.PostDraw, "Shop", AddonPostDraw);
     }

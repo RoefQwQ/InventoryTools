@@ -354,6 +354,7 @@ namespace InventoryTools
         private bool _tooltipDisplayGlamourReadySet;
         private uint? _tooltipGlamourReadySetColor;
         private GlamourReadySetDisplayMode _tooltipGlamourReadySetDisplayMode = GlamourReadySetDisplayMode.Detailed;
+        private List<InventorySearchScope>? _tooltipGlamourReadySetScope;
         private bool _tooltipDisplayCofferLoot;
         private uint? _tooltipCofferLootColor;
         private List<InventorySearchScope>? _tooltipCofferLootScope;
@@ -473,6 +474,16 @@ namespace InventoryTools
             set
             {
                 _tooltipGlamourReadySetDisplayMode = value;
+                IsDirty = true;
+            }
+        }
+
+        public List<InventorySearchScope>? TooltipGlamourReadySetScope
+        {
+            get => _tooltipGlamourReadySetScope;
+            set
+            {
+                _tooltipGlamourReadySetScope = value;
                 IsDirty = true;
             }
         }

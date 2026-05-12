@@ -4,13 +4,14 @@ using AllaganLib.GameSheets.Caches;
 using AllaganLib.GameSheets.ItemSources;
 using AllaganLib.GameSheets.Sheets;
 using CriticalCommonLib.Enums;
-using CriticalCommonLib.Models;
+using CriticalCommonLib.Extensions;
 using CriticalCommonLib.Services;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Component.GUI;
+using InventoryTools.Logic.Editors;
 using InventoryTools.Logic.Settings;
 using Microsoft.Extensions.Logging;
 
@@ -23,25 +24,28 @@ public class GlamourReadySetTooltip : BaseTooltip
     private readonly TooltipGlamourReadySetDisplayModeSetting _displayModeSetting;
     private readonly TooltipGlamourReadySetAcquiredColorSetting _acquiredColorSetting;
     private readonly TooltipGlamourReadySetNotAcquiredColorSetting _notAcquiredColorSetting;
+    private readonly TooltipGlamourReadySetScopeSetting _scopeSetting;
     private readonly IInventoryMonitor _inventoryMonitor;
-    private readonly ICharacterMonitor _characterMonitor;
+    private readonly InventoryScopeCalculator _inventoryScopeCalculator;
 
     public GlamourReadySetTooltip(ILogger<GlamourReadySetTooltip> logger,
         TooltipGlamourReadySetColorSetting colorSetting, TooltipDisplayGlamourReadySetSetting displaySetting,
         TooltipGlamourReadySetDisplayModeSetting displayModeSetting,
         TooltipGlamourReadySetAcquiredColorSetting acquiredColorSetting,
         TooltipGlamourReadySetNotAcquiredColorSetting notAcquiredColorSetting,
+        TooltipGlamourReadySetScopeSetting scopeSetting,
         IInventoryMonitor inventoryMonitor,
-        ItemSheet itemSheet, InventoryToolsConfiguration configuration, IGameGui gameGui, IChatGui chatGui,
-        ICharacterMonitor characterMonitor) : base(6909, logger, itemSheet, configuration, gameGui, chatGui)
+        InventoryScopeCalculator inventoryScopeCalculator,
+        ItemSheet itemSheet, InventoryToolsConfiguration configuration, IGameGui gameGui, IChatGui chatGui) : base(6909, logger, itemSheet, configuration, gameGui, chatGui)
     {
         _colorSetting = colorSetting;
         _displaySetting = displaySetting;
         _displayModeSetting = displayModeSetting;
         _acquiredColorSetting = acquiredColorSetting;
         _notAcquiredColorSetting = notAcquiredColorSetting;
+        _scopeSetting = scopeSetting;
         _inventoryMonitor = inventoryMonitor;
-        _characterMonitor = characterMonitor;
+        _inventoryScopeCalculator = inventoryScopeCalculator;
     }
 
     public override bool IsEnabled => Configuration.DisplayTooltip && _displaySetting.CurrentValue(Configuration);
@@ -86,6 +90,25 @@ public class GlamourReadySetTooltip : BaseTooltip
         seStr.Payloads.Add(GetLinkPayload());
         seStr.Payloads.Add(RawPayload.LinkTerminator);
 
+        var scope = _scopeSetting.CurrentValue(Configuration);
+        var allItems = _inventoryMonitor.AllItems;
+        if (scope != null && scope.Count != 0)
+        {
+            allItems = allItems.Where(c => _inventoryScopeCalculator.Filter(scope, c));
+        }
+        var allItemsList = allItems.ToList();
+
+        bool IsOwned(uint itemId) => allItemsList.Any(i => i.ItemId == itemId);
+
+        string BuildOwnershipLine(uint itemId)
+        {
+            var categories = allItemsList
+                .Where(i => i.ItemId == itemId)
+                .Select(i => i.SortedCategory)
+                .Distinct();
+            return string.Concat(categories.Select(c => $"Already in {c.FormattedDetailedName()}\n"));
+        }
+
         var newText = "";
         var mode = _displayModeSetting.CurrentValue(Configuration);
         var baseColor = (ushort)(_colorSetting.CurrentValue(Configuration) ?? Configuration.TooltipColor ?? 1);
@@ -96,17 +119,14 @@ public class GlamourReadySetTooltip : BaseTooltip
             var source = item.GetUsesByType<ItemGlamourReadySetSource>(ItemInfoType.GlamourReadySet).FirstOrDefault();
             if (source != null)
             {
-                var inGlamourChest = IsOwnedInGlamourChest(HoverItemId);
-                var inArmoire = IsOwnedInArmoire(HoverItemId);
-                var ownershipLine = inGlamourChest ? "Already in glamour chest\n" : "";
-                ownershipLine += inArmoire ? "Already in armoire\n" : "";
+                var ownershipLine = BuildOwnershipLine(HoverItemId);
                 if (mode == GlamourReadySetDisplayMode.Compact)
                 {
                     var ownedCount = 0;
                     var visualizer = "";
                     foreach (var c in source.SetItems)
                     {
-                        if (IsOwnedInGlamourChestOrArmoire(c.RowId))
+                        if (IsOwned(c.RowId))
                         {
                             visualizer += "X";
                             ownedCount++;
@@ -133,7 +153,7 @@ public class GlamourReadySetTooltip : BaseTooltip
                     detailedPayloads.Add(new UIForegroundPayload(0));
                     foreach (var component in source.SetItems)
                     {
-                        var owned = IsOwnedInGlamourChestOrArmoire(component.RowId);
+                        var owned = IsOwned(component.RowId);
                         detailedPayloads.Add(new UIForegroundPayload(owned ? acquiredColor : notAcquiredColor));
                         detailedPayloads.Add(new UIGlowPayload(0));
                         detailedPayloads.Add(new TextPayload("\n" + (owned ? SeIconChar.Glamoured.ToIconString() : SeIconChar.Cross.ToIconString()) + " " + component.NameString));
@@ -148,17 +168,14 @@ public class GlamourReadySetTooltip : BaseTooltip
             var source = item.GetUsesByType<ItemGlamourReadySetItemSource>(ItemInfoType.GlamourReadySetItem).FirstOrDefault();
             if (source != null)
             {
-                var inGlamourChest = IsOwnedInGlamourChest(HoverItemId);
-                var inArmoire = IsOwnedInArmoire(HoverItemId);
-                var ownershipLine = inGlamourChest ? "Already in glamour chest\n" : "";
-                ownershipLine += inArmoire ? "Already in armoire\n" : "";
+                var ownershipLine = BuildOwnershipLine(HoverItemId);
                 if (mode == GlamourReadySetDisplayMode.Compact)
                 {
                     var ownedCount = 0;
                     var visualizer = "";
                     foreach (var c in source.SetItems)
                     {
-                        if (IsOwnedInGlamourChestOrArmoire(c.RowId))
+                        if (IsOwned(c.RowId))
                         {
                             visualizer += "X";
                             ownedCount++;
@@ -185,7 +202,7 @@ public class GlamourReadySetTooltip : BaseTooltip
                     detailedPayloads.Add(new UIForegroundPayload(0));
                     foreach (var component in source.SetItems)
                     {
-                        var owned = IsOwnedInGlamourChestOrArmoire(component.RowId);
+                        var owned = IsOwned(component.RowId);
                         detailedPayloads.Add(new UIForegroundPayload(owned ? acquiredColor : notAcquiredColor));
                         detailedPayloads.Add(new UIGlowPayload(0));
                         detailedPayloads.Add(new TextPayload("\n" + (owned ? SeIconChar.Glamoured.ToIconString() : SeIconChar.Cross.ToIconString()) + " " + component.NameString));
@@ -222,31 +239,6 @@ public class GlamourReadySetTooltip : BaseTooltip
                 SetTooltipString(stringArrayData, itemTooltipField, seStr);
             }
         }
-    }
-
-    private bool IsOwnedInGlamourChestOrArmoire(uint itemId)
-    {
-        return IsOwnedInGlamourChest(itemId) || IsOwnedInArmoire(itemId);
-    }
-
-    private bool IsOwnedInGlamourChest(uint itemId)
-    {
-        var characterId = _characterMonitor.ActiveCharacterId;
-        if (characterId == 0)
-        {
-            return false;
-        }
-        return _inventoryMonitor.GetSpecificInventory(characterId, InventoryCategory.GlamourChest).Any(i => i.ItemId == itemId);
-    }
-
-    private bool IsOwnedInArmoire(uint itemId)
-    {
-        var characterId = _characterMonitor.ActiveCharacterId;
-        if (characterId == 0)
-        {
-            return false;
-        }
-        return _inventoryMonitor.GetSpecificInventory(characterId, InventoryCategory.Armoire).Any(i => i.ItemId == itemId);
     }
 
     public override uint Order => 4;

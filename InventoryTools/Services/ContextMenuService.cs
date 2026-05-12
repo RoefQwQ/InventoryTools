@@ -300,7 +300,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
         if (item == null)
         {
             var guiHoveredItem = _gameGui.HoveredItem;
-            if (guiHoveredItem == 0 && cachedHoverItemId != null)
+            if (guiHoveredItem == 0 && cachedHoverItemId != null && args.AddonName == "Tryon") //Only allow TryOn otherwise everything with a context menu matches, this may expand later
             {
                 Logger.LogDebug("Falling back to cached hovered item ID: {HoveredItemId}", guiHoveredItem);
                 guiHoveredItem = cachedHoverItemId.Value;
