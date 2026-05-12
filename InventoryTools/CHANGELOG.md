@@ -8,6 +8,18 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [15.0.5] - 2026-05-12
+
+### Added
+- Outfit Glamour tooltip now has the ability to pick a search scope, defaulting to the Armoire/Glamour Chest for those that would like to track acquisition outside these.
+- Added Character/Retainer - World - Category - Quantity - Quality as a mode to the `Add Item Locations` tooltip.
+
+### Fixed
+- If the compendium state fails to load, the potential exception is caught and logged
+- Hopefully fixed the crash on exit by not manipulating nameplates while the game is unloading
+- The Equippable by Gender/Race column filters are now free type instead of being a dropdown allowing for complex filtering
+- Fixed a bug where context menu additions were being placed on menus not related to items.
+
 ## [15.0.4] - 2026-05-10
 
 ### Added
