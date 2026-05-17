@@ -1,19 +1,24 @@
 using InventoryTools.Compendium.Types.Extra;
+using InventoryTools.Services;
 
 namespace InventoryTools.Localizers;
 
 public class ChocoboItemSourceTypeLocalizer : ILocalizer<ChocoboItemSourceType>
 {
+    private readonly ILocalizationService _localizationService;
+
+    public ChocoboItemSourceTypeLocalizer(ILocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
+
     public string Format(ChocoboItemSourceType itemSourceType)
     {
-        switch (itemSourceType)
+        return itemSourceType switch
         {
-            case ChocoboItemSourceType.BuddyItem:
-                return "Consumable";
-            case ChocoboItemSourceType.BuddyEquip:
-                return "Equipment";
-        }
-
-        return "Unknown";
+            ChocoboItemSourceType.BuddyItem => _localizationService["Chocobo_BuddyItem"],
+            ChocoboItemSourceType.BuddyEquip => _localizationService["Chocobo_BuddyEquip"],
+            _ => _localizationService["Chocobo_Unknown"]
+        };
     }
 }

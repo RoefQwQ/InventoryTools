@@ -1,15 +1,18 @@
 using CriticalCommonLib.Crafting;
 using CriticalCommonLib.Models;
+using InventoryTools.Services;
 
 namespace InventoryTools.Localizers;
 
 public class CraftItemLocalizer
 {
     private readonly IngredientPreferenceLocalizer _ingredientPreferenceLocalizer;
+    private readonly ILocalizationService _localizationService;
 
-    public CraftItemLocalizer(IngredientPreferenceLocalizer ingredientPreferenceLocalizer)
+    public CraftItemLocalizer(IngredientPreferenceLocalizer ingredientPreferenceLocalizer, ILocalizationService localizationService)
     {
         _ingredientPreferenceLocalizer = ingredientPreferenceLocalizer;
+        _localizationService = localizationService;
     }
 
     public int SourceIcon(CraftItem craftItem)
@@ -26,8 +29,8 @@ public class CraftItemLocalizer
     {
         return craftItem.IngredientPreference.Type switch
         {
-            IngredientPreferenceType.Crafting => craftItem.Recipe?.CraftType?.FormattedName ?? (craftItem.Item.CompanyCraftSequence != null ? "Company Craft" : "Unknown"),
-            IngredientPreferenceType.None => "N/A",
+            IngredientPreferenceType.Crafting => craftItem.Recipe?.CraftType?.FormattedName ?? (craftItem.Item.CompanyCraftSequence != null ? _localizationService.GetString("CraftItem_CompanyCraft") : _localizationService.GetString("CraftItem_Unknown")),
+            IngredientPreferenceType.None => _localizationService.GetString("CraftItem_NA"),
             _ => _ingredientPreferenceLocalizer.FormattedName(craftItem.IngredientPreference)
         };
     }

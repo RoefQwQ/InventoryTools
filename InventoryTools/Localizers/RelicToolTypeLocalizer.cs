@@ -1,86 +1,58 @@
 using System;
+using InventoryTools.Services;
 using LuminaSupplemental.Excel.Model;
 
 namespace InventoryTools.Localizers;
 
 public class RelicToolTypeLocalizer : ILocalizer<RelicToolType>
 {
+    private readonly ILocalizationService _localizationService;
+
+    public RelicToolTypeLocalizer(ILocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
+
     public string Format(RelicToolType relicToolType)
     {
-        switch (relicToolType)
+        return relicToolType switch
         {
-            case RelicToolType.Unknown:
-                return "Unknown";
-            case RelicToolType.MastercraftBase:
-                return "Mastercraft";
-            case RelicToolType.MastercraftSupra:
-                return "Supra";
-            case RelicToolType.MastercraftLucis:
-                return "Lucis";
-            case RelicToolType.SkysteelBase:
-                return "Skysteel";
-            case RelicToolType.SkysteelBase1:
-                return "Skysteel + 1";
-            case RelicToolType.SkysteelDragonsung:
-                return "Dragonsung";
-            case RelicToolType.SkysteelAugmentedDragonsung:
-                return "Augmented Dragonsung";
-            case RelicToolType.SkysteelSkysung:
-                return "Skysung";
-            case RelicToolType.SkysteelSkybuilders:
-                return "Skybuilders";
-            case RelicToolType.Resplendent:
-                return "Resplendent";
-            case RelicToolType.SplendorousBase:
-                return "Spendorous";
-            case RelicToolType.SplendorousAugmented:
-                return "Augmented Splendorous";
-            case RelicToolType.SplendorousCrystalline:
-                return "Crystalline";
-            case RelicToolType.SplendorousChoraZoiCrystalline:
-                return "Chora-Zoi's Crystalline";
-            case RelicToolType.SplendorousBrilliant:
-                return "Brilliant";
-            case RelicToolType.SplendorousVrandticVisionary:
-                return "Vrandtic Visionary's";
-            case RelicToolType.SplendorousLodestar:
-                return "Lodestar";
-            case RelicToolType.CosmicPrototype01:
-                return "Prototype v0.1";
-            case RelicToolType.CosmicPrototype02:
-                return "Prototype v0.2";
-            case RelicToolType.CosmicPrototype03:
-                return "Prototype v0.3";
-            case RelicToolType.CosmicPrototype04:
-                return "Prototype v0.4";
-            case RelicToolType.CosmicPrototype05:
-                return "Prototype v0.5";
-            case RelicToolType.CosmicPrototype06:
-                return "Prototype v0.6";
-            case RelicToolType.CosmicPrototype07:
-                return "Prototype v0.7";
-            case RelicToolType.CosmicPrototype08:
-                return "Prototype v0.8";
-            case RelicToolType.CosmicCosmic:
-                return "Cosmic";
-            case RelicToolType.CosmicCosmic11:
-                return "Cosmic v1.1";
-            case RelicToolType.CosmicCosmic12:
-                return "Cosmic v1.2";
-            case RelicToolType.CosmicCosmic13:
-                return "Cosmic v1.3";
-            case RelicToolType.CosmicCosmic14:
-                return "Cosmic v1.4";
-            case RelicToolType.CosmicStellar:
-                return "Stellar";
-            case RelicToolType.CosmicStellar11:
-                return "Stellar v1.1";
-            case RelicToolType.CosmicStellar12:
-                return "Stellar v1.2";
-            case RelicToolType.CosmicHypertools:
-                return "Hypertools";
-        }
-
-        return relicToolType.ToString();
+            RelicToolType.Unknown => _localizationService["RelicToolType_Unknown"],
+            RelicToolType.MastercraftBase => _localizationService["RelicToolType_MastercraftBase"],
+            RelicToolType.MastercraftSupra => _localizationService["RelicToolType_MastercraftSupra"],
+            RelicToolType.MastercraftLucis => _localizationService["RelicToolType_MastercraftLucis"],
+            RelicToolType.SkysteelBase => _localizationService["RelicToolType_SkysteelBase"],
+            RelicToolType.SkysteelBase1 => _localizationService["RelicToolType_SkysteelBase1"],
+            RelicToolType.SkysteelDragonsung => _localizationService["RelicToolType_SkysteelDragonsung"],
+            RelicToolType.SkysteelAugmentedDragonsung => _localizationService["RelicToolType_SkysteelAugmentedDragonsung"],
+            RelicToolType.SkysteelSkysung => _localizationService["RelicToolType_SkysteelSkysung"],
+            RelicToolType.SkysteelSkybuilders => _localizationService["RelicToolType_SkysteelSkybuilders"],
+            RelicToolType.Resplendent => _localizationService["RelicToolType_Resplendent"],
+            RelicToolType.SplendorousBase => _localizationService["RelicToolType_SplendorousBase"],
+            RelicToolType.SplendorousAugmented => _localizationService["RelicToolType_SplendorousAugmented"],
+            RelicToolType.SplendorousCrystalline => _localizationService["RelicToolType_SplendorousCrystalline"],
+            RelicToolType.SplendorousChoraZoiCrystalline => _localizationService["RelicToolType_SplendorousChoraZoiCrystalline"],
+            RelicToolType.SplendorousBrilliant => _localizationService["RelicToolType_SplendorousBrilliant"],
+            RelicToolType.SplendorousVrandticVisionary => _localizationService["RelicToolType_SplendorousVrandticVisionary"],
+            RelicToolType.SplendorousLodestar => _localizationService["RelicToolType_SplendorousLodestar"],
+            RelicToolType.CosmicPrototype01 => _localizationService["RelicToolType_CosmicPrototype01"],
+            RelicToolType.CosmicPrototype02 => _localizationService["RelicToolType_CosmicPrototype02"],
+            RelicToolType.CosmicPrototype03 => _localizationService["RelicToolType_CosmicPrototype03"],
+            RelicToolType.CosmicPrototype04 => _localizationService["RelicToolType_CosmicPrototype04"],
+            RelicToolType.CosmicPrototype05 => _localizationService["RelicToolType_CosmicPrototype05"],
+            RelicToolType.CosmicPrototype06 => _localizationService["RelicToolType_CosmicPrototype06"],
+            RelicToolType.CosmicPrototype07 => _localizationService["RelicToolType_CosmicPrototype07"],
+            RelicToolType.CosmicPrototype08 => _localizationService["RelicToolType_CosmicPrototype08"],
+            RelicToolType.CosmicCosmic => _localizationService["RelicToolType_CosmicCosmic"],
+            RelicToolType.CosmicCosmic11 => _localizationService["RelicToolType_CosmicCosmic11"],
+            RelicToolType.CosmicCosmic12 => _localizationService["RelicToolType_CosmicCosmic12"],
+            RelicToolType.CosmicCosmic13 => _localizationService["RelicToolType_CosmicCosmic13"],
+            RelicToolType.CosmicCosmic14 => _localizationService["RelicToolType_CosmicCosmic14"],
+            RelicToolType.CosmicStellar => _localizationService["RelicToolType_CosmicStellar"],
+            RelicToolType.CosmicStellar11 => _localizationService["RelicToolType_CosmicStellar11"],
+            RelicToolType.CosmicStellar12 => _localizationService["RelicToolType_CosmicStellar12"],
+            RelicToolType.CosmicHypertools => _localizationService["RelicToolType_CosmicHypertools"],
+            _ => relicToolType.ToString()
+        };
     }
 }

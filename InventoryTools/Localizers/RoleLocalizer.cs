@@ -1,29 +1,29 @@
 using AllaganLib.GameSheets.Sheets.Rows;
+using InventoryTools.Services;
 
 namespace InventoryTools.Localizers;
 
 public class RoleLocalizer : ILocalizer<RoleType>
 {
+    private readonly ILocalizationService _localizationService;
+
+    public RoleLocalizer(ILocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
+
     public string Format(RoleType instance)
     {
-        switch (instance)
+        return instance switch
         {
-            case RoleType.Tank:
-                return "Tank";
-            case RoleType.DPSMelee:
-                return "DPS (Melee)";
-            case RoleType.DPSRanged:
-                return "DPS (Ranged)";
-            case RoleType.Healer:
-                return "Healer";
-            case RoleType.Crafting:
-                return "Crafting";
-            case RoleType.Gathering:
-                return "Gathering";
-            case RoleType.Other:
-                return "Other";
-        }
-
-        return "Unknown";
+            RoleType.Tank => _localizationService["Role_Tank"],
+            RoleType.DPSMelee => _localizationService["Role_DPSMelee"],
+            RoleType.DPSRanged => _localizationService["Role_DPSRanged"],
+            RoleType.Healer => _localizationService["Role_Healer"],
+            RoleType.Crafting => _localizationService["Role_Crafting"],
+            RoleType.Gathering => _localizationService["Role_Gathering"],
+            RoleType.Other => _localizationService["Role_Other"],
+            _ => _localizationService["Role_Unknown"]
+        };
     }
 }

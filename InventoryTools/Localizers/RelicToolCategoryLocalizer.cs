@@ -1,25 +1,28 @@
 using System;
+using InventoryTools.Services;
 using LuminaSupplemental.Excel.Model;
 
 namespace InventoryTools.Localizers;
 
 public class RelicToolCategoryLocalizer : ILocalizer<RelicToolCategory>
 {
+    private readonly ILocalizationService _localizationService;
+
+    public RelicToolCategoryLocalizer(ILocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
+
     public string Format(RelicToolCategory instance)
     {
-        switch (instance)
+        return instance switch
         {
-            case RelicToolCategory.Mastercraft:
-                return "Mastercraft Tools";
-            case RelicToolCategory.Skysteel:
-                return "Skysteel Tools";
-            case RelicToolCategory.Resplendent:
-                return "Resplendent Tools";
-            case RelicToolCategory.Splendorous:
-                return "Splendorous Tools";
-            case RelicToolCategory.Cosmic:
-                return "Cosmic Tools";
-        }
-        return instance.ToString();
+            RelicToolCategory.Mastercraft => _localizationService["RelicToolCategory_Mastercraft"],
+            RelicToolCategory.Skysteel => _localizationService["RelicToolCategory_Skysteel"],
+            RelicToolCategory.Resplendent => _localizationService["RelicToolCategory_Resplendent"],
+            RelicToolCategory.Splendorous => _localizationService["RelicToolCategory_Splendorous"],
+            RelicToolCategory.Cosmic => _localizationService["RelicToolCategory_Cosmic"],
+            _ => instance.ToString()
+        };
     }
 }
