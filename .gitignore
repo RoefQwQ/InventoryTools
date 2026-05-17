@@ -5,3 +5,5 @@ InventoryToolsCLI/*
 InventoryTools.sln.DotSettings.user
 exd-datadocs/
 docs/
+InventoryTools/Fonts/*.otf
+InventoryToolsMock/Fonts/*.otf
