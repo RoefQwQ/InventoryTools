@@ -171,10 +171,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>Images\armor.png</TargetPath>
     </ContentWithTargetPath>
-    <ContentWithTargetPath Include="Fonts\NotoSansCJKsc-Regular.otf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Fonts\NotoSansCJKsc-Regular.otf</TargetPath>
-    </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logic\Columns\Tools\" />
