@@ -1,12 +1,27 @@
-# Allagan Tools
-Dalamud plugin for inventory tracking, item searching, craft lists and item information(like garland tools).
+# Allagan Tools CN
 
-[![Download count](https://img.shields.io/endpoint?url=https://qzysathwfhebdai6xgauhz4q7m0mzmrf.lambda-url.us-east-1.on.aws/InventoryTools)](https://github.com/Critical-Impact/InventoryTools)
+Allagan Tools 国服中文本地化版本
 
+## 插件说明
 
-## Support
-Open an issue here or join the goatplace discord.
+Dalamud 插件，用于库存追踪、物品搜索、制作清单和物品信息查询（类似 garland tools）。
 
-## Contributing
+## 插件列表
 
-Contributions are welcome, but please make an issue first before writing any code. It's possible what you want to implement is out of scope for this project, or could be reworked so that it would provide greater benefit.
+| 名称 | 作者 | 版本 | 适配游戏版本 | 备注 |
+| --- | --- | --- | --- | --- |
+| Allagan Tools CN | Critical_Impact | 1.15.0.5 | any | 国服中文本地化 |
+
+## 仓库链接
+
+```
+https://raw.githubusercontent.com/RoefQwQ/InventoryTools/main/repo.json
+```
+
+## 安装方法
+
+在 Dalamud 设置 → 插件安装器 → 设置 → 自定义插件仓库中添加以上链接。
+
+## 原项目
+
+https://github.com/Critical-Impact/InventoryTools

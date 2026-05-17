@@ -1,5 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project>
+    <Target Name="CleanOldZip" BeforeTargets="PackagePlugin" Condition="'$(Configuration)' == 'Release'">
+        <Delete Files="$(OutputPath)$(AssemblyName).zip" Condition="Exists('$(OutputPath)$(AssemblyName).zip')" />
+    </Target>
     <Target Name="PackagePlugin" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
         <DalamudPackager
                 ProjectDir="$(ProjectDir)"
