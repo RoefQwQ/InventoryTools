@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +78,9 @@ namespace InventoryTools
         private bool _tooltipWhitelistBlacklist;
         private List<InventorySearchScope>? _tooltipSearchScope;
         private List<InventorySearchScope>? _itemSearchScope;
+        private bool _chineseFontEnabled = false;
+        private float _chineseFontSize = 16.0f;
+        private string? _chineseFontPath = null;
         private HashSet<string>? _windowsIgnoreEscape = new HashSet<string>();
         private HashSet<uint>? _favouriteItemsList = new HashSet<uint>();
         private TooltipAmountOwnedSort _tooltipAmountOwnedSort = TooltipAmountOwnedSort.Alphabetically;
@@ -313,6 +316,36 @@ namespace InventoryTools
             set
             {
                 _itemSearchScope = value;
+                IsDirty = true;
+            }
+        }
+
+        public bool ChineseFontEnabled
+        {
+            get => _chineseFontEnabled;
+            set
+            {
+                _chineseFontEnabled = value;
+                IsDirty = true;
+            }
+        }
+
+        public float ChineseFontSize
+        {
+            get => _chineseFontSize;
+            set
+            {
+                _chineseFontSize = value;
+                IsDirty = true;
+            }
+        }
+
+        public string? ChineseFontPath
+        {
+            get => _chineseFontPath;
+            set
+            {
+                _chineseFontPath = value;
                 IsDirty = true;
             }
         }

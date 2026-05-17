@@ -1,4 +1,4 @@
-﻿<Project Sdk="Dalamud.NET.Sdk/15.0.0">
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
   <PropertyGroup>
     <AssemblyName>InventoryTools</AssemblyName>
     <NoWarn>IDE0003</NoWarn>
@@ -170,6 +170,10 @@
     <ContentWithTargetPath Include="Images\armor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>Images\armor.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Fonts\NotoSansCJKsc-Regular.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Fonts\NotoSansCJKsc-Regular.otf</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>

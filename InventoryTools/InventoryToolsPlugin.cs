@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -178,6 +178,7 @@ namespace InventoryTools
             this.RegisterHostedService(typeof(AcquisitionMonitorService));
             this.RegisterHostedService(typeof(AchievementMonitorService));
             this.RegisterHostedService(typeof(POIService));
+            this.RegisterHostedService(typeof(ChineseFontService));
 
             //AllaganLib modules
             builder.RegisterModule(new GameSheetManagerModule()
