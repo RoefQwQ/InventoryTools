@@ -198,6 +198,7 @@ namespace InventoryTools
             builder.Register<GameData>(c => c.Resolve<IDataManager>().GameData).SingleInstance().ExternallyOwned();
 
             //Singleton registrations
+            builder.RegisterSingletonSelfAndInterfaces<LocalizationService>();
             builder.RegisterSingletonSelfAndInterfaces<AutofacResolver>();
             builder.RegisterSingletonSelfAndInterfaces<AllaganDebugWindow>();
             builder.RegisterSingletonSelfAndInterfaces<ChangelogService>();
