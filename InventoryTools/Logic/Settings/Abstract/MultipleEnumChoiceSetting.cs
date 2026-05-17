@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Settings.Abstract;
 public abstract class MultipleEnumChoiceSetting<TEnum> : MultipleChoiceSetting<TEnum>
     where TEnum : Enum, IComparable
 {
-    protected MultipleEnumChoiceSetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    protected MultipleEnumChoiceSetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 

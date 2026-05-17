@@ -6,7 +6,7 @@ namespace InventoryTools.Logic.Settings;
 
 public class AddTitleMenuButtonSetting : BooleanSetting
 {
-    public AddTitleMenuButtonSetting(ILogger<AddTitleMenuButtonSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public AddTitleMenuButtonSetting(ILogger<AddTitleMenuButtonSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 

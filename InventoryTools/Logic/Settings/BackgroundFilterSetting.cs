@@ -11,7 +11,7 @@ namespace InventoryTools.Logic.Settings
     {
         private readonly IListService _listService;
 
-        public BackgroundFilterSetting(ILogger<BackgroundFilterSetting> logger, ImGuiService imGuiService, IListService listService) : base(logger, imGuiService)
+        public BackgroundFilterSetting(ILogger<BackgroundFilterSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, IListService listService) : base(logger, imGuiService, localizationService)
         {
             _listService = listService;
         }

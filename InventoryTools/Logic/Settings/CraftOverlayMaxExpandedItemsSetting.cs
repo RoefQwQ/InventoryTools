@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Settings;
 public class CraftOverlayMaxExpandedItemsSetting : GenericIntegerSetting
 {
     public CraftOverlayMaxExpandedItemsSetting(ILogger<CraftOverlayMaxExpandedItemsSetting> logger,
-        ImGuiService imGuiService) : base("CraftOverlayMaxItems",
+        ImGuiService imGuiService, ILocalizationService localizationService) : base("CraftOverlayMaxItems",
         "Max items when expanded",
         "When the craft overlay is expanded, how many items should be shown?",
         5,
@@ -16,7 +16,8 @@ public class CraftOverlayMaxExpandedItemsSetting : GenericIntegerSetting
         SettingSubCategory.General,
         "1.11.0.8",
         logger,
-        imGuiService)
+        imGuiService,
+        localizationService)
     {
     }
 }

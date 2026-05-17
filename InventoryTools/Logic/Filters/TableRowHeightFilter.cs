@@ -42,7 +42,7 @@ public class TableRowHeightFilter : IntegerFilter
         return null;
     }
 
-    public TableRowHeightFilter(ILogger<TableRowHeightFilter> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TableRowHeightFilter(ILogger<TableRowHeightFilter> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

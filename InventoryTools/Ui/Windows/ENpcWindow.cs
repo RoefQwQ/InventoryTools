@@ -25,6 +25,7 @@ namespace InventoryTools.Ui
 {
     class ENpcWindow : UintWindow
     {
+        private readonly ILocalizationService _localizationService;
         private readonly IClipboardService _clipboardService;
         private readonly ItemInfoCache _itemInfoCache;
         private readonly ENpcResidentSheet _eNpcResidentSheet;
@@ -35,6 +36,7 @@ namespace InventoryTools.Ui
             MediatorService mediator,
             ImGuiService imGuiService,
             InventoryToolsConfiguration configuration,
+            ILocalizationService localizationService,
             IClipboardService clipboardService,
             ItemInfoCache itemInfoCache,
             ENpcResidentSheet eNpcResidentSheet,
@@ -45,6 +47,7 @@ namespace InventoryTools.Ui
             configuration,
             name)
         {
+            _localizationService = localizationService;
             _clipboardService = clipboardService;
             _itemInfoCache = itemInfoCache;
             _eNpcResidentSheet = eNpcResidentSheet;

@@ -6,7 +6,7 @@ namespace InventoryTools.Logic.Settings
 {
     public class ContextMenuItemSearchSetting : BooleanSetting
     {
-        public ContextMenuItemSearchSetting(ILogger<ContextMenuItemSearchSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public ContextMenuItemSearchSetting(ILogger<ContextMenuItemSearchSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
         }
         

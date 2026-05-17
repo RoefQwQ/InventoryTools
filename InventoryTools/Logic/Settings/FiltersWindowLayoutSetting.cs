@@ -38,7 +38,7 @@ public class FiltersWindowLayoutSetting : ChoiceSetting<WindowLayout>
     };
     public override string Version => "1.7.0.0";
 
-    public FiltersWindowLayoutSetting(ILogger<FiltersWindowLayoutSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public FiltersWindowLayoutSetting(ILogger<FiltersWindowLayoutSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using InventoryTools.Logic.Settings.Abstract;
 using InventoryTools.Services;
@@ -12,7 +12,7 @@ public class TooltipCategoryWhitelistSetting : MultipleChoiceSetting<uint>
 {
     private readonly ExcelSheet<ItemUICategory> _itemUiCategorySheet;
 
-    public TooltipCategoryWhitelistSetting(ILogger<TooltipCategoryWhitelistSetting> logger, ImGuiService imGuiService, ExcelSheet<ItemUICategory> itemUiCategorySheet) : base(logger, imGuiService)
+    public TooltipCategoryWhitelistSetting(ILogger<TooltipCategoryWhitelistSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, ExcelSheet<ItemUICategory> itemUiCategorySheet) : base(logger, imGuiService, localizationService)
     {
         _itemUiCategorySheet = itemUiCategorySheet;
     }

@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Settings;
 public class ContextMenuAddToFavouritesSetting : GenericBooleanSetting
 {
     public ContextMenuAddToFavouritesSetting(ILogger<ContextMenuAddToFavouritesSetting> logger,
-        ImGuiService imGuiService) : base("AddToFavouritesContextMenu",
+        ImGuiService imGuiService, ILocalizationService localizationService) : base("AddToFavouritesContextMenu",
         "Context Menu - Add/Remove to Favourites",
         "Add a submenu to add/remove the item to/from your favourites?",
         false,
@@ -16,7 +16,8 @@ public class ContextMenuAddToFavouritesSetting : GenericBooleanSetting
         SettingSubCategory.General,
         "1.13.1.9",
         logger,
-        imGuiService)
+        imGuiService,
+        localizationService)
     {
     }
 

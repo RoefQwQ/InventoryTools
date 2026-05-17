@@ -40,7 +40,7 @@ namespace InventoryTools.Logic.Filters
             return configuration.FreezeCraftColumns;
         }
 
-        public TableCraftFreezeRowsFilter(ILogger<TableCraftFreezeRowsFilter> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public TableCraftFreezeRowsFilter(ILogger<TableCraftFreezeRowsFilter> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
         }
     }

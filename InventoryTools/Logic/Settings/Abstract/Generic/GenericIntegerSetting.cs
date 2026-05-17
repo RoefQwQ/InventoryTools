@@ -6,7 +6,7 @@ namespace InventoryTools.Logic.Settings.Abstract.Generic;
 
 public abstract class GenericIntegerSetting : IntegerSetting
 {
-    public GenericIntegerSetting(string key, string name, string helpText, int defaultValue, SettingCategory settingCategory, SettingSubCategory settingSubCategory, string version, ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public GenericIntegerSetting(string key, string name, string helpText, int defaultValue, SettingCategory settingCategory, SettingSubCategory settingSubCategory, string version, ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
         Key = key;
         Name = name;

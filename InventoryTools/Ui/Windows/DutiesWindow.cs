@@ -22,12 +22,14 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
     private readonly ImGuiService _imGuiService;
     private readonly ExcelSheet<ContentType> _contentTypeSheet;
     private readonly ContentFinderConditionSheet _contentFinderConditionSheet;
+    private readonly ILocalizationService _localizationService;
 
-    public DutiesWindow(ILogger<DutiesWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, ExcelSheet<ContentType> contentTypeSheet, ContentFinderConditionSheet contentFinderConditionSheet, string name = "Duties Window") : base(logger, mediator, imGuiService, configuration, name)
+    public DutiesWindow(ILogger<DutiesWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, ExcelSheet<ContentType> contentTypeSheet, ContentFinderConditionSheet contentFinderConditionSheet, ILocalizationService localizationService, string name = "Duties Window") : base(logger, mediator, imGuiService, configuration, name)
     {
         _imGuiService = imGuiService;
         _contentTypeSheet = contentTypeSheet;
         _contentFinderConditionSheet = contentFinderConditionSheet;
+        _localizationService = localizationService;
     }
     public override void Initialize()
     {

@@ -7,7 +7,7 @@ namespace InventoryTools.Logic.Settings;
 
 public class ShopHighlightingNpcNameplateIconSetting : GenericBooleanSetting
 {
-    public ShopHighlightingNpcNameplateIconSetting(ILogger<ShopHighlightingNpcNameplateIconSetting> logger, ImGuiService imGuiService)
+    public ShopHighlightingNpcNameplateIconSetting(ILogger<ShopHighlightingNpcNameplateIconSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService)
         : base(
             "ShopHighlightingNpcNameplateIcon",
             "Shop Highlighting - Nameplate Icon",
@@ -17,7 +17,8 @@ public class ShopHighlightingNpcNameplateIconSetting : GenericBooleanSetting
             SettingSubCategory.ShopHighlighting,
             "15.0.4",
             logger,
-            imGuiService)
+            imGuiService,
+            localizationService)
     {
     }
 }

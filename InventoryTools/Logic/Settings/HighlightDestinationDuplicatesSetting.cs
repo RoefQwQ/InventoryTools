@@ -27,7 +27,7 @@ namespace InventoryTools.Logic.Settings
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;
         public override string Version => "1.7.0.0";
 
-        public HighlightDestinationSetting(ILogger<HighlightDestinationSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public HighlightDestinationSetting(ILogger<HighlightDestinationSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
         }
     }

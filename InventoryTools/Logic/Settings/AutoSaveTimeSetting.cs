@@ -9,7 +9,7 @@ namespace InventoryTools.Logic.Settings
     {
         private readonly PluginLogic _pluginLogic;
 
-        public AutoSaveTimeSetting(ILogger<AutoSaveTimeSetting> logger, ImGuiService imGuiService, PluginLogic pluginLogic) : base(logger, imGuiService)
+        public AutoSaveTimeSetting(ILogger<AutoSaveTimeSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, PluginLogic pluginLogic) : base(logger, imGuiService, localizationService)
         {
             _pluginLogic = pluginLogic;
         }

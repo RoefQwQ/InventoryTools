@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Settings
 {
     public class MarketBoardSaleCountLimitSetting : IntegerSetting
     {
-        public MarketBoardSaleCountLimitSetting(ILogger<MarketBoardSaleCountLimitSetting> logger, ImGuiService imGuiService, IHostedUniversalisConfiguration universalisConfiguration) : base(logger, imGuiService)
+        public MarketBoardSaleCountLimitSetting(ILogger<MarketBoardSaleCountLimitSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, IHostedUniversalisConfiguration universalisConfiguration) : base(logger, imGuiService, localizationService)
         {
             _universalisConfiguration = universalisConfiguration;
         }

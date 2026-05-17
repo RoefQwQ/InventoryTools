@@ -24,6 +24,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
     private readonly IChatUtilities _chatUtilities;
     private readonly ItemInfoCache _itemInfoCache;
     private readonly ENpcResidentSheet _eNpcResidentSheet;
+    private readonly ILocalizationService _localizationService;
 
     public ENpcsWindow(ILogger<ENpcsWindow> logger,
         MediatorService mediator,
@@ -32,6 +33,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
         IChatUtilities chatUtilities,
         ItemInfoCache itemInfoCache,
         ENpcResidentSheet eNpcResidentSheet,
+        ILocalizationService localizationService,
         string name = "NPCs Window") : base(logger,
         mediator,
         imGuiService,
@@ -41,6 +43,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
         _chatUtilities = chatUtilities;
         _itemInfoCache = itemInfoCache;
         _eNpcResidentSheet = eNpcResidentSheet;
+        _localizationService = localizationService;
     }
 
     public override void Initialize()

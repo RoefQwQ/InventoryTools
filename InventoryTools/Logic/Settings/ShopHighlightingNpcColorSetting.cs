@@ -9,7 +9,7 @@ namespace InventoryTools.Logic.Settings;
 
 public class ShopHighlightingNpcColorSetting : GenericEnumChoiceSetting<ObjectHighlightColor>
 {
-    public ShopHighlightingNpcColorSetting(ILogger<ShopHighlightingNpcColorSetting> logger, ImGuiService imGuiService) : base("ShopHighlightingNpcColor", "Shop Highlighting - NPC Highlight Color", "The color used to highlight NPCs in the world when shop items are highlighted.", ObjectHighlightColor.Green, new Dictionary<ObjectHighlightColor, string>
+    public ShopHighlightingNpcColorSetting(ILogger<ShopHighlightingNpcColorSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base("ShopHighlightingNpcColor", "Shop Highlighting - NPC Highlight Color", "The color used to highlight NPCs in the world when shop items are highlighted.", ObjectHighlightColor.Green, new Dictionary<ObjectHighlightColor, string>
     {
         { ObjectHighlightColor.Red,     "Red"     },
         { ObjectHighlightColor.Green,   "Green"   },
@@ -17,7 +17,7 @@ public class ShopHighlightingNpcColorSetting : GenericEnumChoiceSetting<ObjectHi
         { ObjectHighlightColor.Yellow,  "Yellow"  },
         { ObjectHighlightColor.Orange,  "Orange"  },
         { ObjectHighlightColor.Magenta, "Magenta" },
-    }, SettingCategory.Highlighting, SettingSubCategory.ShopHighlighting, "15.0.4", logger, imGuiService)
+    }, SettingCategory.Highlighting, SettingSubCategory.ShopHighlighting, "15.0.4", logger, imGuiService, localizationService)
     {
     }
 }

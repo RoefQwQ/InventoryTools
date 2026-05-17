@@ -70,6 +70,8 @@ namespace InventoryTools.Ui
         private IEnumerable<IMenuWindow>? _menuWindows;
         private readonly InventoryToolsConfiguration _configuration;
 
+        private readonly ILocalizationService _localizationService;
+
         public FiltersWindow(ILogger<FiltersWindow> logger, MediatorService mediator, ImGuiService imGuiService,
             InventoryToolsConfiguration configuration, IListService listService, IFilterService filterService,
             TableService tableService, IChatUtilities chatUtilities, ICharacterMonitor characterMonitor,
@@ -78,7 +80,7 @@ namespace InventoryTools.Ui
             IComponentContext context, FiltersWindowLayoutSetting layoutSetting, ItemSheet itemSheet,
             FilterConfiguration.Factory filterConfigFactory, IEnumerable<ISampleFilter> sampleFilters,
             IClipboardService clipboardService, PopupService popupService, IKeyState keyState, IFramework framework,
-            IPluginLog pluginLog, HighlightWhenFilter highlightWhenFilter, HighlightWhenSetting highlightWhenSetting, IEnumerable<ICompendiumType> compendiumTypes) : base(logger, mediator, imGuiService, configuration, "Filters Window")
+            IPluginLog pluginLog, HighlightWhenFilter highlightWhenFilter, HighlightWhenSetting highlightWhenSetting, IEnumerable<ICompendiumType> compendiumTypes, ILocalizationService localizationService) : base(logger, mediator, imGuiService, configuration, "Filters Window")
         {
             _listService = listService;
             _filterService = filterService;
@@ -104,6 +106,7 @@ namespace InventoryTools.Ui
             _highlightWhenSetting = highlightWhenSetting;
             _compendiumTypes = compendiumTypes.Where(c => c.ShowInListing).OrderBy(c => c.Plural);
             _configuration = configuration;
+            _localizationService = localizationService;
             this.Flags = ImGuiWindowFlags.MenuBar;
         }
 

@@ -25,12 +25,14 @@ public class SubmarinesWindow : GenericTabbedTable<SubmarineExplorationRow>, IMe
     private readonly ImGuiService _imGuiService;
     private readonly SubmarineExplorationSheet _submarineExplorationSheet;
     private readonly ExcelSheet<SubmarineMap> _submarineMapSheet;
+    private readonly ILocalizationService _localizationService;
 
-    public SubmarinesWindow(ILogger<SubmarinesWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, SubmarineExplorationSheet submarineExplorationSheet, ExcelSheet<SubmarineMap> submarineMapSheet, string name = "Submarines Window") : base(logger, mediator, imGuiService, configuration, name)
+    public SubmarinesWindow(ILogger<SubmarinesWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, SubmarineExplorationSheet submarineExplorationSheet, ExcelSheet<SubmarineMap> submarineMapSheet, ILocalizationService localizationService, string name = "Submarines Window") : base(logger, mediator, imGuiService, configuration, name)
     {
         _imGuiService = imGuiService;
         _submarineExplorationSheet = submarineExplorationSheet;
         _submarineMapSheet = submarineMapSheet;
+        _localizationService = localizationService;
     }
     public override void Initialize()
     {

@@ -26,7 +26,7 @@ namespace InventoryTools.Logic.Settings
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Colours;
         public override string Version => "1.7.0.0";
 
-        public HighlightColourSetting(ILogger<HighlightColourSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public HighlightColourSetting(ILogger<HighlightColourSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
         }
     }

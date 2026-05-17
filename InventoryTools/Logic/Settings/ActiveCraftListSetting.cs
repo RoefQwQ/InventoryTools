@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using InventoryTools.Logic.Settings.Abstract;
 using InventoryTools.Services;
@@ -11,7 +11,7 @@ namespace InventoryTools.Logic.Settings
     {
         private readonly IListService _listService;
 
-        public ActiveCraftListSetting(ILogger<ActiveCraftListSetting> logger, ImGuiService imGuiService, IListService listService) : base(logger, imGuiService)
+        public ActiveCraftListSetting(ILogger<ActiveCraftListSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, IListService listService) : base(logger, imGuiService, localizationService)
         {
             _listService = listService;
         }

@@ -9,7 +9,7 @@ namespace InventoryTools.Logic.Settings.Abstract.Generic;
 public abstract class GenericMultipleEnumChoiceSetting<TEnum> : MultipleEnumChoiceSetting<TEnum>
     where TEnum : struct, Enum, IComparable
 {
-    protected GenericMultipleEnumChoiceSetting(string key, string name, string helpText, List<TEnum> defaultValue, Dictionary<TEnum, string> choices, SettingCategory settingCategory, SettingSubCategory settingSubCategory, string version, ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    protected GenericMultipleEnumChoiceSetting(string key, string name, string helpText, List<TEnum> defaultValue, Dictionary<TEnum, string> choices, SettingCategory settingCategory, SettingSubCategory settingSubCategory, string version, ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
         Key = key;
         Name = name;

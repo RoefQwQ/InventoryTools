@@ -32,7 +32,7 @@ public class TooltipDisplayGlamourReadySetSetting : BooleanSetting
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.GlamourReadySet;
     public override string Version => "1.12.0.0";
 
-    public TooltipDisplayGlamourReadySetSetting(ILogger<TooltipDisplayGlamourReadySetSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TooltipDisplayGlamourReadySetSetting(ILogger<TooltipDisplayGlamourReadySetSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

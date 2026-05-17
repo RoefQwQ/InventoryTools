@@ -39,7 +39,7 @@ namespace InventoryTools.Logic.Filters
             return configuration.FreezeColumns;
         }
 
-        public TableFreezeRowsFilter(ILogger<TableFreezeRowsFilter> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public TableFreezeRowsFilter(ILogger<TableFreezeRowsFilter> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
         }
     }

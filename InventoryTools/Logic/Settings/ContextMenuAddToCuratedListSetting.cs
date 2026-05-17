@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Settings;
 public class ContextMenuAddToCuratedListSetting : GenericBooleanSetting
 {
     public ContextMenuAddToCuratedListSetting(ILogger<ContextMenuAddToCuratedListSetting> logger,
-        ImGuiService imGuiService) : base("AddToCuratedListContextMenu",
+        ImGuiService imGuiService, ILocalizationService localizationService) : base("AddToCuratedListContextMenu",
         "Context Menu - Add to Curated List",
         "Add a submenu to add the item to a curated list?",
         false,
@@ -16,7 +16,8 @@ public class ContextMenuAddToCuratedListSetting : GenericBooleanSetting
         SettingSubCategory.General,
         "1.7.0.21",
         logger,
-        imGuiService)
+        imGuiService,
+        localizationService)
     {
     }
 

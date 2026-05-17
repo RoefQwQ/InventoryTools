@@ -34,7 +34,7 @@ namespace InventoryTools.Logic.Settings
         public override Dictionary<HighlightWhen, string> Choices => _staticChoices;
         public override string Version => "1.7.0.0";
 
-        public HighlightWhenSetting(ILogger<HighlightWhenSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public HighlightWhenSetting(ILogger<HighlightWhenSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
         }
     }

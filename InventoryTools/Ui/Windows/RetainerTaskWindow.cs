@@ -19,6 +19,7 @@ namespace InventoryTools.Ui
     {
         private readonly RetainerTaskSheet _retainerTaskSheet;
         private readonly ItemSheet _itemSheet;
+        private readonly ILocalizationService _localizationService;
 
         public RetainerTaskWindow(ILogger<RetainerTaskWindow> logger,
             MediatorService mediator,
@@ -26,6 +27,7 @@ namespace InventoryTools.Ui
             InventoryToolsConfiguration configuration,
             RetainerTaskSheet retainerTaskSheet,
             ItemSheet itemSheet,
+            ILocalizationService localizationService,
             string name = "Retainer Venture") : base(logger,
             mediator,
             imGuiService,
@@ -34,6 +36,7 @@ namespace InventoryTools.Ui
         {
             _retainerTaskSheet = retainerTaskSheet;
             _itemSheet = itemSheet;
+            _localizationService = localizationService;
         }
         public override void Initialize(uint retainerTaskId)
         {

@@ -34,8 +34,9 @@ namespace InventoryTools.Ui
         private readonly IGameUiManager _gameUiManager;
         private readonly IFramework _framework;
         private readonly InventoryToolsConfiguration _configuration;
+        private readonly ILocalizationService _localizationService;
 
-        public FilterWindow(ILogger<FilterWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, TableService tableService, IListService listService, ICharacterMonitor characterMonitor, IUniversalis universalis, IFileDialogManager fileDialogManager, IGameUiManager gameUiManager, IFramework framework, string name = "Filter Window") : base(logger, mediator, imGuiService, configuration, name)
+        public FilterWindow(ILogger<FilterWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, TableService tableService, IListService listService, ICharacterMonitor characterMonitor, IUniversalis universalis, IFileDialogManager fileDialogManager, IGameUiManager gameUiManager, IFramework framework, ILocalizationService localizationService, string name = "Filter Window") : base(logger, mediator, imGuiService, configuration, name)
         {
             _tableService = tableService;
             _listService = listService;
@@ -45,6 +46,7 @@ namespace InventoryTools.Ui
             _gameUiManager = gameUiManager;
             _framework = framework;
             _configuration = configuration;
+            _localizationService = localizationService;
         }
         public override void Initialize(string filterKey)
         {

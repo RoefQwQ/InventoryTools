@@ -31,6 +31,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
     private readonly TerritoryTypeSheet _territoryTypeSheet;
     private readonly ItemSheet _itemSheet;
     private readonly BNpcNameSheet _bnpcNameSheet;
+    private readonly ILocalizationService _localizationService;
 
     public BNpcsWindow(ILogger<BNpcsWindow> logger,
         MediatorService mediator,
@@ -42,6 +43,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
         TerritoryTypeSheet territoryTypeSheet,
         ItemSheet itemSheet,
         BNpcNameSheet bnpcNameSheet,
+        ILocalizationService localizationService,
         string name = "Mobs Window") : base(logger,
         mediator,
         imGuiService,
@@ -54,6 +56,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
         _territoryTypeSheet = territoryTypeSheet;
         _itemSheet = itemSheet;
         _bnpcNameSheet = bnpcNameSheet;
+        _localizationService = localizationService;
     }
     public override void Initialize()
     {

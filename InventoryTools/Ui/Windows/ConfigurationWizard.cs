@@ -17,11 +17,13 @@ public class ConfigurationWizard : GenericWindow
 {
     private readonly ConfigurationWizardService _configurationWizardService;
     private readonly InventoryToolsConfiguration _configuration;
+    private readonly ILocalizationService _localizationService;
 
-    public ConfigurationWizard(ILogger<ConfigurationWizard> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, ConfigurationWizardService configurationWizardService, string name = "Configuration Wizard") : base(logger, mediator, imGuiService, configuration, name)
+    public ConfigurationWizard(ILogger<ConfigurationWizard> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, ConfigurationWizardService configurationWizardService, ILocalizationService localizationService, string name = "Configuration Wizard") : base(logger, mediator, imGuiService, configuration, name)
     {
         _configurationWizardService = configurationWizardService;
         _configuration = configuration;
+        _localizationService = localizationService;
     }
     private List<IFeature> _availableFeatures = new();
     private int _currentFeature;

@@ -24,7 +24,7 @@ public class MarketBoardUseActiveWorldSetting : BooleanSetting
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Market;
     public override string Version { get; } = "1.7.0.0";
 
-    public MarketBoardUseActiveWorldSetting(ILogger<MarketBoardUseActiveWorldSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public MarketBoardUseActiveWorldSetting(ILogger<MarketBoardUseActiveWorldSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

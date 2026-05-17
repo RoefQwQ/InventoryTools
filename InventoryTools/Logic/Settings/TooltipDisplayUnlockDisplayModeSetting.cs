@@ -14,11 +14,11 @@ public enum TooltipDisplayUnlockDisplayMode
 
 public class TooltipDisplayUnlockDisplayModeSetting : GenericEnumChoiceSetting<TooltipDisplayUnlockDisplayMode>
 {
-    public TooltipDisplayUnlockDisplayModeSetting(ILogger<TooltipDisplayUnlockDisplayModeSetting> logger, ImGuiService imGuiService) : base("TooltipDisplayUnlockDisplayMode", "Add Item Unlock Status (Display Mode)", "How should the item unlock status tooltip be displayed?", TooltipDisplayUnlockDisplayMode.CharacterPerLine, new Dictionary<TooltipDisplayUnlockDisplayMode, string>()
+    public TooltipDisplayUnlockDisplayModeSetting(ILogger<TooltipDisplayUnlockDisplayModeSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base("TooltipDisplayUnlockDisplayMode", "Add Item Unlock Status (Display Mode)", "How should the item unlock status tooltip be displayed?", TooltipDisplayUnlockDisplayMode.CharacterPerLine, new Dictionary<TooltipDisplayUnlockDisplayMode, string>()
     {
         { TooltipDisplayUnlockDisplayMode.CharacterPerLine , "Character Per Line" },
         { TooltipDisplayUnlockDisplayMode.GroupedByUnlockStatus , "Grouped By Unlock Status" },
-    }, SettingCategory.ToolTips, SettingSubCategory.ItemUnlockStatus, "1.11.1.1", logger, imGuiService)
+    }, SettingCategory.ToolTips, SettingSubCategory.ItemUnlockStatus, "1.11.1.1", logger, imGuiService, localizationService)
     {
     }
 }

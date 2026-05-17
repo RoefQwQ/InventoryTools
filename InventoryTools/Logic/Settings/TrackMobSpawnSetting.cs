@@ -13,7 +13,7 @@ public class TrackMobSpawnSetting : BooleanSetting
     private readonly IFileDialogManager _fileDialogManager;
     private readonly IMobTracker _mobTracker;
 
-    public TrackMobSpawnSetting(ILogger<TrackMobSpawnSetting> logger, ImGuiService imGuiService, IFileDialogManager fileDialogManager, IMobTracker mobTracker) : base(logger, imGuiService)
+    public TrackMobSpawnSetting(ILogger<TrackMobSpawnSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, IFileDialogManager fileDialogManager, IMobTracker mobTracker) : base(logger, imGuiService, localizationService)
     {
         _fileDialogManager = fileDialogManager;
         _mobTracker = mobTracker;

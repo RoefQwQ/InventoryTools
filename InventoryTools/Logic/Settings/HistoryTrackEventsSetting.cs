@@ -62,7 +62,7 @@ public class HistoryTrackEventsSetting : MultipleChoiceSetting<InventoryChangeRe
     public override bool HideAlreadyPicked { get; set; } = true;
     public override string Version => "1.7.0.0";
 
-    public HistoryTrackEventsSetting(ILogger<HistoryTrackEventsSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public HistoryTrackEventsSetting(ILogger<HistoryTrackEventsSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

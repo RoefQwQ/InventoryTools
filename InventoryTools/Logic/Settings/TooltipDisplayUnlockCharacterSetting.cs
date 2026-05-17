@@ -11,7 +11,7 @@ public class TooltipDisplayUnlockCharacterSetting : MultipleChoiceSetting<ulong>
 {
     private readonly ICharacterMonitor _characterMonitor;
 
-    public TooltipDisplayUnlockCharacterSetting(ICharacterMonitor characterMonitor, ILogger<TooltipDisplayUnlockCharacterSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TooltipDisplayUnlockCharacterSetting(ICharacterMonitor characterMonitor, ILogger<TooltipDisplayUnlockCharacterSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
         _characterMonitor = characterMonitor;
     }

@@ -22,10 +22,12 @@ namespace InventoryTools.Ui;
 public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWindow
 {
     private readonly RetainerTaskSheet _retainerTaskSheet;
+    private readonly ILocalizationService _localizationService;
 
-    public RetainerTasksWindow(ILogger<RetainerTasksWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, RetainerTaskSheet retainerTaskSheet, string name = "Retainer Ventures") : base(logger, mediator, imGuiService, configuration, name)
+    public RetainerTasksWindow(ILogger<RetainerTasksWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, RetainerTaskSheet retainerTaskSheet, ILocalizationService localizationService, string name = "Retainer Ventures") : base(logger, mediator, imGuiService, configuration, name)
     {
         _retainerTaskSheet = retainerTaskSheet;
+        _localizationService = localizationService;
     }
     public override void Initialize()
     {

@@ -12,7 +12,7 @@ public class MarketBoardExtraWorldsSetting : MultipleChoiceSetting<uint>
 {
     private readonly ExcelSheet<World> _worldSheet;
 
-    public MarketBoardExtraWorldsSetting(ILogger<MarketBoardExtraWorldsSetting> logger, ImGuiService imGuiService, ExcelSheet<World> worldSheet) : base(logger, imGuiService)
+    public MarketBoardExtraWorldsSetting(ILogger<MarketBoardExtraWorldsSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, ExcelSheet<World> worldSheet) : base(logger, imGuiService, localizationService)
     {
         _worldSheet = worldSheet;
     }

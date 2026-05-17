@@ -21,11 +21,13 @@ namespace InventoryTools.Ui
     {
         private readonly AirshipExplorationPointSheet _airshipExplorationPointSheet;
         private readonly ItemSheet _itemSheet;
+        private readonly ILocalizationService _localizationService;
 
-        public AirshipWindow(ILogger<AirshipWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, AirshipExplorationPointSheet airshipExplorationPointSheet, ItemSheet itemSheet, string name = "Airship Window") : base(logger, mediator, imGuiService, configuration, name)
+        public AirshipWindow(ILogger<AirshipWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, AirshipExplorationPointSheet airshipExplorationPointSheet, ItemSheet itemSheet, ILocalizationService localizationService, string name = "Airship Window") : base(logger, mediator, imGuiService, configuration, name)
         {
             _airshipExplorationPointSheet = airshipExplorationPointSheet;
             _itemSheet = itemSheet;
+            _localizationService = localizationService;
         }
         public override void Initialize(uint airshipExplorationPointId)
         {

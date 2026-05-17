@@ -24,12 +24,14 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
     private readonly AirshipExplorationPointSheet _airshipExplorationPointSheet;
     private readonly ItemInfoCache _itemInfoCache;
     private readonly ItemSheet _itemSheet;
+    private readonly ILocalizationService _localizationService;
 
-    public AirshipsWindow(ILogger<AirshipsWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, AirshipExplorationPointSheet airshipExplorationPointSheet, ItemInfoCache itemInfoCache, ItemSheet itemSheet, string name = "Airships Window") : base(logger, mediator, imGuiService, configuration, name)
+    public AirshipsWindow(ILogger<AirshipsWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, AirshipExplorationPointSheet airshipExplorationPointSheet, ItemInfoCache itemInfoCache, ItemSheet itemSheet, ILocalizationService localizationService, string name = "Airships Window") : base(logger, mediator, imGuiService, configuration, name)
     {
         _airshipExplorationPointSheet = airshipExplorationPointSheet;
         _itemInfoCache = itemInfoCache;
         _itemSheet = itemSheet;
+        _localizationService = localizationService;
     }
     public override void Initialize()
     {

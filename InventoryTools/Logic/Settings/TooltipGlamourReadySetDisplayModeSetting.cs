@@ -38,7 +38,7 @@ public class TooltipGlamourReadySetDisplayModeSetting : ChoiceSetting<GlamourRea
 
     public override string Version => "1.12.0.0";
 
-    public TooltipGlamourReadySetDisplayModeSetting(ILogger<TooltipGlamourReadySetDisplayModeSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TooltipGlamourReadySetDisplayModeSetting(ILogger<TooltipGlamourReadySetDisplayModeSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

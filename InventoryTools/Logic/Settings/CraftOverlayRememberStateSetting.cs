@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Settings;
 public class CraftOverlayRememberStateSetting : GenericBooleanSetting
 {
     public CraftOverlayRememberStateSetting(ILogger<CraftOverlayRememberStateSetting> logger,
-        ImGuiService imGuiService) : base("CraftOverlayRememberState",
+        ImGuiService imGuiService, ILocalizationService localizationService) : base("CraftOverlayRememberState",
         "Remember State",
         "Should the craft overlay stay open between plugin reloads/game reloads?",
         true,
@@ -16,7 +16,8 @@ public class CraftOverlayRememberStateSetting : GenericBooleanSetting
         SettingSubCategory.General,
         "1.11.0.8",
         logger,
-        imGuiService)
+        imGuiService,
+        localizationService)
     {
     }
 }

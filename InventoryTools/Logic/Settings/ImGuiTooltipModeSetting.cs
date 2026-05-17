@@ -16,7 +16,7 @@ public enum ImGuiTooltipMode
 public class ImGuiTooltipModeSetting : GenericEnumChoiceSetting<ImGuiTooltipMode>
 {
     public ImGuiTooltipModeSetting(ILogger<ImGuiTooltipModeSetting> logger,
-        ImGuiService imGuiService) : base("ImGuiTooltipMode",
+        ImGuiService imGuiService, ILocalizationService localizationService) : base("ImGuiTooltipMode",
         "Item Tooltip Mode",
         "Should a tooltip for items be shown, never, when hovering an item's icon or when hovering any row within an item table?",
         ImGuiTooltipMode.Icons,
@@ -30,7 +30,8 @@ public class ImGuiTooltipModeSetting : GenericEnumChoiceSetting<ImGuiTooltipMode
         SettingSubCategory.General,
         "1.11.0.8",
         logger,
-        imGuiService)
+        imGuiService,
+        localizationService)
     {
     }
 }

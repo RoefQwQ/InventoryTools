@@ -20,6 +20,7 @@ namespace InventoryTools.Ui
     {
         private readonly SubmarineExplorationSheet _submarineExplorationSheet;
         private readonly ItemSheet _itemSheet;
+        private readonly ILocalizationService _localizationService;
 
         public SubmarineWindow(ILogger<SubmarineWindow> logger,
             MediatorService mediator,
@@ -27,6 +28,7 @@ namespace InventoryTools.Ui
             InventoryToolsConfiguration configuration,
             SubmarineExplorationSheet submarineExplorationSheet,
             ItemSheet itemSheet,
+            ILocalizationService localizationService,
             string name = "Submarine Window") : base(logger,
             mediator,
             imGuiService,
@@ -35,6 +37,7 @@ namespace InventoryTools.Ui
         {
             _submarineExplorationSheet = submarineExplorationSheet;
             _itemSheet = itemSheet;
+            _localizationService = localizationService;
         }
         public override void Initialize(uint submarineExplorationPointId)
         {

@@ -7,7 +7,7 @@ namespace InventoryTools.Logic.Settings;
 
 public class TooltipAmountOwnedSortSetting : ChoiceSetting<TooltipAmountOwnedSort>
 {
-    public TooltipAmountOwnedSortSetting(ILogger<TooltipAmountOwnedSortSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TooltipAmountOwnedSortSetting(ILogger<TooltipAmountOwnedSortSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 

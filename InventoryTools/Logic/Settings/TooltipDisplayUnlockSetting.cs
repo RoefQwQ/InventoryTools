@@ -6,7 +6,7 @@ namespace InventoryTools.Logic.Settings;
 
 public class TooltipDisplayUnlockSetting : BooleanSetting
 {
-    public TooltipDisplayUnlockSetting(ILogger<TooltipDisplayUnlockSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TooltipDisplayUnlockSetting(ILogger<TooltipDisplayUnlockSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 

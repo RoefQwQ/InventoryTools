@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Settings.Abstract.Generic;
 public abstract class GenericEnumChoiceSetting<TEnum> : ChoiceSetting<TEnum>
     where TEnum : Enum, IComparable
 {
-    protected GenericEnumChoiceSetting(string key, string name, string helpText, TEnum defaultValue, Dictionary<TEnum, string> choices, SettingCategory settingCategory, SettingSubCategory settingSubCategory, string version, ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    protected GenericEnumChoiceSetting(string key, string name, string helpText, TEnum defaultValue, Dictionary<TEnum, string> choices, SettingCategory settingCategory, SettingSubCategory settingSubCategory, string version, ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
         Key = key;
         Name = name;

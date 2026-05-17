@@ -9,7 +9,7 @@ namespace InventoryTools.Logic.Settings
     {
         private readonly MarketCacheConfiguration _marketCacheConfiguration;
 
-        public AutomaticallyDownloadPricesSetting(ILogger<AutomaticallyDownloadPricesSetting> logger, ImGuiService imGuiService, MarketCacheConfiguration marketCacheConfiguration) : base(logger, imGuiService)
+        public AutomaticallyDownloadPricesSetting(ILogger<AutomaticallyDownloadPricesSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, MarketCacheConfiguration marketCacheConfiguration) : base(logger, imGuiService, localizationService)
         {
             _marketCacheConfiguration = marketCacheConfiguration;
         }

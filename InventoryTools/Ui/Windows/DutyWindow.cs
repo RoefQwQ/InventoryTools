@@ -25,6 +25,7 @@ namespace InventoryTools.Ui
 {
     class DutyWindow : UintWindow
     {
+        private readonly ILocalizationService _localizationService;
         private readonly ContentFinderConditionSheet _contentFinderConditionSheet;
         private readonly ItemInfoCache _itemInfoCache;
         private readonly BNpcNameSheet _bNpcNameSheet;
@@ -34,6 +35,7 @@ namespace InventoryTools.Ui
             MediatorService mediator,
             ImGuiService imGuiService,
             InventoryToolsConfiguration configuration,
+            ILocalizationService localizationService,
             ContentFinderConditionSheet contentFinderConditionSheet,
             ItemInfoCache itemInfoCache,
             BNpcNameSheet bNpcNameSheet,
@@ -44,6 +46,7 @@ namespace InventoryTools.Ui
             configuration,
             name)
         {
+            _localizationService = localizationService;
             _contentFinderConditionSheet = contentFinderConditionSheet;
             _itemInfoCache = itemInfoCache;
             _bNpcNameSheet = bNpcNameSheet;

@@ -27,7 +27,7 @@ public class TooltipHeaderLinesSetting : IntegerSetting
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Visuals;
     public override string Version => "1.7.0.0";
 
-    public TooltipHeaderLinesSetting(ILogger<TooltipHeaderLinesSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TooltipHeaderLinesSetting(ILogger<TooltipHeaderLinesSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

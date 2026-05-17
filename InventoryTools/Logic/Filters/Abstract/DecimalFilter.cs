@@ -8,6 +8,8 @@ namespace InventoryTools.Logic.Filters.Abstract
 {
     public abstract class DecimalFilter : Filter<decimal?>
     {
+        private readonly ILocalizationService _localizationService;
+
         public override decimal? DefaultValue { get; set; } = null;
 
         public override bool HasValueSet(FilterConfiguration configuration)

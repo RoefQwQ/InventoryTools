@@ -16,7 +16,7 @@ public class SampleFilter100GillOrLess : BooleanSetting, ISampleFilter
     private readonly FilterConfiguration.Factory _filterConfigFactory;
     private readonly Lazy<SourceInventoriesFilter> _sourceInventoriesFilter;
 
-    public SampleFilter100GillOrLess(ILogger<SampleFilter100GillOrLess> logger, ImGuiService imGuiService, IListService listService, BuyFromVendorPriceFilter buyFromVendorPriceFilter, FilterConfiguration.Factory filterConfigFactory, Lazy<SourceInventoriesFilter> sourceInventoriesFilter) : base(logger, imGuiService)
+    public SampleFilter100GillOrLess(ILogger<SampleFilter100GillOrLess> logger, ImGuiService imGuiService, ILocalizationService localizationService, IListService listService, BuyFromVendorPriceFilter buyFromVendorPriceFilter, FilterConfiguration.Factory filterConfigFactory, Lazy<SourceInventoriesFilter> sourceInventoriesFilter) : base(logger, imGuiService, localizationService)
     {
         _listService = listService;
         _buyFromVendorPriceFilter = buyFromVendorPriceFilter;

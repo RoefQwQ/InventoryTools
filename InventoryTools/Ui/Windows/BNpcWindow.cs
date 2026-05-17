@@ -32,6 +32,7 @@ namespace InventoryTools.Ui
         private readonly TerritoryTypeSheet _territoryTypeSheet;
         private readonly ItemSheet _itemSheet;
         private readonly IListService _listService;
+        private readonly ILocalizationService _localizationService;
         private readonly EquipSlot[] _equipSlots = [EquipSlot.MainHand, EquipSlot.OffHand, EquipSlot.Head, EquipSlot.Gloves, EquipSlot.Body, EquipSlot.Legs, EquipSlot.Feet, EquipSlot.FingerL, EquipSlot.FingerR];
 
         public BNpcWindow(ILogger<BNpcWindow> logger,
@@ -44,6 +45,7 @@ namespace InventoryTools.Ui
             TerritoryTypeSheet territoryTypeSheet,
             ItemSheet itemSheet,
             IListService listService,
+            ILocalizationService localizationService,
             string name = "Mob Window") : base(logger, mediator, imGuiService, configuration, name)
         {
             _chatUtilities = chatUtilities;
@@ -52,6 +54,7 @@ namespace InventoryTools.Ui
             _territoryTypeSheet = territoryTypeSheet;
             _itemSheet = itemSheet;
             _listService = listService;
+            _localizationService = localizationService;
         }
         public override void Initialize(uint bNpcId)
         {

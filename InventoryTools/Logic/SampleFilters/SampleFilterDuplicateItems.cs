@@ -19,10 +19,10 @@ public class SampleFilterDuplicateItems : BooleanSetting, ISampleFilter
     private readonly HighlightWhenFilter _highlightWhenFilter;
 
     public SampleFilterDuplicateItems(ILogger<SampleFilterDuplicateItems> logger, ImGuiService imGuiService,
-        IListService listService, FilterConfiguration.Factory filterConfigFactory,
+        ILocalizationService localizationService, IListService listService, FilterConfiguration.Factory filterConfigFactory,
         SourceInventoriesFilter sourceInventoriesFilter,
         DestinationInventoriesFilter destinationInventoriesFilter,
-        HighlightWhenFilter highlightWhenFilter) : base(logger, imGuiService)
+        HighlightWhenFilter highlightWhenFilter) : base(logger, imGuiService, localizationService)
     {
         _listService = listService;
         _filterConfigFactory = filterConfigFactory;

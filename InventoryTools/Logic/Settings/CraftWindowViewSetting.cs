@@ -15,9 +15,9 @@ public enum CraftWindowView
 
 public class CraftWindowViewSetting : GenericEnumChoiceSetting<CraftWindowView>
 {
-    public CraftWindowViewSetting(ILogger<CraftWindowViewSetting> logger, ImGuiService imGuiService) : base("CraftWindowView", "Craft Window View", "What view is the craft list currently in?",CraftWindowView.Crafts, new Dictionary<CraftWindowView, string>(){
+    public CraftWindowViewSetting(ILogger<CraftWindowViewSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base("CraftWindowView", "Craft Window View", "What view is the craft list currently in?",CraftWindowView.Crafts, new Dictionary<CraftWindowView, string>(){
         { CraftWindowView.Crafts , "Crafts"}, { CraftWindowView.Configuration, "Configuration"},
-        { CraftWindowView.Tree, "Treeview"}}, SettingCategory.None, SettingSubCategory.None, "12.0.20", logger, imGuiService)
+        { CraftWindowView.Tree, "Treeview"}}, SettingCategory.None, SettingSubCategory.None, "12.0.20", logger, imGuiService, localizationService)
     {
     }
 }

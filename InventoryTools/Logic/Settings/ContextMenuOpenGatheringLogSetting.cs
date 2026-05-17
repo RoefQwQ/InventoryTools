@@ -6,7 +6,7 @@ namespace InventoryTools.Logic.Settings;
 
 public class ContextMenuOpenGatheringLogSetting : BooleanSetting
 {
-    public ContextMenuOpenGatheringLogSetting(ILogger<ContextMenuOpenGatheringLogSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public ContextMenuOpenGatheringLogSetting(ILogger<ContextMenuOpenGatheringLogSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 

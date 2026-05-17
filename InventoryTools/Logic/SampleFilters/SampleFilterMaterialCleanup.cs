@@ -21,9 +21,9 @@ public class SampleFilterMaterialCleanup : BooleanSetting, ISampleFilter
     private readonly HighlightWhenFilter _highlightWhenFilter;
 
     public SampleFilterMaterialCleanup(ILogger<SampleFilterMaterialCleanup> logger, ImGuiService imGuiService,
-        IListService listService, Func<ItemInfoRenderCategory, GenericHasSourceCategoryFilter> hasSourceCategoryFactory,
+        ILocalizationService localizationService, IListService listService, Func<ItemInfoRenderCategory, GenericHasSourceCategoryFilter> hasSourceCategoryFactory,
         FilterConfiguration.Factory filterConfigFactory, SourceInventoriesFilter sourceInventoriesFilter,
-        DestinationInventoriesFilter destinationInventoriesFilter, HighlightWhenFilter highlightWhenFilter) : base(logger, imGuiService)
+        DestinationInventoriesFilter destinationInventoriesFilter, HighlightWhenFilter highlightWhenFilter) : base(logger, imGuiService, localizationService)
     {
         _listService = listService;
         _hasSourceCategoryFactory = hasSourceCategoryFactory;

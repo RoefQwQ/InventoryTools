@@ -24,7 +24,7 @@ public class ToolTipLocationLimitSetting : IntegerSetting
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.AddItemLocations;
     public override string Version => "1.7.0.0";
 
-    public ToolTipLocationLimitSetting(ILogger<ToolTipLocationLimitSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public ToolTipLocationLimitSetting(ILogger<ToolTipLocationLimitSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }

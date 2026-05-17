@@ -45,6 +45,7 @@ namespace InventoryTools.Ui
         private readonly IComponentContext _context;
         private readonly InventoryToolsConfiguration _configuration;
         private readonly VerticalSplitter _verticalSplitter;
+        private readonly ILocalizationService _localizationService;
         private IEnumerable<IMenuWindow>? _menuWindows;
         private FilterConfiguration? _nextFilter;
 
@@ -63,12 +64,14 @@ namespace InventoryTools.Ui
             SettingPage.Factory settingPageFactory,
             FilterConfiguration.Factory filterConfigurationFactory,
             IEnumerable<ISampleFilter> sampleFilters,
-            IComponentContext context) : base(logger,
+            IComponentContext context,
+            ILocalizationService localizationService) : base(logger,
             mediator,
             imGuiService,
             configuration,
             "Configuration Window")
         {
+            _localizationService = localizationService;
             _pluginLog = pluginLog;
             _configurationWizardService = configurationWizardService;
             _chatUtilities = chatUtilities;

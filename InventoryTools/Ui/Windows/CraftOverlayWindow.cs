@@ -55,6 +55,7 @@ public class CraftOverlayWindow : OverlayWindow
     private readonly CraftGroupingLocalizer _craftGroupingLocalizer;
     private readonly ISeTime _seTime;
     private readonly MapSheet _mapSheet;
+    private readonly ILocalizationService _localizationService;
 
     public CraftOverlayWindow(ILogger<CraftOverlayWindow> logger,
         InventoryToolsConfiguration configuration,
@@ -77,14 +78,15 @@ public class CraftOverlayWindow : OverlayWindow
         CraftOverlayHideSetting overlayHideSetting,
         ShopMonitorService shopMonitorService,
         CraftGroupingLocalizer craftGroupingLocalizer,
-        ISeTime seTime) : base(logger,
+        ISeTime seTime,
+        ILocalizationService localizationService) : base(logger,
         configuration,
         addonLifecycle,
         gameGui,
         pluginLog,
         mediator,
         imGuiService,
-        _localizationService["Window_CraftOverlay_Title"])
+        localizationService["Window_CraftOverlay_Title"])
     {
         _listService = listService;
         _mapSheet = mapSheet;
@@ -101,6 +103,7 @@ public class CraftOverlayWindow : OverlayWindow
         _shopMonitorService = shopMonitorService;
         _craftGroupingLocalizer = craftGroupingLocalizer;
         _seTime = seTime;
+        _localizationService = localizationService;
     }
 
     public override void Initialize()

@@ -31,7 +31,7 @@ public partial class TooltipDisplayRetrieveAmountSetting : BooleanSetting
 
     public override uint? Order => 0;
 
-    public TooltipDisplayRetrieveAmountSetting(ILogger<TooltipDisplayRetrieveAmountSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+    public TooltipDisplayRetrieveAmountSetting(ILogger<TooltipDisplayRetrieveAmountSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
     }
 }
