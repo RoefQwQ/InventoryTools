@@ -67,7 +67,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                WindowName = "Unknown Mob";
+                WindowName = _localizationService["Window_BNpc_UnknownMob"];
             }
         }
 
@@ -77,21 +77,21 @@ namespace InventoryTools.Ui
         private List<MobSpawnPosition>? _mobSpawns;
 
         private BNpcNameRow? bNpc => _bNpcNameSheet.GetRowOrDefault(_bNpcId);
-        public override string GenericName => "Mob";
+        public override string GenericName => _localizationService["Window_BNpc_GenericName"];
         public override bool DestroyOnClose => true;
         public override void DrawWindow()
         {
             if (bNpc == null)
             {
-                ImGui.TextUnformatted("bNpc with the ID " + _bNpcId + " could not be found.");
+                ImGui.TextUnformatted(_localizationService.GetString("Window_BNpc_NotFound", _bNpcId));
             }
             else
             {
-                ImGui.Text("Type: " + string.Join(", ", bNpc.MobTypes.Select(c => c.ToString())));
+                ImGui.Text(_localizationService["Window_BNpc_Type"] + string.Join(", ", bNpc.MobTypes.Select(c => c.ToString())));
 
                 if (bNpc.NotoriousMonster != null)
                 {
-                    ImGui.Text("Rank: " + bNpc.NotoriousMonster?.RankFormatted());
+                    ImGui.Text(_localizationService["Window_BNpc_Rank"] + bNpc.NotoriousMonster?.RankFormatted());
                 }
 
                 var garlandId = bNpc.GarlandToolsId;
@@ -103,7 +103,7 @@ namespace InventoryTools.Ui
                         $"https://www.garlandtools.org/db/#mob/{garlandId}".OpenBrowser();
                     }
 
-                    ImGuiUtil.HoverTooltip("Open in Garland Tools");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_BNpc_TooltipGarland"]);
                     ImGui.SameLine();
                 }
 
@@ -112,12 +112,12 @@ namespace InventoryTools.Ui
                 {
                     $"https://ffxivteamcraft.com/db/en/mob/{_bNpcId}".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Teamcraft");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_BNpc_TooltipTeamcraft"]);
 
                 ImGui.Separator();
 
 
-                if (_mobDrops != null && ImGui.CollapsingHeader("Drops (" + _mobDrops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+                if (_mobDrops != null && ImGui.CollapsingHeader(_localizationService["Window_BNpc_DropsHeader"] + _mobDrops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
@@ -172,7 +172,7 @@ namespace InventoryTools.Ui
 
                 ImGui.NewLine();
 
-                if (_mobSpawns != null && ImGui.CollapsingHeader("Locations (" + _mobSpawns.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+                if (_mobSpawns != null && ImGui.CollapsingHeader(_localizationService["Window_BNpc_LocationsHeader"] + _mobSpawns.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
@@ -219,7 +219,7 @@ namespace InventoryTools.Ui
                 var firstBase = bNpc.RelatedBases.FirstOrDefault();
                 if (firstBase != null && firstBase.GetRelatedItems().Count != 0)
                 {
-                    if (ImGui.CollapsingHeader("Shared Models", ImGuiTreeNodeFlags.DefaultOpen))
+                    if (ImGui.CollapsingHeader(_localizationService["Window_BNpc_SharedModelsHeader"], ImGuiTreeNodeFlags.DefaultOpen))
                     {
                         using (ImRaii.PushIndent())
                         {
@@ -258,7 +258,7 @@ namespace InventoryTools.Ui
                                     c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
                             if (craftFilters.Length != 0)
                             {
-                                using var menu = ImRaii.Menu("Add to Craft List");
+                                using var menu = ImRaii.Menu(_localizationService["Window_BNpc_MenuAddToCraftList"]);
                                 if (menu)
                                 {
                                     foreach (var filter in craftFilters)
@@ -280,7 +280,7 @@ namespace InventoryTools.Ui
                                 }
                             }
 
-                            if (ImGui.MenuItem("Add to new Craft List"))
+                            if (ImGui.MenuItem(_localizationService["Window_BNpc_MenuAddToNewCraftList"]))
                             {
                                 var filter = _listService.AddNewCraftList();
                                 foreach (var slot in _equipSlots)
@@ -297,7 +297,7 @@ namespace InventoryTools.Ui
                                 filter.NeedsRefresh = true;
                             }
 
-                            if (ImGui.MenuItem("Add to new Craft List (ephemeral)"))
+                            if (ImGui.MenuItem(_localizationService["Window_BNpc_MenuAddToNewCraftListEphemeral"]))
                             {
                                 var filter = _listService.AddNewCraftList(null, true);
                                 foreach (var slot in _equipSlots)

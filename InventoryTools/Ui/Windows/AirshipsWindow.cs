@@ -37,7 +37,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
         Key = GenericKey;
         _columns = new List<TableColumn<AirshipExplorationPointRow>>()
         {
-            new("Icon", 32, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Airships_ColumnIcon"], 32, ImGuiTableColumnFlags.WidthFixed)
             {
                 OnLeftClick = OnLeftClick,
                 Draw = (ex, contentTypeId) =>
@@ -49,7 +49,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     }
                 }
             },
-            new("Name", 150, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Airships_ColumnName"], 150, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -73,7 +73,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted(ex.Base.NameShort.ExtractText().ToString());
                 }
             },
-            new("Unlock Zone", 150, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Airships_ColumnUnlockZone"], 150, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -100,7 +100,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     }
                 }
             },
-            new("Rank Required", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Airships_ColumnRankRequired"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -124,7 +124,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.RankReq.ToString() ?? "").ToString());
                 }
             },
-            new("Ceruleum Required", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Airships_ColumnCeruleumRequired"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -148,7 +148,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.CeruleumTankReq.ToString() ?? "").ToString());
                 }
             },
-            new("Survey Duration (minutes)", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Airships_ColumnSurveyDuration"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -172,7 +172,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.SurveyDurationmin.ToString() ?? "").ToString());
                 }
             },
-            new("Surveillance Required", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Airships_ColumnSurveillanceRequired"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -196,7 +196,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.SurveillanceReq.ToString() ?? "").ToString());
                 }
             },
-            new("Drops", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
+            new(_localizationService["Window_Airships_ColumnDrops"], 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
             {
                 Sort = (specs, exes) =>
                 {
@@ -256,7 +256,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
         };
         _tabs = new Dictionary<uint, string>()
         {
-            {0, "All"}
+            {0, _localizationService["Window_Airships_TabAll"]}
         };
         _items = new Dictionary<uint, List<AirshipExplorationPointRow>>();
         _filteredItems = new Dictionary<uint, List<AirshipExplorationPointRow>>();
@@ -269,7 +269,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
     }
 
     public override string GenericKey => "airships";
-    public override string GenericName => "Airships";
+    public override string GenericName => _localizationService["Window_Airships_GenericName"];
     public override bool DestroyOnClose => false;
     public override bool SaveState => true;
     public override Vector2? MaxSize { get; } = new(2000, 2000);

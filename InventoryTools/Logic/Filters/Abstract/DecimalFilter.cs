@@ -56,7 +56,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             if (HasValueSet(configuration) && ShowReset)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button(_localizationService["Filter_Decimal_ButtonReset"] + "##" + Key + "Reset"))
                 {
                     ResetFilter(configuration);
                 }
@@ -74,8 +74,9 @@ namespace InventoryTools.Logic.Filters.Abstract
             UpdateFilterConfiguration(configuration, DefaultValue);
         }
 
-        protected DecimalFilter(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        protected DecimalFilter(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            _localizationService = localizationService;
         }
     }
 }

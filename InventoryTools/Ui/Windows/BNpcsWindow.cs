@@ -57,14 +57,14 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
     }
     public override void Initialize()
     {
-        WindowName = "Mobs";
+        WindowName = _localizationService["Window_BNpcs_Title"];
         Key = "mobs";
         var mobSpawns = _mobSpawnPositions;
         var availableTerritories = mobSpawns.Select(c => c.TerritoryTypeId).ToHashSet();
         _mappedMobs = mobSpawns.Select(c => (c.BNpcNameId, c.TerritoryTypeId)).GroupBy(c => c.BNpcNameId).ToDictionary(c => c.Key, c => c.Select(c => c.TerritoryTypeId).ToHashSet());
         _columns = new List<TableColumn<BNpcNameRow>>()
         {
-            new("Icon", 32, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_BNpcs_ColumnIcon"], 32, ImGuiTableColumnFlags.WidthFixed)
             {
                 OnLeftClick = OnLeftClick,
                 Draw = (ex, contentTypeId) =>
@@ -76,7 +76,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                     }
                 }
             },
-            new("ID", 50, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.DefaultHide)
+            new(_localizationService["Window_BNpcs_ColumnID"], 50, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.DefaultHide)
             {
                 Sort = (specs, exes) =>
                 {
@@ -100,7 +100,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                     ImGui.TextUnformatted(ex.RowId.ToString());
                 }
             },
-            new("Name", 150, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_BNpcs_ColumnName"], 150, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -124,7 +124,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                     ImGui.TextUnformatted(ex.Base.Singular.ExtractText());
                 }
             },
-            new("Type", 70, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_BNpcs_ColumnType"], 70, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -148,7 +148,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                     ImGui.TextUnformatted(String.Join(",", ex.MobTypes.Select(d => d.ToString())));
                 }
             },
-            new("Locations", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
+            new(_localizationService["Window_BNpcs_ColumnLocations"], 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
             {
                 Draw = (ex, contentTypeId) =>
                 {
@@ -174,7 +174,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                             if (ImGui.IsItemHovered())
                             {
                                 using var tt = ImRaii.Tooltip();
-                                ImGui.TextUnformatted((territory.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "Unknown") + " - " +
+                                ImGui.TextUnformatted((territory.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? _localizationService["Window_BNpcs_Unknown"]) + " - " +
                                                       position.Position.X +
                                                       " : " + position.Position.Y);
                             }
@@ -185,7 +185,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
 
                 }
             },
-            new("Drops", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
+            new(_localizationService["Window_BNpcs_ColumnDrops"], 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
             {
                 Sort = (specs, exes) =>
                 {
@@ -345,7 +345,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
     public override string TableName => _tableName;
 
     public override string GenericKey => "mobs";
-    public override string GenericName => "Mobs";
+    public override string GenericName => _localizationService["Window_BNpcs_GenericName"];
     public override bool DestroyOnClose => false;
     public override bool SaveState => true;
     public override Vector2? MaxSize { get; } = new(2000, 2000);

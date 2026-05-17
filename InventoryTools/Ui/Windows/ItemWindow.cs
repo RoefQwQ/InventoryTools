@@ -83,6 +83,7 @@ namespace InventoryTools.Ui
         private readonly ItemLocalizer _itemLocalizer;
         private readonly TeleporterService _teleporterService;
         private readonly CraftList.Factory _craftListFactory;
+        private readonly ILocalizationService _localizationService;
         private HashSet<uint> _marketRefreshing = new();
         private HoverButton _refreshPricesButton = new();
 
@@ -93,7 +94,7 @@ namespace InventoryTools.Ui
             IInventoryMonitor inventoryMonitor, ICharacterMonitor characterMonitor, IClipboardService clipboardService,
             ItemInfoRenderService itemInfoRenderService, BNpcNameSheet bNpcNameSheet, MapSheet mapSheet, IUnlockTrackerService unlockTrackerService,
             ImGuiTooltipService tooltipService, ImGuiTooltipModeSetting tooltipModeSetting, ItemLocalizer itemLocalizer, TeleporterService teleporterService,
-            CraftList.Factory craftListFactory,
+            CraftList.Factory craftListFactory, ILocalizationService localizationService,
             string name = "Item Window") : base(
             logger, mediator, imGuiService, configuration, name)
         {
@@ -119,6 +120,7 @@ namespace InventoryTools.Ui
             _itemLocalizer = itemLocalizer;
             _teleporterService = teleporterService;
             _craftListFactory = craftListFactory;
+            _localizationService = localizationService;
         }
 
         private void MarketCacheUpdated(MarketCacheUpdatedMessage obj)
@@ -201,7 +203,7 @@ namespace InventoryTools.Ui
                 Sources = [];
                 Uses = [];
                 OwnedItems = new List<CriticalCommonLib.Models.InventoryItem>();
-                WindowName = "Invalid Item";
+                WindowName = _localizationService["Window_Item_InvalidItem"];
                 Key = "item_unknown";
             }
         }
@@ -266,18 +268,18 @@ namespace InventoryTools.Ui
 
         private List<CriticalCommonLib.Models.InventoryItem> OwnedItems { get; set; }
 
-        public override string GenericName { get; } = "Item";
+        public override string GenericName => _localizationService["Window_Item_GenericName"];
         public override bool DestroyOnClose => true;
         public override void DrawWindow()
         {
             if (Item == null)
             {
-                ImGui.TextUnformatted("Item with the ID " + _itemId + " could not be found.");
+                ImGui.TextUnformatted(_localizationService.GetString("Window_Item_NotFound", _itemId));
             }
             else
             {
-                ImGui.TextUnformatted("Item Level " + Item.Base.LevelItem.RowId.ToString());
-                ImGui.TextUnformatted("Patch " + Item.Patch);
+                ImGui.TextUnformatted(_localizationService.GetString("Window_Item_ItemLevel", Item.Base.LevelItem.RowId));
+                ImGui.TextUnformatted(_localizationService.GetString("Window_Item_Patch", Item.Patch));
                 if (Item.CanBeDesynthed && Item.Base.ClassJobRepair.RowId != 0)
                 {
                     ImGui.TextUnformatted("Desynth with " + (Item.Base.ClassJobRepair.ValueNullable?.Name.ToString().ToTitleCase() ?? "Unknown"));
@@ -343,7 +345,7 @@ namespace InventoryTools.Ui
                 {
                     $"https://www.garlandtools.org/db/#item/{Item.GarlandToolsId}".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Garland Tools");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInGarlandTools"]);
                 ImGui.SameLine();
 
                 if (ImGui.ImageButton(ImGuiService.GetImageTexture("teamcraft").Handle,
@@ -351,7 +353,7 @@ namespace InventoryTools.Ui
                 {
                     $"https://ffxivteamcraft.com/db/en/item/{_itemId}".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Teamcraft");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInTeamcraft"]);
                 ImGui.SameLine();
 
                 if (ImGui.ImageButton(ImGuiService.GetImageTexture("universalis").Handle,
@@ -359,7 +361,7 @@ namespace InventoryTools.Ui
                 {
                     $"https://universalis.app/market/{_itemId}".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Universalis");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInUniversalis"]);
                 ImGui.SameLine();
 
                 if (ImGui.ImageButton(ImGuiService.GetImageTexture("gamerescape").Handle,
@@ -372,7 +374,7 @@ namespace InventoryTools.Ui
                         name = name.Substring(2);
                     $"https://ffxiv.gamerescape.com/wiki/{HttpUtility.UrlEncode(name)}?useskin=Vector".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Gamer Escape");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInGamerEscape"]);
                 ImGui.SameLine();
 
                 if (ImGui.ImageButton(ImGuiService.GetImageTexture("consolegameswiki").Handle,
@@ -385,7 +387,7 @@ namespace InventoryTools.Ui
                         name = name.Substring(2);
                     $"https://ffxiv.consolegameswiki.com/wiki/{HttpUtility.UrlEncode(name)}".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Console Games Wiki");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInConsoleGamesWiki"]);
 
                 if (Item.CanOpenCraftingLog)
                 {
@@ -396,11 +398,11 @@ namespace InventoryTools.Ui
                         var result = _gameInterface.OpenCraftingLog(_itemId);
                         if (!result)
                         {
-                            _chatUtilities.PrintError("Could not open the crafting log, you are currently crafting.");
+                            _chatUtilities.PrintError(_localizationService["Window_Item_CraftingLogOpenError"]);
                         }
                     }
 
-                    ImGuiUtil.HoverTooltip("Craftable - Open in Craft Log");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInCraftLog"]);
                 }
                 if (Item.CanBeCrafted)
                 {
@@ -437,7 +439,7 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    ImGuiUtil.HoverTooltip("Craftable - Add to Craft List");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_Item_AddToCraftListTooltip"]);
                 }
                 if (Item.CanBeGathered)
                 {
@@ -448,7 +450,7 @@ namespace InventoryTools.Ui
                         _gameInterface.OpenGatheringLog(_itemId);
                     }
 
-                    ImGuiUtil.HoverTooltip("Gatherable - Open in Gathering Log");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInGatheringLog"]);
 
                     ImGui.SameLine();
                     if (ImGui.ImageButton(ImGuiService.GetIconTexture(63900).Handle,
@@ -457,7 +459,7 @@ namespace InventoryTools.Ui
                         _commandManager.ProcessCommand("/gather " + Item.NameString);
                     }
 
-                    ImGuiUtil.HoverTooltip("Gatherable - Gather with Gatherbuddy");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_Item_GatherWithGatherbuddy"]);
                 }
 
                 if (Item.ObtainedFishing)
@@ -469,7 +471,7 @@ namespace InventoryTools.Ui
                         _gameInterface.OpenFishingLog(_itemId, Item.ObtainedSpearFishing);
                     }
 
-                    ImGuiUtil.HoverTooltip("Gatherable - Open in Fishing Log");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_Item_OpenInFishingLog"]);
 
                     ImGui.SameLine();
                     if (ImGui.ImageButton(ImGuiService.GetIconTexture(63900).Handle,
@@ -478,7 +480,7 @@ namespace InventoryTools.Ui
                         _commandManager.ProcessCommand("/gatherfish " + Item.NameString);
                     }
 
-                    ImGuiUtil.HoverTooltip("Gatherable - Gather with Gatherbuddy");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_Item_GatherWithGatherbuddy"]);
                 }
 
                 ImGui.Separator();
@@ -530,7 +532,7 @@ namespace InventoryTools.Ui
             {
                 return;
             }
-            if (ImGui.CollapsingHeader("Sources (" + Item.Sources.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_Sources", Item.Sources.Count), ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 var messages = _itemInfoRenderService.DrawItemSourceIcons("Sources", new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale, Item.Sources.ToList());
                 MediatorService.Publish(messages);
@@ -583,12 +585,12 @@ namespace InventoryTools.Ui
                     _craftTypeId = 0;
                 }
 
-                string headerName = "Recipes - for crafting this item";
+                string headerName = _localizationService["Window_Item_RecipesForCrafting"];
                 if (ImGui.CollapsingHeader(headerName))
                 {
                     if (_craftTypes.Count > 1)
                     {
-                        using (var combo = ImRaii.Combo("Craft Types",
+                        using (var combo = ImRaii.Combo(_localizationService["Window_Item_CraftTypes"],
                                    _craftTypes.GetValueOrDefault(_craftTypeId.Value, "")))
                         {
                             if (combo)
@@ -693,7 +695,7 @@ namespace InventoryTools.Ui
             if (SharedModels.Count != 0)
             {
                 hasInformation = true;
-                if (ImGui.CollapsingHeader("Shared Models (" + SharedModels.Count + ")"))
+                if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_SharedModels", SharedModels.Count)))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
@@ -749,7 +751,7 @@ namespace InventoryTools.Ui
             if (RecipesAsRequirement.Length != 0)
             {
                 hasInformation = true;
-                if (ImGui.CollapsingHeader("Recipes - Item is a requirement (" + RecipesAsRequirement.Length + ")"))
+                if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_RecipesAsRequirement", RecipesAsRequirement.Length)))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
@@ -813,10 +815,10 @@ namespace InventoryTools.Ui
             if (GatheringSources.Count != 0)
             {
                 hasInformation = true;
-                if (ImGui.CollapsingHeader("Gathering (" + GatheringSources.Count + ")"))
+                if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_Gathering", GatheringSources.Count)))
                 {
                     ImGuiTable.DrawTable("Gathering", GatheringSources, DrawGatheringRow,
-                        ImGuiTableFlags.None, new[] { "", "Level", "Location", "" });
+                        ImGuiTableFlags.None, new[] { "", _localizationService["Window_Item_Level"], _localizationService["Window_Item_Location"], "" });
                 }
             }
 
@@ -829,10 +831,10 @@ namespace InventoryTools.Ui
             if (RetainerTasks.Length != 0)
             {
                 hasInformation = true;
-                if (ImGui.CollapsingHeader("Ventures (" + RetainerTasks.Count() + ")"))
+                if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_Ventures", RetainerTasks.Count())))
                 {
                     ImGuiTable.DrawTable("Ventures", RetainerTasks, DrawRetainerRow, ImGuiTableFlags.SizingStretchProp,
-                        new[] { "Name", "Time", "Quantities" });
+                        new[] { _localizationService["Window_Item_Name"], _localizationService["Window_Item_Time"], _localizationService["Window_Item_Quantities"] });
                 }
             }
 
@@ -845,11 +847,11 @@ namespace InventoryTools.Ui
             if (Vendors.Count != 0)
             {
                 hasInformation = true;
-                if (ImGui.CollapsingHeader("Shops (" + Vendors.Count + ")"))
+                if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_Shops", Vendors.Count)))
                 {
-                    ImGui.TextUnformatted("Shops: ");
+                    ImGui.TextUnformatted(_localizationService["Window_Item_ShopsLabel"]);
                     ImGuiTable.DrawTable("VendorsText", Vendors, DrawSupplierRow, ImGuiTableFlags.None,
-                        new[] { "Shop Name","NPC", "Location", "" });
+                        new[] { _localizationService["Window_Item_ShopName"], _localizationService["Window_Item_NPC"], _localizationService["Window_Item_Location"], "" });
                 }
             }
 
@@ -858,10 +860,10 @@ namespace InventoryTools.Ui
 
         private void DrawOwned()
         {
-            if (ImGui.CollapsingHeader("Owned (" + OwnedItems.Count + ")"))
+            if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_Owned", OwnedItems.Count)))
             {
                 ImGuiTable.DrawTable("OwnedItems", OwnedItems, DrawOwnedItem, ImGuiTableFlags.None,
-                    new[] { "Character","Location", "Qty", "Is HQ?" });
+                    new[] { _localizationService["Window_Item_Character"], _localizationService["Window_Item_Location"], _localizationService["Window_Item_Qty"], _localizationService["Window_Item_IsHQ"] });
             }
         }
 
@@ -879,7 +881,7 @@ namespace InventoryTools.Ui
                 {
                     using (ImRaii.Tooltip())
                     {
-                        ImGui.TextUnformatted("This item has been combined into a single outfit glamour item.");
+                        ImGui.TextUnformatted(_localizationService["Window_Item_GlamourCombined"]);
                     }
                 }
             }
@@ -905,7 +907,7 @@ namespace InventoryTools.Ui
                 ImGui.TextWrapped(tuple.location + " ( " + Math.Round(tuple.location.MapX, 2) + "/" +
                                   Math.Round(tuple.location.MapY, 2) + ")");
                 ImGui.TableNextColumn();
-                if (ImGui.Button("Teleport##t" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
+                if (ImGui.Button(_localizationService["Window_Item_Teleport"] + "##t" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
                                  tuple.location.Map.RowId))
                 {
                     var nearestAetheryte = _teleporterService.GetNearestAetheryte(tuple.location);
@@ -915,7 +917,7 @@ namespace InventoryTools.Ui
                     }
                     _chatUtilities.PrintFullMapLink(tuple.location, Item?.NameString ?? "");
                 }
-                if (ImGui.Button("Map Link##ml" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
+                if (ImGui.Button(_localizationService["Window_Item_MapLink"] + "##ml" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
                                  tuple.location.Map.RowId))
                 {
                     _chatUtilities.PrintFullMapLink(tuple.location, Item?.NameString ?? "");
@@ -924,8 +926,8 @@ namespace InventoryTools.Ui
             else if (tuple.npc is { ENpcBase.IsHouseVendor: true })
             {
                 ImGui.TableNextColumn();
-                ImGui.TextWrapped("Housing Vendor");
-                ImGuiService.HelpMarker("This is a vendor that can be placed inside your house/apartment.");
+                ImGui.TextWrapped(_localizationService["Window_Item_HousingVendor"]);
+                ImGuiService.HelpMarker(_localizationService["Window_Item_HousingVendorTooltip"]);
                 ImGui.TableNextColumn();
             }
             else
@@ -941,7 +943,7 @@ namespace InventoryTools.Ui
             if (Item is { CanBePlacedOnMarket: true })
             {
                 var prePosition = ImGui.GetCursorPos();
-                if (ImGui.CollapsingHeader("Market Pricing",
+                if (ImGui.CollapsingHeader(_localizationService["Window_Item_MarketPricing"],
                         ImGuiTreeNodeFlags.CollapsingHeader | ImGuiTreeNodeFlags.DefaultOpen))
                 {
                     if(_marketRefreshing.Count != 0)
@@ -1016,16 +1018,16 @@ namespace InventoryTools.Ui
                     {
                         RequestMarketPrices();
                     }
-                    ImGuiUtil.HoverTooltip("Refresh the current prices.");
+                    ImGuiUtil.HoverTooltip(_localizationService["Window_Item_RefreshPrices"]);
                     ImGuiTable.DrawTable("MarketPrices", _marketPrices, DrawMarketRow, ImGuiTableFlags.None,
-                        new[] { "Server","Updated At", "Available", "Min. Price" });
+                        new[] { _localizationService["Window_Item_Server"], _localizationService["Window_Item_UpdatedAt"], _localizationService["Window_Item_Available"], _localizationService["Window_Item_MinPrice"] });
                 }
             }
 
             void DrawMarketRow(MarketPricing obj)
             {
                 ImGui.TableNextColumn();
-                ImGui.TextWrapped(_worldSheet.GetRowOrDefault(obj.WorldId)?.Name.ExtractText() ?? "Unknown");
+                ImGui.TextWrapped(_worldSheet.GetRowOrDefault(obj.WorldId)?.Name.ExtractText() ?? _localizationService["Window_Item_Unknown"]);
                 ImGui.TableNextColumn();
                 ImGui.TextWrapped((obj.LastUpdate - DateTime.Now).Humanize(minUnit: TimeUnit.Minute, maxUnit: TimeUnit.Hour, precision: 1) + " ago");
                 ImGui.TableNextColumn();
@@ -1040,7 +1042,7 @@ namespace InventoryTools.Ui
             if (Item?.HasUsesByType(ItemInfoType.SkybuilderHandIn) ?? false)
             {
                 var skybuilderHandIn = Item.GetUsesByType<ItemSkybuilderHandInSource>(ItemInfoType.SkybuilderHandIn).First();
-                if (ImGui.CollapsingHeader("Ishgard Restoration", ImGuiTreeNodeFlags.CollapsingHeader | ImGuiTreeNodeFlags.DefaultOpen))
+                if (ImGui.CollapsingHeader(_localizationService["Window_Item_IshgardRestoration"], ImGuiTreeNodeFlags.CollapsingHeader | ImGuiTreeNodeFlags.DefaultOpen))
                 {
                     var supplyItem = skybuilderHandIn.HWDCrafterSupplyParams;
                     using (var table = ImRaii.Table("SupplyItems", 4 ,ImGuiTableFlags.None))
@@ -1048,17 +1050,17 @@ namespace InventoryTools.Ui
                         if (table.Success)
                         {
                             ImGui.TableNextColumn();
-                            ImGui.TableHeader("Level");
+                            ImGui.TableHeader(_localizationService["Window_Item_Level"]);
                             ImGui.TableNextColumn();
-                            ImGui.TableHeader("Collectable Rating");
+                            ImGui.TableHeader(_localizationService["Window_Item_CollectableRating"]);
                             ImGui.TableNextColumn();
-                            ImGui.TableHeader("XP");
+                            ImGui.TableHeader(_localizationService["Window_Item_XP"]);
                             ImGui.TableNextColumn();
-                            ImGui.TableHeader("Scrip");
+                            ImGui.TableHeader(_localizationService["Window_Item_Scrip"]);
 
                             ImGui.TableNextRow();
                             ImGui.TableNextColumn();
-                            ImGui.TextWrapped("Base");
+                            ImGui.TextWrapped(_localizationService["Window_Item_Base"]);
                             ImGui.TableNextColumn();
                             ImGui.TextWrapped(supplyItem.BaseCollectableRating.ToString());
                             ImGui.TableNextColumn();
@@ -1069,7 +1071,7 @@ namespace InventoryTools.Ui
 
                             ImGui.TableNextRow();
                             ImGui.TableNextColumn();
-                            ImGui.TextWrapped("Mid");
+                            ImGui.TextWrapped(_localizationService["Window_Item_Mid"]);
                             ImGui.TableNextColumn();
                             ImGui.TextWrapped(supplyItem.MidCollectableRating.ToString());
                             ImGui.TableNextColumn();
@@ -1080,7 +1082,7 @@ namespace InventoryTools.Ui
 
                             ImGui.TableNextRow();
                             ImGui.TableNextColumn();
-                            ImGui.TextWrapped("High");
+                            ImGui.TextWrapped(_localizationService["Window_Item_High"]);
                             ImGui.TableNextColumn();
                             ImGui.TextWrapped(supplyItem.HighCollectableRating.ToString());
                             ImGui.TableNextColumn();
@@ -1098,7 +1100,7 @@ namespace InventoryTools.Ui
         {
             if (MobDrops.Length != 0)
             {
-                if (ImGui.CollapsingHeader("Mob Drops (" + MobDrops.Length + ")", ImGuiTreeNodeFlags.CollapsingHeader))
+                if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_MobDrops", MobDrops.Length), ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                      var mobDrops = MobDrops;
                      for (var index = 0; index < mobDrops.Length; index++)
@@ -1119,13 +1121,13 @@ namespace InventoryTools.Ui
                                      {
                                          ImGuiTable.DrawTable("MobSpawns" + index, mobSpawns, DrawMobSpawn,
                                              ImGuiTableFlags.None,
-                                             new[] { "Map", "Spawn Locations" });
+                                             new[] { _localizationService["Window_Item_Map"], _localizationService["Window_Item_SpawnLocations"] });
                                      }
                                  }
                              }
                              else
                              {
-                                 ImGui.TextUnformatted("No locations known.");
+                                 ImGui.TextUnformatted(_localizationService["Window_Item_NoLocationsKnown"]);
                              }
                          }
                      }
@@ -1140,7 +1142,7 @@ namespace InventoryTools.Ui
                 return;
             }
 
-            if (ImGui.CollapsingHeader("Uses (" + Item.Uses.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader(_localizationService.GetString("Window_Item_Uses", Item.Uses.Count), ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 var messages = _itemInfoRenderService.DrawItemUseIcons("Uses", new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale, Item.Uses.ToList());
                 MediatorService.Publish(messages);

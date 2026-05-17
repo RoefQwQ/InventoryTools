@@ -7,8 +7,11 @@ namespace InventoryTools.Logic.Settings.Abstract
 {
     public abstract class StringSetting : Setting<string>
     {
-        public StringSetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        private readonly ILocalizationService _localizationService;
+
+        public StringSetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            _localizationService = localizationService;
         }
         public override bool HasValueSet(InventoryToolsConfiguration configuration)
         {
@@ -39,7 +42,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (disableReset != true && HasValueSet(configuration))
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button(_localizationService["Setting_String_ButtonReset"] + "##" + Key + "Reset"))
                 {
                     Reset(configuration);
                 }

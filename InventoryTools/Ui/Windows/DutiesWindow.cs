@@ -31,12 +31,12 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
     }
     public override void Initialize()
     {
-        WindowName = "Duties";
+        WindowName = _localizationService["Window_Duties_Title"];
         Key = "duties";
 
         _columns = new List<TableColumn<ContentFinderConditionRow>>()
         {
-            new("Icon", 32, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnIcon"], 32, ImGuiTableColumnFlags.WidthFixed)
             {
                 OnLeftClick = OnLeftClick,
                 Draw = (ex, contentTypeId) =>
@@ -48,7 +48,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     }
                 }
             },
-            new("Name", 200, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnName"], 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -72,7 +72,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.FormattedName);
                 }
             },
-            new("Roulettes", 200, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnRoulettes"], 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -96,7 +96,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Roulettes);
                 }
             },
-            new("Level", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnLevel"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -120,7 +120,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ClassJobLevelRequired.ToString());
                 }
             },
-            new("Sync Level", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnSyncLevel"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -144,7 +144,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ClassJobLevelSync.ToString());
                 }
             },
-            new("Item Level", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnItemLevel"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -168,7 +168,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ItemLevelRequired.ToString());
                 }
             },
-            new("Item Level Sync", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnItemLevelSync"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -192,7 +192,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ItemLevelSync.ToString());
                 }
             },
-            new("Allows Undersized", 80, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnAllowsUndersized"], 80, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -217,7 +217,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     _imGuiService.DrawUldIcon(ex.Base.AllowUndersized ? _imGuiService.TickIcon : _imGuiService.CrossIcon, new Vector2(RowSize, RowSize));
                 }
             },
-            new("Allows Explorer Mode", 80, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnAllowsExplorerMode"], 80, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -242,7 +242,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     _imGuiService.DrawUldIcon(ex.Base.AllowExplorerMode ? _imGuiService.TickIcon : _imGuiService.CrossIcon, new Vector2(RowSize, RowSize));
                 }
             },
-            new("PVP", 50, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnPVP"], 50, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -267,7 +267,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     _imGuiService.DrawUldIcon(ex.Base.PvP ? _imGuiService.TickIcon : _imGuiService.CrossIcon, new Vector2(RowSize, RowSize));
                 }
             },
-            new("Accepted Classes", 100, ImGuiTableColumnFlags.WidthFixed)
+            new(_localizationService["Window_Duties_ColumnAcceptedClasses"], 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -276,7 +276,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                         return exes;
                     }
 
-                    return specs == ImGuiSortDirection.Ascending ? exes.OrderBy(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown") : exes.OrderByDescending(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown");
+                    return specs == ImGuiSortDirection.Ascending ? exes.OrderBy(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? _localizationService["Window_Duties_Unknown"]) : exes.OrderByDescending(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? _localizationService["Window_Duties_Unknown"]);
                 },
                 Filter = (s, exes) =>
                 {
@@ -284,11 +284,11 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     {
                         return exes;
                     }
-                    return s == "" ? exes : exes.Where(c => (c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown").ToLower().PassesFilter(s.ToLower()));
+                    return s == "" ? exes : exes.Where(c => (c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? _localizationService["Window_Duties_Unknown"]).ToLower().PassesFilter(s.ToLower()));
                 },
                 Draw = (ex, contentTypeId) =>
                 {
-                    ImGui.TextUnformatted(ex.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown");
+                    ImGui.TextUnformatted(ex.AcceptClassJobCategory?.Base.Name.ExtractText() ?? _localizationService["Window_Duties_Unknown"]);
                 }
             },
         };
@@ -351,7 +351,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
 
     public override bool UseClipper => _useClipper;
     public override string GenericKey => "duties";
-    public override string GenericName => "Duties";
+    public override string GenericName => _localizationService["Window_Duties_GenericName"];
     public override bool DestroyOnClose => false;
     public override bool SaveState => true;
     public override Vector2? MaxSize { get; } = new(2000, 2000);

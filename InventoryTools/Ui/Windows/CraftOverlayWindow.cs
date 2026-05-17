@@ -84,7 +84,7 @@ public class CraftOverlayWindow : OverlayWindow
         pluginLog,
         mediator,
         imGuiService,
-        "Craft Overlay")
+        _localizationService["Window_CraftOverlay_Title"])
     {
         _listService = listService;
         _mapSheet = mapSheet;
@@ -160,17 +160,17 @@ public class CraftOverlayWindow : OverlayWindow
                     switch (this.WindowState)
                     {
                         case CraftOverlayWindowState.Collapsed:
-                            nextState = "Expand";
+                            nextState = _localizationService["Window_CraftOverlay_Expand"];
                             break;
                         case CraftOverlayWindowState.Single:
-                            nextState = "Show More";
+                            nextState = _localizationService["Window_CraftOverlay_ShowMore"];
                             break;
                         case CraftOverlayWindowState.List:
-                            nextState = "Collapse";
+                            nextState = _localizationService["Window_CraftOverlay_Collapse"];
                             break;
                     }
-                    ImGui.TextUnformatted($"Left Click: {nextState}");
-                    ImGui.TextUnformatted("Right Click: Menu");
+                    ImGui.TextUnformatted(_localizationService["Window_CraftOverlay_LeftClick"] + nextState);
+                    ImGui.TextUnformatted(_localizationService["Window_CraftOverlay_RightClick"]);
                 }
             }
 
@@ -184,7 +184,7 @@ public class CraftOverlayWindow : OverlayWindow
         {
             if (popup)
             {
-                if (ImGui.MenuItem("Close"))
+                if (ImGui.MenuItem(_localizationService["Window_CraftOverlay_MenuClose"]))
                 {
                     this.Close();
                 }
@@ -271,7 +271,7 @@ public class CraftOverlayWindow : OverlayWindow
         }
         else
         {
-            ImGui.Text("Nothing to do.");
+            ImGui.Text(_localizationService["Window_CraftOverlay_NothingToDo"]);
             ImGui.SetCursorPosX(ImGui.GetCursorPosX() + (150 + 70 + 80 * ImGui.GetIO().FontGlobalScale));
         }
 
@@ -283,7 +283,7 @@ public class CraftOverlayWindow : OverlayWindow
                 _font,
                 FontAwesomeIcon.Hammer,
                 ref currentCursorPosX,
-                "Open the Allagan Tools crafts window.",
+                _localizationService["Window_CraftOverlay_TooltipOpenCrafts"],
                 true))
         {
             this.MediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftsWindow)));
@@ -295,7 +295,7 @@ public class CraftOverlayWindow : OverlayWindow
                 _font,
                 FontAwesomeIcon.Cog,
                 ref currentCursorPosX,
-                "Open the Allagan Tools configuration window.",
+                _localizationService["Window_CraftOverlay_TooltipOpenConfig"],
                 true))
         {
             this.MediatorService.Publish(new ToggleGenericWindowMessage(typeof(ConfigurationWindow)));
@@ -306,7 +306,7 @@ public class CraftOverlayWindow : OverlayWindow
                 _font,
                 FontAwesomeIcon.Lightbulb,
                 ref currentCursorPosX,
-                "Toggle highlighting.",
+                _localizationService["Window_CraftOverlay_TooltipToggleHighlight"],
                 true,
                 isHighlighting ? null : ImGuiColors.ParsedGrey))
         {
@@ -321,7 +321,7 @@ public class CraftOverlayWindow : OverlayWindow
                 _font,
                 FontAwesomeIcon.Bars,
                 ref currentCursorPosX,
-                "Select active craft list",
+                _localizationService["Window_CraftOverlay_TooltipSelectCraftList"],
                 true))
         {
             ImGui.OpenPopup("SelectCraftList");
@@ -346,7 +346,7 @@ public class CraftOverlayWindow : OverlayWindow
 
         if (SelectedConfiguration == null)
         {
-            ImGui.Text("No craft list active.");
+            ImGui.Text(_localizationService["Window_CraftOverlay_NoCraftListActive"]);
         }
         else if(craftList != null)
         {
@@ -354,17 +354,17 @@ public class CraftOverlayWindow : OverlayWindow
             {
                 using (ImRaii.Table("CraftList", 6, ImGuiTableFlags.SizingFixedFit))
                 {
-                    ImGui.TableSetupColumn("Icon", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn(_localizationService["Window_CraftOverlay_ColumnIcon"], ImGuiTableColumnFlags.WidthFixed,
                         20 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn(_localizationService["Window_CraftOverlay_ColumnName"], ImGuiTableColumnFlags.WidthFixed,
                         150 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Step", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn(_localizationService["Window_CraftOverlay_ColumnStep"], ImGuiTableColumnFlags.WidthFixed,
                         80 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Icon", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn(_localizationService["Window_CraftOverlay_ColumnIcon"], ImGuiTableColumnFlags.WidthFixed,
                         10 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Bell", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn(_localizationService["Window_CraftOverlay_ColumnBell"], ImGuiTableColumnFlags.WidthFixed,
                         20 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Action", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn(_localizationService["Window_CraftOverlay_ColumnAction"], ImGuiTableColumnFlags.WidthFixed,
                         70 * ImGui.GetIO().FontGlobalScale);
                     var index = 1;
                     foreach (var currentItem in nextItems.Take(WindowState == CraftOverlayWindowState.Single ? 1 : maxItems))
@@ -480,7 +480,7 @@ public class CraftOverlayWindow : OverlayWindow
                             {
                                 if (popup.Success)
                                 {
-                                    if (ImGui.MenuItem("More Information"))
+                                    if (ImGui.MenuItem(_localizationService["Window_CraftOverlay_MenuMoreInformation"]))
                                     {
                                         this.MediatorService.Publish(new OpenUintWindowMessage(typeof(ItemWindow), currentItem.ItemId));
                                     }
@@ -514,7 +514,7 @@ public class CraftOverlayWindow : OverlayWindow
 
     public override FilterConfiguration? SelectedConfiguration => _listService.GetActiveCraftList();
     public override string GenericKey { get; } = "CraftOverlay";
-    public override string GenericName { get; } = "Craft Overlay";
+    public override string GenericName => _localizationService["Window_CraftOverlay_GenericName"];
     public override bool DestroyOnClose { get; } = false;
 
     public override bool SaveState => this._rememberStateSetting.CurrentValue(Configuration);

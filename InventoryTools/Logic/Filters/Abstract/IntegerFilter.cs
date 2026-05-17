@@ -8,6 +8,8 @@ namespace InventoryTools.Logic.Filters.Abstract
 {
     public abstract class IntegerFilter : Filter<int?>
     {
+        private readonly ILocalizationService _localizationService;
+
         public override int? DefaultValue { get; set; } = null;
 
         public override bool HasValueSet(FilterConfiguration configuration)
@@ -56,7 +58,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             if (HasValueSet(configuration) && ShowReset)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button(_localizationService["Filter_Integer_ButtonReset"] + "##" + Key + "Reset"))
                 {
                     ResetFilter(configuration);
                 }
@@ -75,8 +77,9 @@ namespace InventoryTools.Logic.Filters.Abstract
             UpdateFilterConfiguration(configuration, DefaultValue);
         }
 
-        protected IntegerFilter(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        protected IntegerFilter(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            _localizationService = localizationService;
         }
     }
 }

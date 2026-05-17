@@ -63,7 +63,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                WindowName = "Invalid NPC";
+                WindowName = _localizationService["Window_ENpc_InvalidNPC"];
                 Key = "enpc_unknown";
             }
         }
@@ -72,13 +72,13 @@ namespace InventoryTools.Ui
         private uint _eNpcId;
         private ENpcResidentRow? ENpcResidentRow => _eNpcResidentSheet.GetRowOrDefault(_eNpcId);
         public List<IShop>? Shops;
-        public override string GenericName => "Npcs";
+        public override string GenericName => _localizationService["Window_ENpc_GenericName"];
         public override bool DestroyOnClose => true;
         public override void DrawWindow()
         {
             if (ENpcResidentRow == null)
             {
-                ImGui.TextUnformatted("eNpc with the ID " + _eNpcId + " could not be found.");
+                ImGui.TextUnformatted(_localizationService.GetString("Window_ENpc_NotFound", _eNpcId));
             }
             else
             {
@@ -90,7 +90,7 @@ namespace InventoryTools.Ui
                     $"https://www.garlandtools.org/db/#npc/{_eNpcId}".OpenBrowser();
                 }
 
-                ImGuiUtil.HoverTooltip("Open in Garland Tools");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_ENpc_TooltipGarland"]);
                 ImGui.SameLine();
                 if (ImGui.ImageButton(ImGuiService.GetImageTexture("teamcraft").Handle,
                         new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale))
@@ -98,11 +98,11 @@ namespace InventoryTools.Ui
                     $"https://ffxivteamcraft.com/db/en/eNpc/{_eNpcId}".OpenBrowser();
                 }
 
-                ImGuiUtil.HoverTooltip("Open in Teamcraft");
+                ImGuiUtil.HoverTooltip(_localizationService["Window_ENpc_TooltipTeamcraft"]);
 
                 ImGui.Separator();
 
-                if (Shops != null && ImGui.CollapsingHeader("Shops (" + Shops.Count + ")",
+                if (Shops != null && ImGui.CollapsingHeader(_localizationService["Window_ENpc_ShopsHeader"] + Shops.Count + ")",
                         ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
@@ -169,7 +169,7 @@ namespace InventoryTools.Ui
                     }
                 }
 
-                var buttonLabel = "Copy Items";
+                var buttonLabel = _localizationService["Window_ENpc_ButtonCopyItems"];
 
                 var flags =
                     ImGuiTreeNodeFlags.CollapsingHeader |
@@ -179,7 +179,7 @@ namespace InventoryTools.Ui
 
                 if (ENpcResidentRow.ENpcBase.GetRelatedItems().Count != 0)
                 {
-                    using var treeNode = ImRaii.TreeNode("Shared Models", flags);
+                    using var treeNode = ImRaii.TreeNode(_localizationService["Window_ENpc_SharedModelsHeader"], flags);
 
                     // TODO: Coming later
                     // ImGui.SameLine();
@@ -240,7 +240,7 @@ namespace InventoryTools.Ui
                                 c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
                         if (craftFilters.Length != 0)
                         {
-                            using var menu = ImRaii.Menu("Add to Craft List");
+                            using var menu = ImRaii.Menu(_localizationService["Window_ENpc_MenuAddToCraftList"]);
                             if (menu)
                             {
                                 foreach (var filter in craftFilters)
@@ -263,7 +263,7 @@ namespace InventoryTools.Ui
                             }
                         }
 
-                        if (ImGui.MenuItem("Add to new Craft List"))
+                        if (ImGui.MenuItem(_localizationService["Window_ENpc_MenuAddToNewCraftList"]))
                         {
                             var filter = _listService.AddNewCraftList();
                             foreach (var slot in _equipSlots)
@@ -281,7 +281,7 @@ namespace InventoryTools.Ui
                             filter.NeedsRefresh = true;
                         }
 
-                        if (ImGui.MenuItem("Add to new Craft List (ephemeral)"))
+                        if (ImGui.MenuItem(_localizationService["Window_ENpc_MenuAddToNewCraftListEphemeral"]))
                         {
                             var filter = _listService.AddNewCraftList(null, true);
                             foreach (var slot in _equipSlots)

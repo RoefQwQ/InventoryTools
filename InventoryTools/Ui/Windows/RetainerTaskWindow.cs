@@ -48,7 +48,7 @@ namespace InventoryTools.Ui
             else
             {
                 Key = "rt_invalid";
-                WindowName = "Allagan Tools - Invalid Retainer Task";
+                WindowName = _localizationService["Window_RetainerTask_InvalidTask"];
                 _drops = new List<ItemRow>();
             }
         }
@@ -59,27 +59,27 @@ namespace InventoryTools.Ui
 
 
         public override string GenericKey { get; } = "retainertask";
-        public override string GenericName { get; } = "Retainer Task";
+        public override string GenericName => _localizationService["Window_RetainerTask_GenericName"];
         public override bool DestroyOnClose => true;
         public override void DrawWindow()
         {
             if (RetainerTask == null)
             {
-                ImGui.TextUnformatted("Submarine Exploration Point with the ID " + _retainerTaskId + " could not be found.");
+                ImGui.TextUnformatted(_localizationService.GetString("Window_RetainerTask_NotFound", _retainerTaskId));
             }
             else
             {
                 ImGui.TextUnformatted(RetainerTask.FormattedName);
-                ImGui.TextUnformatted("Level: " + RetainerTask.Base.RetainerLevel);
-                ImGui.TextUnformatted("Duration: " + RetainerTask.DurationString);
-                ImGui.TextUnformatted("Experience: " + RetainerTask.ExperienceString);
-                ImGui.TextUnformatted("Venture Cost: " + RetainerTask.Base.VentureCost);
-                ImGui.TextUnformatted("Average iLvl: " + RetainerTask.Base.RequiredItemLevel);
+                ImGui.TextUnformatted(_localizationService["Window_RetainerTask_Level"] + RetainerTask.Base.RetainerLevel);
+                ImGui.TextUnformatted(_localizationService["Window_RetainerTask_Duration"] + RetainerTask.DurationString);
+                ImGui.TextUnformatted(_localizationService["Window_RetainerTask_Experience"] + RetainerTask.ExperienceString);
+                ImGui.TextUnformatted(_localizationService["Window_RetainerTask_VentureCost"] + RetainerTask.Base.VentureCost);
+                ImGui.TextUnformatted(_localizationService["Window_RetainerTask_AverageILvl"] + RetainerTask.Base.RequiredItemLevel);
                 ;
                 ImGui.Image(ImGuiService.GetIconTexture(65049).Handle, new Vector2(100, 100) * ImGui.GetIO().FontGlobalScale);
 
 
-                if (ImGui.CollapsingHeader("Rewards (" + _drops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+                if (ImGui.CollapsingHeader(_localizationService["Window_RetainerTask_RewardsHeader"] + _drops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;

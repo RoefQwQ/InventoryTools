@@ -12,12 +12,15 @@ namespace InventoryTools.Ui
 {
     public class IntroWindow : GenericWindow
     {
-        public IntroWindow(ILogger<IntroWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, string name = "Intro Window") : base(logger, mediator, imGuiService, configuration, name)
+        private readonly ILocalizationService _localizationService;
+
+        public IntroWindow(ILogger<IntroWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, ILocalizationService localizationService, string name = "Intro Window") : base(logger, mediator, imGuiService, configuration, name)
         {
+            _localizationService = localizationService;
         }
         public override void Initialize()
         {
-            WindowName = "Allagan Tools";
+            WindowName = _localizationService["Window_Intro_Title"];
             Flags =
                 ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar;
             Key = "intro";
@@ -30,7 +33,7 @@ namespace InventoryTools.Ui
 
         public override FilterConfiguration? SelectedConfiguration => null;
         public override string GenericKey { get; } = "intro";
-        public override string GenericName { get; } = "Intro";
+        public override string GenericName => _localizationService["Window_Intro_GenericName"];
         public override bool DestroyOnClose => true;
 
         public override void DrawWindow()
@@ -52,25 +55,25 @@ namespace InventoryTools.Ui
                     {
                         if (textChild.Success)
                         {
-                            ImGui.TextWrapped("Welcome to Allagan Tools.");
+                            ImGui.TextWrapped(_localizationService["Window_Intro_Welcome"]);
                             ImGui.TextWrapped(
-                                "Allagan Tools is a plugin for Final Fantasy XIV that provides the following features:");
+                                _localizationService["Window_Intro_Description"]);
                             using (ImRaii.PushIndent())
                             {
                                 ImGui.Bullet();
-                                ImGui.Text("Track your inventories");
+                                ImGui.Text(_localizationService["Window_Intro_Feature_Inventory"]);
                                 ImGui.Bullet();
-                                ImGui.Text("Plan your crafts");
+                                ImGui.Text(_localizationService["Window_Intro_Feature_Craft"]);
                                 ImGui.Bullet();
-                                ImGui.Text("Provide information about items, monsters, duties and much more");
+                                ImGui.Text(_localizationService["Window_Intro_Feature_Info"]);
                             }
 
                             ImGui.TextWrapped(
-                                "You can open various new windows using command shortcuts(the main filter  or from the main window.");
+                                _localizationService["Window_Intro_HelpText1"]);
                             ImGui.TextWrapped(
-                                "If you're unsure, right-click on an item or a table row for more options!");
+                                _localizationService["Window_Intro_HelpText2"]);
                             ImGui.TextWrapped(
-                                "To learn about the different features, I recommend going to the settings section and reading the information provided by the ? icons.");
+                                _localizationService["Window_Intro_HelpText3"]);
                         }
                     }
 
@@ -78,13 +81,13 @@ namespace InventoryTools.Ui
                     {
                         if (buttonsChild.Success)
                         {
-                            if (ImGui.Button("Close"))
+                            if (ImGui.Button(_localizationService["Window_Intro_Button_Close"]))
                             {
                                 Close();
                             }
 
                             ImGui.SameLine(0, 4);
-                            if (ImGui.Button("Close & Open Main Window"))
+                            if (ImGui.Button(_localizationService["Window_Intro_Button_CloseOpenMain"]))
                             {
                                 Close();
                                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(FiltersWindow)));

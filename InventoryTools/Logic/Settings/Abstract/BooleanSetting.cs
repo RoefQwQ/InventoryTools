@@ -7,11 +7,14 @@ namespace InventoryTools.Logic.Settings.Abstract
 {
     public abstract class BooleanSetting : Setting<bool>
     {
-        public BooleanSetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        private readonly ILocalizationService _localizationService;
+
+        public BooleanSetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            _localizationService = localizationService;
         }
 
-        private readonly string[] Choices = new []{"N/A", "Yes", "No"};
+        private string[] Choices => new []{_localizationService["Setting_Boolean_NA"], _localizationService["Setting_Boolean_Yes"], _localizationService["Setting_Boolean_No"]};
 
         public override void Draw(InventoryToolsConfiguration configuration, string? customName, bool? disableReset,
             bool? disableColouring)
@@ -39,7 +42,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (disableReset != true && HasValueSet(configuration))
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button(_localizationService["Setting_Boolean_ButtonReset"] + "##" + Key + "Reset"))
                 {
                     Reset(configuration);
                 }

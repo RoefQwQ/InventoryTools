@@ -13,10 +13,13 @@ using Microsoft.Extensions.Logging;
 namespace InventoryTools.Logic.Settings.Abstract;
 
 public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnull
-{
-    public MultipleChoiceSetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
     {
-    }
+        private readonly ILocalizationService _localizationService;
+
+        public MultipleChoiceSetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
+        {
+            _localizationService = localizationService;
+        }
     public override void Draw(InventoryToolsConfiguration configuration, string? customName, bool? disableReset,
         bool? disableColouring)
     {
@@ -48,14 +51,14 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
             if (combo.Success)
             {
                 var searchString = SearchString;
-                ImGui.InputText("Start typing to search..##ItemSearch", ref searchString, 50);
+                ImGui.InputText(_localizationService["Setting_MultipleChoice_SearchPlaceholder"] + "##ItemSearch", ref searchString, 50);
                 if (_searchString != searchString)
                 {
                     SearchString = searchString;
                 }
                 var activeChoices = GetActiveChoices(configuration);
                 ImGui.SameLine();
-                if (ImGui.Button("Add All"))
+                if (ImGui.Button(_localizationService["Setting_MultipleChoice_ButtonAddAll"]))
                 {
                     foreach (var item in activeChoices)
                     {
@@ -103,7 +106,7 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
         if (disableReset != true && HasValueSet(configuration))
         {
             ImGui.SameLine();
-            if (ImGui.Button("Reset##" + Key + "Reset"))
+            if (ImGui.Button(_localizationService["Setting_MultipleChoice_ButtonReset"] + "##" + Key + "Reset"))
             {
                 Reset(configuration);
             }
@@ -179,7 +182,7 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
 
     public virtual string GetPreviewValue(List<T> items)
     {
-        return items.Count == 0 ? "No items selected" : $"{items.Count} items selected";
+        return items.Count == 0 ? _localizationService["Setting_MultipleChoice_NoItemsSelected"] : _localizationService.GetString("Setting_MultipleChoice_ItemsSelected", items.Count);
     }
 
     public virtual int? ResultLimit { get; } = null;

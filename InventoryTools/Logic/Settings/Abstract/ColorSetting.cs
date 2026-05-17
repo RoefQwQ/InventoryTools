@@ -8,8 +8,11 @@ namespace InventoryTools.Logic.Settings.Abstract
 {
     public abstract class ColorSetting : Setting<Vector4>
     {
-        public ColorSetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        private readonly ILocalizationService _localizationService;
+
+        public ColorSetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            _localizationService = localizationService;
         }
         public override void Draw(InventoryToolsConfiguration configuration, string? customName, bool? disableReset,
             bool? disableColouring)
@@ -24,7 +27,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (HasValueSet(configuration) && value.W == 0)
             {
                 ImGui.SameLine();
-                ImGui.TextColored(ImGuiColors.DalamudRed, "The alpha is currently set to 0, this will be invisible.");
+                ImGui.TextColored(ImGuiColors.DalamudRed, _localizationService["Setting_Color_AlphaZeroWarning"]);
             }
             ImGui.SameLine();
             if (disableColouring != true && HasValueSet(configuration))
@@ -42,7 +45,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (disableReset != true && HasValueSet(configuration))
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button(_localizationService["Setting_Color_ButtonReset"] + "##" + Key + "Reset"))
                 {
                     Reset(configuration);
                 }

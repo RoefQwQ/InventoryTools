@@ -7,8 +7,11 @@ namespace InventoryTools.Logic.Settings.Abstract
 {
     public abstract class IntegerSetting : Setting<int>
     {
-        public IntegerSetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        private readonly ILocalizationService _localizationService;
+
+        public IntegerSetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            _localizationService = localizationService;
         }
         public override void Draw(InventoryToolsConfiguration configuration, string? customName, bool? disableReset,
             bool? disableColouring)
@@ -38,7 +41,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (disableReset != true && HasValueSet(configuration))
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button(_localizationService["Setting_Integer_ButtonReset"] + "##" + Key + "Reset"))
                 {
                     Reset(configuration);
                 }

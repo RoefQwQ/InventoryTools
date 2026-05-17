@@ -11,8 +11,11 @@ namespace InventoryTools.Logic.Settings.Abstract
 {
     public abstract class ChoiceSetting<T> : Setting<T> where T : IComparable?
     {
-        public ChoiceSetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        private readonly ILocalizationService _localizationService;
+
+        public ChoiceSetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            _localizationService = localizationService;
         }
         public abstract Dictionary<T, string> Choices { get; }
 
@@ -65,7 +68,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (disableReset != true && HasValueSet(configuration))
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button(_localizationService["Setting_Choice_ButtonReset"] + "##" + Key + "Reset"))
                 {
                     Reset(configuration);
                 }
