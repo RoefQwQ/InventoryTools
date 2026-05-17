@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- RoleLocalizer -->
+  <data name="Role_Tank" xml:space="preserve">
+    <value>防护</value>
+  </data>
+  <data name="Role_DPSMelee" xml:space="preserve">
+    <value>进攻（近战）</value>
+  </data>
+  <data name="Role_DPSRanged" xml:space="preserve">
+    <value>进攻（远程）</value>
+  </data>
+  <data name="Role_Healer" xml:space="preserve">
+    <value>治疗</value>
+  </data>
+  <data name="Role_Crafting" xml:space="preserve">
+    <value>能工巧匠</value>
+  </data>
+  <data name="Role_Gathering" xml:space="preserve">
+    <value>大地使者</value>
+  </data>
+  <data name="Role_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Role_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+
+  <!-- RelicWeaponCategoryLocalizer -->
+  <data name="RelicWeaponCategory_Zodiac" xml:space="preserve">
+    <value>Zodiac 武器（古武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Anima" xml:space="preserve">
+    <value>Anima 武器（魂武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Eurekan" xml:space="preserve">
+    <value>Eurekan 武器（优武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Resistance" xml:space="preserve">
+    <value>Resistance 武器（义武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Manderville" xml:space="preserve">
+    <value>Manderville 武器（曼武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Phantom" xml:space="preserve">
+    <value>Phantom 武器（幻武）</value>
+  </data>
+
+  <!-- RelicWeaponTypeLocalizer -->
+  <data name="RelicWeaponType_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacBase" xml:space="preserve">
+    <value>本我</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacZenith" xml:space="preserve">
+    <value>Zenith</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacAtma" xml:space="preserve">
+    <value>Atma</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacAnimus" xml:space="preserve">
+    <value>Animus</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacNovus" xml:space="preserve">
+    <value>Novus</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacNexus" xml:space="preserve">
+    <value>Nexus</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacZodiac" xml:space="preserve">
+    <value>Zodiac</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacZeta" xml:space="preserve">
+    <value>Zeta</value>
+  </data>
+  <data name="RelicWeaponType_AnimaAnimated" xml:space="preserve">
+    <value>Animated</value>
+  </data>
+  <data name="RelicWeaponType_AnimaAwoken" xml:space="preserve">
+    <value>Awoken</value>
+  </data>
+  <data name="RelicWeaponType_AnimaAnima" xml:space="preserve">
+    <value>Anima</value>
+  </data>
+  <data name="RelicWeaponType_AnimaHyperconductive" xml:space="preserve">
+    <value>Hyperconductive</value>
+  </data>
+  <data name="RelicWeaponType_AnimaReconditioned" xml:space="preserve">
+    <value>Reconditioned</value>
+  </data>
+  <data name="RelicWeaponType_AnimaSharpened" xml:space="preserve">
+    <value>Sharpened</value>
+  </data>
+  <data name="RelicWeaponType_AnimaComplete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="RelicWeaponType_AnimaLux" xml:space="preserve">
+    <value>Lux</value>
+  </data>
+  <data name="RelicWeaponType_EurekanAntiquated" xml:space="preserve">
+    <value>Antiquated</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBase" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBase1" xml:space="preserve">
+    <value>Base + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBase2" xml:space="preserve">
+    <value>Base + 2</value>
+  </data>
+  <data name="RelicWeaponType_EurekanAnemos" xml:space="preserve">
+    <value>Anemos</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPagos" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPagos1" xml:space="preserve">
+    <value>Pagos + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanElemental" xml:space="preserve">
+    <value>Elemental</value>
+  </data>
+  <data name="RelicWeaponType_EurekanElemental1" xml:space="preserve">
+    <value>Elemental + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanElemental2" xml:space="preserve">
+    <value>Elemental + 2</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPyros" xml:space="preserve">
+    <value>Pyros</value>
+  </data>
+  <data name="RelicWeaponType_EurekanHydatos" xml:space="preserve">
+    <value>Hydatos</value>
+  </data>
+  <data name="RelicWeaponType_EurekanHydatos1" xml:space="preserve">
+    <value>Hydatos + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBaseEureka" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="RelicWeaponType_EurekanEureka" xml:space="preserve">
+    <value>Eureka</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPhyseos" xml:space="preserve">
+    <value>Physeos</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceResistance" xml:space="preserve">
+    <value>Resistance</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceAugmentedResistance" xml:space="preserve">
+    <value>Augmented Resistance</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceRecollection" xml:space="preserve">
+    <value>Recollection</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceLawsOrder" xml:space="preserve">
+    <value>Laws Order</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceAugmentedLawsOrder" xml:space="preserve">
+    <value>Augmented Laws Order</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceBlades" xml:space="preserve">
+    <value>Blades</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleManderville" xml:space="preserve">
+    <value>Manderville</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleAmazing" xml:space="preserve">
+    <value>Amazing</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleMajestic" xml:space="preserve">
+    <value>Majestic</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleMandervillous" xml:space="preserve">
+    <value>Mandervillous</value>
+  </data>
+  <data name="RelicWeaponType_PhantomPenumbrae" xml:space="preserve">
+    <value>Penumbrae</value>
+  </data>
+  <data name="RelicWeaponType_PhantomUmbrae" xml:space="preserve">
+    <value>Umbrae</value>
+  </data>
+  <data name="RelicWeaponType_PhantomObscurum" xml:space="preserve">
+    <value>Obscurum</value>
+  </data>
+
+  <!-- RelicToolCategoryLocalizer -->
+  <data name="RelicToolCategory_Mastercraft" xml:space="preserve">
+    <value>Mastercraft 工具</value>
+  </data>
+  <data name="RelicToolCategory_Skysteel" xml:space="preserve">
+    <value>Skysteel 工具（天钢）</value>
+  </data>
+  <data name="RelicToolCategory_Resplendent" xml:space="preserve">
+    <value>Resplendent 工具（辉煌）</value>
+  </data>
+  <data name="RelicToolCategory_Splendorous" xml:space="preserve">
+    <value>Splendorous 工具</value>
+  </data>
+  <data name="RelicToolCategory_Cosmic" xml:space="preserve">
+    <value>Cosmic 工具（宇宙）</value>
+  </data>
+
+  <!-- RelicToolTypeLocalizer -->
+  <data name="RelicToolType_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="RelicToolType_MastercraftBase" xml:space="preserve">
+    <value>Mastercraft</value>
+  </data>
+  <data name="RelicToolType_MastercraftSupra" xml:space="preserve">
+    <value>Supra</value>
+  </data>
+  <data name="RelicToolType_MastercraftLucis" xml:space="preserve">
+    <value>Lucis</value>
+  </data>
+  <data name="RelicToolType_SkysteelBase" xml:space="preserve">
+    <value>Skysteel（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelBase1" xml:space="preserve">
+    <value>Skysteel + 1（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelDragonsung" xml:space="preserve">
+    <value>Dragonsung（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelAugmentedDragonsung" xml:space="preserve">
+    <value>Augmented Dragonsung（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelSkysung" xml:space="preserve">
+    <value>Skysung（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelSkybuilders" xml:space="preserve">
+    <value>Skybuilders（天钢）</value>
+  </data>
+  <data name="RelicToolType_Resplendent" xml:space="preserve">
+    <value>Resplendent（辉煌）</value>
+  </data>
+  <data name="RelicToolType_SplendorousBase" xml:space="preserve">
+    <value>Splendorous</value>
+  </data>
+  <data name="RelicToolType_SplendorousAugmented" xml:space="preserve">
+    <value>Augmented Splendorous</value>
+  </data>
+  <data name="RelicToolType_SplendorousCrystalline" xml:space="preserve">
+    <value>Crystalline</value>
+  </data>
+  <data name="RelicToolType_SplendorousChoraZoiCrystalline" xml:space="preserve">
+    <value>Chora-Zoi's Crystalline</value>
+  </data>
+  <data name="RelicToolType_SplendorousBrilliant" xml:space="preserve">
+    <value>Brilliant</value>
+  </data>
+  <data name="RelicToolType_SplendorousVrandticVisionary" xml:space="preserve">
+    <value>Vrandtic Visionary's</value>
+  </data>
+  <data name="RelicToolType_SplendorousLodestar" xml:space="preserve">
+    <value>Lodestar</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype01" xml:space="preserve">
+    <value>Prototype v0.1（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype02" xml:space="preserve">
+    <value>Prototype v0.2（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype03" xml:space="preserve">
+    <value>Prototype v0.3（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype04" xml:space="preserve">
+    <value>Prototype v0.4（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype05" xml:space="preserve">
+    <value>Prototype v0.5（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype06" xml:space="preserve">
+    <value>Prototype v0.6（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype07" xml:space="preserve">
+    <value>Prototype v0.7（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype08" xml:space="preserve">
+    <value>Prototype v0.8（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic" xml:space="preserve">
+    <value>Cosmic（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic11" xml:space="preserve">
+    <value>Cosmic v1.1（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic12" xml:space="preserve">
+    <value>Cosmic v1.2（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic13" xml:space="preserve">
+    <value>Cosmic v1.3（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic14" xml:space="preserve">
+    <value>Cosmic v1.4（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicStellar" xml:space="preserve">
+    <value>Stellar（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicStellar11" xml:space="preserve">
+    <value>Stellar v1.1（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicStellar12" xml:space="preserve">
+    <value>Stellar v1.2（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicHypertools" xml:space="preserve">
+    <value>Hypertools（宇宙）</value>
+  </data>
+
+  <!-- ItemLocalizer -->
+  <data name="Item_Bag1" xml:space="preserve">
+    <value>背包1</value>
+  </data>
+  <data name="Item_Bag2" xml:space="preserve">
+    <value>背包2</value>
+  </data>
+  <data name="Item_Bag3" xml:space="preserve">
+    <value>背包3</value>
+  </data>
+  <data name="Item_Bag4" xml:space="preserve">
+    <value>背包4</value>
+  </data>
+  <data name="Item_Bag5" xml:space="preserve">
+    <value>背包5</value>
+  </data>
+  <data name="Item_SaddlebagLeft" xml:space="preserve">
+    <value>陆行鸟鞍囊（左）</value>
+  </data>
+  <data name="Item_SaddlebagRight" xml:space="preserve">
+    <value>陆行鸟鞍囊（右）</value>
+  </data>
+  <data name="Item_PremiumSaddlebagLeft" xml:space="preserve">
+    <value>追加陆行鸟鞍囊（左）</value>
+  </data>
+  <data name="Item_PremiumSaddlebagRight" xml:space="preserve">
+    <value>追加陆行鸟鞍囊（右）</value>
+  </data>
+  <data name="Item_ArmoryBody" xml:space="preserve">
+    <value>兵装库 - 身体</value>
+  </data>
+  <data name="Item_ArmoryEar" xml:space="preserve">
+    <value>兵装库 - 耳饰</value>
+  </data>
+  <data name="Item_ArmoryFeet" xml:space="preserve">
+    <value>兵装库 - 脚部</value>
+  </data>
+  <data name="Item_ArmoryHand" xml:space="preserve">
+    <value>兵装库 - 手部</value>
+  </data>
+  <data name="Item_ArmoryHead" xml:space="preserve">
+    <value>兵装库 - 头部</value>
+  </data>
+  <data name="Item_ArmoryLegs" xml:space="preserve">
+    <value>兵装库 - 腿部</value>
+  </data>
+  <data name="Item_ArmoryMain" xml:space="preserve">
+    <value>兵装库 - 主手</value>
+  </data>
+  <data name="Item_ArmoryNeck" xml:space="preserve">
+    <value>兵装库 - 项链</value>
+  </data>
+  <data name="Item_ArmoryOffhand" xml:space="preserve">
+    <value>兵装库 - 副手</value>
+  </data>
+  <data name="Item_ArmoryRing" xml:space="preserve">
+    <value>兵装库 - 戒指</value>
+  </data>
+  <data name="Item_ArmoryWaist" xml:space="preserve">
+    <value>兵装库 - 腰带</value>
+  </data>
+  <data name="Item_ArmoryWrist" xml:space="preserve">
+    <value>兵装库 - 手镯</value>
+  </data>
+  <data name="Item_ArmorySoulCrystal" xml:space="preserve">
+    <value>兵装库 - 灵魂水晶</value>
+  </data>
+  <data name="Item_EquippedGear" xml:space="preserve">
+    <value>已装备</value>
+  </data>
+  <data name="Item_FreeCompanyChest1" xml:space="preserve">
+    <value>部队储物柜 - 1</value>
+  </data>
+  <data name="Item_FreeCompanyChest2" xml:space="preserve">
+    <value>部队储物柜 - 2</value>
+  </data>
+  <data name="Item_FreeCompanyChest3" xml:space="preserve">
+    <value>部队储物柜 - 3</value>
+  </data>
+  <data name="Item_FreeCompanyChest4" xml:space="preserve">
+    <value>部队储物柜 - 4</value>
+  </data>
+  <data name="Item_FreeCompanyChest5" xml:space="preserve">
+    <value>部队储物柜 - 5</value>
+  </data>
+  <data name="Item_FreeCompanyChest6" xml:space="preserve">
+    <value>部队储物柜 - 6</value>
+  </data>
+  <data name="Item_FreeCompanyChest7" xml:space="preserve">
+    <value>部队储物柜 - 7</value>
+  </data>
+  <data name="Item_FreeCompanyChest8" xml:space="preserve">
+    <value>部队储物柜 - 8</value>
+  </data>
+  <data name="Item_FreeCompanyChest9" xml:space="preserve">
+    <value>部队储物柜 - 9</value>
+  </data>
+  <data name="Item_FreeCompanyChest10" xml:space="preserve">
+    <value>部队储物柜 - 10</value>
+  </data>
+  <data name="Item_FreeCompanyChest11" xml:space="preserve">
+    <value>部队储物柜 - 11</value>
+  </data>
+  <data name="Item_Market" xml:space="preserve">
+    <value>市场</value>
+  </data>
+  <data name="Item_GlamourChest" xml:space="preserve">
+    <value>投影台</value>
+  </data>
+  <data name="Item_Armoire" xml:space="preserve">
+    <value>收藏柜</value>
+  </data>
+  <data name="Item_Currency" xml:space="preserve">
+    <value>金币</value>
+  </data>
+  <data name="Item_FreeCompanyGil" xml:space="preserve">
+    <value>部队 - 金币</value>
+  </data>
+  <data name="Item_FreeCompanyCrystals" xml:space="preserve">
+    <value>部队 - 水晶</value>
+  </data>
+  <data name="Item_FreeCompanyCurrency" xml:space="preserve">
+    <value>部队 - 通货</value>
+  </data>
+  <data name="Item_Crystals" xml:space="preserve">
+    <value>水晶</value>
+  </data>
+  <data name="Item_HousingExteriorAppearance" xml:space="preserve">
+    <value>房屋外观</value>
+  </data>
+  <data name="Item_HousingInteriorAppearance" xml:space="preserve">
+    <value>房屋内装</value>
+  </data>
+  <data name="Item_HousingExteriorStoreroom" xml:space="preserve">
+    <value>房屋仓库（外）</value>
+  </data>
+  <data name="Item_HousingInteriorStoreroom" xml:space="preserve">
+    <value>房屋仓库（内）</value>
+  </data>
+  <data name="Item_HousingInteriorPlacedItems" xml:space="preserve">
+    <value>房屋家具（内）</value>
+  </data>
+  <data name="Item_HousingExteriorPlacedItems" xml:space="preserve">
+    <value>房屋家具（外）</value>
+  </data>
+  <data name="Item_Empty" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="Item_HQ" xml:space="preserve">
+    <value>（高品质）</value>
+  </data>
+  <data name="Item_Collectible" xml:space="preserve">
+    <value>（收藏品）</value>
+  </data>
+  <data name="Item_NQ" xml:space="preserve">
+    <value>（普通品质）</value>
+  </data>
+  <data name="Item_UnknownCabinet" xml:space="preserve">
+    <value>未知收藏柜</value>
+  </data>
+  <data name="Item_AddonTextNotFound" xml:space="preserve">
+    <value>未找到附加文本</value>
+  </data>
+  <data name="Item_UnknownItem" xml:space="preserve">
+    <value>未知物品</value>
+  </data>
+  <data name="Item_NoItemSelected" xml:space="preserve">
+    <value>未选择物品</value>
+  </data>
+  <data name="Item_CompanyCraft" xml:space="preserve">
+    <value>部队合建</value>
+  </data>
+
+  <!-- IngredientPreferenceLocalizer -->
+  <data name="IngredientPreference_Buy" xml:space="preserve">
+    <value>购买</value>
+  </data>
+  <data name="IngredientPreference_HouseVendor" xml:space="preserve">
+    <value>房屋商人</value>
+  </data>
+  <data name="IngredientPreference_Botany" xml:space="preserve">
+    <value>园艺工</value>
+  </data>
+  <data name="IngredientPreference_Crafting" xml:space="preserve">
+    <value>制作</value>
+  </data>
+  <data name="IngredientPreference_Fishing" xml:space="preserve">
+    <value>捕鱼人</value>
+  </data>
+  <data name="IngredientPreference_SpearFishing" xml:space="preserve">
+    <value>刺鱼</value>
+  </data>
+  <data name="IngredientPreference_Item" xml:space="preserve">
+    <value>物品</value>
+  </data>
+  <data name="IngredientPreference_Marketboard" xml:space="preserve">
+    <value>市场板</value>
+  </data>
+  <data name="IngredientPreference_Mining" xml:space="preserve">
+    <value>采矿工</value>
+  </data>
+  <data name="IngredientPreference_Mobs" xml:space="preserve">
+    <value>怪物</value>
+  </data>
+  <data name="IngredientPreference_Venture" xml:space="preserve">
+    <value>探险币</value>
+  </data>
+  <data name="IngredientPreference_Duty" xml:space="preserve">
+    <value>副本</value>
+  </data>
+  <data name="IngredientPreference_ExplorationVenture" xml:space="preserve">
+    <value>探索委托</value>
+  </data>
+  <data name="IngredientPreference_ResourceInspection" xml:space="preserve">
+    <value>资源检查</value>
+  </data>
+  <data name="IngredientPreference_Gardening" xml:space="preserve">
+    <value>栽培</value>
+  </data>
+  <data name="IngredientPreference_Reduction" xml:space="preserve">
+    <value>精选</value>
+  </data>
+  <data name="IngredientPreference_Desynthesis" xml:space="preserve">
+    <value>分解</value>
+  </data>
+  <data name="IngredientPreference_NoItemSelected" xml:space="preserve">
+    <value>未选择物品</value>
+  </data>
+
+  <!-- CraftItemLocalizer -->
+  <data name="CraftItem_CompanyCraft" xml:space="preserve">
+    <value>部队制作</value>
+  </data>
+  <data name="CraftItem_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="CraftItem_NA" xml:space="preserve">
+    <value>不适用</value>
+  </data>
+
+  <!-- CraftGroupingLocalizer -->
+  <data name="CraftGrouping_Tier" xml:space="preserve">
+    <value>层级</value>
+  </data>
+
+  <!-- ChocoboItemSourceTypeLocalizer -->
+  <data name="Chocobo_BuddyItem" xml:space="preserve">
+    <value>消耗品</value>
+  </data>
+  <data name="Chocobo_BuddyEquip" xml:space="preserve">
+    <value>装备</value>
+  </data>
+  <data name="Chocobo_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+
+  <!-- PluginInfo from InventoryTools.json -->
+  <data name="PluginInfo_Name" xml:space="preserve">
+    <value>Allagan Tools</value>
+  </data>
+  <data name="PluginInfo_Punchline" xml:space="preserve">
+    <value>在 FFXIV 中轻松整理物品，快速定位/显示物品整理位置，规划制作，并搜索怪物、副本、飞空艇和潜水艇！</value>
+  </data>
+  <data name="PluginInfo_Description" xml:space="preserve">
+    <value>Allagan Tools 的主要功能是追踪你所有角色/雇员/部队仓库中的物品。借助其筛选系统，你不会再丢失物品，也不会不知道物品应该整理到哪里。
+
+虽然这是它的主要功能，但它还有许多其他详尽的功能，包括：
+	- 制作规划
+	- 市场板集成
+	- 在搜索/整理物品和选择制作材料时高亮显示背包中的物品
+	- 物品窗口，包含商人信息和来源信息等内容
+	- 完全可搜索的副本/怪物/飞空艇/潜水艇窗口
+	- 筛选系统，可设置复杂搜索以查找特定物品
+	- 鼠标提示集成，悬停时可查看物品位置</value>
+  </data>
+  <data name="PluginInfo_Tags" xml:space="preserve">
+    <value>Inventory, Sorting, Filtering</value>
+  </data>
+</root>

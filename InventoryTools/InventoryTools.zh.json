@@ -1,0 +1,21 @@
+{
+  "Author": "Critical_Impact",
+  "Name": "亚拉戈工具箱 (Allagan Tools)",
+  "Punchline": "在《最终幻想14》中轻松管理物品，快速定位整理方向，规划制作方案，还能搜索怪物、副本、飞空艇和潜水艇！",
+  "Description": "亚拉戈工具箱的核心功能是追踪你所有角色、雇员和部队仓库中的物品。借助强大的筛选系统，你再也不用担心找不到物品，或者不知道该把物品整理到哪里。\n\n除了核心功能外，本插件还提供了丰富的扩展功能：\n\t- 制作规划\n\t- 市场板价格集成\n\t- 在背包中搜索/整理物品以及选择制作材料时高亮显示目标物品\n\t- 物品信息窗口，包含商人售价、获取来源等详细信息\n\t- 副本/怪物/飞空艇/潜水艇查询窗口，全部支持搜索\n\t- 强大的筛选系统，可设置复杂条件查找特定物品\n\t- 鼠标提示集成，悬停即可查看物品所在位置",
+  "Tags": ["物品栏", "整理", "筛选"],
+  "InternalName": "InventoryTools",
+  "AssemblyVersion": "15.0.5",
+  "DalamudApiLevel": 15,
+  "RepoUrl": "https://github.com/Critical-Impact/InventoryTools",
+  "LoadPriority": 0,
+  "CanUnloadAsync": false,
+  "IconUrl": "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/icon.png",
+  "ImageUrls": [
+    "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/banner1.png",
+    "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/screenshot1.png",
+    "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/screenshot2.png",
+    "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/screenshot3.png",
+    "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/screenshot4.png"
+  ]
+}
