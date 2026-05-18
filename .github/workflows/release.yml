@@ -61,14 +61,27 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: Update repo.json LastUpdate to ${{ steps.date.outputs.dateNum }}"
           git push origin main
 
+      - name: Delete old latest release
+        uses: dev-drprasad/delete-tag-and-release@v1.0
+        with:
+          tag_name: latest
+          delete_release: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Wait for deletion
+        shell: pwsh
+        run: Start-Sleep -Seconds 10
+
       - name: Create Release with GitHub CLI
         shell: pwsh
         run: |
           $date = "${{ steps.date.outputs.date }}"
           $zipPath = "InventoryTools\bin\Release\InventoryTools\latest.zip"
           
-          # Create release using GitHub CLI
-          gh release create "$date" `
+          # Create release using GitHub CLI with "latest" tag
+          gh release create "latest" `
             --title "Build $date" `
             --notes "Automated build from main branch at $date" `
             --target main `
