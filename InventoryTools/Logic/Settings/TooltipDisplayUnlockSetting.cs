@@ -8,6 +8,8 @@ public class TooltipDisplayUnlockSetting : BooleanSetting
 {
     public TooltipDisplayUnlockSetting(ILogger<TooltipDisplayUnlockSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipDisplayUnlockSetting_Name");
+        HelpText = localizationService.GetString("Setting_TooltipDisplayUnlockSetting_HelpText");
     }
 
     public override bool DefaultValue { get; set; } = false;

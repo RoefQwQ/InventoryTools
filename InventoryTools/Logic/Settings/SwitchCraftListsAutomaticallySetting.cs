@@ -28,6 +28,8 @@ namespace InventoryTools.Logic.Settings
 
         public SwitchCraftListsAutomaticallySetting(ILogger<SwitchCraftListsAutomaticallySetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_SwitchCraftListsAutomatically_Name");
+            HelpText = localizationService.GetString("Setting_SwitchCraftListsAutomatically_HelpText");
         }
     }
 }

@@ -8,8 +8,10 @@ namespace InventoryTools.Logic.Settings
 {
     public class TooltipColorSetting : GameColorSetting
     {
-        public TooltipColorSetting(ILogger<TooltipColorSetting> logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet) : base(logger, imGuiService, uiColorSheet)
+        public TooltipColorSetting(ILogger<TooltipColorSetting> logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet, ILocalizationService localizationService) : base(logger, imGuiService, uiColorSheet, localizationService)
         {
+            Name = localizationService.GetString("Setting_TooltipColor_Name");
+            HelpText = localizationService.GetString("Setting_TooltipColor_HelpText");
         }
         public override uint? DefaultValue { get; set; } = null;
         public override uint? CurrentValue(InventoryToolsConfiguration configuration)

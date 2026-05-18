@@ -33,5 +33,8 @@ public partial class TooltipDisplayRetrieveAmountSetting : BooleanSetting
 
     public TooltipDisplayRetrieveAmountSetting(ILogger<TooltipDisplayRetrieveAmountSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_DisplayRetrievalAmount_Name");
+        HelpText = localizationService.GetString("Setting_DisplayRetrievalAmount_HelpText");
+        WizardName = localizationService.GetString("Setting_DisplayRetrievalAmount_WizardName");
     }
 }

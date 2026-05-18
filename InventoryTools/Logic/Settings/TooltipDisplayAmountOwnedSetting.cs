@@ -34,6 +34,9 @@ namespace InventoryTools.Logic.Settings
 
         public TooltipDisplayAmountOwnedSetting(ILogger<TooltipDisplayAmountOwnedSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_TooltipDisplayOwned_Name");
+            HelpText = localizationService.GetString("Setting_TooltipDisplayOwned_HelpText");
+            WizardName = localizationService.GetString("Setting_TooltipDisplayOwned_WizardName");
         }
     }
 }

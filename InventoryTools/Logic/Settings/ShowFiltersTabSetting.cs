@@ -29,6 +29,8 @@ namespace InventoryTools.Logic.Settings
 
         public ShowFiltersTabSetting(ILogger<ShowFiltersTabSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_ShowFiltersTab_Name");
+            HelpText = localizationService.GetString("Setting_ShowFiltersTab_HelpText");
         }
     }
 }

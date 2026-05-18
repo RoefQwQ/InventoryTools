@@ -8,6 +8,9 @@ public class ContextMenuOpenCraftingLogSetting : BooleanSetting
 {
     public ContextMenuOpenCraftingLogSetting(ILogger<ContextMenuOpenCraftingLogSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_OpenCraftingLogContextMenu_Name");
+        HelpText = localizationService.GetString("Setting_OpenCraftingLogContextMenu_HelpText");
+        WizardName = localizationService.GetString("Setting_OpenCraftingLogContextMenu_WizardName");
     }
 
     public override bool DefaultValue { get; set; } = false;

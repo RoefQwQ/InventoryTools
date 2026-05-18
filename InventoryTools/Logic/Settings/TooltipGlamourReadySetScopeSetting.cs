@@ -13,9 +13,11 @@ public class TooltipGlamourReadySetScopeSetting : Setting<List<InventorySearchSc
 {
     private readonly InventoryScopePicker _scopePicker;
 
-    public TooltipGlamourReadySetScopeSetting(ILogger<TooltipGlamourReadySetScopeSetting> logger, ImGuiService imGuiService, InventoryScopePicker scopePicker) : base(logger, imGuiService)
+    public TooltipGlamourReadySetScopeSetting(ILogger<TooltipGlamourReadySetScopeSetting> logger, ImGuiService imGuiService, InventoryScopePicker scopePicker, ILocalizationService localizationService) : base(logger, imGuiService)
     {
         _scopePicker = scopePicker;
+        Name = localizationService.GetString("Setting_TooltipGlamourReadySetScope_Name");
+        HelpText = localizationService.GetString("Setting_TooltipGlamourReadySetScope_HelpText");
     }
 
     public override List<InventorySearchScope>? DefaultValue { get; set; } = new()

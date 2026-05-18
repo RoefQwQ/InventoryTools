@@ -26,5 +26,7 @@ public class MarketBoardUseActiveWorldSetting : BooleanSetting
 
     public MarketBoardUseActiveWorldSetting(ILogger<MarketBoardUseActiveWorldSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_MarketBoardUseActiveWorld_Name");
+        HelpText = localizationService.GetString("Setting_MarketBoardUseActiveWorld_HelpText");
     }
 }

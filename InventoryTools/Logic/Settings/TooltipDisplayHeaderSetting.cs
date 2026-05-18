@@ -29,5 +29,7 @@ public class TooltipDisplayHeaderSetting : BooleanSetting
 
     public TooltipDisplayHeaderSetting(ILogger<TooltipDisplayHeaderSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipDisplayHeader_Name");
+        HelpText = localizationService.GetString("Setting_TooltipDisplayHeader_HelpText");
     }
 }

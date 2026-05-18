@@ -12,6 +12,9 @@ namespace InventoryTools.Logic.Settings
         public AutomaticallyDownloadPricesSetting(ILogger<AutomaticallyDownloadPricesSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, MarketCacheConfiguration marketCacheConfiguration) : base(logger, imGuiService, localizationService)
         {
             _marketCacheConfiguration = marketCacheConfiguration;
+            Name = localizationService.GetString("Setting_AutomaticallyDownloadPrices_Name");
+            HelpText = localizationService.GetString("Setting_AutomaticallyDownloadPrices_HelpText");
+            WizardName = localizationService.GetString("Setting_AutomaticallyDownloadPrices_WizardName");
         }
         public override bool DefaultValue { get; set; } = false;
         public override bool CurrentValue(InventoryToolsConfiguration configuration)

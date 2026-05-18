@@ -34,5 +34,8 @@ public class TooltipDisplayGlamourReadySetSetting : BooleanSetting
 
     public TooltipDisplayGlamourReadySetSetting(ILogger<TooltipDisplayGlamourReadySetSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipDisplayGlamourReadySet_Name");
+        HelpText = localizationService.GetString("Setting_TooltipDisplayGlamourReadySet_HelpText");
+        WizardName = localizationService.GetString("Setting_TooltipDisplayGlamourReadySet_WizardName");
     }
 }

@@ -28,7 +28,9 @@ namespace InventoryTools.Logic.Settings
         public override string Version => "1.7.0.0";
 
         public HighlightDestinationEmptySetting(ILogger<HighlightDestinationEmptySetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
-        {
-        }
+    {
+        Name = localizationService.GetString("Setting_HighlightEmptyDestination_Name");
+        HelpText = localizationService.GetString("Setting_HighlightEmptyDestination_HelpText");
+    }
     }
 }

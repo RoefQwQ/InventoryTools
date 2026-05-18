@@ -30,5 +30,7 @@ public class HistoryEnabledSetting : BooleanSetting
 
     public HistoryEnabledSetting(ILogger<HistoryEnabledSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_HistoryEnabled_Name");
+        HelpText = localizationService.GetString("Setting_HistoryEnabled_HelpText");
     }
 }

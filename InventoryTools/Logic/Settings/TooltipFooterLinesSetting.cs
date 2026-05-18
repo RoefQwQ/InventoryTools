@@ -29,5 +29,7 @@ public class TooltipFooterLinesSetting : IntegerSetting
 
     public TooltipFooterLinesSetting(ILogger<TooltipFooterLinesSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipFooterLines_Name");
+        HelpText = localizationService.GetString("Setting_TooltipFooterLines_HelpText");
     }
 }

@@ -14,9 +14,11 @@ public class TooltipLocationScopeLimitSetting : Setting<List<InventorySearchScop
 {
     private readonly InventoryScopePicker _scopePicker;
 
-    public TooltipLocationScopeLimitSetting(ILogger<TooltipLocationScopeLimitSetting> logger, ImGuiService imGuiService, InventoryScopePicker scopePicker) : base(logger, imGuiService)
+    public TooltipLocationScopeLimitSetting(ILogger<TooltipLocationScopeLimitSetting> logger, ImGuiService imGuiService, InventoryScopePicker scopePicker, ILocalizationService localizationService) : base(logger, imGuiService)
     {
         _scopePicker = scopePicker;
+        Name = localizationService.GetString("Setting_TooltipLocationScopeLimit_Name");
+        HelpText = localizationService.GetString("Setting_TooltipLocationScopeLimit_HelpText");
     }
     public override List<InventorySearchScope>? DefaultValue { get; set; } = null;
     public override List<InventorySearchScope>? CurrentValue(InventoryToolsConfiguration configuration)

@@ -15,6 +15,8 @@ public class MarketBoardExtraWorldsSetting : MultipleChoiceSetting<uint>
     public MarketBoardExtraWorldsSetting(ILogger<MarketBoardExtraWorldsSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, ExcelSheet<World> worldSheet) : base(logger, imGuiService, localizationService)
     {
         _worldSheet = worldSheet;
+        Name = localizationService.GetString("Setting_MarketBoardExtraWorlds_Name");
+        HelpText = localizationService.GetString("Setting_MarketBoardExtraWorlds_HelpText");
     }
 
     public override List<uint> DefaultValue { get; set; } = new List<uint>();

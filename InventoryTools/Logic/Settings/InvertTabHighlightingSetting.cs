@@ -30,6 +30,8 @@ namespace InventoryTools.Logic.Settings
 
         public InvertTabHighlightingSetting(ILogger<InvertTabHighlightingSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_InvertTabHighlighting_Name");
+            HelpText = localizationService.GetString("Setting_InvertTabHighlighting_HelpText");
         }
     }
 }

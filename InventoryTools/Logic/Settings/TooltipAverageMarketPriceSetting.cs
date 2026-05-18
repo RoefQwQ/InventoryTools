@@ -32,6 +32,8 @@ namespace InventoryTools.Logic.Settings
 
         public TooltipAverageMarketPriceSetting(ILogger<TooltipAverageMarketPriceSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_TooltipDisplayMBAverage_Name");
+            HelpText = localizationService.GetString("Setting_TooltipDisplayMBAverage_HelpText");
         }
     }
 }

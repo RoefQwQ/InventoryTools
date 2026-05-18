@@ -2204,4 +2204,868 @@
   <data name="Window_RetainerTaskWindow_WindowName" xml:space="preserve">
     <value>Allagan Tools - </value>
   </data>
+  <data name="Setting_SaveBackgroundFilter_Name" xml:space="preserve">
+    <value>保持后台列表高亮?</value>
+  </data>
+  <data name="Setting_SaveBackgroundFilter_HelpText" xml:space="preserve">
+    <value>退出游戏或禁用/重新启用插件时，是否保存当前后台列表?</value>
+  </data>
+  <data name="Setting_AllowCrossCharacter_Name" xml:space="preserve">
+    <value>在列表中显示跨角色库存?</value>
+  </data>
+  <data name="Setting_AllowCrossCharacter_WizardName" xml:space="preserve">
+    <value>跨角色库存?</value>
+  </data>
+  <data name="Setting_AllowCrossCharacter_HelpText" xml:space="preserve">
+    <value>是否显示未登录角色及其关联雇员的可查看/搜索/筛选内容?每个列表可以配置来源/目标以包含/排除与当前登录角色相关的雇员/部队。</value>
+  </data>
+  <data name="Setting_SwitchCraftListsAutomatically_Name" xml:space="preserve">
+    <value>自动切换制作列表?</value>
+  </data>
+  <data name="Setting_SwitchCraftListsAutomatically_HelpText" xml:space="preserve">
+    <value>在切换制作列表时是否自动更改活动制作列表?仅当已选择活动制作列表时才会更改。</value>
+  </data>
+  <data name="Setting_SwitchFiltersAutomatically_Name" xml:space="preserve">
+    <value>自动切换列表?</value>
+  </data>
+  <data name="Window_Filters_CompendiumViewer" xml:space="preserve">
+    <value>百科查看器</value>
+  </data>
+  <data name="Setting_SwitchFiltersAutomatically_HelpText" xml:space="preserve">
+    <value>查看不同列表时，高亮是否自动切换到当前查看的列表?仅当高亮已激活时才会更改。</value>
+  </data>
+  <data name="Setting_ActiveCraftList_Name" xml:space="preserve">
+    <value>活动制作列表</value>
+  </data>
+  <data name="Setting_ActiveCraftList_HelpText" xml:space="preserve">
+    <value>制作将计入的制作列表。</value>
+  </data>
+  <data name="Setting_AddTitleMenuButton_Name" xml:space="preserve">
+    <value>添加标题菜单按钮?</value>
+  </data>
+  <data name="Setting_AddTitleMenuButton_HelpText" xml:space="preserve">
+    <value>在标题菜单中添加一个按钮，与Dalamud菜单项并列，允许您在未登录时打开Allagan Tools。</value>
+  </data>
+  <data name="Setting_AutoSave_Name" xml:space="preserve">
+    <value>自动保存库存/配置?</value>
+  </data>
+  <data name="Setting_AutoSave_HelpText" xml:space="preserve">
+    <value>是否按定义的时间间隔自动保存库存/配置?虽然插件在游戏关闭和配置更改时会保存，但在崩溃情况下不会保存，因此此功能试图缓解此问题。</value>
+  </data>
+  <data name="Setting_AutoSave_WizardName" xml:space="preserve">
+    <value>自动保存库存?</value>
+  </data>
+  <data name="Setting_AutoSaveTime_Name" xml:space="preserve">
+    <value>自动保存间隔</value>
+  </data>
+  <data name="Setting_AutoSaveTime_HelpText" xml:space="preserve">
+    <value>每次自动保存之间应间隔多少分钟?</value>
+  </data>
+  <data name="Setting_AutomaticallyDownloadPrices_Name" xml:space="preserve">
+    <value>自动下载价格?</value>
+  </data>
+  <data name="Setting_AutomaticallyDownloadPrices_HelpText" xml:space="preserve">
+    <value>在列表中查看价格数据时是否自动下载?</value>
+  </data>
+  <data name="Setting_AutomaticallyDownloadPrices_WizardName" xml:space="preserve">
+    <value>下载价格数据</value>
+  </data>
+  <data name="Setting_BackgroundFilter_Name" xml:space="preserve">
+    <value>后台列表高亮</value>
+  </data>
+  <data name="Setting_BackgroundFilter_HelpText" xml:space="preserve">
+    <value>当Allagan Tools窗口不可见时当前正在高亮的列表。此列表可以通过相关的斜杠命令切换。</value>
+  </data>
+  <data name="Setting_EnableTetris_Name" xml:space="preserve">
+    <value>启用俄罗斯方块?</value>
+  </data>
+  <data name="Setting_EnableTetris_HelpText" xml:space="preserve">
+    <value>是否启用俄罗斯方块?如果启用，插件的汉堡菜单中将显示一个新的"俄罗斯方块"选项。</value>
+  </data>
+  <data name="Setting_HighlightColour_Name" xml:space="preserve">
+    <value>高亮颜色</value>
+  </data>
+  <data name="Setting_HighlightColour_HelpText" xml:space="preserve">
+    <value>设置高亮物品的颜色。</value>
+  </data>
+  <data name="Setting_HighlightDestinationColour_Name" xml:space="preserve">
+    <value>目标高亮颜色</value>
+  </data>
+  <data name="Setting_HighlightDestinationColour_HelpText" xml:space="preserve">
+    <value>设置目标中匹配源筛选器的物品的颜色（假设目标重复高亮已开启）。</value>
+  </data>
+  <data name="Setting_HighlightDestinationDuplicates_Name" xml:space="preserve">
+    <value>高亮目标?</value>
+  </data>
+  <data name="Setting_HighlightDestinationDuplicates_HelpText" xml:space="preserve">
+    <value>是否应该高亮物品的目标?这可以在筛选器配置中覆盖。</value>
+  </data>
+  <data name="Setting_HighlightDestinationEmpty_Name" xml:space="preserve">
+    <value>高亮空目标?</value>
+  </data>
+  <data name="Setting_HighlightDestinationEmpty_HelpText" xml:space="preserve">
+    <value>高亮目标时，应该高亮空位还是仅高亮目标中已存在的物品?</value>
+  </data>
+  <data name="Setting_HighlightWhen_Name" xml:space="preserve">
+    <value>何时高亮?</value>
+  </data>
+  <data name="Setting_HighlightWhen_HelpText" xml:space="preserve">
+    <value>当列表的高亮开启时，应该始终激活还是仅在搜索列时激活?</value>
+  </data>
+  <data name="Setting_HistoryEnabled_Name" xml:space="preserve">
+    <value>启用历史追踪?</value>
+  </data>
+  <data name="Setting_HistoryEnabled_HelpText" xml:space="preserve">
+    <value>Allagan Tools是否应该尝试追踪您库存中物品的移动、添加和移除?</value>
+  </data>
+  <data name="Setting_HistoryEnabled_WizardName" xml:space="preserve">
+    <value>追踪物品历史?</value>
+  </data>
+  <data name="Setting_InvertHighlighting_Name" xml:space="preserve">
+    <value>反转高亮?</value>
+  </data>
+  <data name="Setting_InvertHighlighting_HelpText" xml:space="preserve">
+    <value>是否应该高亮所有不匹配列表的物品?这可以在列表配置中覆盖。</value>
+  </data>
+  <data name="Setting_InvertTabHighlighting_Name" xml:space="preserve">
+    <value>反转标签高亮?</value>
+  </data>
+  <data name="Setting_InvertTabHighlighting_HelpText" xml:space="preserve">
+    <value>是否应该高亮所有不匹配列表的标签?这可以在列表配置中覆盖。</value>
+  </data>
+  <data name="Setting_InvertDestinationHighlighting_Name" xml:space="preserve">
+    <value>反转目标高亮?</value>
+  </data>
+  <data name="Setting_InvertDestinationHighlighting_HelpText" xml:space="preserve">
+    <value>高亮目标物品时是否应该反转物品的颜色?</value>
+  </data>
+  <data name="Setting_ShowTooltips_Name" xml:space="preserve">
+    <value>启用提示框调整?</value>
+  </data>
+  <data name="Setting_ShowTooltips_HelpText" xml:space="preserve">
+    <value>禁用/启用插件的整个提示框修改系统。如果关闭，将不会对物品提示框进行任何更改。</value>
+  </data>
+  <data name="Setting_ShowFiltersTab_Name" xml:space="preserve">
+    <value>显示"所有列表"标签?</value>
+  </data>
+  <data name="Setting_ShowFiltersTab_HelpText" xml:space="preserve">
+    <value>主窗口是否应该显示名为"所有列表"的标签，在一个标签中包含所有可用列表?</value>
+  </data>
+  <data name="Setting_TabHighlightColour_Name" xml:space="preserve">
+    <value>标签高亮颜色</value>
+  </data>
+  <data name="Setting_TabHighlightColour_HelpText" xml:space="preserve">
+    <value>设置包含筛选物品的高亮标签的颜色。</value>
+  </data>
+  <data name="Setting_WindowFilter_Name" xml:space="preserve">
+    <value>窗口列表高亮</value>
+  </data>
+  <data name="Setting_WindowFilter_HelpText" xml:space="preserve">
+    <value>当任何Allagan Tools窗口可见时将高亮的列表。</value>
+  </data>
+  <data name="Setting_ColourRetainerList_Name" xml:space="preserve">
+    <value>在雇员列表中着色名称?</value>
+  </data>
+  <data name="Setting_ColourRetainerList_HelpText" xml:space="preserve">
+    <value>如果相关物品需要整理或在其库存中可用，召唤铃列表中的雇员名称是否应该着色?</value>
+  </data>
+  <data name="Setting_RetainerListColour_Name" xml:space="preserve">
+    <value>雇员列表颜色</value>
+  </data>
+  <data name="Setting_RetainerListColour_HelpText" xml:space="preserve">
+    <value>设置包含筛选物品的雇员列表的颜色。</value>
+  </data>
+  <data name="Setting_ShowItemNumberRetainerList_Name" xml:space="preserve">
+    <value>在雇员列表中显示物品数量?</value>
+  </data>
+  <data name="Setting_ShowItemNumberRetainerList_HelpText" xml:space="preserve">
+    <value>召唤铃列表中的雇员名称是否应该显示需要整理的物品数量或库存中可用的物品数量?</value>
+  </data>
+  <data name="Setting_MarketRefreshTimeHours_Name" xml:space="preserve">
+    <value>保留市场价格X小时</value>
+  </data>
+  <data name="Setting_MarketRefreshTimeHours_HelpText" xml:space="preserve">
+    <value>我们应该保留市场价格多长时间才从Universalis刷新?</value>
+  </data>
+  <data name="Setting_MarketRefreshTimeHours_WizardName" xml:space="preserve">
+    <value>保留X小时</value>
+  </data>
+  <data name="Setting_MarketBoardUseActiveWorld_Name" xml:space="preserve">
+    <value>定价当前世界?</value>
+  </data>
+  <data name="Setting_MarketBoardUseActiveWorld_HelpText" xml:space="preserve">
+    <value>当前活跃的世界是否应该自动定价?</value>
+  </data>
+  <data name="Setting_MarketBoardUseHomeWorld_Name" xml:space="preserve">
+    <value>定价家乡世界?</value>
+  </data>
+  <data name="Setting_MarketBoardUseHomeWorld_HelpText" xml:space="preserve">
+    <value>您角色的家乡世界是否应该自动定价?</value>
+  </data>
+  <data name="Setting_MarketBoardSaleCountLimit_Name" xml:space="preserve">
+    <value>市场板销售历史天数</value>
+  </data>
+  <data name="Setting_MarketBoardSaleCountLimit_HelpText" xml:space="preserve">
+    <value>计算物品总销售数量时，应该检查多少天的销售数据。如果更改此设置，现有数据不会被清除，您需要手动请求刷新市场价格或等待市场板自动刷新。</value>
+  </data>
+  <data name="Setting_MarketBoardSaleCountLimit_WizardName" xml:space="preserve">
+    <value>销售历史限制</value>
+  </data>
+  <data name="Setting_MarketBoardExtraWorlds_Name" xml:space="preserve">
+    <value>定价世界</value>
+  </data>
+  <data name="Setting_MarketBoardExtraWorlds_HelpText" xml:space="preserve">
+    <value>我们应该自动定价的额外世界列表。</value>
+  </data>
+  <data name="Setting_FiltersWindowLayout_Name" xml:space="preserve">
+    <value>物品窗口布局</value>
+  </data>
+  <data name="Setting_FiltersWindowLayout_HelpText" xml:space="preserve">
+    <value>设置物品窗口的布局。</value>
+  </data>
+  <data name="Setting_FiltersWindowLayout_WizardName" xml:space="preserve">
+    <value>物品窗口</value>
+  </data>
+  <data name="Setting_CraftWindowLayout_Name" xml:space="preserve">
+    <value>制作窗口布局</value>
+  </data>
+  <data name="Setting_CraftWindowLayout_HelpText" xml:space="preserve">
+    <value>设置制作窗口的布局。</value>
+  </data>
+  <data name="Setting_CraftWindowLayout_WizardName" xml:space="preserve">
+    <value>制作窗口</value>
+  </data>
+  <data name="Setting_TooltipDisplayAmountOwned_Name" xml:space="preserve">
+    <value>添加物品位置</value>
+  </data>
+  <data name="Setting_TooltipDisplayAmountOwned_HelpText" xml:space="preserve">
+    <value>悬停物品时，提示框是否应该显示您当前拥有的物品的位置?</value>
+  </data>
+  <data name="Setting_TooltipDisplayAmountOwned_WizardName" xml:space="preserve">
+    <value>添加物品位置</value>
+  </data>
+  <data name="Setting_TooltipDisplayHeader_Name" xml:space="preserve">
+    <value>添加插件名称</value>
+  </data>
+  <data name="Setting_TooltipDisplayHeader_HelpText" xml:space="preserve">
+    <value>是否应该在提示框中任何修改上方显示[Allagan Tools]?</value>
+  </data>
+  <data name="Setting_TooltipDisplayRetrieveAmount_Name" xml:space="preserve">
+    <value>添加需要取回的数量</value>
+  </data>
+  <data name="Setting_TooltipDisplayRetrieveAmount_HelpText" xml:space="preserve">
+    <value>是否应该在提示框中显示需要取回的数量?</value>
+  </data>
+  <data name="Setting_TooltipDisplayRetrieveAmount_WizardName" xml:space="preserve">
+    <value>取回数量</value>
+  </data>
+  <data name="Setting_TooltipMinimumMarketPrice_Name" xml:space="preserve">
+    <value>添加市场最低NQ/HQ价格?</value>
+  </data>
+  <data name="Setting_TooltipMinimumMarketPrice_HelpText" xml:space="preserve">
+    <value>悬停物品时，提示框是否应该包含NQ和HQ的最低市场价格。请确保"自动下载价格"已启用。</value>
+  </data>
+  <data name="Setting_TooltipMinimumMarketPrice_WizardName" xml:space="preserve">
+    <value>市场价格</value>
+  </data>
+  <data name="Setting_TooltipAverageMarketPrice_Name" xml:space="preserve">
+    <value>添加市场平均NQ/HQ价格</value>
+  </data>
+  <data name="Setting_TooltipAverageMarketPrice_HelpText" xml:space="preserve">
+    <value>悬停物品时，提示框是否应该包含NQ和HQ的平均市场价格。请确保"自动下载价格"已启用。</value>
+  </data>
+  <data name="Setting_TooltipCurrentCharacterOnly_Name" xml:space="preserve">
+    <value>限制为当前角色的物品?</value>
+  </data>
+  <data name="Setting_TooltipCurrentCharacterOnly_HelpText" xml:space="preserve">
+    <value>将提示框上显示的信息限制为属于当前登录角色的库存。</value>
+  </data>
+  <data name="Setting_TooltipCategoryBlacklist_Name" xml:space="preserve">
+    <value>提示框类别黑名单</value>
+  </data>
+  <data name="Setting_TooltipCategoryBlacklist_HelpText" xml:space="preserve">
+    <value>如果选中，将提示框类别白名单变为黑名单。</value>
+  </data>
+  <data name="Setting_TooltipCategoryWhitelist_Name" xml:space="preserve">
+    <value>提示框类别白名单</value>
+  </data>
+  <data name="Setting_TooltipCategoryWhitelist_HelpText" xml:space="preserve">
+    <value>向提示框添加信息时，是否应该将受影响的物品限制为这些类别?如果选中了"提示框类别黑名单"，此功能将反转。</value>
+  </data>
+  <data name="Setting_TooltipColor_Name" xml:space="preserve">
+    <value>文本颜色</value>
+  </data>
+  <data name="Setting_TooltipColor_HelpText" xml:space="preserve">
+    <value>添加到物品提示框的任何文本的颜色。您可以通过进入提示框设置为每个提示框模块设置自己的颜色。</value>
+  </data>
+  <data name="Setting_TooltipHeaderLines_Name" xml:space="preserve">
+    <value>头部新行</value>
+  </data>
+  <data name="Setting_TooltipHeaderLines_HelpText" xml:space="preserve">
+    <value>在此插件进行的任何提示框修改上方应添加多少新行?</value>
+  </data>
+  <data name="Setting_TooltipFooterLines_Name" xml:space="preserve">
+    <value>底部新行</value>
+  </data>
+  <data name="Setting_TooltipFooterLines_HelpText" xml:space="preserve">
+    <value>在此插件进行的任何提示框修改下方应添加多少新行?</value>
+  </data>
+  <data name="Setting_TooltipLocationDisplayMode_Name" xml:space="preserve">
+    <value>添加物品位置(显示模式)</value>
+  </data>
+  <data name="Setting_TooltipLocationDisplayMode_HelpText" xml:space="preserve">
+    <value>物品位置在提示框中的显示方式。这需要"添加物品位置?"开启。</value>
+  </data>
+  <data name="Setting_TooltipLocationDisplayMode_WizardName" xml:space="preserve">
+    <value>显示模式</value>
+  </data>
+  <data name="Setting_ToolTipLocationLimit_Name" xml:space="preserve">
+    <value>添加物品位置(最大结果)</value>
+  </data>
+  <data name="Setting_ToolTipLocationLimit_HelpText" xml:space="preserve">
+    <value>提示框上列出的位置的最大数量。这需要"显示拥有数量?"已启用。</value>
+  </data>
+  <data name="Setting_TooltipAddCharacterName_Name" xml:space="preserve">
+    <value>添加物品位置(附加角色名)</value>
+  </data>
+  <data name="Setting_TooltipAddCharacterName_HelpText" xml:space="preserve">
+    <value>悬停物品且您有雇员拥有的数量时，是否应该将该雇员的所有者附加到该物品?</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedSort_Name" xml:space="preserve">
+    <value>添加物品位置(排序)</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedSort_HelpText" xml:space="preserve">
+    <value>提示框中显示的物品应如何排序?如果排序性能不佳，可以选择"无"。</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlock_Name" xml:space="preserve">
+    <value>添加物品解锁状态</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlock_HelpText" xml:space="preserve">
+    <value>如果物品可以解锁/获取，显示您的角色是否已解锁/获取该物品。可以在配置窗口中配置显示特定角色。</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockCharacter_Name" xml:space="preserve">
+    <value>添加物品解锁状态(角色)</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockCharacter_HelpText" xml:space="preserve">
+    <value>在物品上显示解锁状态时，将显示这些角色。留空以显示所有角色。</value>
+  </data>
+  <data name="Setting_TooltipDisplayGlamourReadySet_Name" xml:space="preserve">
+    <value>时装套装信息</value>
+  </data>
+  <data name="Setting_TooltipDisplayGlamourReadySet_HelpText" xml:space="preserve">
+    <value>悬停物品时，显示它是否是时装套装或其中的一部分，以及您在兵装库或衣柜中已有的组件物品。</value>
+  </data>
+  <data name="Setting_TooltipDisplayGlamourReadySet_WizardName" xml:space="preserve">
+    <value>时装套装信息</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetDisplayMode_Name" xml:space="preserve">
+    <value>显示模式</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetDisplayMode_HelpText" xml:space="preserve">
+    <value>时装套装信息在提示框中的显示方式。详细模式列出每件及其所有权状态；紧凑模式显示摘要计数。</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetDisplayMode_WizardName" xml:space="preserve">
+    <value>显示模式</value>
+  </data>
+  <data name="Setting_TooltipDisplayCofferLoot_Name" xml:space="preserve">
+    <value>宝箱战利品信息</value>
+  </data>
+  <data name="Setting_TooltipDisplayCofferLoot_HelpText" xml:space="preserve">
+    <value>悬停宝箱、卡包或战利品容器时，显示您已拥有其可能的战利品物品中的多少件。</value>
+  </data>
+  <data name="Setting_TooltipDisplayCofferLoot_WizardName" xml:space="preserve">
+    <value>宝箱战利品信息</value>
+  </data>
+  <data name="Setting_TooltipDisplayIngredientPatch_Name" xml:space="preserve">
+    <value>添加材料版本</value>
+  </data>
+  <data name="Setting_TooltipDisplayIngredientPatch_HelpText" xml:space="preserve">
+    <value>显示材料最后使用的版本。这是通过遍历物品参与的每个配方，然后遍历其配方等，直到确定最高版本。</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearch_Name" xml:space="preserve">
+    <value>右键菜单 - 搜索</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearch_HelpText" xml:space="preserve">
+    <value>执行覆盖所有库存或下方定义范围的搜索?</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearch_WizardName" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearchScope_Name" xml:space="preserve">
+    <value>右键菜单 - 搜索范围</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearchScope_HelpText" xml:space="preserve">
+    <value>在AT已知的库存中搜索物品时，应该搜索哪些库存?</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearchScope_WizardName" xml:space="preserve">
+    <value>搜索范围</value>
+  </data>
+  <data name="Setting_ContextMenuOpenCraftingLog_Name" xml:space="preserve">
+    <value>右键菜单 - 打开制作笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenCraftingLog_HelpText" xml:space="preserve">
+    <value>为任何可制作的物品添加右键菜单项以打开制作笔记?</value>
+  </data>
+  <data name="Setting_ContextMenuOpenCraftingLog_WizardName" xml:space="preserve">
+    <value>打开制作笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenGatheringLog_Name" xml:space="preserve">
+    <value>右键菜单 - 打开采集笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenGatheringLog_HelpText" xml:space="preserve">
+    <value>为任何可采集的物品添加右键菜单项以打开采集笔记?</value>
+  </data>
+  <data name="Setting_ContextMenuOpenGatheringLog_WizardName" xml:space="preserve">
+    <value>打开采集笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenFishingLog_Name" xml:space="preserve">
+    <value>右键菜单 - 打开捕鱼笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenFishingLog_HelpText" xml:space="preserve">
+    <value>为任何可钓鱼的物品添加右键菜单项以打开捕鱼笔记?</value>
+  </data>
+  <data name="Setting_ContextMenuOpenFishingLog_WizardName" xml:space="preserve">
+    <value>打开捕鱼笔记</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformation_Name" xml:space="preserve">
+    <value>右键菜单 - 更多信息(物品)</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformation_HelpText" xml:space="preserve">
+    <value>为物品添加右键菜单/上下文菜单中的更多信息菜单项?</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformation_WizardName" xml:space="preserve">
+    <value>更多信息</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCraftList_Name" xml:space="preserve">
+    <value>右键菜单 - 添加到制作列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCraftList_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加到制作列表?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCraftList_WizardName" xml:space="preserve">
+    <value>添加到制作列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToActiveCraftList_Name" xml:space="preserve">
+    <value>右键菜单 - 添加到活动制作列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToActiveCraftList_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加到活动制作列表?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToActiveCraftList_WizardName" xml:space="preserve">
+    <value>添加到活动制作列表</value>
+  </data>
+  <data name="Setting_HotkeyConfigWindow_Name" xml:space="preserve">
+    <value>切换配置窗口</value>
+  </data>
+  <data name="Setting_HotkeyConfigWindow_HelpText" xml:space="preserve">
+    <value>切换配置窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyListsWindow_Name" xml:space="preserve">
+    <value>切换列表窗口</value>
+  </data>
+  <data name="Setting_HotkeyListsWindow_HelpText" xml:space="preserve">
+    <value>切换列表窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyCraftWindow_Name" xml:space="preserve">
+    <value>切换制作窗口</value>
+  </data>
+  <data name="Setting_HotkeyCraftWindow_HelpText" xml:space="preserve">
+    <value>切换制作窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyDutiesWindow_Name" xml:space="preserve">
+    <value>切换任务窗口</value>
+  </data>
+  <data name="Setting_HotkeyDutiesWindow_HelpText" xml:space="preserve">
+    <value>切换任务窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyMobWindow_Name" xml:space="preserve">
+    <value>切换怪物窗口</value>
+  </data>
+  <data name="Setting_HotkeyMobWindow_HelpText" xml:space="preserve">
+    <value>切换怪物窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyAirshipsWindow_Name" xml:space="preserve">
+    <value>切换飞空艇窗口</value>
+  </data>
+  <data name="Setting_HotkeyAirshipsWindow_HelpText" xml:space="preserve">
+    <value>切换飞空艇窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeySubmarinesWindow_Name" xml:space="preserve">
+    <value>切换潜水艇窗口</value>
+  </data>
+  <data name="Setting_HotkeySubmarinesWindow_HelpText" xml:space="preserve">
+    <value>切换潜水艇窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyRetainerTasksWindow_Name" xml:space="preserve">
+    <value>切换雇员探险窗口</value>
+  </data>
+  <data name="Setting_HotkeyRetainerTasksWindow_HelpText" xml:space="preserve">
+    <value>切换雇员探险窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyMoreInfo_Name" xml:space="preserve">
+    <value>更多信息热键</value>
+  </data>
+  <data name="Setting_HotkeyMoreInfo_HelpText" xml:space="preserve">
+    <value>悬停物品时打开更多信息窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyOpenCraftingLog_Name" xml:space="preserve">
+    <value>打开制作笔记热键</value>
+  </data>
+  <data name="Setting_HotkeyOpenCraftingLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开制作笔记的热键。</value>
+  </data>
+  <data name="Setting_HotkeyOpenGatheringLog_Name" xml:space="preserve">
+    <value>打开采集笔记热键</value>
+  </data>
+  <data name="Setting_HotkeyOpenGatheringLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开采集笔记的热键。</value>
+  </data>
+  <data name="Setting_HotkeyOpenFishingLog_Name" xml:space="preserve">
+    <value>打开捕鱼笔记热键</value>
+  </data>
+  <data name="Setting_HotkeyOpenFishingLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开捕鱼笔记的热键。</value>
+  </data>
+  <data name="Setting_HotKeyOpenItemLog_Name" xml:space="preserve">
+    <value>打开物品日志热键</value>
+  </data>
+  <data name="Setting_HotKeyOpenItemLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开相关日志条目(采集、制作、钓鱼)的热键。</value>
+  </data>
+  <data name="Setting_TooltipLocationScopeLimit_Name" xml:space="preserve">
+    <value>添加物品位置(搜索位置)</value>
+  </data>
+  <data name="Setting_TooltipLocationScopeLimit_HelpText" xml:space="preserve">
+    <value>在提示框中显示您拥有的物品位置时，搜索中应包含哪些库存?</value>
+  </data>
+  <data name="Setting_TooltipCofferLootScope_Name" xml:space="preserve">
+    <value>宝箱战利品(搜索位置)</value>
+  </data>
+  <data name="Setting_TooltipCofferLootScope_HelpText" xml:space="preserve">
+    <value>确定您已拥有多少宝箱战利品物品时，应该搜索哪些库存?</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetScope_Name" xml:space="preserve">
+    <value>时装套装(搜索位置)</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetScope_HelpText" xml:space="preserve">
+    <value>确定您已拥有哪些时装套装物品时，应该搜索哪些库存?</value>
+  </data>
+  <data name="Setting_UseIconGrouping_Name" xml:space="preserve">
+    <value>使用获取图标分组</value>
+  </data>
+  <data name="Setting_UseIconGrouping_HelpText" xml:space="preserve">
+    <value>显示使用获取图标时，应该如何分组?</value>
+  </data>
+  <data name="Setting_SourceIconGrouping_Name" xml:space="preserve">
+    <value>来源获取图标分组</value>
+  </data>
+  <data name="Setting_SourceIconGrouping_HelpText" xml:space="preserve">
+    <value>显示来源获取图标时，应该如何分组?</value>
+  </data>
+  <data name="Setting_TrackMobSpawn_Name" xml:space="preserve">
+    <value>追踪怪物刷新</value>
+  </data>
+  <data name="Setting_TrackMobSpawn_HelpText" xml:space="preserve">
+    <value>插件是否应该追踪您移动时怪物的刷新位置。此数据尚未被插件使用，但一旦收集足够多，您可以点击复选框旁边的按钮导出包含这些位置的文件。如果您上传这些CSV并通过反馈发送URL，我可以使用这些刷新数据为每个人提供准确的怪物刷新位置。</value>
+  </data>
+  <data name="Setting_PersistData_Name" xml:space="preserve">
+    <value>持久化缓存数据</value>
+  </data>
+  <data name="Setting_PersistData_HelpText" xml:space="preserve">
+    <value>Allagan Tools在首次启动时必须计算信息，根据您的计算机可能需要5-10秒。如果开启此选项，该数据将在更新之间持久化，从而加快插件的启动时间。</value>
+  </data>
+  <data name="Setting_HistoryTrackEvents_Name" xml:space="preserve">
+    <value>历史追踪事件</value>
+  </data>
+  <data name="Setting_HistoryTrackEvents_HelpText" xml:space="preserve">
+    <value>历史模块应该追踪哪些事件?</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerLoginDelay_Name" xml:space="preserve">
+    <value>登录延迟</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerLoginDelay_HelpText" xml:space="preserve">
+    <value>获取追踪器在您登录时会对角色背包执行初始扫描。由于游戏会接收多个库存更新，扫描器必须等待一定时间才能完成。如果您看到制作列表中的物品在首次登录时随机完成，请将此值调高。</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerPersistState_Name" xml:space="preserve">
+    <value>持久化状态时间(秒)</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerPersistState_HelpText" xml:space="preserve">
+    <value>获取追踪器将追踪您的当前状态(制作、采集等)。默认情况下，在状态变回无操作后它会保持此状态2秒。这是为了捕获追踪器中的任何延迟，如果您发现追踪器没有拾取您制作/采集等的物品，请将此数值调高。</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpc_Name" xml:space="preserve">
+    <value>商店高亮 - 高亮NPC</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpc_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，是否应该在世界中高亮相关NPC?</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcNameplateIcon_Name" xml:space="preserve">
+    <value>商店高亮 - 名牌图标</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcNameplateIcon_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，在世界中相关NPC的名牌上显示一个小商人图标。</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcColor_Name" xml:space="preserve">
+    <value>商店高亮 - NPC高亮颜色</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcColor_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，用于在世界中高亮NPC的颜色。</value>
+  </data>
+  <data name="Setting_ShopHighlightingDisableItems_Name" xml:space="preserve">
+    <value>商店高亮 - 禁用物品</value>
+  </data>
+  <data name="Setting_ShopHighlightingDisableItems_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，是否应该禁用未高亮的物品?</value>
+  </data>
+  <data name="Setting_CraftOverlayHide_Name" xml:space="preserve">
+    <value>任务期间隐藏?</value>
+  </data>
+  <data name="Setting_CraftOverlayHide_HelpText" xml:space="preserve">
+    <value>在任务/过场动画/陆行鸟竞赛等期间是否应该隐藏制作覆盖层?</value>
+  </data>
+  <data name="Setting_CraftOverlayMaxExpandedItems_Name" xml:space="preserve">
+    <value>展开时最大物品数</value>
+  </data>
+  <data name="Setting_CraftOverlayMaxExpandedItems_HelpText" xml:space="preserve">
+    <value>制作覆盖层展开时，应显示多少物品?</value>
+  </data>
+  <data name="Setting_CraftOverlayRememberState_Name" xml:space="preserve">
+    <value>记住状态</value>
+  </data>
+  <data name="Setting_CraftOverlayRememberState_HelpText" xml:space="preserve">
+    <value>制作覆盖层是否应该在插件重新加载/游戏重新加载之间保持打开?</value>
+  </data>
+  <data name="Setting_CompendiumRowHeight_Name" xml:space="preserve">
+    <value>行高</value>
+  </data>
+  <data name="Setting_CompendiumRowHeight_HelpText" xml:space="preserve">
+    <value>百科列表中显示的行最小高度应为多少?</value>
+  </data>
+  <data name="Setting_CompendiumWotsit_Name" xml:space="preserve">
+    <value>启用Wotsit集成?</value>
+  </data>
+  <data name="Setting_CompendiumWotsit_HelpText" xml:space="preserve">
+    <value>百科窗口是否应该在wotsit的搜索中列出?</value>
+  </data>
+  <data name="Setting_ImGuiTooltipMode_Name" xml:space="preserve">
+    <value>物品提示框模式</value>
+  </data>
+  <data name="Setting_ImGuiTooltipMode_HelpText" xml:space="preserve">
+    <value>是否应该显示物品的提示框，从不、悬停物品图标时还是悬停物品表格中的任何行时?</value>
+  </data>
+  <data name="Setting_UseOldCraftTracker_Name" xml:space="preserve">
+    <value>使用旧制作追踪器?</value>
+  </data>
+  <data name="Setting_UseOldCraftTracker_HelpText" xml:space="preserve">
+    <value>使用旧的制作追踪器，这仅追踪制作并使用与新的获取追踪器不同的机制。</value>
+  </data>
+  <data name="Setting_CraftWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>制作窗口</value>
+  </data>
+  <data name="Setting_CraftWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>制作窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_FiltersWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>筛选器窗口</value>
+  </data>
+  <data name="Setting_FiltersWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>筛选器窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_ItemWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>物品窗口</value>
+  </data>
+  <data name="Setting_ItemWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>物品窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_FilterWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>筛选窗口</value>
+  </data>
+  <data name="Setting_FilterWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>筛选窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationEnabled_Name" xml:space="preserve">
+    <value>来源信息已启用</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationEnabled_HelpText" xml:space="preserve">
+    <value>提示框中是否应该显示来源信息?例如物品可以通过制作、商店、怪物等获取。</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationEnabled_WizardName" xml:space="preserve">
+    <value>显示来源信息</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationModifier_Name" xml:space="preserve">
+    <value>来源信息修饰键</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationModifier_HelpText" xml:space="preserve">
+    <value>是否仅在按下修饰键时才显示提示框?</value>
+  </data>
+  <data name="Setting_TooltipSourceInformation_Name" xml:space="preserve">
+    <value>来源信息配置</value>
+  </data>
+  <data name="Setting_TooltipSourceInformation_HelpText" xml:space="preserve">
+    <value>如果来源信息提示框已启用，各种来源应如何排序/显示等?</value>
+  </data>
+  <data name="Setting_TooltipUseInformationEnabled_Name" xml:space="preserve">
+    <value>用途信息已启用</value>
+  </data>
+  <data name="Setting_TooltipUseInformationEnabled_HelpText" xml:space="preserve">
+    <value>提示框中是否应该显示用途信息?例如物品用于配方或作为商店货币等。</value>
+  </data>
+  <data name="Setting_TooltipUseInformationEnabled_WizardName" xml:space="preserve">
+    <value>显示用途信息</value>
+  </data>
+  <data name="Setting_TooltipUseInformationModifier_Name" xml:space="preserve">
+    <value>用途信息修饰键</value>
+  </data>
+  <data name="Setting_TooltipUseInformationModifier_HelpText" xml:space="preserve">
+    <value>是否仅在按下修饰键时才显示提示框?</value>
+  </data>
+  <data name="Setting_TooltipUseInformation_Name" xml:space="preserve">
+    <value>用途信息配置</value>
+  </data>
+  <data name="Setting_TooltipUseInformation_HelpText" xml:space="preserve">
+    <value>如果用途信息提示框已启用，各种用途应如何排序/显示等?</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockHideUnlocked_Name" xml:space="preserve">
+    <value>添加物品解锁状态(隐藏已解锁角色)</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockHideUnlocked_HelpText" xml:space="preserve">
+    <value>是否应该隐藏已经解锁此物品的角色?如果在分组模式下，这将隐藏已获取的组。</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockDisplayMode_Name" xml:space="preserve">
+    <value>添加物品解锁状态(显示模式)</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockDisplayMode_HelpText" xml:space="preserve">
+    <value>物品解锁状态提示框应该如何显示?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCuratedList_Name" xml:space="preserve">
+    <value>右键菜单 - 添加到精选列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCuratedList_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加到精选列表?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCuratedList_WizardName" xml:space="preserve">
+    <value>添加到精选列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToFavourites_Name" xml:space="preserve">
+    <value>右键菜单 - 添加/移除收藏</value>
+  </data>
+  <data name="Setting_ContextMenuAddToFavourites_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加/移除到您的收藏?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToFavourites_WizardName" xml:space="preserve">
+    <value>添加/移除收藏</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationMonsters_Name" xml:space="preserve">
+    <value>右键菜单 - 更多信息(怪物)</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationMonsters_HelpText" xml:space="preserve">
+    <value>为怪物添加右键菜单/上下文菜单中的更多信息菜单项?</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationNpcs_Name" xml:space="preserve">
+    <value>右键菜单 - 更多信息(NPC)</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationNpcs_HelpText" xml:space="preserve">
+    <value>为NPC添加右键菜单/上下文菜单中的更多信息菜单项?</value>
+  </data>
+  <data name="Setting_CraftWindowView_Name" xml:space="preserve">
+    <value>制作窗口视图</value>
+  </data>
+  <data name="Setting_CraftWindowView_HelpText" xml:space="preserve">
+    <value>制作列表当前处于什么视图?</value>
+  </data>
+  <data name="Setting_CraftOverlayWindowState_Name" xml:space="preserve">
+    <value>窗口状态</value>
+  </data>
+  <data name="Setting_CraftOverlayWindowState_HelpText" xml:space="preserve">
+    <value>制作覆盖层窗口的当前状态。</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedColor_Name" xml:space="preserve">
+    <value>文本颜色</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedColor_HelpText" xml:space="preserve">
+    <value>启用时，"添加物品位置"提示框文本的文本颜色应该是什么?</value>
+  </data>
+  <data name="Shows the allagan tools items list window." xml:space="preserve">
+    <value>显示Allagan Tools物品列表窗口。</value>
+  </data>
+  <data name="Shows the allagan tools duties window." xml:space="preserve">
+    <value>显示Allagan Tools任务窗口。</value>
+  </data>
+  <data name="Shows the allagan tools mobs window." xml:space="preserve">
+    <value>显示Allagan Tools怪物窗口。</value>
+  </data>
+  <data name="Shows the allagan tools npcs window." xml:space="preserve">
+    <value>显示Allagan Tools NPC窗口。</value>
+  </data>
+  <data name="Shows the allagan tools compendium window." xml:space="preserve">
+    <value>显示Allagan Tools百科窗口。</value>
+  </data>
+  <data name="Toggle a specific compendium list window." xml:space="preserve">
+    <value>切换特定百科列表窗口。</value>
+  </data>
+  <data name="Toggles the specified list's highlight on/off, turning off any other highlighting in the process." xml:space="preserve">
+    <value>切换指定列表的高亮开/关，同时关闭任何其他高亮。</value>
+  </data>
+  <data name="Open/closes a window displaying the contents of a single list." xml:space="preserve">
+    <value>打开/关闭显示单个列表内容的窗口。</value>
+  </data>
+  <data name="Opens the allagan tools crafts window" xml:space="preserve">
+    <value>打开Allagan Tools制作窗口</value>
+  </data>
+  <data name="Opens the allagan tools airships window" xml:space="preserve">
+    <value>打开Allagan Tools飞空艇窗口</value>
+  </data>
+  <data name="Opens the allagan tools submarines window" xml:space="preserve">
+    <value>打开Allagan Tools潜水艇窗口</value>
+  </data>
+  <data name="Opens the allagan tools retainer ventures window" xml:space="preserve">
+    <value>打开Allagan Tools雇员探险窗口</value>
+  </data>
+  <data name="Opens the allagan tools configuration window" xml:space="preserve">
+    <value>打开Allagan Tools配置窗口</value>
+  </data>
+  <data name="Opens the allagan tools help window" xml:space="preserve">
+    <value>打开Allagan Tools帮助窗口</value>
+  </data>
+  <data name="Opens the allagan tools debug window" xml:space="preserve">
+    <value>打开Allagan Tools调试窗口</value>
+  </data>
+  <data name="Clears the currently active highlighting. Pass in background or ui to turn off highlighting for the background and ui highlighting respectively." xml:space="preserve">
+    <value>清除当前活动高亮。传入background或ui分别关闭后台和UI高亮。</value>
+  </data>
+  <data name="Closes all list windows." xml:space="preserve">
+    <value>关闭所有列表窗口。</value>
+  </data>
+  <data name="Closes all list windows and clears all active highlighting. Pass in background or ui to close just the background or ui highlighting respectively." xml:space="preserve">
+    <value>关闭所有列表窗口并清除所有活动高亮。传入background或ui分别仅关闭后台或UI高亮。</value>
+  </data>
+  <data name="Toggles the crafting overlay window." xml:space="preserve">
+    <value>切换制作覆盖层窗口。</value>
+  </data>
+  <data name="Toggles the equipment recommendation window." xml:space="preserve">
+    <value>切换装备推荐窗口。</value>
+  </data>
+  <data name="Opens the more information window for a specific item. Provide the name of the item or the ID of the item." xml:space="preserve">
+    <value>打开特定物品的更多信息窗口。提供物品名称或ID。</value>
+  </data>
+  <data name="Please enter the name of a compendium type, the following are available:\n" xml:space="preserve">
+    <value>请输入百科类型的名称，以下是可用的:\n</value>
+  </data>
+  <data name=" is not a valid compendium type." xml:space="preserve">
+    <value> 不是有效的百科类型。</value>
+  </data>
+  <data name="You must enter the name of an list." xml:space="preserve">
+    <value>您必须输入列表的名称。</value>
+  </data>
+  <data name="You must enter the name of a list." xml:space="preserve">
+    <value>您必须输入列表的名称。</value>
+  </data>
+  <data name="Could not find a list with that name." xml:space="preserve">
+    <value>找不到该名称的列表。</value>
+  </data>
+  <data name="The item " xml:space="preserve">
+    <value>物品 </value>
+  </data>
+  <data name=" could not be found." xml:space="preserve">
+    <value> 无法找到。</value>
+  </data>
 </root>

@@ -29,6 +29,8 @@ namespace InventoryTools.Logic.Settings
 
         public TabHighlightColourSetting(ILogger<TabHighlightColourSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_TabHighlightColour_Name");
+            HelpText = localizationService.GetString("Setting_TabHighlightColour_HelpText");
         }
     }
 }

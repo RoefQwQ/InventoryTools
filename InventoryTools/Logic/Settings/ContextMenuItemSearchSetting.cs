@@ -8,6 +8,9 @@ namespace InventoryTools.Logic.Settings
     {
         public ContextMenuItemSearchSetting(ILogger<ContextMenuItemSearchSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_ItemSearchContextMenu_Name");
+            HelpText = localizationService.GetString("Setting_ItemSearchContextMenu_HelpText");
+            WizardName = localizationService.GetString("Setting_ItemSearchContextMenu_WizardName");
         }
         
         public override bool DefaultValue { get; set; } = false;

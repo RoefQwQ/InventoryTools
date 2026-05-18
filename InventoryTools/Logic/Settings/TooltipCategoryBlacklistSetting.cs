@@ -26,5 +26,7 @@ public class TooltipCategoryBlacklistSetting : BooleanSetting
 
     public TooltipCategoryBlacklistSetting(ILogger<TooltipCategoryBlacklistSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipCategoryBlacklist_Name");
+        HelpText = localizationService.GetString("Setting_TooltipCategoryBlacklist_HelpText");
     }
 }

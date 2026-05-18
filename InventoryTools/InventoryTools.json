@@ -1,15 +1,16 @@
 {
   "Author": "Critical_Impact",
-  "Name": "Allagan Tools",
+  "Name": "Allagan Tools CN",
   "InternalName": "InventoryTools",
   "AssemblyVersion": "1.15.0.5",
-  "Description": "Allagan Tool's primary purpose is to keep track of items across your characters/retainers/free company. With it's filter system you'll never lose track of items or not know where they should be sorted.\n\nWhile this is it's primary purpose, it has quite an exhaustive list of other features including:\n\t- Craft planning\n\t- Market board integration\n\t- Item highlighting in inventories when searching/sorting and picking ingredients for crafts\n\t- Item window that includes vendor and source information among other things\n\t- Duty/mob/airship/submarine windows that are fully searchable\n\t- A filtering system that lets you setup complex searches for specific items \n\t- Tooltip integration that'll let you see where the items are on hover",
+  "Description": "Allagan Tools 的主要功能是追踪你所有角色/雇员/部队的物品。通过筛选系统，你永远不会丢失物品或不知道它们应该被整理到哪里。\n\n虽然这是主要功能，但它还有许多其他功能，包括:\n\t- 制作规划\n\t- 市场板集成\n\t- 在搜索/排序和选择制作材料时高亮库存中的物品\n\t- 包含供应商和来源信息的物品窗口\n\t- 可搜索的任务/怪物/飞空艇/潜水艇窗口\n\t- 可设置复杂搜索的筛选系统\n\t- 鼠标悬停时显示物品位置的提示框集成",
   "ApplicableVersion": "any",
-  "RepoUrl": "https://github.com/Critical-Impact/InventoryTools",
+  "RepoUrl": "https://github.com/RoefQwQ/InventoryTools",
   "Tags": [
     "Inventory",
     "Sorting",
-    "Filtering"
+    "Filtering",
+    "Chinese"
   ],
   "DalamudApiLevel": 15,
   "LoadRequiredState": 0,
@@ -24,6 +25,6 @@
     "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/screenshot4.png"
   ],
   "IconUrl": "https://raw.githubusercontent.com/Critical-Impact/InventoryTools/main/InventoryTools/Images/icon.png",
-  "Punchline": "Get organized in FFXIV, easily locate/show where to sort items, plan your crafting, and search for mobs, duties, airships, and submarines!",
+  "Punchline": "在FF14中轻松整理物品，快速定位/显示物品整理位置，规划制作，搜索怪物、任务、飞空艇和潜水艇！",
   "AcceptsFeedback": true
 }

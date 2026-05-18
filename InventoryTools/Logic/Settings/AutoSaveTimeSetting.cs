@@ -12,6 +12,8 @@ namespace InventoryTools.Logic.Settings
         public AutoSaveTimeSetting(ILogger<AutoSaveTimeSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, PluginLogic pluginLogic) : base(logger, imGuiService, localizationService)
         {
             _pluginLogic = pluginLogic;
+            Name = localizationService.GetString("Setting_AutoSaveMinutes_Name");
+            HelpText = localizationService.GetString("Setting_AutoSaveMinutes_HelpText");
         }
         public override int DefaultValue { get; set; } = 10;
         public override int CurrentValue(InventoryToolsConfiguration configuration)

@@ -11,6 +11,9 @@ namespace InventoryTools.Logic.Settings
         public MarketBoardSaleCountLimitSetting(ILogger<MarketBoardSaleCountLimitSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, IHostedUniversalisConfiguration universalisConfiguration) : base(logger, imGuiService, localizationService)
         {
             _universalisConfiguration = universalisConfiguration;
+            Name = localizationService.GetString("Setting_MBSaleCountLimit_Name");
+            HelpText = localizationService.GetString("Setting_MBSaleCountLimit_HelpText");
+            WizardName = localizationService.GetString("Setting_MBSaleCountLimit_WizardName");
         }
         
         private readonly IHostedUniversalisConfiguration _universalisConfiguration;

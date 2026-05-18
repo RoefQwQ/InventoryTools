@@ -29,6 +29,8 @@ namespace InventoryTools.Logic.Settings
 
         public ShowTooltipsSetting(ILogger<ShowTooltipsSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_ShowTooltips_Name");
+            HelpText = localizationService.GetString("Setting_ShowTooltips_HelpText");
         }
     }
 }

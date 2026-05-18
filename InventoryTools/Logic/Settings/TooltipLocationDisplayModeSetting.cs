@@ -54,5 +54,8 @@ public class TooltipLocationDisplayModeSetting : ChoiceSetting<TooltipLocationDi
 
     public TooltipLocationDisplayModeSetting(ILogger<TooltipLocationDisplayModeSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipLocationDisplayMode_Name");
+        HelpText = localizationService.GetString("Setting_TooltipLocationDisplayMode_HelpText");
+        WizardName = localizationService.GetString("Setting_TooltipLocationDisplayMode_WizardName");
     }
 }

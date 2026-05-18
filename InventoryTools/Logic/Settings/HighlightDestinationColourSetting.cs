@@ -27,6 +27,8 @@ namespace InventoryTools.Logic.Settings
 
         public HighlightDestinationColourSetting(ILogger<HighlightDestinationColourSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_HighlightDestinationColour_Name");
+            HelpText = localizationService.GetString("Setting_HighlightDestinationColour_HelpText");
         }
     }
 }

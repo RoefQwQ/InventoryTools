@@ -34,6 +34,9 @@ namespace InventoryTools.Logic.Settings
 
         public TooltipMinimumMarketPriceSetting(ILogger<TooltipMinimumMarketPriceSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_TooltipDisplayMBMinimum_Name");
+            HelpText = localizationService.GetString("Setting_TooltipDisplayMBMinimum_HelpText");
+            WizardName = localizationService.GetString("Setting_TooltipDisplayMBMinimum_WizardName");
         }
     }
 }

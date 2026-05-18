@@ -41,5 +41,8 @@ public class CraftWindowLayoutSetting : ChoiceSetting<WindowLayout>
 
     public CraftWindowLayoutSetting(ILogger<CraftWindowLayoutSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_CraftWindowLayout_Name");
+        HelpText = localizationService.GetString("Setting_CraftWindowLayout_HelpText");
+        WizardName = localizationService.GetString("Setting_CraftWindowLayout_WizardName");
     }
 }

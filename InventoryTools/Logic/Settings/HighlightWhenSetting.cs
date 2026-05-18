@@ -36,6 +36,8 @@ namespace InventoryTools.Logic.Settings
 
         public HighlightWhenSetting(ILogger<HighlightWhenSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_HighlightWhen_Name");
+            HelpText = localizationService.GetString("Setting_HighlightWhen_HelpText");
         }
     }
 }

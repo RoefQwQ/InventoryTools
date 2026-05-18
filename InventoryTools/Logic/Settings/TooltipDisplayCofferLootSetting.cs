@@ -34,5 +34,8 @@ public class TooltipDisplayCofferLootSetting : BooleanSetting
 
     public TooltipDisplayCofferLootSetting(ILogger<TooltipDisplayCofferLootSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipDisplayCofferLoot_Name");
+        HelpText = localizationService.GetString("Setting_TooltipDisplayCofferLoot_HelpText");
+        WizardName = localizationService.GetString("Setting_TooltipDisplayCofferLoot_WizardName");
     }
 }

@@ -24,7 +24,7 @@ public class SourceIconGroupingSetting : Setting<Dictionary<Type, bool>?>
     private readonly Dictionary<Type, IItemInfoRenderer> _sourceRenderers;
     private readonly Dictionary<SourceIconGrouping,string> _choices;
 
-    public SourceIconGroupingSetting(ILogger<SourceIconGroupingSetting> logger, IEnumerable<IItemInfoRenderer> itemInfoRenderers, ImGuiService imGuiService) : base(logger, imGuiService)
+    public SourceIconGroupingSetting(ILogger<SourceIconGroupingSetting> logger, IEnumerable<IItemInfoRenderer> itemInfoRenderers, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
     {
         _sourceRenderers = itemInfoRenderers.Where(c => c.RendererType == RendererType.Source).ToDictionary(c => c.ItemSourceType, c => c);
         _choices = new Dictionary<SourceIconGrouping, string>()
@@ -33,6 +33,8 @@ public class SourceIconGroupingSetting : Setting<Dictionary<Type, bool>?>
             {SourceIconGrouping.Grouped, "Grouped"},
             {SourceIconGrouping.Ungrouped, "Ungrouped"}
         };
+        Name = localizationService.GetString("Setting_SourceIconGrouping_Name");
+        HelpText = localizationService.GetString("Setting_SourceIconGrouping_HelpText");
     }
 
     public override Dictionary<Type, bool>? DefaultValue { get; set; } = null;

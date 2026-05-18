@@ -20,8 +20,10 @@ namespace InventoryTools.Logic.Settings
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;
         public override string Version => "1.7.0.0";
 
-        public HotkeyAirshipWindowSetting(ILogger<HotkeyAirshipWindowSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public HotkeyAirshipWindowSetting(ILogger<HotkeyAirshipWindowSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_HotkeyAirshipsWindow_Name");
+            HelpText = localizationService.GetString("Setting_HotkeyAirshipsWindow_HelpText");
         }
     }
 }

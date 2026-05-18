@@ -8,6 +8,9 @@ namespace InventoryTools.Logic.Settings
     {
         public ContextMenuAddToCraftListSetting(ILogger<ContextMenuAddToCraftListSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_addToCraftListContextMenu_Name");
+            HelpText = localizationService.GetString("Setting_addToCraftListContextMenu_HelpText");
+            WizardName = localizationService.GetString("Setting_addToCraftListContextMenu_WizardName");
         }
         
         public override bool DefaultValue { get; set; } = false;

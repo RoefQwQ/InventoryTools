@@ -28,6 +28,7 @@ namespace InventoryTools.Logic.Settings
 
         public SwitchFiltersAutomaticallySetting(ILogger<SwitchFiltersAutomaticallySetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_SwitchFiltersAutomatically_Name");
         }
     }
 }

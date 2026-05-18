@@ -64,5 +64,7 @@ public class HistoryTrackEventsSetting : MultipleChoiceSetting<InventoryChangeRe
 
     public HistoryTrackEventsSetting(ILogger<HistoryTrackEventsSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_HistoryTrackEvents_Name");
+        HelpText = localizationService.GetString("Setting_HistoryTrackEvents_HelpText");
     }
 }

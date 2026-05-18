@@ -8,6 +8,9 @@ public class ContextMenuOpenFishingLogSetting : BooleanSetting
 {
     public ContextMenuOpenFishingLogSetting(ILogger<ContextMenuOpenFishingLogSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_OpenFishingLogContextMenu_Name");
+        HelpText = localizationService.GetString("Setting_OpenFishingLogContextMenu_HelpText");
+        WizardName = localizationService.GetString("Setting_OpenFishingLogContextMenu_WizardName");
     }
 
     public override bool DefaultValue { get; set; } = false;

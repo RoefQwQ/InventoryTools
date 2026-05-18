@@ -28,6 +28,8 @@ namespace InventoryTools.Logic.Settings
 
         public HighlightColourSetting(ILogger<HighlightColourSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_HighlightColour_Name");
+            HelpText = localizationService.GetString("Setting_HighlightColour_HelpText");
         }
     }
 }

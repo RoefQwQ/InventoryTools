@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dalamud.Game.Command;
 using Dalamud.Plugin.Services;
 using InventoryTools.Attributes;
+using InventoryTools.Services;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -20,12 +21,14 @@ namespace InventoryTools.Commands
         private (string, CommandInfo)[] _pluginCommands;
         private readonly T _host;
         private readonly ICommandManager _commandManager;
+        private readonly ILocalizationService _localizationService;
 
-        public PluginCommandManager(ILogger<PluginCommandManager<T>> logger, T host, ICommandManager commandManager)
+        public PluginCommandManager(ILogger<PluginCommandManager<T>> logger, T host, ICommandManager commandManager, ILocalizationService localizationService)
         {
             Logger = logger;
             this._host = host;
             _commandManager = commandManager;
+            _localizationService = localizationService;
         }
 
         private void AddCommandHandlers()
@@ -55,9 +58,11 @@ namespace InventoryTools.Commands
             var helpMessage = handlerDelegate.Method.GetCustomAttribute<HelpMessageAttribute>();
             var doNotShowInHelp = handlerDelegate.Method.GetCustomAttribute<DoNotShowInHelpAttribute>();
 
+            var helpMessageKey = helpMessage?.HelpMessage ?? string.Empty;
+            var localizedHelpMessage = !string.IsNullOrEmpty(helpMessageKey) ? _localizationService.GetString(helpMessageKey) : string.Empty;
             var commandInfo = new CommandInfo(handlerDelegate)
             {
-                HelpMessage = helpMessage?.HelpMessage ?? string.Empty,
+                HelpMessage = localizedHelpMessage,
                 ShowInHelp = doNotShowInHelp == null,
             };
 

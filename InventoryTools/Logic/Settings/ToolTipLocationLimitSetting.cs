@@ -26,5 +26,7 @@ public class ToolTipLocationLimitSetting : IntegerSetting
 
     public ToolTipLocationLimitSetting(ILogger<ToolTipLocationLimitSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipLocationLimit_Name");
+        HelpText = localizationService.GetString("Setting_TooltipLocationLimit_HelpText");
     }
 }

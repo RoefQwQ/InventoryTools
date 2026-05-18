@@ -31,6 +31,8 @@ namespace InventoryTools.Logic.Settings
 
         public RetainerListColourSetting(ILogger<RetainerListColourSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_RetainerListColour_Name");
+            HelpText = localizationService.GetString("Setting_RetainerListColour_HelpText");
         }
     }
 }

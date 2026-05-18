@@ -30,6 +30,8 @@ namespace InventoryTools.Logic.Settings
 
         public TooltipAddCharacterNameSetting(ILogger<TooltipAddCharacterNameSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_TooltipCharacterName_Name");
+            HelpText = localizationService.GetString("Setting_TooltipCharacterName_HelpText");
         }
     }
 }

@@ -72,6 +72,30 @@ namespace InventoryTools.Ui
 
         private readonly ILocalizationService _localizationService;
 
+        private readonly Dictionary<string, string> _compendiumNameMap = new()
+        {
+            { "Achievements", "成就" },
+            { "Airship Routes", "飞空艇航线" },
+            { "Allied Societies", "友好部族" },
+            { "BGM", "BGM" },
+            { "Chocobo Items", "陆行鸟道具" },
+            { "Classes", "职业" },
+            { "Custom Deliveries", "老主顾" },
+            { "Gearsets", "套装" },
+            { "Instances", "副本" },
+            { "Leves", "理符" },
+            { "Minions", "宠物" },
+            { "Mounts", "坐骑" },
+            { "NPCs", "NPC" },
+            { "Quests", "任务" },
+            { "Racing Chocobo Items", "赛鸟道具" },
+            { "Relic Tools", " relic 工具" },
+            { "Relic Weapons", " relic 武器" },
+            { "Shared Model Sets", "共享模型套装" },
+            { "Submarine Routes", "潜水艇航线" },
+            { "Territories", "地区" },
+        };
+
         public FiltersWindow(ILogger<FiltersWindow> logger, MediatorService mediator, ImGuiService imGuiService,
             InventoryToolsConfiguration configuration, IListService listService, IFilterService filterService,
             TableService tableService, IChatUtilities chatUtilities, ICharacterMonitor characterMonitor,
@@ -1099,14 +1123,15 @@ namespace InventoryTools.Ui
                     {
                         if (menu)
                         {
-                            if (ImGui.Selectable("Compendium Viewer"))
+                            if (ImGui.Selectable(_localizationService["Window_Filters_CompendiumViewer"]))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(CompendiumTypesWindow)));
                             }
                             ImGui.Separator();
                             foreach (var compendiumType in _compendiumTypes)
                             {
-                                if (compendiumType.ShowInListing && ImGui.MenuItem(compendiumType.Plural))
+                                var displayName = _compendiumNameMap.TryGetValue(compendiumType.Plural, out var mappedName) ? mappedName : compendiumType.Plural;
+                                if (compendiumType.ShowInListing && ImGui.MenuItem(displayName))
                                 {
                                     this.MediatorService.Publish(new ToggleCompendiumListMessage(compendiumType));
                                 }

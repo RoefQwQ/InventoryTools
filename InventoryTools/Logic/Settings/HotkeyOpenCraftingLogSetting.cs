@@ -8,8 +8,10 @@ namespace InventoryTools.Logic.Settings
 {
     public class HotkeyOpenCraftingLogSetting : HotKeySetting
     {
-        public HotkeyOpenCraftingLogSetting(ILogger<HotkeyOpenCraftingLogSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public HotkeyOpenCraftingLogSetting(ILogger<HotkeyOpenCraftingLogSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_OpenCraftingLogHotKey_Name");
+            HelpText = localizationService.GetString("Setting_OpenCraftingLogHotKey_HelpText");
         }
 
         public override ModifiableHotkey DefaultValue { get; set; } = new(VirtualKey.NO_KEY);

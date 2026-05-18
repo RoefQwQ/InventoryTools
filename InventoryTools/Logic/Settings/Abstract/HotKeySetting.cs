@@ -10,8 +10,11 @@ namespace InventoryTools.Logic.Settings.Abstract
 {
     public abstract class HotKeySetting : Setting<ModifiableHotkey>
     {
-        public HotKeySetting(ILogger logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public ILocalizationService LocalizationService { get; }
+
+        public HotKeySetting(ILogger logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            LocalizationService = localizationService;
         }
         private readonly List<VirtualKey> _virtualKeys = new() { VirtualKey.A, VirtualKey.B, VirtualKey.C, VirtualKey.D, VirtualKey.E, VirtualKey.F, VirtualKey.G, VirtualKey.H, VirtualKey.I, VirtualKey.J, VirtualKey.K, VirtualKey.L, VirtualKey.M, VirtualKey.N, VirtualKey.O, VirtualKey.P, VirtualKey.Q, VirtualKey.R, VirtualKey.S, VirtualKey.T, VirtualKey.U, VirtualKey.V, VirtualKey.W, VirtualKey.X, VirtualKey.Y, VirtualKey.Z, VirtualKey.NO_KEY };
 

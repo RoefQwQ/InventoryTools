@@ -40,5 +40,8 @@ public class TooltipGlamourReadySetDisplayModeSetting : ChoiceSetting<GlamourRea
 
     public TooltipGlamourReadySetDisplayModeSetting(ILogger<TooltipGlamourReadySetDisplayModeSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipGlamourReadySetDisplayMode_Name");
+        HelpText = localizationService.GetString("Setting_TooltipGlamourReadySetDisplayMode_HelpText");
+        WizardName = localizationService.GetString("Setting_TooltipGlamourReadySetDisplayMode_WizardName");
     }
 }

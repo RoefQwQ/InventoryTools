@@ -8,6 +8,8 @@ public class AddTitleMenuButtonSetting : BooleanSetting
 {
     public AddTitleMenuButtonSetting(ILogger<AddTitleMenuButtonSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_AddTitleMenuButton_Name");
+        HelpText = localizationService.GetString("Setting_AddTitleMenuButton_HelpText");
     }
 
     public override bool DefaultValue { get; set; } = false;

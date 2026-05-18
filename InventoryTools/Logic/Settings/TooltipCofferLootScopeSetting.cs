@@ -13,9 +13,11 @@ public class TooltipCofferLootScopeSetting : Setting<List<InventorySearchScope>?
 {
     private readonly InventoryScopePicker _scopePicker;
 
-    public TooltipCofferLootScopeSetting(ILogger<TooltipCofferLootScopeSetting> logger, ImGuiService imGuiService, InventoryScopePicker scopePicker) : base(logger, imGuiService)
+    public TooltipCofferLootScopeSetting(ILogger<TooltipCofferLootScopeSetting> logger, ImGuiService imGuiService, InventoryScopePicker scopePicker, ILocalizationService localizationService) : base(logger, imGuiService)
     {
         _scopePicker = scopePicker;
+        Name = localizationService.GetString("Setting_TooltipCofferLootScope_Name");
+        HelpText = localizationService.GetString("Setting_TooltipCofferLootScope_HelpText");
     }
 
     public override List<InventorySearchScope>? DefaultValue { get; set; } = new ()

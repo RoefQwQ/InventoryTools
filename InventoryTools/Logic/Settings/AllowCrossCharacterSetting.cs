@@ -30,6 +30,9 @@ namespace InventoryTools.Logic.Settings
 
         public AllowCrossCharacterSetting(ILogger<AllowCrossCharacterSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_AllowCrossCharacter_Name");
+            WizardName = localizationService.GetString("Setting_AllowCrossCharacter_WizardName");
+            HelpText = localizationService.GetString("Setting_AllowCrossCharacter_HelpText");
         }
     }
 }

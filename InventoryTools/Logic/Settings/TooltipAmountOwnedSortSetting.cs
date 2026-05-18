@@ -9,6 +9,8 @@ public class TooltipAmountOwnedSortSetting : ChoiceSetting<TooltipAmountOwnedSor
 {
     public TooltipAmountOwnedSortSetting(ILogger<TooltipAmountOwnedSortSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TooltipAmountOwnedSort_Name");
+        HelpText = localizationService.GetString("Setting_TooltipAmountOwnedSort_HelpText");
     }
 
     public override TooltipAmountOwnedSort DefaultValue { get; set; } = TooltipAmountOwnedSort.Alphabetically;

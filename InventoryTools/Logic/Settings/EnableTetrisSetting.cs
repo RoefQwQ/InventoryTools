@@ -29,5 +29,7 @@ public class EnableTetrisSetting : BooleanSetting
 
     public EnableTetrisSetting(ILogger<EnableTetrisSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_TetrisEnabled_Name");
+        HelpText = localizationService.GetString("Setting_TetrisEnabled_HelpText");
     }
 }

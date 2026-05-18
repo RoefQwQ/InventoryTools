@@ -14,6 +14,8 @@ public class TooltipDisplayUnlockCharacterSetting : MultipleChoiceSetting<ulong>
     public TooltipDisplayUnlockCharacterSetting(ICharacterMonitor characterMonitor, ILogger<TooltipDisplayUnlockCharacterSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
         _characterMonitor = characterMonitor;
+        Name = localizationService.GetString("Setting_TooltipDisplayUnlockCharacter_Name");
+        HelpText = localizationService.GetString("Setting_TooltipDisplayUnlockCharacter_HelpText");
     }
 
     public override List<ulong> DefaultValue { get; set; } = new();

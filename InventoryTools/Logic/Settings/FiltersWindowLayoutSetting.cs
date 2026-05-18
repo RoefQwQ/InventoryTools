@@ -40,5 +40,8 @@ public class FiltersWindowLayoutSetting : ChoiceSetting<WindowLayout>
 
     public FiltersWindowLayoutSetting(ILogger<FiltersWindowLayoutSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
     {
+        Name = localizationService.GetString("Setting_FilterWindowLayout_Name");
+        HelpText = localizationService.GetString("Setting_FilterWindowLayout_HelpText");
+        WizardName = localizationService.GetString("Setting_FilterWindowLayout_WizardName");
     }
 }

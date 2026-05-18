@@ -31,6 +31,9 @@ namespace InventoryTools.Logic.Settings
 
         public ContextMenuMoreInformationSetting(ILogger<ContextMenuMoreInformationSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_moreInfoContextMenu_Name");
+            HelpText = localizationService.GetString("Setting_moreInfoContextMenu_HelpText");
+            WizardName = localizationService.GetString("Setting_moreInfoContextMenu_WizardName");
         }
     }
 }

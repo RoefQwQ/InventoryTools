@@ -17,6 +17,8 @@ public class TrackMobSpawnSetting : BooleanSetting
     {
         _fileDialogManager = fileDialogManager;
         _mobTracker = mobTracker;
+        Name = localizationService.GetString("Setting_TrackMobSpawns_Name");
+        HelpText = localizationService.GetString("Setting_TrackMobSpawns_HelpText");
     }
     public override bool DefaultValue { get; set; } = false;
     public override bool CurrentValue(InventoryToolsConfiguration configuration)

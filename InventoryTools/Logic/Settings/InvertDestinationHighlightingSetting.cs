@@ -29,6 +29,8 @@ namespace InventoryTools.Logic.Settings
 
         public InvertDestinationHighlightingSetting(ILogger<InvertDestinationHighlightingSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_InvertDestinationHighlighting_Name");
+            HelpText = localizationService.GetString("Setting_InvertDestinationHighlighting_HelpText");
         }
     }
 }

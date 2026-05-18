@@ -21,8 +21,10 @@ namespace InventoryTools.Logic.Settings
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;
         public override string Version => "1.7.0.12";
 
-        public HotKeyListsWindowSetting(ILogger<HotKeyListsWindowSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)
+        public HotKeyListsWindowSetting(ILogger<HotKeyListsWindowSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_HotkeyListsWindow_Name");
+            HelpText = localizationService.GetString("Setting_HotkeyListsWindow_HelpText");
         }
     }
 }

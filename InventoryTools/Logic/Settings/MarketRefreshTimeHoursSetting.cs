@@ -12,6 +12,9 @@ namespace InventoryTools.Logic.Settings
         public MarketRefreshTimeHoursSetting(ILogger<MarketRefreshTimeHoursSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, MarketCacheConfiguration marketCacheConfiguration) : base(logger, imGuiService, localizationService)
         {
             _marketCacheConfiguration = marketCacheConfiguration;
+            Name = localizationService.GetString("Setting_MarketRefreshTime_Name");
+            HelpText = localizationService.GetString("Setting_MarketRefreshTime_HelpText");
+            WizardName = localizationService.GetString("Setting_MarketRefreshTime_WizardName");
         }
 
         public override int DefaultValue { get; set; } = 24;

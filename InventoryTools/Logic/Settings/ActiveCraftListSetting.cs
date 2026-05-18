@@ -14,6 +14,8 @@ namespace InventoryTools.Logic.Settings
         public ActiveCraftListSetting(ILogger<ActiveCraftListSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, IListService listService) : base(logger, imGuiService, localizationService)
         {
             _listService = listService;
+            Name = localizationService.GetString("Setting_ActiveCraftList_Name");
+            HelpText = localizationService.GetString("Setting_ActiveCraftList_HelpText");
         }
         public override string DefaultValue { get; set; } = "";
         public override string CurrentValue(InventoryToolsConfiguration configuration)

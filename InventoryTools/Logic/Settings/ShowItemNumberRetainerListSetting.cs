@@ -30,6 +30,8 @@ namespace InventoryTools.Logic.Settings
 
         public ShowItemNumberRetainerListSetting(ILogger<ShowItemNumberRetainerListSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_ShowItemNumberRetainerList_Name");
+            HelpText = localizationService.GetString("Setting_ShowItemNumberRetainerList_HelpText");
         }
     }
 }

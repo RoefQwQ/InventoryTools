@@ -15,6 +15,8 @@ public class TooltipCategoryWhitelistSetting : MultipleChoiceSetting<uint>
     public TooltipCategoryWhitelistSetting(ILogger<TooltipCategoryWhitelistSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, ExcelSheet<ItemUICategory> itemUiCategorySheet) : base(logger, imGuiService, localizationService)
     {
         _itemUiCategorySheet = itemUiCategorySheet;
+        Name = localizationService.GetString("Setting_TooltipWhitelistCategories_Name");
+        HelpText = localizationService.GetString("Setting_TooltipWhitelistCategories_HelpText");
     }
 
     public override List<uint> DefaultValue { get; set; } = new();

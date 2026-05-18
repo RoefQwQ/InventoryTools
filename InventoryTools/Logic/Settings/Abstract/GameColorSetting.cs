@@ -58,8 +58,11 @@ namespace InventoryTools.Logic.Settings.Abstract
             h /= 6;
         }
 
-        public GameColorSetting(ILogger logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet) : base(logger, imGuiService)
+        public ILocalizationService LocalizationService { get; }
+
+        public GameColorSetting(ILogger logger, ImGuiService imGuiService, ExcelSheet<UIColor> uiColorSheet, ILocalizationService localizationService) : base(logger, imGuiService)
         {
+            LocalizationService = localizationService;
             _uiColorSheet = uiColorSheet;
             var list = new List<UIColor>(_uiColorSheet.Distinct(new UIColorComparer()));
             list.Sort((a, b) =>

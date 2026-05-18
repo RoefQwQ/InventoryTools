@@ -30,6 +30,8 @@ namespace InventoryTools.Logic.Settings
 
         public TooltipCurrentCharacterSetting(ILogger<TooltipCurrentCharacterSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base(logger, imGuiService, localizationService)
         {
+            Name = localizationService.GetString("Setting_TooltipCurrentCharacter_Name");
+            HelpText = localizationService.GetString("Setting_TooltipCurrentCharacter_HelpText");
         }
     }
 }

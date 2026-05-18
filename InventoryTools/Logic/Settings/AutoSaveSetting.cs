@@ -11,6 +11,9 @@ namespace InventoryTools.Logic.Settings
         public AutoSaveSetting(ILogger<AutoSaveSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService, PluginLogic pluginLogic) : base(logger, imGuiService, localizationService)
         {
             _pluginLogic = pluginLogic;
+            Name = localizationService.GetString("Setting_AutoSave_Name");
+            HelpText = localizationService.GetString("Setting_AutoSave_HelpText");
+            WizardName = localizationService.GetString("Setting_AutoSave_WizardName");
         }
         public override bool DefaultValue { get; set; } = true;
         public override bool CurrentValue(InventoryToolsConfiguration configuration)
