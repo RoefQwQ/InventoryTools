@@ -61,7 +61,7 @@ namespace InventoryTools.Ui
             if (ENpcResidentRow != null)
             {
                 Key = "enpc_" + eNpcId;
-                WindowName = "Allagan Tools - " + ENpcResidentRow.Base.Singular.ExtractText() + "##" + eNpcId;
+                WindowName = _localizationService.GetString("Window_ENpcWindow_WindowName") + ENpcResidentRow.Base.Singular.ExtractText() + "##" + eNpcId;
                 Shops = _itemInfoCache.GetNpcShops(eNpcId)?.ToList() ?? [];
             }
             else

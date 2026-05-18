@@ -45,7 +45,7 @@ namespace InventoryTools.Ui
             if (RetainerTask != null)
             {
                 Key = "rt_" + retainerTaskId;
-                WindowName = "Allagan Tools - " + RetainerTask.FormattedName + " - Venture";
+                WindowName = _localizationService.GetString("Window_RetainerTaskWindow_WindowName") + RetainerTask.FormattedName + " - Venture";
                 _drops = RetainerTask.Drops;
             }
             else

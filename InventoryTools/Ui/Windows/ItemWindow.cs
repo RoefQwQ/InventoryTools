@@ -142,7 +142,7 @@ namespace InventoryTools.Ui
             MediatorService.Subscribe<MarketCacheUpdatedMessage>(this, MarketCacheUpdated);
             if (Item != null)
             {
-                WindowName = "Allagan Tools - " + Item.NameString;
+                WindowName = _localizationService.GetString("Window_ItemWindow_WindowName") + Item.NameString;
                 Key = "item_" + itemId;
                 RetainerTasks = Item.GetSourcesByCategory<ItemVentureSource>(ItemInfoCategory.AllVentures).Select(c => c.RetainerTaskRow).ToArray();
                 RecipesResult = Item.GetSourcesByType<ItemCraftResultSource>(ItemInfoType.CraftRecipe).Select(c => c.Recipe).ToArray();

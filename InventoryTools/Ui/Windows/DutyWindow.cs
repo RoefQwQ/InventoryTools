@@ -58,7 +58,7 @@ namespace InventoryTools.Ui
             _contentFinderConditionId = contentFinderConditionId;
             if (ContentFinderCondition != null)
             {
-                WindowName = "Allagan Tools - " + ContentFinderCondition.Base.Name.ExtractText();
+                WindowName = _localizationService.GetString("Window_DutyWindow_WindowName") + ContentFinderCondition.Base.Name.ExtractText();
                 Key = "cfcid_" + contentFinderConditionId;
                 DungeonChestItems = new HashSet<uint>();
                 DungeonRewards = new HashSet<uint>();

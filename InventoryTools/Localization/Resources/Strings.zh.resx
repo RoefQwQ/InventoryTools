@@ -2186,4 +2186,22 @@
   <data name="Setting_MultipleChoice_ItemsSelected" xml:space="preserve">
     <value>{0} 个项目已选择</value>
   </data>
+  <data name="Window_ConfigurationWindow_WindowName" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="Window_DutyWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_ENpcWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_FilterWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_ItemWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_RetainerTaskWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
 </root>

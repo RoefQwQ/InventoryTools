@@ -55,7 +55,7 @@ namespace InventoryTools.Ui
             if (SelectedConfiguration != null)
             {
                 Key = "filter_" + filterKey;
-                WindowName = "Allagan Tools - " + SelectedConfiguration.Name;
+                WindowName = _localizationService.GetString("Window_FilterWindow_WindowName") + SelectedConfiguration.Name;
             }
             else
             {

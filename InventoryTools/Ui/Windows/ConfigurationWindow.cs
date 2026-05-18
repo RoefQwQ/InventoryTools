@@ -91,7 +91,7 @@ namespace InventoryTools.Ui
 
         public override void Initialize()
         {
-            WindowName = "Configuration";
+            WindowName = _localizationService.GetString("Window_ConfigurationWindow_WindowName");
             Key = "configuration";
             _configPages = new List<IConfigPage>();
             _configPages.Add(new SeparatorPageItem("Settings"));
