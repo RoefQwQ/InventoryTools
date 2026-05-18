@@ -25,8 +25,9 @@ jobs:
 
       - name: Download Dalamud
         run: |
+          New-Item -ItemType Directory -Force -Path "$env:LOCALAPPDATA\XIVLauncher\addon\Hooks\dev" | Out-Null
           Invoke-WebRequest -Uri https://goatcorp.github.io/dalamud-distrib/latest.zip -OutFile latest.zip
-          Expand-Archive -Force latest.zip "$env:AppData\XIVLauncher\addon\Hooks\dev\"
+          Expand-Archive -Force latest.zip "$env:LOCALAPPDATA\XIVLauncher\addon\Hooks\dev\"
 
       - name: Restore
         run: dotnet restore InventoryTools
