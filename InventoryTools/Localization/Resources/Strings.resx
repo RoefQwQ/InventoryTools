@@ -1,0 +1,3071 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- RoleLocalizer -->
+  <data name="Role_Tank" xml:space="preserve">
+    <value>防护</value>
+  </data>
+  <data name="Role_DPSMelee" xml:space="preserve">
+    <value>进攻（近战）</value>
+  </data>
+  <data name="Role_DPSRanged" xml:space="preserve">
+    <value>进攻（远程）</value>
+  </data>
+  <data name="Role_Healer" xml:space="preserve">
+    <value>治疗</value>
+  </data>
+  <data name="Role_Crafting" xml:space="preserve">
+    <value>能工巧匠</value>
+  </data>
+  <data name="Role_Gathering" xml:space="preserve">
+    <value>大地使者</value>
+  </data>
+  <data name="Role_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Role_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+
+  <!-- RelicWeaponCategoryLocalizer -->
+  <data name="RelicWeaponCategory_Zodiac" xml:space="preserve">
+    <value>Zodiac 武器（古武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Anima" xml:space="preserve">
+    <value>Anima 武器（魂武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Eurekan" xml:space="preserve">
+    <value>Eurekan 武器（优武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Resistance" xml:space="preserve">
+    <value>Resistance 武器（义武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Manderville" xml:space="preserve">
+    <value>Manderville 武器（曼武）</value>
+  </data>
+  <data name="RelicWeaponCategory_Phantom" xml:space="preserve">
+    <value>Phantom 武器（幻武）</value>
+  </data>
+
+  <!-- RelicWeaponTypeLocalizer -->
+  <data name="RelicWeaponType_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacBase" xml:space="preserve">
+    <value>本我</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacZenith" xml:space="preserve">
+    <value>Zenith</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacAtma" xml:space="preserve">
+    <value>Atma</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacAnimus" xml:space="preserve">
+    <value>Animus</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacNovus" xml:space="preserve">
+    <value>Novus</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacNexus" xml:space="preserve">
+    <value>Nexus</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacZodiac" xml:space="preserve">
+    <value>Zodiac</value>
+  </data>
+  <data name="RelicWeaponType_ZodiacZeta" xml:space="preserve">
+    <value>Zeta</value>
+  </data>
+  <data name="RelicWeaponType_AnimaAnimated" xml:space="preserve">
+    <value>Animated</value>
+  </data>
+  <data name="RelicWeaponType_AnimaAwoken" xml:space="preserve">
+    <value>Awoken</value>
+  </data>
+  <data name="RelicWeaponType_AnimaAnima" xml:space="preserve">
+    <value>Anima</value>
+  </data>
+  <data name="RelicWeaponType_AnimaHyperconductive" xml:space="preserve">
+    <value>Hyperconductive</value>
+  </data>
+  <data name="RelicWeaponType_AnimaReconditioned" xml:space="preserve">
+    <value>Reconditioned</value>
+  </data>
+  <data name="RelicWeaponType_AnimaSharpened" xml:space="preserve">
+    <value>Sharpened</value>
+  </data>
+  <data name="RelicWeaponType_AnimaComplete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="RelicWeaponType_AnimaLux" xml:space="preserve">
+    <value>Lux</value>
+  </data>
+  <data name="RelicWeaponType_EurekanAntiquated" xml:space="preserve">
+    <value>Antiquated</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBase" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBase1" xml:space="preserve">
+    <value>Base + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBase2" xml:space="preserve">
+    <value>Base + 2</value>
+  </data>
+  <data name="RelicWeaponType_EurekanAnemos" xml:space="preserve">
+    <value>Anemos</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPagos" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPagos1" xml:space="preserve">
+    <value>Pagos + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanElemental" xml:space="preserve">
+    <value>Elemental</value>
+  </data>
+  <data name="RelicWeaponType_EurekanElemental1" xml:space="preserve">
+    <value>Elemental + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanElemental2" xml:space="preserve">
+    <value>Elemental + 2</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPyros" xml:space="preserve">
+    <value>Pyros</value>
+  </data>
+  <data name="RelicWeaponType_EurekanHydatos" xml:space="preserve">
+    <value>Hydatos</value>
+  </data>
+  <data name="RelicWeaponType_EurekanHydatos1" xml:space="preserve">
+    <value>Hydatos + 1</value>
+  </data>
+  <data name="RelicWeaponType_EurekanBaseEureka" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="RelicWeaponType_EurekanEureka" xml:space="preserve">
+    <value>Eureka</value>
+  </data>
+  <data name="RelicWeaponType_EurekanPhyseos" xml:space="preserve">
+    <value>Physeos</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceResistance" xml:space="preserve">
+    <value>Resistance</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceAugmentedResistance" xml:space="preserve">
+    <value>Augmented Resistance</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceRecollection" xml:space="preserve">
+    <value>Recollection</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceLawsOrder" xml:space="preserve">
+    <value>Laws Order</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceAugmentedLawsOrder" xml:space="preserve">
+    <value>Augmented Laws Order</value>
+  </data>
+  <data name="RelicWeaponType_ResistanceBlades" xml:space="preserve">
+    <value>Blades</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleManderville" xml:space="preserve">
+    <value>Manderville</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleAmazing" xml:space="preserve">
+    <value>Amazing</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleMajestic" xml:space="preserve">
+    <value>Majestic</value>
+  </data>
+  <data name="RelicWeaponType_MandervilleMandervillous" xml:space="preserve">
+    <value>Mandervillous</value>
+  </data>
+  <data name="RelicWeaponType_PhantomPenumbrae" xml:space="preserve">
+    <value>Penumbrae</value>
+  </data>
+  <data name="RelicWeaponType_PhantomUmbrae" xml:space="preserve">
+    <value>Umbrae</value>
+  </data>
+  <data name="RelicWeaponType_PhantomObscurum" xml:space="preserve">
+    <value>Obscurum</value>
+  </data>
+
+  <!-- RelicToolCategoryLocalizer -->
+  <data name="RelicToolCategory_Mastercraft" xml:space="preserve">
+    <value>Mastercraft 工具</value>
+  </data>
+  <data name="RelicToolCategory_Skysteel" xml:space="preserve">
+    <value>Skysteel 工具（天钢）</value>
+  </data>
+  <data name="RelicToolCategory_Resplendent" xml:space="preserve">
+    <value>Resplendent 工具（辉煌）</value>
+  </data>
+  <data name="RelicToolCategory_Splendorous" xml:space="preserve">
+    <value>Splendorous 工具</value>
+  </data>
+  <data name="RelicToolCategory_Cosmic" xml:space="preserve">
+    <value>Cosmic 工具（宇宙）</value>
+  </data>
+
+  <!-- RelicToolTypeLocalizer -->
+  <data name="RelicToolType_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="RelicToolType_MastercraftBase" xml:space="preserve">
+    <value>Mastercraft</value>
+  </data>
+  <data name="RelicToolType_MastercraftSupra" xml:space="preserve">
+    <value>Supra</value>
+  </data>
+  <data name="RelicToolType_MastercraftLucis" xml:space="preserve">
+    <value>Lucis</value>
+  </data>
+  <data name="RelicToolType_SkysteelBase" xml:space="preserve">
+    <value>Skysteel（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelBase1" xml:space="preserve">
+    <value>Skysteel + 1（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelDragonsung" xml:space="preserve">
+    <value>Dragonsung（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelAugmentedDragonsung" xml:space="preserve">
+    <value>Augmented Dragonsung（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelSkysung" xml:space="preserve">
+    <value>Skysung（天钢）</value>
+  </data>
+  <data name="RelicToolType_SkysteelSkybuilders" xml:space="preserve">
+    <value>Skybuilders（天钢）</value>
+  </data>
+  <data name="RelicToolType_Resplendent" xml:space="preserve">
+    <value>Resplendent（辉煌）</value>
+  </data>
+  <data name="RelicToolType_SplendorousBase" xml:space="preserve">
+    <value>Splendorous</value>
+  </data>
+  <data name="RelicToolType_SplendorousAugmented" xml:space="preserve">
+    <value>Augmented Splendorous</value>
+  </data>
+  <data name="RelicToolType_SplendorousCrystalline" xml:space="preserve">
+    <value>Crystalline</value>
+  </data>
+  <data name="RelicToolType_SplendorousChoraZoiCrystalline" xml:space="preserve">
+    <value>Chora-Zoi's Crystalline</value>
+  </data>
+  <data name="RelicToolType_SplendorousBrilliant" xml:space="preserve">
+    <value>Brilliant</value>
+  </data>
+  <data name="RelicToolType_SplendorousVrandticVisionary" xml:space="preserve">
+    <value>Vrandtic Visionary's</value>
+  </data>
+  <data name="RelicToolType_SplendorousLodestar" xml:space="preserve">
+    <value>Lodestar</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype01" xml:space="preserve">
+    <value>Prototype v0.1（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype02" xml:space="preserve">
+    <value>Prototype v0.2（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype03" xml:space="preserve">
+    <value>Prototype v0.3（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype04" xml:space="preserve">
+    <value>Prototype v0.4（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype05" xml:space="preserve">
+    <value>Prototype v0.5（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype06" xml:space="preserve">
+    <value>Prototype v0.6（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype07" xml:space="preserve">
+    <value>Prototype v0.7（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicPrototype08" xml:space="preserve">
+    <value>Prototype v0.8（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic" xml:space="preserve">
+    <value>Cosmic（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic11" xml:space="preserve">
+    <value>Cosmic v1.1（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic12" xml:space="preserve">
+    <value>Cosmic v1.2（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic13" xml:space="preserve">
+    <value>Cosmic v1.3（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicCosmic14" xml:space="preserve">
+    <value>Cosmic v1.4（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicStellar" xml:space="preserve">
+    <value>Stellar（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicStellar11" xml:space="preserve">
+    <value>Stellar v1.1（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicStellar12" xml:space="preserve">
+    <value>Stellar v1.2（宇宙）</value>
+  </data>
+  <data name="RelicToolType_CosmicHypertools" xml:space="preserve">
+    <value>Hypertools（宇宙）</value>
+  </data>
+
+  <!-- ItemLocalizer -->
+  <data name="Item_Bag1" xml:space="preserve">
+    <value>背包1</value>
+  </data>
+  <data name="Item_Bag2" xml:space="preserve">
+    <value>背包2</value>
+  </data>
+  <data name="Item_Bag3" xml:space="preserve">
+    <value>背包3</value>
+  </data>
+  <data name="Item_Bag4" xml:space="preserve">
+    <value>背包4</value>
+  </data>
+  <data name="Item_Bag5" xml:space="preserve">
+    <value>背包5</value>
+  </data>
+  <data name="Item_SaddlebagLeft" xml:space="preserve">
+    <value>陆行鸟鞍囊（左）</value>
+  </data>
+  <data name="Item_SaddlebagRight" xml:space="preserve">
+    <value>陆行鸟鞍囊（右）</value>
+  </data>
+  <data name="Item_PremiumSaddlebagLeft" xml:space="preserve">
+    <value>追加陆行鸟鞍囊（左）</value>
+  </data>
+  <data name="Item_PremiumSaddlebagRight" xml:space="preserve">
+    <value>追加陆行鸟鞍囊（右）</value>
+  </data>
+  <data name="Item_ArmoryBody" xml:space="preserve">
+    <value>兵装库 - 身体</value>
+  </data>
+  <data name="Item_ArmoryEar" xml:space="preserve">
+    <value>兵装库 - 耳饰</value>
+  </data>
+  <data name="Item_ArmoryFeet" xml:space="preserve">
+    <value>兵装库 - 脚部</value>
+  </data>
+  <data name="Item_ArmoryHand" xml:space="preserve">
+    <value>兵装库 - 手部</value>
+  </data>
+  <data name="Item_ArmoryHead" xml:space="preserve">
+    <value>兵装库 - 头部</value>
+  </data>
+  <data name="Item_ArmoryLegs" xml:space="preserve">
+    <value>兵装库 - 腿部</value>
+  </data>
+  <data name="Item_ArmoryMain" xml:space="preserve">
+    <value>兵装库 - 主手</value>
+  </data>
+  <data name="Item_ArmoryNeck" xml:space="preserve">
+    <value>兵装库 - 项链</value>
+  </data>
+  <data name="Item_ArmoryOffhand" xml:space="preserve">
+    <value>兵装库 - 副手</value>
+  </data>
+  <data name="Item_ArmoryRing" xml:space="preserve">
+    <value>兵装库 - 戒指</value>
+  </data>
+  <data name="Item_ArmoryWaist" xml:space="preserve">
+    <value>兵装库 - 腰带</value>
+  </data>
+  <data name="Item_ArmoryWrist" xml:space="preserve">
+    <value>兵装库 - 手镯</value>
+  </data>
+  <data name="Item_ArmorySoulCrystal" xml:space="preserve">
+    <value>兵装库 - 灵魂水晶</value>
+  </data>
+  <data name="Item_EquippedGear" xml:space="preserve">
+    <value>已装备</value>
+  </data>
+  <data name="Item_FreeCompanyChest1" xml:space="preserve">
+    <value>部队储物柜 - 1</value>
+  </data>
+  <data name="Item_FreeCompanyChest2" xml:space="preserve">
+    <value>部队储物柜 - 2</value>
+  </data>
+  <data name="Item_FreeCompanyChest3" xml:space="preserve">
+    <value>部队储物柜 - 3</value>
+  </data>
+  <data name="Item_FreeCompanyChest4" xml:space="preserve">
+    <value>部队储物柜 - 4</value>
+  </data>
+  <data name="Item_FreeCompanyChest5" xml:space="preserve">
+    <value>部队储物柜 - 5</value>
+  </data>
+  <data name="Item_FreeCompanyChest6" xml:space="preserve">
+    <value>部队储物柜 - 6</value>
+  </data>
+  <data name="Item_FreeCompanyChest7" xml:space="preserve">
+    <value>部队储物柜 - 7</value>
+  </data>
+  <data name="Item_FreeCompanyChest8" xml:space="preserve">
+    <value>部队储物柜 - 8</value>
+  </data>
+  <data name="Item_FreeCompanyChest9" xml:space="preserve">
+    <value>部队储物柜 - 9</value>
+  </data>
+  <data name="Item_FreeCompanyChest10" xml:space="preserve">
+    <value>部队储物柜 - 10</value>
+  </data>
+  <data name="Item_FreeCompanyChest11" xml:space="preserve">
+    <value>部队储物柜 - 11</value>
+  </data>
+  <data name="Item_Market" xml:space="preserve">
+    <value>市场</value>
+  </data>
+  <data name="Item_GlamourChest" xml:space="preserve">
+    <value>投影台</value>
+  </data>
+  <data name="Item_Armoire" xml:space="preserve">
+    <value>收藏柜</value>
+  </data>
+  <data name="Item_Currency" xml:space="preserve">
+    <value>金币</value>
+  </data>
+  <data name="Item_FreeCompanyGil" xml:space="preserve">
+    <value>部队 - 金币</value>
+  </data>
+  <data name="Item_FreeCompanyCrystals" xml:space="preserve">
+    <value>部队 - 水晶</value>
+  </data>
+  <data name="Item_FreeCompanyCurrency" xml:space="preserve">
+    <value>部队 - 通货</value>
+  </data>
+  <data name="Item_Crystals" xml:space="preserve">
+    <value>水晶</value>
+  </data>
+  <data name="Item_HousingExteriorAppearance" xml:space="preserve">
+    <value>房屋外观</value>
+  </data>
+  <data name="Item_HousingInteriorAppearance" xml:space="preserve">
+    <value>房屋内装</value>
+  </data>
+  <data name="Item_HousingExteriorStoreroom" xml:space="preserve">
+    <value>房屋仓库（外）</value>
+  </data>
+  <data name="Item_HousingInteriorStoreroom" xml:space="preserve">
+    <value>房屋仓库（内）</value>
+  </data>
+  <data name="Item_HousingInteriorPlacedItems" xml:space="preserve">
+    <value>房屋家具（内）</value>
+  </data>
+  <data name="Item_HousingExteriorPlacedItems" xml:space="preserve">
+    <value>房屋家具（外）</value>
+  </data>
+  <data name="Item_Empty" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="Item_HQ" xml:space="preserve">
+    <value>（高品质）</value>
+  </data>
+  <data name="Item_Collectible" xml:space="preserve">
+    <value>（收藏品）</value>
+  </data>
+  <data name="Item_NQ" xml:space="preserve">
+    <value>（普通品质）</value>
+  </data>
+  <data name="Item_UnknownCabinet" xml:space="preserve">
+    <value>未知收藏柜</value>
+  </data>
+  <data name="Item_AddonTextNotFound" xml:space="preserve">
+    <value>未找到附加文本</value>
+  </data>
+  <data name="Item_UnknownItem" xml:space="preserve">
+    <value>未知物品</value>
+  </data>
+  <data name="Item_NoItemSelected" xml:space="preserve">
+    <value>未选择物品</value>
+  </data>
+  <data name="Item_CompanyCraft" xml:space="preserve">
+    <value>部队合建</value>
+  </data>
+
+  <!-- IngredientPreferenceLocalizer -->
+  <data name="IngredientPreference_Buy" xml:space="preserve">
+    <value>购买</value>
+  </data>
+  <data name="IngredientPreference_HouseVendor" xml:space="preserve">
+    <value>房屋商人</value>
+  </data>
+  <data name="IngredientPreference_Botany" xml:space="preserve">
+    <value>园艺工</value>
+  </data>
+  <data name="IngredientPreference_Crafting" xml:space="preserve">
+    <value>制作</value>
+  </data>
+  <data name="IngredientPreference_Fishing" xml:space="preserve">
+    <value>捕鱼人</value>
+  </data>
+  <data name="IngredientPreference_SpearFishing" xml:space="preserve">
+    <value>刺鱼</value>
+  </data>
+  <data name="IngredientPreference_Item" xml:space="preserve">
+    <value>物品</value>
+  </data>
+  <data name="IngredientPreference_Marketboard" xml:space="preserve">
+    <value>市场板</value>
+  </data>
+  <data name="IngredientPreference_Mining" xml:space="preserve">
+    <value>采矿工</value>
+  </data>
+  <data name="IngredientPreference_Mobs" xml:space="preserve">
+    <value>怪物</value>
+  </data>
+  <data name="IngredientPreference_Venture" xml:space="preserve">
+    <value>探险币</value>
+  </data>
+  <data name="IngredientPreference_Duty" xml:space="preserve">
+    <value>副本</value>
+  </data>
+  <data name="IngredientPreference_ExplorationVenture" xml:space="preserve">
+    <value>探索委托</value>
+  </data>
+  <data name="IngredientPreference_ResourceInspection" xml:space="preserve">
+    <value>资源检查</value>
+  </data>
+  <data name="IngredientPreference_Gardening" xml:space="preserve">
+    <value>栽培</value>
+  </data>
+  <data name="IngredientPreference_Reduction" xml:space="preserve">
+    <value>精选</value>
+  </data>
+  <data name="IngredientPreference_Desynthesis" xml:space="preserve">
+    <value>分解</value>
+  </data>
+  <data name="IngredientPreference_NoItemSelected" xml:space="preserve">
+    <value>未选择物品</value>
+  </data>
+
+  <!-- CraftItemLocalizer -->
+  <data name="CraftItem_CompanyCraft" xml:space="preserve">
+    <value>部队制作</value>
+  </data>
+  <data name="CraftItem_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="CraftItem_NA" xml:space="preserve">
+    <value>不适用</value>
+  </data>
+
+  <!-- CraftGroupingLocalizer -->
+  <data name="CraftGrouping_Tier" xml:space="preserve">
+    <value>层级</value>
+  </data>
+
+  <!-- ChocoboItemSourceTypeLocalizer -->
+  <data name="Chocobo_BuddyItem" xml:space="preserve">
+    <value>消耗品</value>
+  </data>
+  <data name="Chocobo_BuddyEquip" xml:space="preserve">
+    <value>装备</value>
+  </data>
+  <data name="Chocobo_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+
+  <!-- PluginInfo from InventoryTools.json -->
+  <data name="PluginInfo_Name" xml:space="preserve">
+    <value>Allagan Tools</value>
+  </data>
+  <data name="PluginInfo_Punchline" xml:space="preserve">
+    <value>在 FFXIV 中轻松整理物品，快速定位/显示物品整理位置，规划制作，并搜索怪物、副本、飞空艇和潜水艇！</value>
+  </data>
+  <data name="PluginInfo_Description" xml:space="preserve">
+    <value>Allagan Tools 的主要功能是追踪你所有角色/雇员/部队仓库中的物品。借助其筛选系统，你不会再丢失物品，也不会不知道物品应该整理到哪里。
+
+虽然这是它的主要功能，但它还有许多其他详尽的功能，包括：
+	- 制作规划
+	- 市场板集成
+	- 在搜索/整理物品和选择制作材料时高亮显示背包中的物品
+	- 物品窗口，包含商人信息和来源信息等内容
+	- 完全可搜索的副本/怪物/飞空艇/潜水艇窗口
+	- 筛选系统，可设置复杂搜索以查找特定物品
+	- 鼠标提示集成，悬停时可查看物品位置</value>
+  </data>
+  <data name="PluginInfo_Tags" xml:space="preserve">
+    <value>Inventory, Sorting, Filtering</value>
+  </data>
+
+  <!-- CraftsWindow -->
+  <data name="Window_Crafts_Title" xml:space="preserve">
+    <value>制作</value>
+  </data>
+  <data name="Window_Crafts_GenericName" xml:space="preserve">
+    <value>制作</value>
+  </data>
+  <data name="Window_Crafts_MobWindow" xml:space="preserve">
+    <value>怪物窗口</value>
+  </data>
+  <data name="Window_Crafts_MobWindowTooltip" xml:space="preserve">
+    <value>打开怪物窗口。</value>
+  </data>
+  <data name="Window_Crafts_NpcsWindow" xml:space="preserve">
+    <value>NPC窗口</value>
+  </data>
+  <data name="Window_Crafts_NpcsWindowTooltip" xml:space="preserve">
+    <value>打开NPC窗口。</value>
+  </data>
+  <data name="Window_Crafts_DutiesWindow" xml:space="preserve">
+    <value>副本窗口</value>
+  </data>
+  <data name="Window_Crafts_DutiesWindowTooltip" xml:space="preserve">
+    <value>打开副本窗口。</value>
+  </data>
+  <data name="Window_Crafts_AirshipsWindow" xml:space="preserve">
+    <value>飞空艇窗口</value>
+  </data>
+  <data name="Window_Crafts_AirshipsWindowTooltip" xml:space="preserve">
+    <value>打开飞空艇窗口。</value>
+  </data>
+  <data name="Window_Crafts_SubmarinesWindow" xml:space="preserve">
+    <value>潜水艇窗口</value>
+  </data>
+  <data name="Window_Crafts_SubmarinesWindowTooltip" xml:space="preserve">
+    <value>打开潜水艇窗口。</value>
+  </data>
+  <data name="Window_Crafts_RetainerVenturesWindow" xml:space="preserve">
+    <value>雇员探险窗口</value>
+  </data>
+  <data name="Window_Crafts_RetainerVenturesWindowTooltip" xml:space="preserve">
+    <value>打开雇员探险窗口。</value>
+  </data>
+  <data name="Window_Crafts_Help" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Window_Crafts_HelpTooltip" xml:space="preserve">
+    <value>打开帮助窗口。</value>
+  </data>
+  <data name="Window_Crafts_MenuFile" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="Window_Crafts_MenuConfiguration" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Window_Crafts_MenuChangelog" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
+  <data name="Window_Crafts_MenuHelp" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Window_Crafts_MenuReportIssue" xml:space="preserve">
+    <value>报告问题</value>
+  </data>
+  <data name="Window_Crafts_MenuKoFi" xml:space="preserve">
+    <value>Ko-Fi</value>
+  </data>
+  <data name="Window_Crafts_MenuClose" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Window_Crafts_MenuEdit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Window_Crafts_MenuClearSearch" xml:space="preserve">
+    <value>清除搜索</value>
+  </data>
+  <data name="Window_Crafts_MenuCopyListContents" xml:space="preserve">
+    <value>复制列表内容</value>
+  </data>
+  <data name="Window_Crafts_MenuCraftListAll" xml:space="preserve">
+    <value>制作列表（全部）</value>
+  </data>
+  <data name="Window_Crafts_MenuCraftListOutputs" xml:space="preserve">
+    <value>制作列表（产物）</value>
+  </data>
+  <data name="Window_Crafts_MenuCraftListPrecrafts" xml:space="preserve">
+    <value>制作列表（半成品）</value>
+  </data>
+  <data name="Window_Crafts_MenuCraftListGatherables" xml:space="preserve">
+    <value>制作列表（采集品）</value>
+  </data>
+  <data name="Window_Crafts_MenuCraftListMissingGatherables" xml:space="preserve">
+    <value>制作列表（缺少的采集品）</value>
+  </data>
+  <data name="Window_Crafts_MenuRetainerBagList" xml:space="preserve">
+    <value>雇员/背包列表</value>
+  </data>
+  <data name="Window_Crafts_MenuCopyListContentsJson" xml:space="preserve">
+    <value>复制列表内容（JSON）</value>
+  </data>
+  <data name="Window_Crafts_MenuPasteListContents" xml:space="preserve">
+    <value>粘贴列表内容</value>
+  </data>
+  <data name="Window_Crafts_MenuClearList" xml:space="preserve">
+    <value>清空列表</value>
+  </data>
+  <data name="Window_Crafts_MenuAddToCraftList" xml:space="preserve">
+    <value>添加到制作列表</value>
+  </data>
+  <data name="Window_Crafts_MenuNewCraftList" xml:space="preserve">
+    <value>新建制作列表</value>
+  </data>
+  <data name="Window_Crafts_MenuNewCraftListEphemeral" xml:space="preserve">
+    <value>新建临时制作列表</value>
+  </data>
+  <data name="Window_Crafts_MenuAddToCuratedList" xml:space="preserve">
+    <value>添加到精选列表</value>
+  </data>
+  <data name="Window_Crafts_MenuNewCuratedList" xml:space="preserve">
+    <value>新建精选列表</value>
+  </data>
+  <data name="Window_Crafts_MenuView" xml:space="preserve">
+    <value>视图</value>
+  </data>
+  <data name="Window_Crafts_MenuTabs" xml:space="preserve">
+    <value>标签页</value>
+  </data>
+  <data name="Window_Crafts_MenuSidebar" xml:space="preserve">
+    <value>侧边栏</value>
+  </data>
+  <data name="Window_Crafts_MenuSingle" xml:space="preserve">
+    <value>单视图</value>
+  </data>
+  <data name="Window_Crafts_MenuCrafts" xml:space="preserve">
+    <value>制作</value>
+  </data>
+  <data name="Window_Crafts_MenuTreeView" xml:space="preserve">
+    <value>树形视图</value>
+  </data>
+  <data name="Window_Crafts_MenuConfigurationView" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Window_Crafts_MenuExport" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="Window_Crafts_MenuExportCraftListCsv" xml:space="preserve">
+    <value>制作列表（CSV）</value>
+  </data>
+  <data name="Window_Crafts_MenuExportRetainerBagCsv" xml:space="preserve">
+    <value>雇员/背包列表（CSV）</value>
+  </data>
+  <data name="Window_Crafts_MenuMarket" xml:space="preserve">
+    <value>市场</value>
+  </data>
+  <data name="Window_Crafts_MenuRefreshPricesCraftList" xml:space="preserve">
+    <value>刷新所有价格（制作列表）</value>
+  </data>
+  <data name="Window_Crafts_MenuRefreshPricesRetainerBags" xml:space="preserve">
+    <value>刷新所有价格（雇员/背包）</value>
+  </data>
+  <data name="Window_Crafts_MenuLists" xml:space="preserve">
+    <value>列表</value>
+  </data>
+  <data name="Window_Crafts_MenuAdd" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Window_Crafts_MenuAddCraftList" xml:space="preserve">
+    <value>制作列表</value>
+  </data>
+  <data name="Window_Crafts_MenuAddCraftListEphemeral" xml:space="preserve">
+    <value>制作列表（临时）</value>
+  </data>
+  <data name="Window_Crafts_MenuWindows" xml:space="preserve">
+    <value>窗口</value>
+  </data>
+  <data name="Window_Crafts_MenuCompendium" xml:space="preserve">
+    <value>百科全书</value>
+  </data>
+  <data name="Window_Crafts_CompendiumViewer" xml:space="preserve">
+    <value>百科全书查看器</value>
+  </data>
+  <data name="Window_Crafts_MenuToggleOverlay" xml:space="preserve">
+    <value>切换制作悬浮窗</value>
+  </data>
+  <data name="Window_Crafts_CraftSystemNotice" xml:space="preserve">
+    <value>制作系统通知</value>
+  </data>
+  <data name="Window_Crafts_CraftSystemUpdateNotice" xml:space="preserve">
+    <value>制作系统已更新，默认配置已重置。请根据您的偏好重新调整。</value>
+  </data>
+  <data name="Window_Crafts_BulletCopyConfigs" xml:space="preserve">
+    <value>您现在可以在制作列表之间复制配置。</value>
+  </data>
+  <data name="Window_Crafts_BulletNewColumns" xml:space="preserve">
+    <value>制作列表新增了两列："下一步"和"设置"。</value>
+  </data>
+  <data name="Window_Crafts_BulletNextStep" xml:space="preserve">
+    <value>"下一步"列提供了下一步操作指引。</value>
+  </data>
+  <data name="Window_Crafts_BulletSettings" xml:space="preserve">
+    <value>"设置"列允许您配置物品来源、雇员设置和配方。</value>
+  </data>
+  <data name="Window_Crafts_BulletUpdateChanges" xml:space="preserve">
+    <value>本次更新包含以下更改：</value>
+  </data>
+  <data name="Window_Crafts_BulletGroupingChanges" xml:space="preserve">
+    <value>您现在可以按职业或制作顺序对制作进行分组。</value>
+  </data>
+  <data name="Window_Crafts_BulletRetrievablePriority" xml:space="preserve">
+    <value>可领取物品可以在自己的组中优先显示。</value>
+  </data>
+  <data name="Window_Crafts_BulletZoneGrouping" xml:space="preserve">
+    <value>可采集和可购买物品可以按区域分组。</value>
+  </data>
+  <data name="Window_Crafts_BulletCurrencyItems" xml:space="preserve">
+    <value>改进了可用军票、诗学和工票货币购买的物品的处理。</value>
+  </data>
+  <data name="Window_Crafts_BulletCustomizeOptions" xml:space="preserve">
+    <value>您可以点击列表右上角的铅笔图标进一步自定义这些选项。</value>
+  </data>
+  <data name="Window_Crafts_NormalList" xml:space="preserve">
+    <value>普通列表</value>
+  </data>
+  <data name="Window_Crafts_EphemeralList" xml:space="preserve">
+    <value>临时列表</value>
+  </data>
+  <data name="Window_Crafts_DefaultConfigurationTab" xml:space="preserve">
+    <value>默认配置</value>
+  </data>
+  <data name="Window_Crafts_GetStartedMessage" xml:space="preserve">
+    <value>点击左下角的 + 按钮添加制作列表以开始使用。</value>
+  </data>
+  <data name="Window_Crafts_AddNewItem" xml:space="preserve">
+    <value>添加新物品</value>
+  </data>
+  <data name="Window_Crafts_StartTypingSearch" xml:space="preserve">
+    <value>开始输入以搜索...</value>
+  </data>
+  <data name="Window_Crafts_NoCraftData" xml:space="preserve">
+    <value>暂无制作数据</value>
+  </data>
+  <data name="Window_Crafts_ConfigureSourcing" xml:space="preserve">
+    <value>配置来源：</value>
+  </data>
+  <data name="Window_Crafts_NoCraftLists" xml:space="preserve">
+    <value>尚未创建制作列表。</value>
+  </data>
+  <data name="Window_Crafts_DefaultConfiguration" xml:space="preserve">
+    <value>默认配置</value>
+  </data>
+  <data name="Window_Crafts_HighlightCheckbox" xml:space="preserve">
+    <value>高亮显示？</value>
+  </data>
+  <data name="Window_Crafts_HideCompletedCheckbox" xml:space="preserve">
+    <value>隐藏已完成？</value>
+  </data>
+  <data name="Window_Crafts_ActiveCraftListNone" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Window_Crafts_AddCompanyCraft" xml:space="preserve">
+    <value>将部队制作添加到列表</value>
+  </data>
+  <data name="Window_Crafts_SaveButton" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Window_Crafts_ExportConfigClipboard" xml:space="preserve">
+    <value>导出配置到剪贴板</value>
+  </data>
+  <data name="Window_Crafts_NameLabel" xml:space="preserve">
+    <value>名称：</value>
+  </data>
+  <data name="Window_Crafts_FilterTypeLabel" xml:space="preserve">
+    <value>筛选类型：</value>
+  </data>
+  <data name="Window_Crafts_ButtonOK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Window_Crafts_ButtonCancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Window_Crafts_CtrlNewWindowTooltip" xml:space="preserve">
+    <value>[CTRL] 在新窗口中打开。</value>
+  </data>
+  <data name="Window_Crafts_AddCraftListTooltip" xml:space="preserve">
+    <value>添加新的制作列表。</value>
+  </data>
+  <data name="Window_Crafts_AddEphemeralListTooltip" xml:space="preserve">
+    <value>添加新的临时制作列表，当其中所有物品完成后将自动删除。</value>
+  </data>
+  <data name="Window_Crafts_ClearSearchTooltip" xml:space="preserve">
+    <value>清除当前搜索。</value>
+  </data>
+  <data name="Window_Crafts_HighlightTooltip" xml:space="preserve">
+    <value>勾选后，需要从外部来源获取的物品将被高亮显示。</value>
+  </data>
+  <data name="Window_Crafts_HideCompletedTooltip" xml:space="preserve">
+    <value>完成后隐藏半成品/采集/购买物品？</value>
+  </data>
+  <data name="Window_Crafts_ToggleAddItemTooltip" xml:space="preserve">
+    <value>切换添加物品侧边栏。</value>
+  </data>
+  <data name="Window_Crafts_EditConfigurationTooltip" xml:space="preserve">
+    <value>编辑制作列表的配置。</value>
+  </data>
+  <data name="Window_Crafts_ToggleCraftListTooltip" xml:space="preserve">
+    <value>切换当前制作列表。</value>
+  </data>
+  <data name="Window_Crafts_TreeViewTooltip" xml:space="preserve">
+    <value>打开制作列表的树形视图。</value>
+  </data>
+  <data name="Window_Crafts_ActiveCraftListTooltip" xml:space="preserve">
+    <value>这是已完成制作将计入的制作列表。</value>
+  </data>
+  <data name="Window_Crafts_EphemeralTooltip" xml:space="preserve">
+    <value>这是临时制作列表，完成其中所有物品后，列表将自动删除。</value>
+  </data>
+  <data name="Window_Crafts_UniversalisErrorTooltip" xml:space="preserve">
+    <value>联系Universalis时出错，Universalis可能出现了问题。Allagan Tools将在发生这种情况时暂停请求30秒。</value>
+  </data>
+  <data name="Window_Crafts_TooManyRequestsTooltip" xml:space="preserve">
+    <value>您似乎向Universalis发送了过多请求，如果有多个插件在请求市场板数据，这很可能是原因。</value>
+  </data>
+  <data name="Window_Crafts_OpenConfigurationTooltip" xml:space="preserve">
+    <value>打开配置窗口。</value>
+  </data>
+  <data name="Window_Crafts_OpenItemsTooltip" xml:space="preserve">
+    <value>打开物品窗口。</value>
+  </data>
+  <data name="Window_Crafts_ReturnToCraftListTooltip" xml:space="preserve">
+    <value>返回制作列表。</value>
+  </data>
+  <data name="Window_Crafts_ResetToDefaultTooltip" xml:space="preserve">
+    <value>将制作列表重置为默认配置（保留物品）。</value>
+  </data>
+  <data name="Window_Crafts_ResetDefaultSettingsTooltip" xml:space="preserve">
+    <value>重置为默认设置。</value>
+  </data>
+  <data name="Window_Crafts_CopyFilterSettingsTooltip" xml:space="preserve">
+    <value>复制现有筛选器的设置。</value>
+  </data>
+  <data name="Window_Crafts_CompendiumWip" xml:space="preserve">
+    <value>百科全书是开发中功能，敬请期待更多内容！</value>
+  </data>
+  <data name="Window_Crafts_PendingMarketRequests" xml:space="preserve">
+    <value>待处理的市场请求：</value>
+  </data>
+  <data name="Window_Crafts_ToCraft" xml:space="preserve">
+    <value>待制作</value>
+  </data>
+  <data name="Window_Crafts_ItemsInRetainersBags" xml:space="preserve">
+    <value>雇员/背包中的物品</value>
+  </data>
+  <data name="Window_Crafts_NewCraftListTitle" xml:space="preserve">
+    <value>新建制作列表</value>
+  </data>
+  <data name="Window_Crafts_NewCuratedListTitle" xml:space="preserve">
+    <value>新建精选列表</value>
+  </data>
+  <data name="Window_Crafts_RemoveConfirm" xml:space="preserve">
+    <value>确定要移除此制作列表吗？</value>
+  </data>
+  <data name="Window_Crafts_ClearListConfirm" xml:space="preserve">
+    <value>确定要清空制作列表吗？</value>
+  </data>
+  <data name="Window_Crafts_CopiedContents" xml:space="preserve">
+    <value>制作列表的内容已复制到剪贴板。</value>
+  </data>
+  <data name="Window_Crafts_CopiedOutputs" xml:space="preserve">
+    <value>制作列表的产物已复制到剪贴板。</value>
+  </data>
+  <data name="Window_Crafts_CopiedGatherables" xml:space="preserve">
+    <value>制作列表的采集品已复制到剪贴板。</value>
+  </data>
+  <data name="Window_Crafts_CopiedRetainerBag" xml:space="preserve">
+    <value>雇员/背包列表已复制到剪贴板。</value>
+  </data>
+  <data name="Window_Crafts_ClipboardParseError" xml:space="preserve">
+    <value>剪贴板内容无法解析。</value>
+  </data>
+  <data name="Window_Crafts_ClipboardImported" xml:space="preserve">
+    <value>剪贴板内容已导入。</value>
+  </data>
+  <data name="Window_Crafts_PasteTooltip" xml:space="preserve">
+    <value>这将粘贴通过上方"复制列表内容"菜单复制的物品内容，同时会尝试解析Teamcraft列表和Garland Tools URL。</value>
+  </data>
+  <data name="Window_Crafts_SaveToCsv" xml:space="preserve">
+    <value>保存为CSV</value>
+  </data>
+  <data name="Window_Crafts_EditingDefaultConfig" xml:space="preserve">
+    <value>您当前正在编辑默认制作列表配置。</value>
+  </data>
+  <data name="Window_Crafts_EditingCraftListConfig" xml:space="preserve">
+    <value>您当前正在编辑制作列表的配置。点击右侧的对勾保存配置。</value>
+  </data>
+  <data name="Window_Crafts_ResetConfigConfirm" xml:space="preserve">
+    <value>确定要将配置重置为默认值吗？</value>
+  </data>
+  <data name="Window_Crafts_ResetDefaultConfirm" xml:space="preserve">
+    <value>确定要重置默认制作列表吗？此操作无法撤销！</value>
+  </data>
+  <data name="Window_Crafts_ResetDefaultCraftListTitle" xml:space="preserve">
+    <value>重置默认制作列表？</value>
+  </data>
+  <data name="Window_Crafts_NoOtherConfigs" xml:space="preserve">
+    <value>没有其他可供复制的配置。</value>
+  </data>
+
+  <!-- HelpWindow -->
+  <data name="Window_Help_WindowName" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Window_Help_GenericName" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Window_Help_Nav_General" xml:space="preserve">
+    <value>1. 通用</value>
+  </data>
+  <data name="Window_Help_Nav_FilterBasics" xml:space="preserve">
+    <value>2. 筛选基础</value>
+  </data>
+  <data name="Window_Help_Nav_Filtering" xml:space="preserve">
+    <value>3. 筛选</value>
+  </data>
+  <data name="Window_Help_Nav_About" xml:space="preserve">
+    <value>4. 关于</value>
+  </data>
+  <data name="Window_Help_General_Description" xml:space="preserve">
+    <value>Allagan Tools 是一个多功能插件，提供3个主要功能：追踪/显示您的库存数据、帮助您规划制作、提供物品信息。还有其他功能，详见"功能"部分。</value>
+  </data>
+  <data name="Window_Help_General_Inspiration" xml:space="preserve">
+    <value>如果您使用过Teamcraft或Garland Tools，它从两者中汲取了一些灵感。</value>
+  </data>
+  <data name="Window_Help_General_InventoryTracking" xml:space="preserve">
+    <value>库存追踪：</value>
+  </data>
+  <data name="Window_Help_General_InventoryTrackingDesc" xml:space="preserve">
+    <value>插件会尽力追踪您的库存。某些库存只在首次访问时缓存。如果您看不到雇员/部队/幻化柜等，请务必先查看它们，否则插件无法缓存。</value>
+  </data>
+  <data name="Window_Help_General_InventoryTrackingDesc2" xml:space="preserve">
+    <value>一旦插件知道了这些物品，您就可以创建列表来缩小特定物品的搜索范围、帮助您整理物品以及许多其他功能。</value>
+  </data>
+  <data name="Window_Help_General_CraftPlanning" xml:space="preserve">
+    <value>制作规划：</value>
+  </data>
+  <data name="Window_Help_General_CraftPlanningDesc" xml:space="preserve">
+    <value>插件有一个专门的制作窗口，让您创建想要制作的物品列表。它会制定计划，将每个物品分解为其组成部分，并告诉您缺少什么。</value>
+  </data>
+  <data name="Window_Help_General_CraftPlanningDesc2" xml:space="preserve">
+    <value>如果您使用过Teamcraft，您应该会很熟悉。</value>
+  </data>
+  <data name="Window_Help_General_ItemInformation" xml:space="preserve">
+    <value>物品信息：</value>
+  </data>
+  <data name="Window_Help_General_ItemInformationDesc" xml:space="preserve">
+    <value>插件有一个相当全面的每个物品信息数据库。如果您使用过Garland Tools，提供的信息非常相似。</value>
+  </data>
+  <data name="Window_Help_General_Highlighting" xml:space="preserve">
+    <value>高亮：</value>
+  </data>
+  <data name="Window_Help_General_HighlightingDesc" xml:space="preserve">
+    <value>使用物品列表或制作列表时，您可以切换高亮。这会在游戏中高亮物品，以便您准确看到它们的位置。</value>
+  </data>
+  <data name="Window_Help_General_SeeWiki" xml:space="preserve">
+    <value>这是一个非常基础的指南，更多信息请查看Wiki。</value>
+  </data>
+  <data name="Window_Help_General_OpenWiki" xml:space="preserve">
+    <value>打开Wiki</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ListsCore" xml:space="preserve">
+    <value>列表是插件提供的核心方式，让您查看正在寻找或尝试整理的物品。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ThreeTypes" xml:space="preserve">
+    <value>目前可以创建3种类型的列表。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_SearchList" xml:space="preserve">
+    <value>搜索列表</value>
+  </data>
+  <data name="Window_Help_FilterBasics_SearchListDesc" xml:space="preserve">
+    <value>这种列表类型允许您在所有库存中搜索特定物品。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleUsages" xml:space="preserve">
+    <value>使用示例：</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleCraftMaterials" xml:space="preserve">
+    <value>寻找制作材料。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleHousingItem" xml:space="preserve">
+    <value>寻找放在某处的房屋物品。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleItemWorth" xml:space="preserve">
+    <value>查看刚拾取的物品值多少钱。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleGlamourChest" xml:space="preserve">
+    <value>查看特定物品是否已在幻化柜或衣柜中。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleRetainerEquipment" xml:space="preserve">
+    <value>无需前往雇员铃即可查看雇员装备。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleArmoire" xml:space="preserve">
+    <value>检查您拥有的任何物品是否可以放入衣柜。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_SortFilter" xml:space="preserve">
+    <value>整理筛选</value>
+  </data>
+  <data name="Window_Help_FilterBasics_SortFilterDesc" xml:space="preserve">
+    <value>这种列表类型在"搜索列表"的基础上构建，还允许您选择要将物品整理到何处。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExamplePutAwayMaterials" xml:space="preserve">
+    <value>制作后收纳材料，避免重复堆叠。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleChocoboSaddlebag" xml:space="preserve">
+    <value>将高于特定物品等级的物品存放在陆行鸟鞍囊中以备后用。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleFreeCompanyChest" xml:space="preserve">
+    <value>找到专属于您部队箱的物品并将其放在那里。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_GameItemFilter" xml:space="preserve">
+    <value>游戏物品筛选</value>
+  </data>
+  <data name="Window_Help_FilterBasics_GameItemFilterDesc" xml:space="preserve">
+    <value>此筛选允许您搜索游戏物品目录中存在的所有物品。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleGlamours" xml:space="preserve">
+    <value>搜索幻化外观。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleMountsMinions" xml:space="preserve">
+    <value>查看尚未获得的坐骑/宠物。</value>
+  </data>
+  <data name="Window_Help_FilterBasics_ExampleTrackPrices" xml:space="preserve">
+    <value>追踪游戏中所有物品的价格。</value>
+  </data>
+  <data name="Window_Help_Filtering_AdvancedSyntax" xml:space="preserve">
+    <value>高级搜索/筛选语法：</value>
+  </data>
+  <data name="Window_Help_Filtering_AdvancedSyntaxDesc" xml:space="preserve">
+    <value>创建列表或搜索列表结果时，可以使用一系列运算符使搜索更具体。</value>
+  </data>
+  <data name="Window_Help_Filtering_Operator_Not" xml:space="preserve">
+    <value>! - 显示任何不包含输入内容的结果 - 可用于文本和数字。</value>
+  </data>
+  <data name="Window_Help_Filtering_Operator_LessThan" xml:space="preserve">
+    <value>&lt; - 显示任何值小于输入内容的结果 - 可用于数字。</value>
+  </data>
+  <data name="Window_Help_Filtering_Operator_GreaterThan" xml:space="preserve">
+    <value>&gt; - 显示任何值大于输入内容的结果 - 可用于数字。</value>
+  </data>
+  <data name="Window_Help_Filtering_Operator_GreaterThanOrEqual" xml:space="preserve">
+    <value>&gt;= - 显示任何值大于或等于输入内容的结果 - 可用于数字。</value>
+  </data>
+  <data name="Window_Help_Filtering_Operator_LessThanOrEqual" xml:space="preserve">
+    <value>&lt;= - 显示任何值小于或等于输入内容的结果 - 可用于数字。</value>
+  </data>
+  <data name="Window_Help_Filtering_Operator_Equal" xml:space="preserve">
+    <value>== - 显示任何值完全等于输入内容的结果 - 可用于文本和数字。</value>
+  </data>
+  <data name="Window_Help_Filtering_Operator_Chain" xml:space="preserve">
+    <value>&amp;&amp; 和 || 分别代表 AND 和 OR - 可用于将运算符链接在一起。</value>
+  </data>
+  <data name="Window_Help_About_Title" xml:space="preserve">
+    <value>关于：</value>
+  </data>
+  <data name="Window_Help_About_Description" xml:space="preserve">
+    <value>这个插件是我在空闲时间编写的，是一份热爱的劳动，希望能在未来一段时间内积极发布更新。</value>
+  </data>
+  <data name="Window_Help_About_Feedback" xml:space="preserve">
+    <value>如果您遇到任何问题，请通过插件安装程序的反馈按钮提交反馈。</value>
+  </data>
+  <data name="Window_Help_About_WikiLabel" xml:space="preserve">
+    <value>插件Wiki：</value>
+  </data>
+  <data name="Window_Help_About_OpenWiki" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="Window_Help_About_FoundBug" xml:space="preserve">
+    <value>发现Bug？</value>
+  </data>
+  <data name="Window_Help_About_OpenBug" xml:space="preserve">
+    <value>打开</value>
+  </data>
+
+  <!-- IntroWindow -->
+  <data name="Window_Intro_Title" xml:space="preserve">
+    <value>Allagan Tools</value>
+  </data>
+  <data name="Window_Intro_GenericName" xml:space="preserve">
+    <value>介绍</value>
+  </data>
+  <data name="Window_Intro_Welcome" xml:space="preserve">
+    <value>欢迎使用 Allagan Tools。</value>
+  </data>
+  <data name="Window_Intro_Description" xml:space="preserve">
+    <value>Allagan Tools 是 Final Fantasy XIV 的一款插件，提供以下功能：</value>
+  </data>
+  <data name="Window_Intro_Feature_Inventory" xml:space="preserve">
+    <value>追踪您的库存</value>
+  </data>
+  <data name="Window_Intro_Feature_Craft" xml:space="preserve">
+    <value>规划您的制作</value>
+  </data>
+  <data name="Window_Intro_Feature_Info" xml:space="preserve">
+    <value>提供物品、怪物、副本等详细信息</value>
+  </data>
+  <data name="Window_Intro_HelpText1" xml:space="preserve">
+    <value>您可以使用命令快捷键打开各种新窗口（主筛选器或从主窗口）。</value>
+  </data>
+  <data name="Window_Intro_HelpText2" xml:space="preserve">
+    <value>如果您不确定如何操作，可以右键点击物品或表格行以获取更多选项！</value>
+  </data>
+  <data name="Window_Intro_HelpText3" xml:space="preserve">
+    <value>要了解不同功能，建议您进入设置部分并阅读 ? 图标提供的信息。</value>
+  </data>
+  <data name="Window_Intro_Button_Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Window_Intro_Button_CloseOpenMain" xml:space="preserve">
+    <value>关闭并打开主窗口</value>
+  </data>
+  <data name="Window_Item_InvalidItem" xml:space="preserve">
+    <value>无效物品</value>
+  </data>
+  <data name="Window_Item_GenericName" xml:space="preserve">
+    <value>物品</value>
+  </data>
+  <data name="Window_Item_NotFound" xml:space="preserve">
+    <value>找不到ID为 {0} 的物品。</value>
+  </data>
+  <data name="Window_Item_ItemLevel" xml:space="preserve">
+    <value>物品等级 {0}</value>
+  </data>
+  <data name="Window_Item_Patch" xml:space="preserve">
+    <value>版本 {0}</value>
+  </data>
+  <data name="Window_Item_OpenInGarlandTools" xml:space="preserve">
+    <value>在 Garland Tools 中打开</value>
+  </data>
+  <data name="Window_Item_OpenInTeamcraft" xml:space="preserve">
+    <value>在 Teamcraft 中打开</value>
+  </data>
+  <data name="Window_Item_OpenInUniversalis" xml:space="preserve">
+    <value>在 Universalis 中打开</value>
+  </data>
+  <data name="Window_Item_OpenInGamerEscape" xml:space="preserve">
+    <value>在 Gamer Escape 中打开</value>
+  </data>
+  <data name="Window_Item_OpenInConsoleGamesWiki" xml:space="preserve">
+    <value>在 Console Games Wiki 中打开</value>
+  </data>
+  <data name="Window_Item_CraftingLogOpenError" xml:space="preserve">
+    <value>无法打开制作笔记，您当前正在制作中。</value>
+  </data>
+  <data name="Window_Item_OpenInCraftLog" xml:space="preserve">
+    <value>可制作 - 在制作笔记中打开</value>
+  </data>
+  <data name="Window_Item_AddToCraftListTooltip" xml:space="preserve">
+    <value>可制作 - 添加到制作列表</value>
+  </data>
+  <data name="Window_Item_OpenInGatheringLog" xml:space="preserve">
+    <value>可采集 - 在采集笔记中打开</value>
+  </data>
+  <data name="Window_Item_GatherWithGatherbuddy" xml:space="preserve">
+    <value>可采集 - 使用 Gatherbuddy 采集</value>
+  </data>
+  <data name="Window_Item_OpenInFishingLog" xml:space="preserve">
+    <value>可采集 - 在钓鱼笔记中打开</value>
+  </data>
+  <data name="Window_Item_Sources" xml:space="preserve">
+    <value>来源 ({0})</value>
+  </data>
+  <data name="Window_Item_RecipesForCrafting" xml:space="preserve">
+    <value>配方 - 用于制作此物品</value>
+  </data>
+  <data name="Window_Item_CraftTypes" xml:space="preserve">
+    <value>制作类型</value>
+  </data>
+  <data name="Window_Item_SharedModels" xml:space="preserve">
+    <value>共享模型 ({0})</value>
+  </data>
+  <data name="Window_Item_RecipesAsRequirement" xml:space="preserve">
+    <value>配方 - 物品作为材料 ({0})</value>
+  </data>
+  <data name="Window_Item_Gathering" xml:space="preserve">
+    <value>采集 ({0})</value>
+  </data>
+  <data name="Window_Item_Level" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="Window_Item_Location" xml:space="preserve">
+    <value>地点</value>
+  </data>
+  <data name="Window_Item_Ventures" xml:space="preserve">
+    <value>探险 ({0})</value>
+  </data>
+  <data name="Window_Item_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_Item_Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="Window_Item_Quantities" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="Window_Item_Shops" xml:space="preserve">
+    <value>商店 ({0})</value>
+  </data>
+  <data name="Window_Item_ShopsLabel" xml:space="preserve">
+    <value>商店：</value>
+  </data>
+  <data name="Window_Item_ShopName" xml:space="preserve">
+    <value>商店名称</value>
+  </data>
+  <data name="Window_Item_NPC" xml:space="preserve">
+    <value>NPC</value>
+  </data>
+  <data name="Window_Item_Owned" xml:space="preserve">
+    <value>已拥有 ({0})</value>
+  </data>
+  <data name="Window_Item_Character" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="Window_Item_Qty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="Window_Item_IsHQ" xml:space="preserve">
+    <value>是否 HQ？</value>
+  </data>
+  <data name="Window_Item_GlamourCombined" xml:space="preserve">
+    <value>此物品已被合并为单个套装幻化物品。</value>
+  </data>
+  <data name="Window_Item_MarketPricing" xml:space="preserve">
+    <value>市场价格</value>
+  </data>
+  <data name="Window_Item_RefreshPrices" xml:space="preserve">
+    <value>刷新当前价格。</value>
+  </data>
+  <data name="Window_Item_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Window_Item_Base" xml:space="preserve">
+    <value>基础</value>
+  </data>
+  <data name="Window_Item_Mid" xml:space="preserve">
+    <value>中等</value>
+  </data>
+  <data name="Window_Item_High" xml:space="preserve">
+    <value>高级</value>
+  </data>
+  <data name="Window_Item_MobDrops" xml:space="preserve">
+    <value>怪物掉落 ({0})</value>
+  </data>
+  <data name="Window_Item_Map" xml:space="preserve">
+    <value>地图</value>
+  </data>
+  <data name="Window_Item_SpawnLocations" xml:space="preserve">
+    <value>刷新位置</value>
+  </data>
+  <data name="Window_Item_NoLocationsKnown" xml:space="preserve">
+    <value>没有已知位置。</value>
+  </data>
+  <data name="Window_Item_Uses" xml:space="preserve">
+    <value>用途 ({0})</value>
+  </data>
+  <data name="Window_Item_Teleport" xml:space="preserve">
+    <value>传送</value>
+  </data>
+  <data name="Window_Item_MapLink" xml:space="preserve">
+    <value>地图标记</value>
+  </data>
+  <data name="Window_Item_HousingVendor" xml:space="preserve">
+    <value>房屋商店</value>
+  </data>
+  <data name="Window_Item_HousingVendorTooltip" xml:space="preserve">
+    <value>这是一个可以放置在房屋/公寓内的商店。</value>
+  </data>
+  <data name="Window_Item_IshgardRestoration" xml:space="preserve">
+    <value>伊修加德重建</value>
+  </data>
+  <data name="Window_Item_CollectableRating" xml:space="preserve">
+    <value>收藏品评级</value>
+  </data>
+  <data name="Window_Item_XP" xml:space="preserve">
+    <value>经验值</value>
+  </data>
+  <data name="Window_Item_Scrip" xml:space="preserve">
+    <value>工票</value>
+  </data>
+  <data name="Window_Item_Server" xml:space="preserve">
+    <value>服务器</value>
+  </data>
+  <data name="Window_Item_UpdatedAt" xml:space="preserve">
+    <value>更新时间</value>
+  </data>
+  <data name="Window_Item_Available" xml:space="preserve">
+    <value>可购买</value>
+  </data>
+  <data name="Window_Item_MinPrice" xml:space="preserve">
+    <value>最低价格</value>
+  </data>
+  <data name="Window_Filters_Title" xml:space="preserve">
+    <value>物品</value>
+  </data>
+  <data name="Window_Filters_GenericName" xml:space="preserve">
+    <value>物品</value>
+  </data>
+  <data name="Window_Filters_MenuConfiguration" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Window_Filters_MenuChangelog" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
+  <data name="Window_Filters_MenuHelp" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Window_Filters_MenuReportIssue" xml:space="preserve">
+    <value>报告问题</value>
+  </data>
+  <data name="Window_Filters_MenuKoFi" xml:space="preserve">
+    <value>Ko-Fi</value>
+  </data>
+  <data name="Window_Filters_MenuClose" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Window_Filters_MenuEdit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Window_Filters_MenuClearSearch" xml:space="preserve">
+    <value>清除搜索</value>
+  </data>
+  <data name="Window_Filters_MenuCopyListContents" xml:space="preserve">
+    <value>复制列表内容</value>
+  </data>
+  <data name="Window_Filters_MenuPasteListContents" xml:space="preserve">
+    <value>粘贴列表内容</value>
+  </data>
+  <data name="Window_Filters_MenuClearList" xml:space="preserve">
+    <value>清空列表</value>
+  </data>
+  <data name="Window_Filters_MenuView" xml:space="preserve">
+    <value>视图</value>
+  </data>
+  <data name="Window_Filters_MenuTabs" xml:space="preserve">
+    <value>标签页</value>
+  </data>
+  <data name="Window_Filters_MenuSidebar" xml:space="preserve">
+    <value>侧边栏</value>
+  </data>
+  <data name="Window_Filters_MenuSingle" xml:space="preserve">
+    <value>单视图</value>
+  </data>
+  <data name="Window_Filters_MenuLists" xml:space="preserve">
+    <value>列表</value>
+  </data>
+  <data name="Window_Filters_MenuAdd" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Window_Filters_MenuMarket" xml:space="preserve">
+    <value>市场</value>
+  </data>
+  <data name="Window_Filters_MenuRefreshAllPrices" xml:space="preserve">
+    <value>刷新所有价格</value>
+  </data>
+  <data name="Window_Filters_MenuWindows" xml:space="preserve">
+    <value>窗口</value>
+  </data>
+  <data name="Window_Filters_MenuCompendium" xml:space="preserve">
+    <value>百科全书</value>
+  </data>
+  <data name="Window_Filters_GetStarted" xml:space="preserve">
+    <value>点击左下角的 + 按钮添加列表以开始使用。</value>
+  </data>
+  <data name="Window_Filters_AddNewItem" xml:space="preserve">
+    <value>添加新物品</value>
+  </data>
+  <data name="Window_Filters_StartTypingSearch" xml:space="preserve">
+    <value>开始输入以搜索...</value>
+  </data>
+  <data name="Window_Filters_NoResults" xml:space="preserve">
+    <value>未找到结果</value>
+  </data>
+  <data name="Window_Filters_SaveButton" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Window_Filters_ExportConfigClipboard" xml:space="preserve">
+    <value>导出配置到剪贴板</value>
+  </data>
+  <data name="Window_Filters_HighlightCheckbox" xml:space="preserve">
+    <value>高亮？</value>
+  </data>
+  <data name="Window_Filters_NameLabel" xml:space="preserve">
+    <value>名称：</value>
+  </data>
+  <data name="Window_Filters_FilterTypeLabel" xml:space="preserve">
+    <value>筛选类型：</value>
+  </data>
+  <data name="Window_Filters_AddListTooltip" xml:space="preserve">
+    <value>添加新列表。</value>
+  </data>
+  <data name="Window_Filters_ClearSearchTooltip" xml:space="preserve">
+    <value>清除当前搜索。</value>
+  </data>
+  <data name="Window_Filters_HighlightTooltip" xml:space="preserve">
+    <value>勾选后，需要从外部来源获取的物品将被高亮显示。</value>
+  </data>
+  <data name="Window_Configuration_Title" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Window_Configuration_GenericName" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Window_Configuration_MenuReportIssue" xml:space="preserve">
+    <value>报告问题</value>
+  </data>
+  <data name="Window_Configuration_MenuChangelog" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
+  <data name="Window_Configuration_MenuHelp" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Window_Configuration_MenuVerboseLogging" xml:space="preserve">
+    <value>启用详细日志</value>
+  </data>
+  <data name="Window_Configuration_MenuKoFi" xml:space="preserve">
+    <value>Ko-Fi</value>
+  </data>
+  <data name="Window_Configuration_MenuClose" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Window_Configuration_MenuConfigureNewFeatures" xml:space="preserve">
+    <value>配置新功能</value>
+  </data>
+  <data name="Window_Configuration_MenuReconfigureAll" xml:space="preserve">
+    <value>重新配置所有功能</value>
+  </data>
+  <data name="Window_Configuration_NoNewSettings" xml:space="preserve">
+    <value>没有新的设置可供配置。</value>
+  </data>
+  <data name="Window_Configuration_AddListTooltip" xml:space="preserve">
+    <value>添加新列表。</value>
+  </data>
+  <data name="Window_Configuration_AddSampleFilterTooltip" xml:space="preserve">
+    <value>添加示例筛选器。</value>
+  </data>
+  <data name="Window_Configuration_StartWizardTooltip" xml:space="preserve">
+    <value>启动配置向导。</value>
+  </data>
+  <data name="Window_CraftOverlay_Title" xml:space="preserve">
+    <value>制作覆盖层</value>
+  </data>
+  <data name="Window_CraftOverlay_GenericName" xml:space="preserve">
+    <value>制作覆盖层</value>
+  </data>
+  <data name="Window_CraftOverlay_Expand" xml:space="preserve">
+    <value>展开</value>
+  </data>
+  <data name="Window_CraftOverlay_ShowMore" xml:space="preserve">
+    <value>显示更多</value>
+  </data>
+  <data name="Window_CraftOverlay_Collapse" xml:space="preserve">
+    <value>收起</value>
+  </data>
+  <data name="Window_CraftOverlay_LeftClick" xml:space="preserve">
+    <value>左键点击：</value>
+  </data>
+  <data name="Window_CraftOverlay_RightClick" xml:space="preserve">
+    <value>右键点击：菜单</value>
+  </data>
+  <data name="Window_CraftOverlay_MenuClose" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Window_CraftOverlay_MenuMoreInformation" xml:space="preserve">
+    <value>更多信息</value>
+  </data>
+  <data name="Window_CraftOverlay_NothingToDo" xml:space="preserve">
+    <value>无事可做。</value>
+  </data>
+  <data name="Window_CraftOverlay_NoCraftListActive" xml:space="preserve">
+    <value>没有活跃的制作列表。</value>
+  </data>
+  <data name="Window_CraftOverlay_ColumnIcon" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="Window_CraftOverlay_ColumnName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_CraftOverlay_ColumnStep" xml:space="preserve">
+    <value>步骤</value>
+  </data>
+  <data name="Window_CraftOverlay_ColumnBell" xml:space="preserve">
+    <value>铃铛</value>
+  </data>
+  <data name="Window_CraftOverlay_ColumnAction" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Window_CraftOverlay_TooltipOpenCrafts" xml:space="preserve">
+    <value>打开 Allagan Tools 制作窗口。</value>
+  </data>
+  <data name="Window_CraftOverlay_TooltipOpenConfig" xml:space="preserve">
+    <value>打开 Allagan Tools 配置窗口。</value>
+  </data>
+  <data name="Window_CraftOverlay_TooltipToggleHighlight" xml:space="preserve">
+    <value>切换高亮。</value>
+  </data>
+  <data name="Window_CraftOverlay_TooltipSelectCraftList" xml:space="preserve">
+    <value>选择活跃制作列表</value>
+  </data>
+  <data name="Window_ConfigurationWizard_Title" xml:space="preserve">
+    <value>配置向导</value>
+  </data>
+  <data name="Window_ConfigurationWizard_GenericName" xml:space="preserve">
+    <value>配置向导</value>
+  </data>
+  <data name="Window_ConfigurationWizard_Welcome" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
+  <data name="Window_ConfigurationWizard_WelcomeBack" xml:space="preserve">
+    <value>欢迎回到 Allagan Tools 配置向导。</value>
+  </data>
+  <data name="Window_ConfigurationWizard_NewFeaturesAvailable" xml:space="preserve">
+    <value>有新功能可供配置，您已选择在此类情况发生时显示此窗口。</value>
+  </data>
+  <data name="Window_ConfigurationWizard_WelcomeFirst" xml:space="preserve">
+    <value>欢迎使用 Allagan Tools 配置向导。</value>
+  </data>
+  <data name="Window_ConfigurationWizard_Description" xml:space="preserve">
+    <value>这将引导您完成最常用功能的设置。经您允许，当新功能发布时，此向导将再次出现，因为功能通常由用户自行配置和激活。</value>
+  </data>
+  <data name="Window_ConfigurationWizard_FirstTimeHelp" xml:space="preserve">
+    <value>如果您是第一次使用 Allagan Tools，建议打开帮助窗口并阅读常规部分。它能让您了解该插件的功能。</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ReturningUser" xml:space="preserve">
+    <value>如果您是回归用户，可以随意关闭此窗口。</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonOpenHelp" xml:space="preserve">
+    <value>打开帮助</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonContinue" xml:space="preserve">
+    <value>继续</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonCloseShowNext" xml:space="preserve">
+    <value>关闭（并在下次插件加载时显示）</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonContinueShowNew" xml:space="preserve">
+    <value>继续（并在有新功能时显示）</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonContinueNeverShow" xml:space="preserve">
+    <value>继续（并再也不显示向导）</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonCloseNeverShow" xml:space="preserve">
+    <value>关闭（并再也不显示向导）</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonPrevious" xml:space="preserve">
+    <value>上一步</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonNext" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+  <data name="Window_ConfigurationWizard_ButtonFinish" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="Window_Filter_InvalidList" xml:space="preserve">
+    <value>无效列表</value>
+  </data>
+  <data name="Window_Filter_GenericName" xml:space="preserve">
+    <value>筛选器</value>
+  </data>
+  <data name="Window_Filter_MenuMobWindow" xml:space="preserve">
+    <value>怪物窗口</value>
+  </data>
+  <data name="Window_Filter_TooltipMobWindow" xml:space="preserve">
+    <value>打开怪物窗口。</value>
+  </data>
+  <data name="Window_Filter_MenuNpcsWindow" xml:space="preserve">
+    <value>NPC窗口</value>
+  </data>
+  <data name="Window_Filter_TooltipNpcsWindow" xml:space="preserve">
+    <value>打开NPC窗口。</value>
+  </data>
+  <data name="Window_Filter_MenuDutiesWindow" xml:space="preserve">
+    <value>副本窗口</value>
+  </data>
+  <data name="Window_Filter_TooltipDutiesWindow" xml:space="preserve">
+    <value>打开副本窗口。</value>
+  </data>
+  <data name="Window_Filter_MenuAirshipsWindow" xml:space="preserve">
+    <value>飞空艇窗口</value>
+  </data>
+  <data name="Window_Filter_TooltipAirshipsWindow" xml:space="preserve">
+    <value>打开飞空艇窗口。</value>
+  </data>
+  <data name="Window_Filter_MenuSubmarinesWindow" xml:space="preserve">
+    <value>潜水艇窗口</value>
+  </data>
+  <data name="Window_Filter_TooltipSubmarinesWindow" xml:space="preserve">
+    <value>打开潜水艇窗口。</value>
+  </data>
+  <data name="Window_Filter_MenuRetainerVenturesWindow" xml:space="preserve">
+    <value>雇员探险窗口</value>
+  </data>
+  <data name="Window_Filter_TooltipRetainerVenturesWindow" xml:space="preserve">
+    <value>打开雇员探险窗口。</value>
+  </data>
+  <data name="Window_Filter_MenuHelp" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Window_Filter_TooltipHelpWindow" xml:space="preserve">
+    <value>打开帮助窗口。</value>
+  </data>
+  <data name="Window_Filter_CheckboxHighlight" xml:space="preserve">
+    <value>高亮？</value>
+  </data>
+  <data name="Window_Filter_TooltipClearSearch" xml:space="preserve">
+    <value>清除当前搜索。</value>
+  </data>
+  <data name="Window_Filter_TooltipRefreshMarket" xml:space="preserve">
+    <value>刷新市场价格</value>
+  </data>
+  <data name="Window_Filter_TooltipExportCsv" xml:space="preserve">
+    <value>导出为CSV</value>
+  </data>
+  <data name="Window_Filter_ButtonAddCompanyCraft" xml:space="preserve">
+    <value>将公司制作添加到列表</value>
+  </data>
+  <data name="Window_Filter_PendingMarketRequests" xml:space="preserve">
+    <value>待处理的市场请求：</value>
+  </data>
+  <data name="Window_Filter_TotalCostNQ" xml:space="preserve">
+    <value>NQ总成本：</value>
+  </data>
+  <data name="Window_Filter_TotalCostHQ" xml:space="preserve">
+    <value>HQ总成本：</value>
+  </data>
+  <data name="Window_Filter_TooltipOpenConfig" xml:space="preserve">
+    <value>打开配置窗口。</value>
+  </data>
+  <data name="Window_Filter_TooltipOpenItems" xml:space="preserve">
+    <value>打开物品窗口。</value>
+  </data>
+  <data name="Window_Filter_TooltipOpenCraft" xml:space="preserve">
+    <value>打开制作窗口。</value>
+  </data>
+  <data name="Window_Airships_GenericName" xml:space="preserve">
+    <value>飞空艇</value>
+  </data>
+  <data name="Window_Airships_ColumnIcon" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="Window_Airships_ColumnName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_Airships_ColumnUnlockZone" xml:space="preserve">
+    <value>解锁区域</value>
+  </data>
+  <data name="Window_Airships_ColumnRankRequired" xml:space="preserve">
+    <value>所需等级</value>
+  </data>
+  <data name="Window_Airships_ColumnCeruleumRequired" xml:space="preserve">
+    <value>所需青磷水</value>
+  </data>
+  <data name="Window_Airships_ColumnSurveyDuration" xml:space="preserve">
+    <value>探索时长（分钟）</value>
+  </data>
+  <data name="Window_Airships_ColumnSurveillanceRequired" xml:space="preserve">
+    <value>所需探查</value>
+  </data>
+  <data name="Window_Airships_ColumnDrops" xml:space="preserve">
+    <value>掉落</value>
+  </data>
+  <data name="Window_Airships_TabAll" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Window_Airship_UnknownPoint" xml:space="preserve">
+    <value>未知飞空艇探索点</value>
+  </data>
+  <data name="Window_Airship_GenericName" xml:space="preserve">
+    <value>飞空艇</value>
+  </data>
+  <data name="Window_Airship_NotFound" xml:space="preserve">
+    <value>找不到ID为 {0} 的飞空艇探索点。</value>
+  </data>
+  <data name="Window_Airship_UnlockedVia" xml:space="preserve">
+    <value>解锁方式：</value>
+  </data>
+  <data name="Window_Airship_RankRequired" xml:space="preserve">
+    <value>所需等级：</value>
+  </data>
+  <data name="Window_Airship_RewardsHeader" xml:space="preserve">
+    <value>奖励（{0}）</value>
+  </data>
+  <data name="Window_Submarines_Title" xml:space="preserve">
+    <value>潜水艇</value>
+  </data>
+  <data name="Window_Submarines_GenericName" xml:space="preserve">
+    <value>潜水艇</value>
+  </data>
+  <data name="Window_Submarines_ColumnIcon" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="Window_Submarines_ColumnName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_Submarines_ColumnUnlockZone" xml:space="preserve">
+    <value>解锁区域</value>
+  </data>
+  <data name="Window_Submarines_ColumnRankRequired" xml:space="preserve">
+    <value>所需等级</value>
+  </data>
+  <data name="Window_Submarines_ColumnDrops" xml:space="preserve">
+    <value>掉落</value>
+  </data>
+  <data name="Window_Submarine_InvalidExploration" xml:space="preserve">
+    <value>无效的潜水艇探索</value>
+  </data>
+  <data name="Window_Submarine_GenericName" xml:space="preserve">
+    <value>潜水艇</value>
+  </data>
+  <data name="Window_Submarine_NotFound" xml:space="preserve">
+    <value>找不到ID为 {0} 的潜水艇探索点。</value>
+  </data>
+  <data name="Window_Submarine_UnlockedVia" xml:space="preserve">
+    <value>解锁方式：</value>
+  </data>
+  <data name="Window_Submarine_RankRequired" xml:space="preserve">
+    <value>所需等级：</value>
+  </data>
+  <data name="Window_Submarine_RewardsHeader" xml:space="preserve">
+    <value>奖励（{0}）</value>
+  </data>
+  <data name="Window_RetainerTasks_Title" xml:space="preserve">
+    <value>雇员探险</value>
+  </data>
+  <data name="Window_RetainerTasks_GenericName" xml:space="preserve">
+    <value>雇员任务</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnIcon" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnTaskType" xml:space="preserve">
+    <value>任务类型</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnLevel" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnDuration" xml:space="preserve">
+    <value>时长</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnExperience" xml:space="preserve">
+    <value>经验</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnVentureCost" xml:space="preserve">
+    <value>探险币成本</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnAverageILvl" xml:space="preserve">
+    <value>平均物品等级</value>
+  </data>
+  <data name="Window_RetainerTasks_ColumnDrops" xml:space="preserve">
+    <value>掉落</value>
+  </data>
+  <data name="Window_RetainerTask_InvalidTask" xml:space="preserve">
+    <value>Allagan Tools - 无效的雇员任务</value>
+  </data>
+  <data name="Window_RetainerTask_GenericName" xml:space="preserve">
+    <value>雇员任务</value>
+  </data>
+  <data name="Window_RetainerTask_NotFound" xml:space="preserve">
+    <value>找不到ID为 {0} 的雇员探险点。</value>
+  </data>
+  <data name="Window_RetainerTask_Level" xml:space="preserve">
+    <value>等级：</value>
+  </data>
+  <data name="Window_RetainerTask_Duration" xml:space="preserve">
+    <value>时长：</value>
+  </data>
+  <data name="Window_RetainerTask_Experience" xml:space="preserve">
+    <value>经验：</value>
+  </data>
+  <data name="Window_RetainerTask_VentureCost" xml:space="preserve">
+    <value>探险币成本：</value>
+  </data>
+  <data name="Window_RetainerTask_AverageILvl" xml:space="preserve">
+    <value>平均物品等级：</value>
+  </data>
+  <data name="Window_RetainerTask_RewardsHeader" xml:space="preserve">
+    <value>奖励（{0}）</value>
+  </data>
+  <data name="Window_BNpcs_Title" xml:space="preserve">
+    <value>怪物</value>
+  </data>
+  <data name="Window_BNpcs_GenericName" xml:space="preserve">
+    <value>怪物</value>
+  </data>
+  <data name="Window_BNpcs_ColumnIcon" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="Window_BNpcs_ColumnID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Window_BNpcs_ColumnName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_BNpcs_ColumnType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Window_BNpcs_ColumnLocations" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Window_BNpcs_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Window_BNpcs_ColumnDrops" xml:space="preserve">
+    <value>掉落</value>
+  </data>
+  <data name="Window_BNpc_UnknownMob" xml:space="preserve">
+    <value>未知怪物</value>
+  </data>
+  <data name="Window_BNpc_GenericName" xml:space="preserve">
+    <value>怪物</value>
+  </data>
+  <data name="Window_BNpc_NotFound" xml:space="preserve">
+    <value>找不到ID为 {0} 的怪物。</value>
+  </data>
+  <data name="Window_BNpc_Type" xml:space="preserve">
+    <value>类型：</value>
+  </data>
+  <data name="Window_BNpc_Rank" xml:space="preserve">
+    <value>等级：</value>
+  </data>
+  <data name="Window_BNpc_TooltipGarland" xml:space="preserve">
+    <value>在Garland Tools中打开</value>
+  </data>
+  <data name="Window_BNpc_TooltipTeamcraft" xml:space="preserve">
+    <value>在Teamcraft中打开</value>
+  </data>
+  <data name="Window_BNpc_DropsHeader" xml:space="preserve">
+    <value>掉落（{0}）</value>
+  </data>
+  <data name="Window_BNpc_LocationsHeader" xml:space="preserve">
+    <value>位置（{0}）</value>
+  </data>
+  <data name="Window_BNpc_SharedModelsHeader" xml:space="preserve">
+    <value>共享模型</value>
+  </data>
+  <data name="Window_BNpc_MenuAddToCraftList" xml:space="preserve">
+    <value>添加到制作列表</value>
+  </data>
+  <data name="Window_BNpc_MenuAddToNewCraftList" xml:space="preserve">
+    <value>添加到新制作列表</value>
+  </data>
+  <data name="Window_BNpc_MenuAddToNewCraftListEphemeral" xml:space="preserve">
+    <value>添加到新制作列表（临时）</value>
+  </data>
+  <data name="Window_Duties_Title" xml:space="preserve">
+    <value>副本</value>
+  </data>
+  <data name="Window_Duties_GenericName" xml:space="preserve">
+    <value>副本</value>
+  </data>
+  <data name="Window_Duties_ColumnIcon" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="Window_Duties_ColumnName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_Duties_ColumnRoulettes" xml:space="preserve">
+    <value>随机任务</value>
+  </data>
+  <data name="Window_Duties_ColumnLevel" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="Window_Duties_ColumnSyncLevel" xml:space="preserve">
+    <value>同步等级</value>
+  </data>
+  <data name="Window_Duties_ColumnItemLevel" xml:space="preserve">
+    <value>物品等级</value>
+  </data>
+  <data name="Window_Duties_ColumnItemLevelSync" xml:space="preserve">
+    <value>物品等级同步</value>
+  </data>
+  <data name="Window_Duties_ColumnAllowsUndersized" xml:space="preserve">
+    <value>允许解除人数限制</value>
+  </data>
+  <data name="Window_Duties_ColumnAllowsExplorerMode" xml:space="preserve">
+    <value>允许探索模式</value>
+  </data>
+  <data name="Window_Duties_ColumnPVP" xml:space="preserve">
+    <value>PVP</value>
+  </data>
+  <data name="Window_Duties_ColumnAcceptedClasses" xml:space="preserve">
+    <value>可接受职业</value>
+  </data>
+  <data name="Window_Duties_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Window_Duty_InvalidDuty" xml:space="preserve">
+    <value>无效副本</value>
+  </data>
+  <data name="Window_Duty_GenericName" xml:space="preserve">
+    <value>副本</value>
+  </data>
+  <data name="Window_Duty_NotFound" xml:space="preserve">
+    <value>找不到ID为 {0} 的副本。</value>
+  </data>
+  <data name="Window_Duty_UnknownContentType" xml:space="preserve">
+    <value>未知内容类型</value>
+  </data>
+  <data name="Window_Duty_LevelRequired" xml:space="preserve">
+    <value>所需等级：</value>
+  </data>
+  <data name="Window_Duty_ItemLevelRequired" xml:space="preserve">
+    <value>所需物品等级：</value>
+  </data>
+  <data name="Window_Duty_UnknownBoss" xml:space="preserve">
+    <value>未知首领</value>
+  </data>
+  <data name="Window_Duty_CofferHeader" xml:space="preserve">
+    <value>宝箱 {0}</value>
+  </data>
+  <data name="Window_Duty_DropsHeader" xml:space="preserve">
+    <value>掉落</value>
+  </data>
+  <data name="Window_Duty_OtherChestsHeader" xml:space="preserve">
+    <value>其他宝箱（{0}）</value>
+  </data>
+  <data name="Window_Duty_RewardsHeader" xml:space="preserve">
+    <value>奖励（{0}）</value>
+  </data>
+  <data name="Window_ENpcs_Title" xml:space="preserve">
+    <value>NPC</value>
+  </data>
+  <data name="Window_ENpcs_GenericName" xml:space="preserve">
+    <value>NPC</value>
+  </data>
+  <data name="Window_ENpcs_ColumnIcon" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="Window_ENpcs_ColumnName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Window_ENpcs_ColumnLocations" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Window_ENpcs_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Window_ENpcs_ColumnIsVendor" xml:space="preserve">
+    <value>是商人</value>
+  </data>
+  <data name="Window_ENpcs_Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Window_ENpcs_No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="Window_ENpcs_ColumnVendorItems" xml:space="preserve">
+    <value>商人物品</value>
+  </data>
+  <data name="Window_ENpc_InvalidNPC" xml:space="preserve">
+    <value>无效NPC</value>
+  </data>
+  <data name="Window_ENpc_GenericName" xml:space="preserve">
+    <value>NPC</value>
+  </data>
+  <data name="Window_ENpc_NotFound" xml:space="preserve">
+    <value>找不到ID为 {0} 的NPC。</value>
+  </data>
+  <data name="Window_ENpc_TooltipGarland" xml:space="preserve">
+    <value>在Garland Tools中打开</value>
+  </data>
+  <data name="Window_ENpc_TooltipTeamcraft" xml:space="preserve">
+    <value>在Teamcraft中打开</value>
+  </data>
+  <data name="Window_ENpc_ShopsHeader" xml:space="preserve">
+    <value>商店（{0}）</value>
+  </data>
+  <data name="Window_ENpc_ButtonCopyItems" xml:space="preserve">
+    <value>复制物品</value>
+  </data>
+  <data name="Window_ENpc_SharedModelsHeader" xml:space="preserve">
+    <value>共享模型</value>
+  </data>
+  <data name="Window_ENpc_MenuAddToCraftList" xml:space="preserve">
+    <value>添加到制作列表</value>
+  </data>
+  <data name="Window_ENpc_MenuAddToNewCraftList" xml:space="preserve">
+    <value>添加到新制作列表</value>
+  </data>
+  <data name="Window_ENpc_MenuAddToNewCraftListEphemeral" xml:space="preserve">
+    <value>添加到新制作列表（临时）</value>
+  </data>
+  <data name="Filter_Decimal_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Filter_Integer_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Setting_Boolean_NA" xml:space="preserve">
+    <value>不适用</value>
+  </data>
+  <data name="Setting_Boolean_Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Setting_Boolean_No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="Setting_Boolean_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Setting_Choice_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Setting_String_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Setting_Color_AlphaZeroWarning" xml:space="preserve">
+    <value>当前Alpha设置为0，这将不可见。</value>
+  </data>
+  <data name="Setting_Color_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Setting_Integer_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Setting_MultipleChoice_SearchPlaceholder" xml:space="preserve">
+    <value>开始输入以搜索...</value>
+  </data>
+  <data name="Setting_MultipleChoice_ButtonAddAll" xml:space="preserve">
+    <value>全部添加</value>
+  </data>
+  <data name="Setting_MultipleChoice_ButtonReset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Setting_MultipleChoice_NoItemsSelected" xml:space="preserve">
+    <value>未选择任何项目</value>
+  </data>
+  <data name="Setting_MultipleChoice_ItemsSelected" xml:space="preserve">
+    <value>{0} 个项目已选择</value>
+  </data>
+  <data name="Window_ConfigurationWindow_WindowName" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="Window_DutyWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_ENpcWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_FilterWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_ItemWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Window_RetainerTaskWindow_WindowName" xml:space="preserve">
+    <value>Allagan Tools - </value>
+  </data>
+  <data name="Setting_SaveBackgroundFilter_Name" xml:space="preserve">
+    <value>保持后台列表高亮?</value>
+  </data>
+  <data name="Setting_SaveBackgroundFilter_HelpText" xml:space="preserve">
+    <value>退出游戏或禁用/重新启用插件时，是否保存当前后台列表?</value>
+  </data>
+  <data name="Setting_AllowCrossCharacter_Name" xml:space="preserve">
+    <value>在列表中显示跨角色库存?</value>
+  </data>
+  <data name="Setting_AllowCrossCharacter_WizardName" xml:space="preserve">
+    <value>跨角色库存?</value>
+  </data>
+  <data name="Setting_AllowCrossCharacter_HelpText" xml:space="preserve">
+    <value>是否显示未登录角色及其关联雇员的可查看/搜索/筛选内容?每个列表可以配置来源/目标以包含/排除与当前登录角色相关的雇员/部队。</value>
+  </data>
+  <data name="Setting_SwitchCraftListsAutomatically_Name" xml:space="preserve">
+    <value>自动切换制作列表?</value>
+  </data>
+  <data name="Setting_SwitchCraftListsAutomatically_HelpText" xml:space="preserve">
+    <value>在切换制作列表时是否自动更改活动制作列表?仅当已选择活动制作列表时才会更改。</value>
+  </data>
+  <data name="Setting_SwitchFiltersAutomatically_Name" xml:space="preserve">
+    <value>自动切换列表?</value>
+  </data>
+  <data name="Window_Filters_CompendiumViewer" xml:space="preserve">
+    <value>百科查看器</value>
+  </data>
+  <data name="Setting_SwitchFiltersAutomatically_HelpText" xml:space="preserve">
+    <value>查看不同列表时，高亮是否自动切换到当前查看的列表?仅当高亮已激活时才会更改。</value>
+  </data>
+  <data name="Setting_ActiveCraftList_Name" xml:space="preserve">
+    <value>活动制作列表</value>
+  </data>
+  <data name="Setting_ActiveCraftList_HelpText" xml:space="preserve">
+    <value>制作将计入的制作列表。</value>
+  </data>
+  <data name="Setting_AddTitleMenuButton_Name" xml:space="preserve">
+    <value>添加标题菜单按钮?</value>
+  </data>
+  <data name="Setting_AddTitleMenuButton_HelpText" xml:space="preserve">
+    <value>在标题菜单中添加一个按钮，与Dalamud菜单项并列，允许您在未登录时打开Allagan Tools。</value>
+  </data>
+  <data name="Setting_AutoSave_Name" xml:space="preserve">
+    <value>自动保存库存/配置?</value>
+  </data>
+  <data name="Setting_AutoSave_HelpText" xml:space="preserve">
+    <value>是否按定义的时间间隔自动保存库存/配置?虽然插件在游戏关闭和配置更改时会保存，但在崩溃情况下不会保存，因此此功能试图缓解此问题。</value>
+  </data>
+  <data name="Setting_AutoSave_WizardName" xml:space="preserve">
+    <value>自动保存库存?</value>
+  </data>
+  <data name="Setting_AutoSaveTime_Name" xml:space="preserve">
+    <value>自动保存间隔</value>
+  </data>
+  <data name="Setting_AutoSaveTime_HelpText" xml:space="preserve">
+    <value>每次自动保存之间应间隔多少分钟?</value>
+  </data>
+  <data name="Setting_AutomaticallyDownloadPrices_Name" xml:space="preserve">
+    <value>自动下载价格?</value>
+  </data>
+  <data name="Setting_AutomaticallyDownloadPrices_HelpText" xml:space="preserve">
+    <value>在列表中查看价格数据时是否自动下载?</value>
+  </data>
+  <data name="Setting_AutomaticallyDownloadPrices_WizardName" xml:space="preserve">
+    <value>下载价格数据</value>
+  </data>
+  <data name="Setting_BackgroundFilter_Name" xml:space="preserve">
+    <value>后台列表高亮</value>
+  </data>
+  <data name="Setting_BackgroundFilter_HelpText" xml:space="preserve">
+    <value>当Allagan Tools窗口不可见时当前正在高亮的列表。此列表可以通过相关的斜杠命令切换。</value>
+  </data>
+  <data name="Setting_EnableTetris_Name" xml:space="preserve">
+    <value>启用俄罗斯方块?</value>
+  </data>
+  <data name="Setting_EnableTetris_HelpText" xml:space="preserve">
+    <value>是否启用俄罗斯方块?如果启用，插件的汉堡菜单中将显示一个新的"俄罗斯方块"选项。</value>
+  </data>
+  <data name="Setting_HighlightColour_Name" xml:space="preserve">
+    <value>高亮颜色</value>
+  </data>
+  <data name="Setting_HighlightColour_HelpText" xml:space="preserve">
+    <value>设置高亮物品的颜色。</value>
+  </data>
+  <data name="Setting_HighlightDestinationColour_Name" xml:space="preserve">
+    <value>目标高亮颜色</value>
+  </data>
+  <data name="Setting_HighlightDestinationColour_HelpText" xml:space="preserve">
+    <value>设置目标中匹配源筛选器的物品的颜色（假设目标重复高亮已开启）。</value>
+  </data>
+  <data name="Setting_HighlightDestinationDuplicates_Name" xml:space="preserve">
+    <value>高亮目标?</value>
+  </data>
+  <data name="Setting_HighlightDestinationDuplicates_HelpText" xml:space="preserve">
+    <value>是否应该高亮物品的目标?这可以在筛选器配置中覆盖。</value>
+  </data>
+  <data name="Setting_HighlightDestinationEmpty_Name" xml:space="preserve">
+    <value>高亮空目标?</value>
+  </data>
+  <data name="Setting_HighlightDestinationEmpty_HelpText" xml:space="preserve">
+    <value>高亮目标时，应该高亮空位还是仅高亮目标中已存在的物品?</value>
+  </data>
+  <data name="Setting_HighlightWhen_Name" xml:space="preserve">
+    <value>何时高亮?</value>
+  </data>
+  <data name="Setting_HighlightWhen_HelpText" xml:space="preserve">
+    <value>当列表的高亮开启时，应该始终激活还是仅在搜索列时激活?</value>
+  </data>
+  <data name="Setting_HistoryEnabled_Name" xml:space="preserve">
+    <value>启用历史追踪?</value>
+  </data>
+  <data name="Setting_HistoryEnabled_HelpText" xml:space="preserve">
+    <value>Allagan Tools是否应该尝试追踪您库存中物品的移动、添加和移除?</value>
+  </data>
+  <data name="Setting_HistoryEnabled_WizardName" xml:space="preserve">
+    <value>追踪物品历史?</value>
+  </data>
+  <data name="Setting_InvertHighlighting_Name" xml:space="preserve">
+    <value>反转高亮?</value>
+  </data>
+  <data name="Setting_InvertHighlighting_HelpText" xml:space="preserve">
+    <value>是否应该高亮所有不匹配列表的物品?这可以在列表配置中覆盖。</value>
+  </data>
+  <data name="Setting_InvertTabHighlighting_Name" xml:space="preserve">
+    <value>反转标签高亮?</value>
+  </data>
+  <data name="Setting_InvertTabHighlighting_HelpText" xml:space="preserve">
+    <value>是否应该高亮所有不匹配列表的标签?这可以在列表配置中覆盖。</value>
+  </data>
+  <data name="Setting_InvertDestinationHighlighting_Name" xml:space="preserve">
+    <value>反转目标高亮?</value>
+  </data>
+  <data name="Setting_InvertDestinationHighlighting_HelpText" xml:space="preserve">
+    <value>高亮目标物品时是否应该反转物品的颜色?</value>
+  </data>
+  <data name="Setting_ShowTooltips_Name" xml:space="preserve">
+    <value>启用提示框调整?</value>
+  </data>
+  <data name="Setting_ShowTooltips_HelpText" xml:space="preserve">
+    <value>禁用/启用插件的整个提示框修改系统。如果关闭，将不会对物品提示框进行任何更改。</value>
+  </data>
+  <data name="Setting_ShowFiltersTab_Name" xml:space="preserve">
+    <value>显示"所有列表"标签?</value>
+  </data>
+  <data name="Setting_ShowFiltersTab_HelpText" xml:space="preserve">
+    <value>主窗口是否应该显示名为"所有列表"的标签，在一个标签中包含所有可用列表?</value>
+  </data>
+  <data name="Setting_TabHighlightColour_Name" xml:space="preserve">
+    <value>标签高亮颜色</value>
+  </data>
+  <data name="Setting_TabHighlightColour_HelpText" xml:space="preserve">
+    <value>设置包含筛选物品的高亮标签的颜色。</value>
+  </data>
+  <data name="Setting_WindowFilter_Name" xml:space="preserve">
+    <value>窗口列表高亮</value>
+  </data>
+  <data name="Setting_WindowFilter_HelpText" xml:space="preserve">
+    <value>当任何Allagan Tools窗口可见时将高亮的列表。</value>
+  </data>
+  <data name="Setting_ColourRetainerList_Name" xml:space="preserve">
+    <value>在雇员列表中着色名称?</value>
+  </data>
+  <data name="Setting_ColourRetainerList_HelpText" xml:space="preserve">
+    <value>如果相关物品需要整理或在其库存中可用，召唤铃列表中的雇员名称是否应该着色?</value>
+  </data>
+  <data name="Setting_RetainerListColour_Name" xml:space="preserve">
+    <value>雇员列表颜色</value>
+  </data>
+  <data name="Setting_RetainerListColour_HelpText" xml:space="preserve">
+    <value>设置包含筛选物品的雇员列表的颜色。</value>
+  </data>
+  <data name="Setting_ShowItemNumberRetainerList_Name" xml:space="preserve">
+    <value>在雇员列表中显示物品数量?</value>
+  </data>
+  <data name="Setting_ShowItemNumberRetainerList_HelpText" xml:space="preserve">
+    <value>召唤铃列表中的雇员名称是否应该显示需要整理的物品数量或库存中可用的物品数量?</value>
+  </data>
+  <data name="Setting_MarketRefreshTimeHours_Name" xml:space="preserve">
+    <value>保留市场价格X小时</value>
+  </data>
+  <data name="Setting_MarketRefreshTimeHours_HelpText" xml:space="preserve">
+    <value>我们应该保留市场价格多长时间才从Universalis刷新?</value>
+  </data>
+  <data name="Setting_MarketRefreshTimeHours_WizardName" xml:space="preserve">
+    <value>保留X小时</value>
+  </data>
+  <data name="Setting_MarketBoardUseActiveWorld_Name" xml:space="preserve">
+    <value>定价当前世界?</value>
+  </data>
+  <data name="Setting_MarketBoardUseActiveWorld_HelpText" xml:space="preserve">
+    <value>当前活跃的世界是否应该自动定价?</value>
+  </data>
+  <data name="Setting_MarketBoardUseHomeWorld_Name" xml:space="preserve">
+    <value>定价家乡世界?</value>
+  </data>
+  <data name="Setting_MarketBoardUseHomeWorld_HelpText" xml:space="preserve">
+    <value>您角色的家乡世界是否应该自动定价?</value>
+  </data>
+  <data name="Setting_MarketBoardSaleCountLimit_Name" xml:space="preserve">
+    <value>市场板销售历史天数</value>
+  </data>
+  <data name="Setting_MarketBoardSaleCountLimit_HelpText" xml:space="preserve">
+    <value>计算物品总销售数量时，应该检查多少天的销售数据。如果更改此设置，现有数据不会被清除，您需要手动请求刷新市场价格或等待市场板自动刷新。</value>
+  </data>
+  <data name="Setting_MarketBoardSaleCountLimit_WizardName" xml:space="preserve">
+    <value>销售历史限制</value>
+  </data>
+  <data name="Setting_MarketBoardExtraWorlds_Name" xml:space="preserve">
+    <value>定价世界</value>
+  </data>
+  <data name="Setting_MarketBoardExtraWorlds_HelpText" xml:space="preserve">
+    <value>我们应该自动定价的额外世界列表。</value>
+  </data>
+  <data name="Setting_FiltersWindowLayout_Name" xml:space="preserve">
+    <value>物品窗口布局</value>
+  </data>
+  <data name="Setting_FiltersWindowLayout_HelpText" xml:space="preserve">
+    <value>设置物品窗口的布局。</value>
+  </data>
+  <data name="Setting_FiltersWindowLayout_WizardName" xml:space="preserve">
+    <value>物品窗口</value>
+  </data>
+  <data name="Setting_CraftWindowLayout_Name" xml:space="preserve">
+    <value>制作窗口布局</value>
+  </data>
+  <data name="Setting_CraftWindowLayout_HelpText" xml:space="preserve">
+    <value>设置制作窗口的布局。</value>
+  </data>
+  <data name="Setting_CraftWindowLayout_WizardName" xml:space="preserve">
+    <value>制作窗口</value>
+  </data>
+  <data name="Setting_TooltipDisplayAmountOwned_Name" xml:space="preserve">
+    <value>添加物品位置</value>
+  </data>
+  <data name="Setting_TooltipDisplayAmountOwned_HelpText" xml:space="preserve">
+    <value>悬停物品时，提示框是否应该显示您当前拥有的物品的位置?</value>
+  </data>
+  <data name="Setting_TooltipDisplayAmountOwned_WizardName" xml:space="preserve">
+    <value>添加物品位置</value>
+  </data>
+  <data name="Setting_TooltipDisplayHeader_Name" xml:space="preserve">
+    <value>添加插件名称</value>
+  </data>
+  <data name="Setting_TooltipDisplayHeader_HelpText" xml:space="preserve">
+    <value>是否应该在提示框中任何修改上方显示[Allagan Tools]?</value>
+  </data>
+  <data name="Setting_TooltipDisplayRetrieveAmount_Name" xml:space="preserve">
+    <value>添加需要取回的数量</value>
+  </data>
+  <data name="Setting_TooltipDisplayRetrieveAmount_HelpText" xml:space="preserve">
+    <value>是否应该在提示框中显示需要取回的数量?</value>
+  </data>
+  <data name="Setting_TooltipDisplayRetrieveAmount_WizardName" xml:space="preserve">
+    <value>取回数量</value>
+  </data>
+  <data name="Setting_TooltipMinimumMarketPrice_Name" xml:space="preserve">
+    <value>添加市场最低NQ/HQ价格?</value>
+  </data>
+  <data name="Setting_TooltipMinimumMarketPrice_HelpText" xml:space="preserve">
+    <value>悬停物品时，提示框是否应该包含NQ和HQ的最低市场价格。请确保"自动下载价格"已启用。</value>
+  </data>
+  <data name="Setting_TooltipMinimumMarketPrice_WizardName" xml:space="preserve">
+    <value>市场价格</value>
+  </data>
+  <data name="Setting_TooltipAverageMarketPrice_Name" xml:space="preserve">
+    <value>添加市场平均NQ/HQ价格</value>
+  </data>
+  <data name="Setting_TooltipAverageMarketPrice_HelpText" xml:space="preserve">
+    <value>悬停物品时，提示框是否应该包含NQ和HQ的平均市场价格。请确保"自动下载价格"已启用。</value>
+  </data>
+  <data name="Setting_TooltipCurrentCharacterOnly_Name" xml:space="preserve">
+    <value>限制为当前角色的物品?</value>
+  </data>
+  <data name="Setting_TooltipCurrentCharacterOnly_HelpText" xml:space="preserve">
+    <value>将提示框上显示的信息限制为属于当前登录角色的库存。</value>
+  </data>
+  <data name="Setting_TooltipCategoryBlacklist_Name" xml:space="preserve">
+    <value>提示框类别黑名单</value>
+  </data>
+  <data name="Setting_TooltipCategoryBlacklist_HelpText" xml:space="preserve">
+    <value>如果选中，将提示框类别白名单变为黑名单。</value>
+  </data>
+  <data name="Setting_TooltipCategoryWhitelist_Name" xml:space="preserve">
+    <value>提示框类别白名单</value>
+  </data>
+  <data name="Setting_TooltipCategoryWhitelist_HelpText" xml:space="preserve">
+    <value>向提示框添加信息时，是否应该将受影响的物品限制为这些类别?如果选中了"提示框类别黑名单"，此功能将反转。</value>
+  </data>
+  <data name="Setting_TooltipColor_Name" xml:space="preserve">
+    <value>文本颜色</value>
+  </data>
+  <data name="Setting_TooltipColor_HelpText" xml:space="preserve">
+    <value>添加到物品提示框的任何文本的颜色。您可以通过进入提示框设置为每个提示框模块设置自己的颜色。</value>
+  </data>
+  <data name="Setting_TooltipHeaderLines_Name" xml:space="preserve">
+    <value>头部新行</value>
+  </data>
+  <data name="Setting_TooltipHeaderLines_HelpText" xml:space="preserve">
+    <value>在此插件进行的任何提示框修改上方应添加多少新行?</value>
+  </data>
+  <data name="Setting_TooltipFooterLines_Name" xml:space="preserve">
+    <value>底部新行</value>
+  </data>
+  <data name="Setting_TooltipFooterLines_HelpText" xml:space="preserve">
+    <value>在此插件进行的任何提示框修改下方应添加多少新行?</value>
+  </data>
+  <data name="Setting_TooltipLocationDisplayMode_Name" xml:space="preserve">
+    <value>添加物品位置(显示模式)</value>
+  </data>
+  <data name="Setting_TooltipLocationDisplayMode_HelpText" xml:space="preserve">
+    <value>物品位置在提示框中的显示方式。这需要"添加物品位置?"开启。</value>
+  </data>
+  <data name="Setting_TooltipLocationDisplayMode_WizardName" xml:space="preserve">
+    <value>显示模式</value>
+  </data>
+  <data name="Setting_ToolTipLocationLimit_Name" xml:space="preserve">
+    <value>添加物品位置(最大结果)</value>
+  </data>
+  <data name="Setting_ToolTipLocationLimit_HelpText" xml:space="preserve">
+    <value>提示框上列出的位置的最大数量。这需要"显示拥有数量?"已启用。</value>
+  </data>
+  <data name="Setting_TooltipAddCharacterName_Name" xml:space="preserve">
+    <value>添加物品位置(附加角色名)</value>
+  </data>
+  <data name="Setting_TooltipAddCharacterName_HelpText" xml:space="preserve">
+    <value>悬停物品且您有雇员拥有的数量时，是否应该将该雇员的所有者附加到该物品?</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedSort_Name" xml:space="preserve">
+    <value>添加物品位置(排序)</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedSort_HelpText" xml:space="preserve">
+    <value>提示框中显示的物品应如何排序?如果排序性能不佳，可以选择"无"。</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlock_Name" xml:space="preserve">
+    <value>添加物品解锁状态</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlock_HelpText" xml:space="preserve">
+    <value>如果物品可以解锁/获取，显示您的角色是否已解锁/获取该物品。可以在配置窗口中配置显示特定角色。</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockCharacter_Name" xml:space="preserve">
+    <value>添加物品解锁状态(角色)</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockCharacter_HelpText" xml:space="preserve">
+    <value>在物品上显示解锁状态时，将显示这些角色。留空以显示所有角色。</value>
+  </data>
+  <data name="Setting_TooltipDisplayGlamourReadySet_Name" xml:space="preserve">
+    <value>时装套装信息</value>
+  </data>
+  <data name="Setting_TooltipDisplayGlamourReadySet_HelpText" xml:space="preserve">
+    <value>悬停物品时，显示它是否是时装套装或其中的一部分，以及您在兵装库或衣柜中已有的组件物品。</value>
+  </data>
+  <data name="Setting_TooltipDisplayGlamourReadySet_WizardName" xml:space="preserve">
+    <value>时装套装信息</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetDisplayMode_Name" xml:space="preserve">
+    <value>显示模式</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetDisplayMode_HelpText" xml:space="preserve">
+    <value>时装套装信息在提示框中的显示方式。详细模式列出每件及其所有权状态；紧凑模式显示摘要计数。</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetDisplayMode_WizardName" xml:space="preserve">
+    <value>显示模式</value>
+  </data>
+  <data name="Setting_TooltipDisplayCofferLoot_Name" xml:space="preserve">
+    <value>宝箱战利品信息</value>
+  </data>
+  <data name="Setting_TooltipDisplayCofferLoot_HelpText" xml:space="preserve">
+    <value>悬停宝箱、卡包或战利品容器时，显示您已拥有其可能的战利品物品中的多少件。</value>
+  </data>
+  <data name="Setting_TooltipDisplayCofferLoot_WizardName" xml:space="preserve">
+    <value>宝箱战利品信息</value>
+  </data>
+  <data name="Setting_TooltipDisplayIngredientPatch_Name" xml:space="preserve">
+    <value>添加材料版本</value>
+  </data>
+  <data name="Setting_TooltipDisplayIngredientPatch_HelpText" xml:space="preserve">
+    <value>显示材料最后使用的版本。这是通过遍历物品参与的每个配方，然后遍历其配方等，直到确定最高版本。</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearch_Name" xml:space="preserve">
+    <value>右键菜单 - 搜索</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearch_HelpText" xml:space="preserve">
+    <value>执行覆盖所有库存或下方定义范围的搜索?</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearch_WizardName" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearchScope_Name" xml:space="preserve">
+    <value>右键菜单 - 搜索范围</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearchScope_HelpText" xml:space="preserve">
+    <value>在AT已知的库存中搜索物品时，应该搜索哪些库存?</value>
+  </data>
+  <data name="Setting_ContextMenuItemSearchScope_WizardName" xml:space="preserve">
+    <value>搜索范围</value>
+  </data>
+  <data name="Setting_ContextMenuOpenCraftingLog_Name" xml:space="preserve">
+    <value>右键菜单 - 打开制作笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenCraftingLog_HelpText" xml:space="preserve">
+    <value>为任何可制作的物品添加右键菜单项以打开制作笔记?</value>
+  </data>
+  <data name="Setting_ContextMenuOpenCraftingLog_WizardName" xml:space="preserve">
+    <value>打开制作笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenGatheringLog_Name" xml:space="preserve">
+    <value>右键菜单 - 打开采集笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenGatheringLog_HelpText" xml:space="preserve">
+    <value>为任何可采集的物品添加右键菜单项以打开采集笔记?</value>
+  </data>
+  <data name="Setting_ContextMenuOpenGatheringLog_WizardName" xml:space="preserve">
+    <value>打开采集笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenFishingLog_Name" xml:space="preserve">
+    <value>右键菜单 - 打开捕鱼笔记</value>
+  </data>
+  <data name="Setting_ContextMenuOpenFishingLog_HelpText" xml:space="preserve">
+    <value>为任何可钓鱼的物品添加右键菜单项以打开捕鱼笔记?</value>
+  </data>
+  <data name="Setting_ContextMenuOpenFishingLog_WizardName" xml:space="preserve">
+    <value>打开捕鱼笔记</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformation_Name" xml:space="preserve">
+    <value>右键菜单 - 更多信息(物品)</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformation_HelpText" xml:space="preserve">
+    <value>为物品添加右键菜单/上下文菜单中的更多信息菜单项?</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformation_WizardName" xml:space="preserve">
+    <value>更多信息</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCraftList_Name" xml:space="preserve">
+    <value>右键菜单 - 添加到制作列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCraftList_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加到制作列表?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCraftList_WizardName" xml:space="preserve">
+    <value>添加到制作列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToActiveCraftList_Name" xml:space="preserve">
+    <value>右键菜单 - 添加到活动制作列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToActiveCraftList_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加到活动制作列表?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToActiveCraftList_WizardName" xml:space="preserve">
+    <value>添加到活动制作列表</value>
+  </data>
+  <data name="Setting_HotkeyConfigWindow_Name" xml:space="preserve">
+    <value>切换配置窗口</value>
+  </data>
+  <data name="Setting_HotkeyConfigWindow_HelpText" xml:space="preserve">
+    <value>切换配置窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyListsWindow_Name" xml:space="preserve">
+    <value>切换列表窗口</value>
+  </data>
+  <data name="Setting_HotkeyListsWindow_HelpText" xml:space="preserve">
+    <value>切换列表窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyCraftWindow_Name" xml:space="preserve">
+    <value>切换制作窗口</value>
+  </data>
+  <data name="Setting_HotkeyCraftWindow_HelpText" xml:space="preserve">
+    <value>切换制作窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyDutiesWindow_Name" xml:space="preserve">
+    <value>切换任务窗口</value>
+  </data>
+  <data name="Setting_HotkeyDutiesWindow_HelpText" xml:space="preserve">
+    <value>切换任务窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyMobWindow_Name" xml:space="preserve">
+    <value>切换怪物窗口</value>
+  </data>
+  <data name="Setting_HotkeyMobWindow_HelpText" xml:space="preserve">
+    <value>切换怪物窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyAirshipsWindow_Name" xml:space="preserve">
+    <value>切换飞空艇窗口</value>
+  </data>
+  <data name="Setting_HotkeyAirshipsWindow_HelpText" xml:space="preserve">
+    <value>切换飞空艇窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeySubmarinesWindow_Name" xml:space="preserve">
+    <value>切换潜水艇窗口</value>
+  </data>
+  <data name="Setting_HotkeySubmarinesWindow_HelpText" xml:space="preserve">
+    <value>切换潜水艇窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyRetainerTasksWindow_Name" xml:space="preserve">
+    <value>切换雇员探险窗口</value>
+  </data>
+  <data name="Setting_HotkeyRetainerTasksWindow_HelpText" xml:space="preserve">
+    <value>切换雇员探险窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyMoreInfo_Name" xml:space="preserve">
+    <value>更多信息热键</value>
+  </data>
+  <data name="Setting_HotkeyMoreInfo_HelpText" xml:space="preserve">
+    <value>悬停物品时打开更多信息窗口的热键。</value>
+  </data>
+  <data name="Setting_HotkeyOpenCraftingLog_Name" xml:space="preserve">
+    <value>打开制作笔记热键</value>
+  </data>
+  <data name="Setting_HotkeyOpenCraftingLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开制作笔记的热键。</value>
+  </data>
+  <data name="Setting_HotkeyOpenGatheringLog_Name" xml:space="preserve">
+    <value>打开采集笔记热键</value>
+  </data>
+  <data name="Setting_HotkeyOpenGatheringLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开采集笔记的热键。</value>
+  </data>
+  <data name="Setting_HotkeyOpenFishingLog_Name" xml:space="preserve">
+    <value>打开捕鱼笔记热键</value>
+  </data>
+  <data name="Setting_HotkeyOpenFishingLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开捕鱼笔记的热键。</value>
+  </data>
+  <data name="Setting_HotKeyOpenItemLog_Name" xml:space="preserve">
+    <value>打开物品日志热键</value>
+  </data>
+  <data name="Setting_HotKeyOpenItemLog_HelpText" xml:space="preserve">
+    <value>悬停物品时打开相关日志条目(采集、制作、钓鱼)的热键。</value>
+  </data>
+  <data name="Setting_TooltipLocationScopeLimit_Name" xml:space="preserve">
+    <value>添加物品位置(搜索位置)</value>
+  </data>
+  <data name="Setting_TooltipLocationScopeLimit_HelpText" xml:space="preserve">
+    <value>在提示框中显示您拥有的物品位置时，搜索中应包含哪些库存?</value>
+  </data>
+  <data name="Setting_TooltipCofferLootScope_Name" xml:space="preserve">
+    <value>宝箱战利品(搜索位置)</value>
+  </data>
+  <data name="Setting_TooltipCofferLootScope_HelpText" xml:space="preserve">
+    <value>确定您已拥有多少宝箱战利品物品时，应该搜索哪些库存?</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetScope_Name" xml:space="preserve">
+    <value>时装套装(搜索位置)</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetScope_HelpText" xml:space="preserve">
+    <value>确定您已拥有哪些时装套装物品时，应该搜索哪些库存?</value>
+  </data>
+  <data name="Setting_UseIconGrouping_Name" xml:space="preserve">
+    <value>使用获取图标分组</value>
+  </data>
+  <data name="Setting_UseIconGrouping_HelpText" xml:space="preserve">
+    <value>显示使用获取图标时，应该如何分组?</value>
+  </data>
+  <data name="Setting_SourceIconGrouping_Name" xml:space="preserve">
+    <value>来源获取图标分组</value>
+  </data>
+  <data name="Setting_SourceIconGrouping_HelpText" xml:space="preserve">
+    <value>显示来源获取图标时，应该如何分组?</value>
+  </data>
+  <data name="Setting_TrackMobSpawn_Name" xml:space="preserve">
+    <value>追踪怪物刷新</value>
+  </data>
+  <data name="Setting_TrackMobSpawn_HelpText" xml:space="preserve">
+    <value>插件是否应该追踪您移动时怪物的刷新位置。此数据尚未被插件使用，但一旦收集足够多，您可以点击复选框旁边的按钮导出包含这些位置的文件。如果您上传这些CSV并通过反馈发送URL，我可以使用这些刷新数据为每个人提供准确的怪物刷新位置。</value>
+  </data>
+  <data name="Setting_PersistData_Name" xml:space="preserve">
+    <value>持久化缓存数据</value>
+  </data>
+  <data name="Setting_PersistData_HelpText" xml:space="preserve">
+    <value>Allagan Tools在首次启动时必须计算信息，根据您的计算机可能需要5-10秒。如果开启此选项，该数据将在更新之间持久化，从而加快插件的启动时间。</value>
+  </data>
+  <data name="Setting_HistoryTrackEvents_Name" xml:space="preserve">
+    <value>历史追踪事件</value>
+  </data>
+  <data name="Setting_HistoryTrackEvents_HelpText" xml:space="preserve">
+    <value>历史模块应该追踪哪些事件?</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerLoginDelay_Name" xml:space="preserve">
+    <value>登录延迟</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerLoginDelay_HelpText" xml:space="preserve">
+    <value>获取追踪器在您登录时会对角色背包执行初始扫描。由于游戏会接收多个库存更新，扫描器必须等待一定时间才能完成。如果您看到制作列表中的物品在首次登录时随机完成，请将此值调高。</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerPersistState_Name" xml:space="preserve">
+    <value>持久化状态时间(秒)</value>
+  </data>
+  <data name="Setting_AcquisitionTrackerPersistState_HelpText" xml:space="preserve">
+    <value>获取追踪器将追踪您的当前状态(制作、采集等)。默认情况下，在状态变回无操作后它会保持此状态2秒。这是为了捕获追踪器中的任何延迟，如果您发现追踪器没有拾取您制作/采集等的物品，请将此数值调高。</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpc_Name" xml:space="preserve">
+    <value>商店高亮 - 高亮NPC</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpc_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，是否应该在世界中高亮相关NPC?</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcNameplateIcon_Name" xml:space="preserve">
+    <value>商店高亮 - 名牌图标</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcNameplateIcon_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，在世界中相关NPC的名牌上显示一个小商人图标。</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcColor_Name" xml:space="preserve">
+    <value>商店高亮 - NPC高亮颜色</value>
+  </data>
+  <data name="Setting_ShopHighlightingNpcColor_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，用于在世界中高亮NPC的颜色。</value>
+  </data>
+  <data name="Setting_ShopHighlightingDisableItems_Name" xml:space="preserve">
+    <value>商店高亮 - 禁用物品</value>
+  </data>
+  <data name="Setting_ShopHighlightingDisableItems_HelpText" xml:space="preserve">
+    <value>在商店中高亮物品时，是否应该禁用未高亮的物品?</value>
+  </data>
+  <data name="Setting_CraftOverlayHide_Name" xml:space="preserve">
+    <value>任务期间隐藏?</value>
+  </data>
+  <data name="Setting_CraftOverlayHide_HelpText" xml:space="preserve">
+    <value>在任务/过场动画/陆行鸟竞赛等期间是否应该隐藏制作覆盖层?</value>
+  </data>
+  <data name="Setting_CraftOverlayMaxExpandedItems_Name" xml:space="preserve">
+    <value>展开时最大物品数</value>
+  </data>
+  <data name="Setting_CraftOverlayMaxExpandedItems_HelpText" xml:space="preserve">
+    <value>制作覆盖层展开时，应显示多少物品?</value>
+  </data>
+  <data name="Setting_CraftOverlayRememberState_Name" xml:space="preserve">
+    <value>记住状态</value>
+  </data>
+  <data name="Setting_CraftOverlayRememberState_HelpText" xml:space="preserve">
+    <value>制作覆盖层是否应该在插件重新加载/游戏重新加载之间保持打开?</value>
+  </data>
+  <data name="Setting_CompendiumRowHeight_Name" xml:space="preserve">
+    <value>行高</value>
+  </data>
+  <data name="Setting_CompendiumRowHeight_HelpText" xml:space="preserve">
+    <value>百科列表中显示的行最小高度应为多少?</value>
+  </data>
+  <data name="Setting_CompendiumWotsit_Name" xml:space="preserve">
+    <value>启用Wotsit集成?</value>
+  </data>
+  <data name="Setting_CompendiumWotsit_HelpText" xml:space="preserve">
+    <value>百科窗口是否应该在wotsit的搜索中列出?</value>
+  </data>
+  <data name="Setting_ImGuiTooltipMode_Name" xml:space="preserve">
+    <value>物品提示框模式</value>
+  </data>
+  <data name="Setting_ImGuiTooltipMode_HelpText" xml:space="preserve">
+    <value>是否应该显示物品的提示框，从不、悬停物品图标时还是悬停物品表格中的任何行时?</value>
+  </data>
+  <data name="Setting_UseOldCraftTracker_Name" xml:space="preserve">
+    <value>使用旧制作追踪器?</value>
+  </data>
+  <data name="Setting_UseOldCraftTracker_HelpText" xml:space="preserve">
+    <value>使用旧的制作追踪器，这仅追踪制作并使用与新的获取追踪器不同的机制。</value>
+  </data>
+  <data name="Setting_CraftWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>制作窗口</value>
+  </data>
+  <data name="Setting_CraftWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>制作窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_FiltersWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>筛选器窗口</value>
+  </data>
+  <data name="Setting_FiltersWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>筛选器窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_ItemWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>物品窗口</value>
+  </data>
+  <data name="Setting_ItemWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>物品窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_FilterWindowIgnoreEscape_Name" xml:space="preserve">
+    <value>筛选窗口</value>
+  </data>
+  <data name="Setting_FilterWindowIgnoreEscape_HelpText" xml:space="preserve">
+    <value>筛选窗口是否应该忽略ESC键?</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationEnabled_Name" xml:space="preserve">
+    <value>来源信息已启用</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationEnabled_HelpText" xml:space="preserve">
+    <value>提示框中是否应该显示来源信息?例如物品可以通过制作、商店、怪物等获取。</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationEnabled_WizardName" xml:space="preserve">
+    <value>显示来源信息</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationModifier_Name" xml:space="preserve">
+    <value>来源信息修饰键</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationModifier_HelpText" xml:space="preserve">
+    <value>是否仅在按下修饰键时才显示提示框?</value>
+  </data>
+  <data name="Setting_TooltipSourceInformation_Name" xml:space="preserve">
+    <value>来源信息配置</value>
+  </data>
+  <data name="Setting_TooltipSourceInformation_HelpText" xml:space="preserve">
+    <value>如果来源信息提示框已启用，各种来源应如何排序/显示等?</value>
+  </data>
+  <data name="Setting_TooltipUseInformationEnabled_Name" xml:space="preserve">
+    <value>用途信息已启用</value>
+  </data>
+  <data name="Setting_TooltipUseInformationEnabled_HelpText" xml:space="preserve">
+    <value>提示框中是否应该显示用途信息?例如物品用于配方或作为商店货币等。</value>
+  </data>
+  <data name="Setting_TooltipUseInformationEnabled_WizardName" xml:space="preserve">
+    <value>显示用途信息</value>
+  </data>
+  <data name="Setting_TooltipUseInformationModifier_Name" xml:space="preserve">
+    <value>用途信息修饰键</value>
+  </data>
+  <data name="Setting_TooltipUseInformationModifier_HelpText" xml:space="preserve">
+    <value>是否仅在按下修饰键时才显示提示框?</value>
+  </data>
+  <data name="Setting_TooltipUseInformation_Name" xml:space="preserve">
+    <value>用途信息配置</value>
+  </data>
+  <data name="Setting_TooltipUseInformation_HelpText" xml:space="preserve">
+    <value>如果用途信息提示框已启用，各种用途应如何排序/显示等?</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockHideUnlocked_Name" xml:space="preserve">
+    <value>添加物品解锁状态(隐藏已解锁角色)</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockHideUnlocked_HelpText" xml:space="preserve">
+    <value>是否应该隐藏已经解锁此物品的角色?如果在分组模式下，这将隐藏已获取的组。</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockDisplayMode_Name" xml:space="preserve">
+    <value>添加物品解锁状态(显示模式)</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockDisplayMode_HelpText" xml:space="preserve">
+    <value>物品解锁状态提示框应该如何显示?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCuratedList_Name" xml:space="preserve">
+    <value>右键菜单 - 添加到精选列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCuratedList_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加到精选列表?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToCuratedList_WizardName" xml:space="preserve">
+    <value>添加到精选列表</value>
+  </data>
+  <data name="Setting_ContextMenuAddToFavourites_Name" xml:space="preserve">
+    <value>右键菜单 - 添加/移除收藏</value>
+  </data>
+  <data name="Setting_ContextMenuAddToFavourites_HelpText" xml:space="preserve">
+    <value>添加子菜单以将物品添加/移除到您的收藏?</value>
+  </data>
+  <data name="Setting_ContextMenuAddToFavourites_WizardName" xml:space="preserve">
+    <value>添加/移除收藏</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationMonsters_Name" xml:space="preserve">
+    <value>右键菜单 - 更多信息(怪物)</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationMonsters_HelpText" xml:space="preserve">
+    <value>为怪物添加右键菜单/上下文菜单中的更多信息菜单项?</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationNpcs_Name" xml:space="preserve">
+    <value>右键菜单 - 更多信息(NPC)</value>
+  </data>
+  <data name="Setting_ContextMenuMoreInformationNpcs_HelpText" xml:space="preserve">
+    <value>为NPC添加右键菜单/上下文菜单中的更多信息菜单项?</value>
+  </data>
+  <data name="Setting_CraftWindowView_Name" xml:space="preserve">
+    <value>制作窗口视图</value>
+  </data>
+  <data name="Setting_CraftWindowView_HelpText" xml:space="preserve">
+    <value>制作列表当前处于什么视图?</value>
+  </data>
+  <data name="Setting_CraftOverlayWindowState_Name" xml:space="preserve">
+    <value>窗口状态</value>
+  </data>
+  <data name="Setting_CraftOverlayWindowState_HelpText" xml:space="preserve">
+    <value>制作覆盖层窗口的当前状态。</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedColor_Name" xml:space="preserve">
+    <value>文本颜色</value>
+  </data>
+  <data name="Setting_TooltipAmountOwnedColor_HelpText" xml:space="preserve">
+    <value>启用时，"添加物品位置"提示框文本的文本颜色应该是什么?</value>
+  </data>
+  <data name="Shows the allagan tools items list window." xml:space="preserve">
+    <value>显示Allagan Tools物品列表窗口。</value>
+  </data>
+  <data name="Shows the allagan tools duties window." xml:space="preserve">
+    <value>显示Allagan Tools任务窗口。</value>
+  </data>
+  <data name="Shows the allagan tools mobs window." xml:space="preserve">
+    <value>显示Allagan Tools怪物窗口。</value>
+  </data>
+  <data name="Shows the allagan tools npcs window." xml:space="preserve">
+    <value>显示Allagan Tools NPC窗口。</value>
+  </data>
+  <data name="Shows the allagan tools compendium window." xml:space="preserve">
+    <value>显示Allagan Tools百科窗口。</value>
+  </data>
+  <data name="Toggle a specific compendium list window." xml:space="preserve">
+    <value>切换特定百科列表窗口。</value>
+  </data>
+  <data name="Toggles the specified list's highlight on/off, turning off any other highlighting in the process." xml:space="preserve">
+    <value>切换指定列表的高亮开/关，同时关闭任何其他高亮。</value>
+  </data>
+  <data name="Open/closes a window displaying the contents of a single list." xml:space="preserve">
+    <value>打开/关闭显示单个列表内容的窗口。</value>
+  </data>
+  <data name="Opens the allagan tools crafts window" xml:space="preserve">
+    <value>打开Allagan Tools制作窗口</value>
+  </data>
+  <data name="Opens the allagan tools airships window" xml:space="preserve">
+    <value>打开Allagan Tools飞空艇窗口</value>
+  </data>
+  <data name="Opens the allagan tools submarines window" xml:space="preserve">
+    <value>打开Allagan Tools潜水艇窗口</value>
+  </data>
+  <data name="Opens the allagan tools retainer ventures window" xml:space="preserve">
+    <value>打开Allagan Tools雇员探险窗口</value>
+  </data>
+  <data name="Opens the allagan tools configuration window" xml:space="preserve">
+    <value>打开Allagan Tools配置窗口</value>
+  </data>
+  <data name="Opens the allagan tools help window" xml:space="preserve">
+    <value>打开Allagan Tools帮助窗口</value>
+  </data>
+  <data name="Opens the allagan tools debug window" xml:space="preserve">
+    <value>打开Allagan Tools调试窗口</value>
+  </data>
+  <data name="Clears the currently active highlighting. Pass in background or ui to turn off highlighting for the background and ui highlighting respectively." xml:space="preserve">
+    <value>清除当前活动高亮。传入background或ui分别关闭后台和UI高亮。</value>
+  </data>
+  <data name="Closes all list windows." xml:space="preserve">
+    <value>关闭所有列表窗口。</value>
+  </data>
+  <data name="Closes all list windows and clears all active highlighting. Pass in background or ui to close just the background or ui highlighting respectively." xml:space="preserve">
+    <value>关闭所有列表窗口并清除所有活动高亮。传入background或ui分别仅关闭后台或UI高亮。</value>
+  </data>
+  <data name="Toggles the crafting overlay window." xml:space="preserve">
+    <value>切换制作覆盖层窗口。</value>
+  </data>
+  <data name="Toggles the equipment recommendation window." xml:space="preserve">
+    <value>切换装备推荐窗口。</value>
+  </data>
+  <data name="Opens the more information window for a specific item. Provide the name of the item or the ID of the item." xml:space="preserve">
+    <value>打开特定物品的更多信息窗口。提供物品名称或ID。</value>
+  </data>
+  <data name="Please enter the name of a compendium type, the following are available:\n" xml:space="preserve">
+    <value>请输入百科类型的名称，以下是可用的:\n</value>
+  </data>
+  <data name=" is not a valid compendium type." xml:space="preserve">
+    <value> 不是有效的百科类型。</value>
+  </data>
+  <data name="You must enter the name of an list." xml:space="preserve">
+    <value>您必须输入列表的名称。</value>
+  </data>
+  <data name="You must enter the name of a list." xml:space="preserve">
+    <value>您必须输入列表的名称。</value>
+  </data>
+  <data name="Could not find a list with that name." xml:space="preserve">
+    <value>找不到该名称的列表。</value>
+  </data>
+  <data name="The item " xml:space="preserve">
+    <value>物品 </value>
+  </data>
+  <data name=" could not be found." xml:space="preserve">
+    <value> 无法找到。</value>
+  </data>
+</root>
