@@ -44,24 +44,11 @@ jobs:
         id: date
         run: echo "date=$(Get-Date -Format 'yyyy-MM-dd-HHmm')" >> $env:GITHUB_OUTPUT
 
-      - name: Delete old latest release
-        uses: dev-drprasad/delete-tag-and-release@v1.0
-        with:
-          tag_name: latest
-          delete_release: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
-
-      - name: Wait for deletion
-        shell: pwsh
-        run: Start-Sleep -Seconds 10
-
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
-          name: "Latest Build (${{ steps.date.outputs.date }})"
+          tag_name: ${{ steps.date.outputs.date }}
+          name: "Build ${{ steps.date.outputs.date }}"
           files: |
             InventoryTools\bin\Release\InventoryTools\latest.zip
           generate_release_notes: true
