@@ -28,10 +28,8 @@ jobs:
 
       - name: Download Dalamud
         run: |
-          $devPath = "$env:LOCALAPPDATA\XIVLauncher\addon\Hooks\dev"
-          New-Item -ItemType Directory -Force -Path $devPath | Out-Null
           Invoke-WebRequest -Uri https://goatcorp.github.io/dalamud-distrib/latest.zip -OutFile latest.zip
-          Expand-Archive -Force latest.zip "$devPath\"
+          Expand-Archive -Force latest.zip "$env:AppData\XIVLauncher\addon\Hooks\dev\"
           Remove-Item latest.zip
 
       - name: Restore
