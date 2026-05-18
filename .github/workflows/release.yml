@@ -44,14 +44,18 @@ jobs:
         id: date
         run: echo "date=$(Get-Date -Format 'yyyy-MM-dd-HHmm')" >> $env:GITHUB_OUTPUT
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ steps.date.outputs.date }}
-          name: "Build ${{ steps.date.outputs.date }}"
-          files: |
-            InventoryTools\bin\Release\InventoryTools\latest.zip
-          generate_release_notes: true
+      - name: Create Release with GitHub CLI
+        shell: pwsh
+        run: |
+          $date = "${{ steps.date.outputs.date }}"
+          $zipPath = "InventoryTools\bin\Release\InventoryTools\latest.zip"
+          
+          # Create release using GitHub CLI
+          gh release create "$date" `
+            --title "Build $date" `
+            --notes "Automated build from main branch at $date" `
+            --target main `
+            "$zipPath"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
