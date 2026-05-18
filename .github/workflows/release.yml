@@ -14,6 +14,8 @@ env:
 jobs:
   release:
     runs-on: windows-2022
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,9 +27,11 @@ jobs:
 
       - name: Download Dalamud
         run: |
-          New-Item -ItemType Directory -Force -Path "$env:LOCALAPPDATA\XIVLauncher\addon\Hooks\dev" | Out-Null
+          $devPath = "$env:LOCALAPPDATA\XIVLauncher\addon\Hooks\dev"
+          New-Item -ItemType Directory -Force -Path $devPath | Out-Null
           Invoke-WebRequest -Uri https://goatcorp.github.io/dalamud-distrib/latest.zip -OutFile latest.zip
-          Expand-Archive -Force latest.zip "$env:LOCALAPPDATA\XIVLauncher\addon\Hooks\dev\"
+          Expand-Archive -Force latest.zip "$devPath\"
+          Remove-Item latest.zip
 
       - name: Restore
         run: dotnet restore InventoryTools
@@ -46,6 +50,7 @@ jobs:
           delete_release: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
