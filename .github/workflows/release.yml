@@ -54,10 +54,11 @@ jobs:
         continue-on-error: true
 
       - name: Wait for deletion
-        run: Start-Sleep -Seconds 5
+        shell: pwsh
+        run: Start-Sleep -Seconds 10
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
           name: "Latest Build (${{ steps.date.outputs.date }})"
