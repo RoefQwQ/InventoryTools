@@ -11,11 +11,12 @@ env:
   CONFIGURATION: Release
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: windows-2022
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,6 +52,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
+
+      - name: Wait for deletion
+        run: Start-Sleep -Seconds 5
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
