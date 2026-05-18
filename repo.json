@@ -24,8 +24,8 @@
     ],
     "IsHide": false,
     "IsTestingExclusive": false,
-    "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/download/v1.15.0.5/latest.zip",
-    "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/download/v1.15.0.5/latest.zip",
+    "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/download/latest/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/download/latest/latest.zip",
     "Changelog": "",
     "LastUpdate": 20260518
   }
