@@ -178,9 +178,6 @@ namespace InventoryTools
             this.RegisterHostedService(typeof(AcquisitionMonitorService));
             this.RegisterHostedService(typeof(AchievementMonitorService));
             this.RegisterHostedService(typeof(POIService));
-            // ChineseFontService 当前未启用（Dalamud 已提供原生 CJK 支持）
-            // 如需启用，取消注释下一行并实现 ChineseFontService 中的方法
-            // this.RegisterHostedService(typeof(ChineseFontService));
 
             //AllaganLib modules
             builder.RegisterModule(new GameSheetManagerModule()
