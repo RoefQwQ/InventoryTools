@@ -32,8 +32,8 @@ public class ItemBattleLeveSourceRenderer : ItemInfoRenderer<ItemBattleLeveSourc
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.BattleLeve;
-    public override string SingularName => "Battle Leve";
-    public override string PluralName => "Battle Leves";
+    public override string SingularName => "战斗理符";
+    public override string PluralName => "战斗理符";
     public override string HelpText => "Is this item obtained from a battle leve?";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];

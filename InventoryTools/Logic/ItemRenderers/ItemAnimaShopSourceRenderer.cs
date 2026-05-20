@@ -49,8 +49,8 @@ public class ItemAnimaShopSourceRenderer : ItemInfoRenderer<ItemAnimaShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.AnimaShop;
-    public override string SingularName => "Anima Shop";
-    public override string PluralName => "Anima Shops";
+    public override string SingularName => "魂武商店";
+    public override string PluralName => "魂武商店";
     public override string HelpText => "Can the item be purchased from a anima currency shop?";
     public override bool ShouldGroup => true;
 

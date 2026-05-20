@@ -37,9 +37,9 @@ public class ItemGatheringLeveSourceRenderer : ItemInfoRenderer<ItemGatheringLev
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GatheringLeve;
-    public override string SingularName => "Gathering Leve";
-    public override string PluralName => "Gathering Leves";
-    public override string HelpText => "Is this item obtained from a gathering leve?";
+    public override string SingularName => "采集理符";
+    public override string PluralName => "采集理符";
+    public override string HelpText => "该物品是否从采集理符获得？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
 
@@ -70,7 +70,7 @@ public class ItemGatheringLeveSourceRenderer : ItemInfoRenderer<ItemGatheringLev
                 {
                     continue;
                 }
-                ImGui.TextUnformatted("Loot Chance: " + asSource.Leve.Value.LeveRewardItem.Value.ProbabilityPercent[itemGroupIndex] + "%");
+                ImGui.TextUnformatted("掉落概率：" + asSource.Leve.Value.LeveRewardItem.Value.ProbabilityPercent[itemGroupIndex] + "%");
                 for (var index = 0; index < itemGroup.Value.Item.Count; index++)
                 {
                     var itemId = itemGroup.Value.Item[index].RowId;

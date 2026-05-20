@@ -19,7 +19,7 @@ public class ItemGardeningCrossbreedSourceRenderer : ItemInfoRenderer<ItemGarden
     private readonly ITextureProvider _textureProvider;
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GardeningCrossbreed;
-    public override string SingularName => "Gardening Crossbreed";
+    public override string SingularName => "园艺杂交";
     public override string HelpText => "Is this item created by crossbreeding 2 seeds?";
     public override bool ShouldGroup => true;
 
@@ -44,7 +44,7 @@ public class ItemGardeningCrossbreedSourceRenderer : ItemInfoRenderer<ItemGarden
     public override Action<List<ItemSource>>? DrawTooltipGrouped => sources =>
     {
         var actualSources = AsSource(sources);
-        ImGui.Text("Crossbreeds:");
+        ImGui.Text("杂交：");
         var chunkedSources = actualSources.OrderBy(c =>c.Seed1.NameString).Chunk(actualSources.Count / MaxColumns);
         using (var table = ImRaii.Table("CrossbreedTable", this.MaxColumns, ImGuiTableFlags.SizingStretchProp))
         {
@@ -112,7 +112,7 @@ public class ItemGardeningCrossbreedSourceUseRenderer : ItemGardeningCrossbreedS
     }
 
     public override RendererType RendererType => RendererType.Use;
-    public override string SingularName => "Gardening Crossbreed Seed";
+    public override string SingularName => "园艺杂交种子";
     public override string HelpText => "Is this item part of a crossbreed when gardening?";
 
     public override Func<ItemSource, string> GetDescription => source =>

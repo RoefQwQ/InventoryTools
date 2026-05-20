@@ -19,7 +19,7 @@ namespace InventoryTools.Logic.ItemRenderers;
 
 public class ItemQuestUseRenderer : ItemInfoRenderer<ItemQuestUse>
 {
-    public override string HelpText { get; } = "Is this item required for a quest?";
+    public override string HelpText { get; } = "该物品是否为任务所需？";
 
     public override RendererType RendererType { get; } = RendererType.Use;
 
@@ -27,7 +27,7 @@ public class ItemQuestUseRenderer : ItemInfoRenderer<ItemQuestUse>
     private readonly ItemSheet _itemSheet;
     private readonly Dictionary<uint,string> _festivalNames;
     public override ItemInfoType Type { get; } = ItemInfoType.Quest;
-    public override string SingularName { get; } = "Quest";
+    public override string SingularName { get; } = "任务";
     public override bool ShouldGroup { get; } = true;
 
     public override Func<ItemSource, (Type, uint)>? RelatedType => source =>
@@ -50,16 +50,16 @@ public class ItemQuestUseRenderer : ItemInfoRenderer<ItemQuestUse>
         var quest = asSource.Quest.Value;
 
         var questName = quest.Name.ToImGuiString();
-        ImGui.Text("Name: " + questName);
-        ImGui.Text("Expansion: " + quest.Expansion.Value.Name.ToImGuiString());
+        ImGui.Text("名称：" + questName);
+        ImGui.Text("资料片：" + quest.Expansion.Value.Name.ToImGuiString());
         if (quest.BeastTribe.RowId != 0)
         {
-            ImGui.Text("Allied Society: " + quest.BeastTribe.Value.Name.ToImGuiString());
+            ImGui.Text("蛮族：" + quest.BeastTribe.Value.Name.ToImGuiString());
         }
         if (quest.Festival.RowId != 0 && _festivalNames.ContainsKey(quest.Festival.RowId))
         {
             ImGui.PushTextWrapPos();
-            ImGui.Text("Only available from " + _festivalNames[quest.Festival.RowId]);
+            ImGui.Text("仅在以下时间可用：" + _festivalNames[quest.Festival.RowId]);
             ImGui.PopTextWrapPos();
         }
 
@@ -94,8 +94,8 @@ public class ItemQuestSourceRenderer : ItemInfoRenderer<ItemQuestSource>
     private readonly Dictionary<uint,string> _festivalNames;
     public override RendererType RendererType { get; } = RendererType.Source;
     public override ItemInfoType Type { get; } = ItemInfoType.Quest;
-    public override string SingularName { get; } = "Quest";
-    public override string HelpText { get; } = "Does this item come from a quest?";
+    public override string SingularName { get; } = "任务";
+    public override string HelpText { get; } = "该物品是否来自任务？";
     public override bool ShouldGroup { get; } = true;
 
     public override Func<ItemSource, (Type, uint)>? RelatedType => source =>
@@ -118,16 +118,16 @@ public class ItemQuestSourceRenderer : ItemInfoRenderer<ItemQuestSource>
         var quest = asSource.Quest.Value;
 
         var questName = quest.Name.ToImGuiString();
-        ImGui.Text("Name: " + questName);
-        ImGui.Text("Expansion: " + quest.Expansion.Value.Name.ToImGuiString());
+        ImGui.Text("名称：" + questName);
+        ImGui.Text("资料片：" + quest.Expansion.Value.Name.ToImGuiString());
         if (quest.BeastTribe.RowId != 0)
         {
-            ImGui.Text("Allied Society: " + quest.BeastTribe.Value.Name.ToImGuiString());
+            ImGui.Text("蛮族：" + quest.BeastTribe.Value.Name.ToImGuiString());
         }
         if (quest.Festival.RowId != 0 && _festivalNames.ContainsKey(quest.Festival.RowId))
         {
             ImGui.PushTextWrapPos();
-            ImGui.Text("Only available from " + _festivalNames[quest.Festival.RowId]);
+            ImGui.Text("仅在以下时间可用：" + _festivalNames[quest.Festival.RowId]);
             ImGui.PopTextWrapPos();
         }
 

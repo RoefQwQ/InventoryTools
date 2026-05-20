@@ -23,7 +23,7 @@ public class ItemFateShopUseRenderer : ItemFateShopSourceRenderer
     {
     }
 
-    public override string HelpText => "Can the item be spent at a bicolor gemstone shop?";
+    public override string HelpText => "该物品是否可在双色宝石商店使用？";
 
     public override RendererType RendererType => RendererType.Use;
 
@@ -49,9 +49,9 @@ public class ItemFateShopSourceRenderer : ItemInfoRenderer<ItemFateShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.FateShop;
-    public override string SingularName => "Bicolor Gemstone Shop";
-    public override string PluralName => "Bicolor Gemstone Shops";
-    public override string HelpText => "Can the item be purchased from a bicolour gem shop?";
+    public override string SingularName => "FATE商店";
+    public override string PluralName => "FATE商店";
+    public override string HelpText => "该物品是否可从双色宝石商店购买？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
 

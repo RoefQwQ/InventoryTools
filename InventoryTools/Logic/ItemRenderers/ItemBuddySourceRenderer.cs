@@ -19,7 +19,7 @@ public class ItemBuddySourceRenderer : ItemInfoRenderer<ItemBuddySource>
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.BuddyItem;
-    public override string SingularName => "Used on Chocobo Companion";
+    public override string SingularName => "搭档";
     public override bool ShouldGroup => false;
     public override string HelpText => "Can the item be used on your chocobo companion?";
 

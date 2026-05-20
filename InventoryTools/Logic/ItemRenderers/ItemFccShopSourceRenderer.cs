@@ -63,8 +63,8 @@ public class ItemFccShopSourceRenderer : ItemInfoRenderer<ItemFccShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.FCShop;
-    public override string SingularName => "Free Company Shop";
-    public override string PluralName => "Free Company Shops";
+    public override string SingularName => "部队商店";
+    public override string PluralName => "部队商店";
     public override string HelpText => "Can the item be purchased from a free company shop?";
     public override bool ShouldGroup => true;
 

@@ -21,8 +21,8 @@ public class ItemAquariumUseRenderer : ItemInfoRenderer<ItemAquariumSource>
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.Aquarium;
-    public override string SingularName => "Aquarium";
-    public override string PluralName => "Aquariums";
+    public override string SingularName => "水族箱";
+    public override string PluralName => "水族箱";
     public override string HelpText => "Can the item be placed in aquariums?";
     public override bool ShouldGroup => false;
 

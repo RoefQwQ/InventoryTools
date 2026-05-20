@@ -69,7 +69,7 @@ public class ItemPagosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<I
     {
     }
 
-    public override string SingularName => "Eureka Pagos (Treasure Coffer)";
+    public override string SingularName => "优雷卡恒冰（宝箱）";
     public override string HelpText => "Does this item drop from a pagos treasure coffer?";
 }
 
@@ -82,7 +82,7 @@ public class ItemPyrosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<I
     {
     }
 
-    public override string SingularName => "Eureka Pyros (Treasure Coffer)";
+    public override string SingularName => "优雷卡火光（宝箱）";
     public override string HelpText => "Does this item drop from a pyros treasure coffer?";
 }
 
@@ -95,7 +95,7 @@ public class ItemHydatosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer
     {
     }
 
-    public override string SingularName => "Eureka Hydatos (Treasure Coffer)";
+    public override string SingularName => "优雷卡丰水（宝箱）";
     public override string HelpText => "Does this item drop from a hydatos treasure coffer?";
 }
 
@@ -108,7 +108,7 @@ public class ItemOccultTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<
     {
     }
 
-    public override string SingularName => "Occult Crescent (Treasure Coffer)";
+    public override string SingularName => "秘银幻岛（宝箱）";
     public override string HelpText => "Does this item drop from a occult crescent treasure coffer?";
 }
 
@@ -121,7 +121,7 @@ public class ItemOccultPotSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemO
     {
     }
 
-    public override string SingularName => "Occult Crescent (Pot)";
+    public override string SingularName => "秘银幻岛（罐子）";
     public override string HelpText => "Does this item drop from a occult crescent pot?";
 }
 
@@ -134,6 +134,6 @@ public class ItemOccultGoldenCofferSourceRenderer : ItemFieldOpCofferSourceRende
     {
     }
 
-    public override string SingularName => "Occult Crescent (Golden Coffer)";
+    public override string SingularName => "秘银幻岛（金宝箱）";
     public override string HelpText => "Does this item drop from a occult crescent golden coffer?";
 }

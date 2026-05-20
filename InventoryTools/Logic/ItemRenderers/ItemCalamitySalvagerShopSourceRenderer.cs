@@ -58,8 +58,8 @@ public class ItemCalamitySalvagerShopSourceRenderer : ItemInfoRenderer<ItemCalam
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CalamitySalvagerShop;
-    public override string SingularName => "Calamity Salvager";
-    public override string PluralName => "Calamity Salvagers";
+    public override string SingularName => "灾祸救济商";
+    public override string PluralName => "灾祸救济商";
     public override bool ShouldGroup => true;
     public override string HelpText => "Can the item be purchased from the Calamity Salvager?";
 
