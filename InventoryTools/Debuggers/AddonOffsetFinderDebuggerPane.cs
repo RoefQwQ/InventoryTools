@@ -18,15 +18,15 @@ public class AddonOffsetFinderDebuggerPane : DebugLogPane
         _gameGui = gameGui;
     }
 
-    public override string Name => "Addon Offset Finder";
+    public override string Name => "插件偏移查找器";
     public override unsafe void DrawInfo()
     {
-        ImGui.InputText("Addon Name", ref _addonName, 100);
-        ImGui.InputInt("Component ID", ref _componentId);
-        ImGui.InputInt("Max Scan Size", ref _maxScanSize);
+        ImGui.InputText("插件名称", ref _addonName, 100);
+        ImGui.InputInt("组件ID", ref _componentId);
+        ImGui.InputInt("最大扫描大小", ref _maxScanSize);
 
 
-        if (ImGui.Button("Scan"))
+        if (ImGui.Button("扫描"))
         {
 
             var addon = _gameGui.GetAddonByName(_addonName);
@@ -42,22 +42,22 @@ public class AddonOffsetFinderDebuggerPane : DebugLogPane
                         int offset = FindReferenceOffset((IntPtr)unitBase, buttonPtr, _maxScanSize);
                         if (offset != -1)
                         {
-                            this.AddLog($"Potential field offset: 0x{offset:X}");
+                            this.AddLog($"潜在字段偏移: 0x{offset:X}");
                         }
                         else
                         {
-                            this.AddLog("Reference offset not found.");
+                            this.AddLog("未找到引用偏移。");
                         }
                     }
                     else
                     {
-                        this.AddLog("Component not found.");
+                        this.AddLog("未找到组件。");
                     }
                 }
             }
             else
             {
-                this.AddLog("Addon not found.");
+                this.AddLog("未找到插件。");
             }
         }
     }
@@ -83,7 +83,7 @@ public class AddonOffsetFinderDebuggerPane : DebugLogPane
             }
             catch (Exception ex)
             {
-                this.AddLog($"Memory read error at offset 0x{offset:X}: {ex.Message}");
+                this.AddLog($"偏移0x{offset:X}处内存读取错误: {ex.Message}");
             }
         }
 

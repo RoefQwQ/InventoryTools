@@ -10,65 +10,65 @@ namespace InventoryTools.Extensions
             switch (settingSubCategory)
             {
                 case SettingSubCategory.Experimental:
-                    return "Experimental";
+                    return "实验性";
                 case SettingSubCategory.Fun:
-                    return "Fun";
+                    return "趣味";
                 case SettingSubCategory.Highlighting:
-                    return "Highlighting";
+                    return "高亮";
                 case SettingSubCategory.DestinationHighlighting:
-                    return "Destination Highlighting";
+                    return "目标高亮";
                 case SettingSubCategory.RetainerHighlighting:
-                    return "Retainer Highlighting";
+                    return "雇员高亮";
                 case SettingSubCategory.Market:
-                    return "Market";
+                    return "市场";
                 case SettingSubCategory.General:
-                    return "General";
+                    return "通用";
                 case SettingSubCategory.Subsetting:
-                    return "Settings";
+                    return "设置";
                 case SettingSubCategory.Visuals:
-                    return "Visuals";
+                    return "外观";
                 case SettingSubCategory.WindowLayout:
-                    return "Window Layout";
+                    return "窗口布局";
                 case SettingSubCategory.AutoSave:
-                    return "Auto Save";
+                    return "自动保存";
                 case SettingSubCategory.FilterSettings:
-                    return "List Settings";
+                    return "列表设置";
                 case SettingSubCategory.ActiveLists:
-                    return "Active Lists";
+                    return "活动列表";
                 case SettingSubCategory.ContextMenus:
-                    return "Context/Right Click Menu";
+                    return "右键菜单";
                 case SettingSubCategory.Hotkeys:
-                    return "Hotkeys";
+                    return "快捷键";
                 case SettingSubCategory.IgnoreEscape:
-                    return "Ignore Escape Key";
+                    return "忽略ESC键";
                 case SettingSubCategory.SourceGrouping:
-                    return "Source Grouping";
+                    return "来源分组";
                 case SettingSubCategory.UseGrouping:
-                    return "Use Grouping";
+                    return "用途分组";
                 case SettingSubCategory.Colours:
-                    return "Colours";
+                    return "颜色";
                 case SettingSubCategory.AddItemLocations:
-                    return "Add Item Locations";
+                    return "添加物品位置";
                 case SettingSubCategory.MarketPricing:
-                    return "Market Pricing";
+                    return "市场定价";
                 case SettingSubCategory.AmountToRetrieve:
-                    return "Amount To Retrieve";
+                    return "取出数量";
                 case SettingSubCategory.ItemUnlockStatus:
-                    return "Item Unlock Status";
+                    return "物品解锁状态";
                 case SettingSubCategory.SourceInformation:
-                    return "Source Information";
+                    return "来源信息";
                 case SettingSubCategory.UseInformation:
-                    return "Use Information";
+                    return "用途信息";
                 case SettingSubCategory.AcquisitionTracker:
-                    return "Acquisition Tracker";
+                    return "获取追踪";
                 case SettingSubCategory.IngredientPatch:
-                    return "Ingredient Patch";
+                    return "材料版本";
                 case SettingSubCategory.GlamourReadySet:
-                    return "Outfit Glamours";
+                    return "外观幻化";
                 case SettingSubCategory.CofferLoot:
-                    return "Coffer Loot";
+                    return "宝箱战利品";
                 case SettingSubCategory.ShopHighlighting:
-                    return "Shop Highlighting";
+                    return "商店高亮";
             }
             return settingSubCategory.ToString();
         }

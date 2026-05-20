@@ -15,62 +15,62 @@ public class CraftMonitorDebuggerPane : IDebugPane
         _craftMonitor = craftMonitor;
         _itemSheet = itemSheet;
     }
-    public string Name =>  "Craft Monitor";
+    public string Name =>  "制作监控器";
     public unsafe void Draw()
     {
         var craftMonitorAgent = _craftMonitor.Agent;
         var simpleCraftMonitorAgent = _craftMonitor.SimpleAgent;
         if (craftMonitorAgent != null)
         {
-            ImGui.Text($"Craft Monitor Pointer: {(ulong)craftMonitorAgent.Agent:X}");
-            ImGui.TextUnformatted("Is Trial Synthesis: " + craftMonitorAgent.IsTrialSynthesis);
-            ImGui.TextUnformatted("Progress: " + craftMonitorAgent.Progress);
-            ImGui.TextUnformatted("Total Progress Required: " +
+            ImGui.Text($"制作监控器指针: {(ulong)craftMonitorAgent.Agent:X}");
+            ImGui.TextUnformatted("是试验合成: " + craftMonitorAgent.IsTrialSynthesis);
+            ImGui.TextUnformatted("进度: " + craftMonitorAgent.Progress);
+            ImGui.TextUnformatted("所需总进度: " +
                 _craftMonitor.RecipeLevelTable?.ProgressRequired(_craftMonitor
-                    .CurrentRecipe) ?? "Unknown");
-            ImGui.TextUnformatted("Quality: " + craftMonitorAgent.Quality);
-            ImGui.TextUnformatted("Status: " + craftMonitorAgent.Status);
-            ImGui.TextUnformatted("Step: " + craftMonitorAgent.Step);
-            ImGui.TextUnformatted("Durability: " + craftMonitorAgent.Durability);
-            ImGui.TextUnformatted("HQ Chance: " + craftMonitorAgent.HqChance);
-            ImGui.TextUnformatted("Item: " +
+                    .CurrentRecipe) ?? "未知");
+            ImGui.TextUnformatted("品质: " + craftMonitorAgent.Quality);
+            ImGui.TextUnformatted("状态: " + craftMonitorAgent.Status);
+            ImGui.TextUnformatted("步骤: " + craftMonitorAgent.Step);
+            ImGui.TextUnformatted("耐久度: " + craftMonitorAgent.Durability);
+            ImGui.TextUnformatted("HQ概率: " + craftMonitorAgent.HqChance);
+            ImGui.TextUnformatted("物品: " +
                                   (_itemSheet.GetRow(craftMonitorAgent.ResultItemId)
-                                      ?.NameString ?? "Unknown"));
+                                      ?.NameString ?? "未知"));
             ImGui.TextUnformatted(
-                "Current Recipe: " + _craftMonitor.CurrentRecipe?.RowId ?? "Unknown");
+                "当前配方: " + _craftMonitor.CurrentRecipe?.RowId ?? "未知");
             ImGui.TextUnformatted(
-                "Recipe Difficulty: " + _craftMonitor.RecipeLevelTable?.Base.Difficulty ??
-                "Unknown");
+                "配方难度: " + _craftMonitor.RecipeLevelTable?.Base.Difficulty ??
+                "未知");
             ImGui.TextUnformatted(
-                "Recipe Difficulty Factor: " +
+                "配方难度系数: " +
                 _craftMonitor.CurrentRecipe?.Base.DifficultyFactor ??
-                "Unknown");
+                "未知");
             ImGui.TextUnformatted(
-                "Recipe Durability: " + _craftMonitor.RecipeLevelTable?.Base.Durability ??
-                "Unknown");
-            ImGui.TextUnformatted("Suggested Craftsmanship: " +
-                _craftMonitor.RecipeLevelTable?.Base.SuggestedCraftsmanship ?? "Unknown");
+                "配方耐久度: " + _craftMonitor.RecipeLevelTable?.Base.Durability ??
+                "未知");
+            ImGui.TextUnformatted("建议工艺: " +
+                _craftMonitor.RecipeLevelTable?.Base.SuggestedCraftsmanship ?? "未知");
             ImGui.TextUnformatted(
-                "Current Craft Type: " + _craftMonitor.CraftType ?? "Unknown");
+                "当前制作类型: " + _craftMonitor.CraftType ?? "未知");
         }
         else if (simpleCraftMonitorAgent != null)
         {
-            ImGui.Text($"Simple Craft Monitor Pointer: {(ulong)simpleCraftMonitorAgent.Agent:X}");
-            ImGui.TextUnformatted("NQ Complete: " + simpleCraftMonitorAgent.NqCompleted);
-            ImGui.TextUnformatted("HQ Complete: " + simpleCraftMonitorAgent.HqCompleted);
-            ImGui.TextUnformatted("Failed: " + simpleCraftMonitorAgent.TotalFailed);
-            ImGui.TextUnformatted("Total Completed: " + simpleCraftMonitorAgent.TotalCompleted);
-            ImGui.TextUnformatted("Total: " + simpleCraftMonitorAgent.Total);
-            ImGui.TextUnformatted("Item: " + _itemSheet
-                .GetRowOrDefault(simpleCraftMonitorAgent.ResultItemId)?.NameString.ToString() ?? "Unknown");
+            ImGui.Text($"简易制作监控器指针: {(ulong)simpleCraftMonitorAgent.Agent:X}");
+            ImGui.TextUnformatted("NQ完成: " + simpleCraftMonitorAgent.NqCompleted);
+            ImGui.TextUnformatted("HQ完成: " + simpleCraftMonitorAgent.HqCompleted);
+            ImGui.TextUnformatted("失败: " + simpleCraftMonitorAgent.TotalFailed);
+            ImGui.TextUnformatted("总完成数: " + simpleCraftMonitorAgent.TotalCompleted);
+            ImGui.TextUnformatted("总数: " + simpleCraftMonitorAgent.Total);
+            ImGui.TextUnformatted("物品: " + _itemSheet
+                .GetRowOrDefault(simpleCraftMonitorAgent.ResultItemId)?.NameString.ToString() ?? "未知");
             ImGui.TextUnformatted(
-                "Current Recipe: " + _craftMonitor.CurrentRecipe?.RowId ?? "Unknown");
+                "当前配方: " + _craftMonitor.CurrentRecipe?.RowId ?? "未知");
             ImGui.TextUnformatted(
-                "Current Craft Type: " + _craftMonitor.CraftType ?? "Unknown");
+                "当前制作类型: " + _craftMonitor.CraftType ?? "未知");
         }
         else
         {
-            ImGui.TextUnformatted("Not crafting.");
+            ImGui.TextUnformatted("未在制作中。");
         }
     }
 }

@@ -16,7 +16,7 @@ public class AcquisitionDebuggerPane : DebugLogPane
         _acquisitionMonitorService = acquisitionMonitorService;
     }
 
-    public override string Name => "Item Acquisition Monitor";
+    public override string Name => "物品获取监控器";
 
     public override void SubscribeToEvents()
     {
@@ -31,22 +31,22 @@ public class AcquisitionDebuggerPane : DebugLogPane
         AcquisitionReason reason)
     {
         AddLog(
-            $"Item acquired: ItemId={itemId}, " +
-            $"QtyChange={qtyIncrease}, " +
-            $"Flags={itemFlags}, " +
-            $"Reason={reason}"
+            $"物品已获取: 物品ID={itemId}, " +
+            $"数量变化={qtyIncrease}, " +
+            $"标志={itemFlags}, " +
+            $"原因={reason}"
         );
     }
 
     public override void DrawInfo()
     {
-        if (ImGui.CollapsingHeader("Configuration"))
+        if (ImGui.CollapsingHeader("配置"))
         {
             var config = _acquisitionMonitorService.Configuration;
 
             if (config == null)
             {
-                ImGui.TextUnformatted("<no configuration>");
+                ImGui.TextUnformatted("<无配置>");
             }
             else
             {
@@ -55,10 +55,10 @@ public class AcquisitionDebuggerPane : DebugLogPane
             }
         }
 
-        if (ImGui.CollapsingHeader("Recent Activity"))
+        if (ImGui.CollapsingHeader("最近活动"))
         {
             ImGui.TextUnformatted(
-                "See the log pane below for a chronological list of acquisition events."
+                "请查看下方日志面板获取按时间顺序排列的获取事件列表。"
             );
         }
     }

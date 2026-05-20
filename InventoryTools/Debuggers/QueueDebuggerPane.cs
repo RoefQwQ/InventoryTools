@@ -28,5 +28,5 @@ public class QueueDebuggerPane : IDebugPane
         }
     }
 
-    public string Name => "Queue Debugger";
+    public string Name => "队列调试器";
 }

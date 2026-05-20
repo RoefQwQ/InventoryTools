@@ -6,16 +6,16 @@ namespace InventoryTools.Debuggers;
 
 public class LayerDebuggerPane : IDebugPane
 {
-    public string Name => "Layer Debugger";
+    public string Name => "图层调试器";
     public unsafe void Draw()
     {
         var activeLayout = LayoutWorld.Instance()->ActiveLayout;
         if (activeLayout != null)
         {
-            ImGui.TextUnformatted($"Level ID: {activeLayout->LevelId}");
+            ImGui.TextUnformatted($"关卡ID: {activeLayout->LevelId}");
             ImGui.TextUnformatted($"ID: {activeLayout->Id}");
-            ImGui.TextUnformatted($"Type: {activeLayout->Type}");
-            ImGui.TextUnformatted($"Resource Strings: {activeLayout->Type}");
+            ImGui.TextUnformatted($"类型: {activeLayout->Type}");
+            ImGui.TextUnformatted($"资源字符串: {activeLayout->Type}");
             foreach (var resourcePath in activeLayout->ResourcePaths.Strings)
             {
                 if (resourcePath.Value != null)
@@ -23,16 +23,16 @@ public class LayerDebuggerPane : IDebugPane
                     ImGui.TextUnformatted($"{resourcePath.Value->DataString}");
                 }
             }
-            ImGui.TextUnformatted($"Layers:");
+            ImGui.TextUnformatted($"图层:");
             foreach (var layer in activeLayout->Layers)
             {
                 ImGui.TextUnformatted($"{layer.Item1}");
                 var pointer = layer.Item2.Value;
                 if (pointer != null)
                 {
-                    ImGui.TextUnformatted($"Layer ID: " + pointer->Id);
-                    ImGui.TextUnformatted($"Layer Group ID: " + pointer->LayerGroupId);
-                    ImGui.TextUnformatted($"Festival ID: " + pointer->FestivalId);
+                    ImGui.TextUnformatted($"图层ID: " + pointer->Id);
+                    ImGui.TextUnformatted($"图层组ID: " + pointer->LayerGroupId);
+                    ImGui.TextUnformatted($"节日ID: " + pointer->FestivalId);
                 }
             }
         }

@@ -23,7 +23,7 @@ public class CharacterDebuggerPane : DebugLogPane
         _clientState = clientState;
         _configuration = configuration;
     }
-    public override string Name => "Character Monitor";
+    public override string Name => "角色监控器";
 
     public override void SubscribeToEvents()
     {
@@ -57,134 +57,134 @@ public class CharacterDebuggerPane : DebugLogPane
 
     private void OnCharacterMonitorOnOnCharacterLoggedOut(ulong id)
     {
-        AddLog($"Character logged out: {id}");
+        AddLog($"角色已登出: {id}");
     }
 
     private void OnCharacterMonitorOnOnCharacterLoggedIn(ulong id)
     {
-        AddLog($"Character logged in: {id}");
+        AddLog($"角色已登录: {id}");
     }
 
     private void OnCharacterJobChanged()
     {
-        AddLog($"Character job changed");
+        AddLog($"角色职业已变更");
     }
 
     private void OnCharacterMonitorOnOnCharacterRemoved(ulong id)
     {
-        AddLog($"Character removed: {id}");
+        AddLog($"角色已移除: {id}");
     }
 
     private void OnCharacterMonitorOnOnCharacterUpdated(Character? c)
     {
-        AddLog($"Character updated: {c}");
+        AddLog($"角色已更新: {c}");
     }
 
     private void OnCharacterMonitorOnOnActiveHouseChanged(ulong houseId, sbyte wardId, sbyte plotId, byte divisionId, short roomId, bool hasHousePermission)
     {
-        AddLog($"Active house changed: {houseId}, {wardId}, {plotId}, {divisionId}, {roomId}, {hasHousePermission}");
+        AddLog($"活动房屋已变更: {houseId}, {wardId}, {plotId}, {divisionId}, {roomId}, {hasHousePermission}");
     }
 
     private void OnCharacterMonitorOnOnActiveFreeCompanyChanged(ulong c)
     {
-        AddLog($"Active FC changed: {c}");
+        AddLog($"活动部队已变更: {c}");
     }
 
     private void OnCharacterMonitorOnOnActiveRetainerLoaded(ulong c)
     {
-        AddLog($"Active retainer loaded: {c}");
+        AddLog($"活动雇员已加载: {c}");
     }
 
     private void OnCharacterMonitorOnOnActiveRetainerChanged(ulong c)
     {
-        AddLog($"Active retainer changed: {c}");
+        AddLog($"活动雇员已变更: {c}");
     }
 
     public override unsafe void DrawInfo()
     {
-        if (ImGui.CollapsingHeader("Session / Active State"))
+        if (ImGui.CollapsingHeader("会话 / 活动状态"))
         {
-            ImGui.TextUnformatted($"Is Logged In: {_characterMonitor.IsLoggedIn}");
-            ImGui.TextUnformatted($"Local Content ID: {_characterMonitor.LocalContentId}");
-            ImGui.TextUnformatted($"Internal Character ID: {_characterMonitor.InternalCharacterId}");
+            ImGui.TextUnformatted($"已登录: {_characterMonitor.IsLoggedIn}");
+            ImGui.TextUnformatted($"本地内容ID: {_characterMonitor.LocalContentId}");
+            ImGui.TextUnformatted($"内部角色ID: {_characterMonitor.InternalCharacterId}");
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Active Character:");
+            ImGui.TextUnformatted("活动角色:");
             ImGui.TextUnformatted(_characterMonitor.ActiveCharacter != null
                 ? $"{_characterMonitor.ActiveCharacter.Name} ({_characterMonitor.ActiveCharacterId})"
-                : "<none>");
+                : "<无>");
 
-            ImGui.TextUnformatted("Active Retainer:");
+            ImGui.TextUnformatted("活动雇员:");
             ImGui.TextUnformatted(_characterMonitor.ActiveRetainer != null
                 ? $"{_characterMonitor.ActiveRetainer.Name} ({_characterMonitor.ActiveRetainerId})"
-                : "<none>");
+                : "<无>");
 
-            ImGui.TextUnformatted("Active Free Company:");
+            ImGui.TextUnformatted("活动部队:");
             ImGui.TextUnformatted(_characterMonitor.ActiveFreeCompany != null
                 ? $"{_characterMonitor.ActiveFreeCompany.Name} ({_characterMonitor.ActiveFreeCompanyId})"
-                : "<none>");
+                : "<无>");
         }
 
-        if (ImGui.CollapsingHeader("Housing"))
+        if (ImGui.CollapsingHeader("房屋"))
         {
-            ImGui.TextUnformatted($"Active House ID: {_characterMonitor.ActiveHouseId}");
-            ImGui.TextUnformatted($"Cached Ward Id: {_characterMonitor.InternalWardId}");
-            ImGui.TextUnformatted($"Cached Plot Id: {_characterMonitor.InternalPlotId}");
-            ImGui.TextUnformatted($"Cached Division Id: {_characterMonitor.InternalDivisionId}");
-            ImGui.TextUnformatted($"Cached Room Id: {_characterMonitor.InternalRoomId}");
-            ImGui.TextUnformatted($"Cached House Id: {_characterMonitor.InternalHouseId}");
-            ImGui.TextUnformatted($"Territory Type Id: {_characterMonitor.CorrectedTerritoryTypeId}");
+            ImGui.TextUnformatted($"活动房屋ID: {_characterMonitor.ActiveHouseId}");
+            ImGui.TextUnformatted($"缓存区ID: {_characterMonitor.InternalWardId}");
+            ImGui.TextUnformatted($"缓存地块ID: {_characterMonitor.InternalPlotId}");
+            ImGui.TextUnformatted($"缓存分区ID: {_characterMonitor.InternalDivisionId}");
+            ImGui.TextUnformatted($"缓存房间ID: {_characterMonitor.InternalRoomId}");
+            ImGui.TextUnformatted($"缓存房屋ID: {_characterMonitor.InternalHouseId}");
+            ImGui.TextUnformatted($"领地类型ID: {_characterMonitor.CorrectedTerritoryTypeId}");
 
             var hm = HousingManager.Instance();
             if (hm != null)
             {
                 if (hm->OutdoorTerritory != null)
-                    ImGui.TextUnformatted($"Outdoor HouseId: {hm->OutdoorTerritory->HouseId.Id}");
+                    ImGui.TextUnformatted($"室外房屋ID: {hm->OutdoorTerritory->HouseId.Id}");
                 if (hm->IndoorTerritory != null)
-                    ImGui.TextUnformatted($"Indoor HouseId: {hm->IndoorTerritory->HouseId.Id}");
+                    ImGui.TextUnformatted($"室内房屋ID: {hm->IndoorTerritory->HouseId.Id}");
                 if (hm->CurrentTerritory != null)
-                    ImGui.TextUnformatted($"Current Territory: {(ulong)hm->CurrentTerritory:X}");
+                    ImGui.TextUnformatted($"当前领地: {(ulong)hm->CurrentTerritory:X}");
             }
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Owned Houses:");
+            ImGui.TextUnformatted("拥有的房屋:");
             foreach (var id in _characterMonitor.GetOwnedHouseIds())
                 ImGui.BulletText(id.ToString());
 
-            ImGui.TextUnformatted("Has Housing Permission: " +
+            ImGui.TextUnformatted("有房屋权限: " +
                 (_characterMonitor.InternalHasHousePermission ||
                  _characterMonitor.GetOwnedHouseIds().Contains(_characterMonitor.InternalHouseId)
-                    ? "Yes"
-                    : "No"));
+                    ? "是"
+                    : "否"));
         }
 
         //
         // Worlds
         //
-        if (ImGui.CollapsingHeader("Worlds"))
+        if (ImGui.CollapsingHeader("世界"))
         {
             foreach (var wid in _characterMonitor.GetWorldIds())
-                ImGui.BulletText($"World {wid}");
+                ImGui.BulletText($"世界 {wid}");
         }
 
-        if (ImGui.CollapsingHeader("Characters"))
+        if (ImGui.CollapsingHeader("角色"))
         {
             foreach (var kv in _characterMonitor.Characters)
                 ImGui.BulletText($"{kv.Key}: {kv.Value.Name}");
         }
 
-        if (ImGui.CollapsingHeader("Retainers"))
+        if (ImGui.CollapsingHeader("雇员"))
         {
             using (var table = ImRaii.Table("retainerTable", 6))
             {
                 if (table)
                 {
-                    ImGui.TableSetupColumn("Hire Order");
-                    ImGui.TableSetupColumn("Name");
-                    ImGui.TableSetupColumn("Type");
-                    ImGui.TableSetupColumn("Gil");
+                    ImGui.TableSetupColumn("雇佣顺序");
+                    ImGui.TableSetupColumn("名称");
+                    ImGui.TableSetupColumn("类型");
+                    ImGui.TableSetupColumn("金币");
                     ImGui.TableSetupColumn("ID");
-                    ImGui.TableSetupColumn("Owner ID");
+                    ImGui.TableSetupColumn("所有者ID");
                     ImGui.TableHeadersRow();
 
                     foreach (var retainer in _characterMonitor.GetRetainerCharacters())
@@ -216,7 +216,7 @@ public class CharacterDebuggerPane : DebugLogPane
             }
         }
 
-        if (ImGui.CollapsingHeader("Character Objects"))
+        if (ImGui.CollapsingHeader("角色对象"))
         {
             foreach (var kv in _characterMonitor.Characters)
             {
@@ -232,13 +232,13 @@ public class CharacterDebuggerPane : DebugLogPane
             }
         }
 
-        if (ImGui.CollapsingHeader("Acquired Items"))
+        if (ImGui.CollapsingHeader("已获取物品"))
         {
             foreach (var characterPair in _configuration.AcquiredItems)
             {
                 var character = _characterMonitor.GetCharacterById(characterPair.Key);
-                ImGui.TextUnformatted(character?.FormattedName ?? "Unknown Character");
-                ImGui.Text($"{characterPair.Value.Count} unlocked items");
+                ImGui.TextUnformatted(character?.FormattedName ?? "未知角色");
+                ImGui.Text($"{characterPair.Value.Count} 个已解锁物品");
             }
         }
     }

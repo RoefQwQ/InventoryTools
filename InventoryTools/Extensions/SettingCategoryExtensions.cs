@@ -9,39 +9,39 @@ namespace InventoryTools.Extensions
             switch (settingCategory)
             {
                 case SettingCategory.General:
-                    return "General";
+                    return "通用";
                 case SettingCategory.Visuals:
-                    return "Visuals";
+                    return "外观";
                 case SettingCategory.MarketBoard:
-                    return "Marketboard";
+                    return "市场板";
                 case SettingCategory.CraftOverlay:
-                    return "Craft Overlay";
+                    return "制作悬浮窗";
                 case SettingCategory.CraftTracker:
-                    return "Craft Tracker (Legacy)";
+                    return "制作追踪（旧版）";
                 case SettingCategory.ToolTips:
-                    return "Tooltips";
+                    return "提示信息";
                 case SettingCategory.Hotkeys:
-                    return "Hotkeys";
+                    return "快捷键";
                 case SettingCategory.History:
-                    return "History";
+                    return "历史";
                 case SettingCategory.Windows:
-                    return "Windows";
+                    return "窗口";
                 case SettingCategory.Lists:
-                    return "Lists";
+                    return "列表";
                 case SettingCategory.ContextMenu:
-                    return "Context Menu";
+                    return "右键菜单";
                 case SettingCategory.MobSpawnTracker:
-                    return "Mob Spawn Tracker";
+                    return "怪物刷新追踪";
                 case SettingCategory.TitleMenuButtons:
-                    return "Title Menu Button";
+                    return "标题菜单按钮";
                 case SettingCategory.AutoSave:
-                    return "Auto Save";
+                    return "自动保存";
                 case SettingCategory.Items:
-                    return "Items";
+                    return "物品";
                 case SettingCategory.Highlighting:
-                    return "Highlighting";
+                    return "高亮";
                 case SettingCategory.EquipmentRecommendation:
-                    return "Equipment Recommendations";
+                    return "装备推荐";
             }
             return settingCategory.ToString();
         }
