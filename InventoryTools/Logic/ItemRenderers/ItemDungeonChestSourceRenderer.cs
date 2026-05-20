@@ -26,9 +26,9 @@ public class ItemDungeonChestSourceRenderer : ItemInfoRenderer<ItemDungeonChestS
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.DungeonChest;
-    public override string SingularName => "Dungeon Chest";
-    public override string PluralName => "Dungeon Chests";
-    public override string HelpText => "Can the item appear in a dungeon chest?";
+    public override string SingularName => "副本宝箱";
+    public override string PluralName => "副本宝箱";
+    public override string HelpText => "该物品能否出现在副本宝箱中？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Duty];
 

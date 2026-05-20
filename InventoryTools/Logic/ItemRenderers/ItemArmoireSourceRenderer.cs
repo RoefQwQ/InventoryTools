@@ -18,7 +18,7 @@ public class ItemArmoireSourceRenderer : ItemInfoRenderer<ItemArmoireSource>
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.Armoire;
-    public override string SingularName => "Stored in Armoire";
+    public override string SingularName => "衣柜";
     public override bool ShouldGroup => true;
     public override string HelpText => "Can the item be placed in the armoire?";
 

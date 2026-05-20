@@ -23,7 +23,7 @@ public class ItemCompanyCraftRequirementSourceRenderer : ItemInfoRenderer<ItemCo
     private readonly ITextureProvider _textureProvider;
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.FreeCompanyCraftRecipe;
-    public override string SingularName => "Company Craft Ingredient";
+    public override string SingularName => "部队制作材料";
     public override bool ShouldGroup => true;
     public override string HelpText => "Is the item a material in a company craft recipe?";
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Crafting];

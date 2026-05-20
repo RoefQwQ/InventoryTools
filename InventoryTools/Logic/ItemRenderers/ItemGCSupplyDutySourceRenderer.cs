@@ -30,9 +30,9 @@ public class ItemGcSupplyDutySourceRenderer : ItemInfoRenderer<ItemGCSupplyDutyS
         {
             var baseReward = rewardRow.Base.ExperienceSupply;
             var sealsSupply = rewardRow.Base.SealsSupply;
-            ImGui.Text("Level: " + asSource.GCSupplyDutyRow.RowId);
-            ImGui.Text("Exp: " + baseReward);
-            ImGui.Text("Seals: " + sealsSupply);
+            ImGui.Text("等级：" + asSource.GCSupplyDutyRow.RowId);
+            ImGui.Text("经验：" + baseReward);
+            ImGui.Text("军票：" + sealsSupply);
         }
         else
         {
@@ -56,11 +56,11 @@ public class ItemGcSupplyDutySourceRenderer : ItemInfoRenderer<ItemGCSupplyDutyS
         {
             var baseReward = rewardRow.Base.ExperienceSupply;
             var sealsSupply = rewardRow.Base.SealsSupply;
-            return $"Level {asSource.GCSupplyDutyRow.RowId} ({baseReward} xp, {sealsSupply} seals)";
+            return $"等级 {asSource.GCSupplyDutyRow.RowId}（{baseReward} 经验，{sealsSupply} 军票）";
         }
         else
         {
-            return "Unknown rewards";
+            return "未知奖励";
         }
     };
 }

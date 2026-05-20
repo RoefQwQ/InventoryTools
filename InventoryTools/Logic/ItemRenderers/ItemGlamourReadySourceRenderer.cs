@@ -20,18 +20,18 @@ public class ItemGlamourReadySetItemSourceRenderer : ItemInfoRenderer<ItemGlamou
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.GlamourReadySetItem;
-    public override string SingularName => "Outfit Glamour Item";
-    public override string HelpText => "Is the item part of a 'Outfit Glamour' set?";
+    public override string SingularName => "套装外观物品";
+    public override string HelpText => "该物品是否属于套装外观？";
 
     public override bool ShouldGroup => true;
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Transforms into: " + asSource.ConvertedItem.NameString);
+        ImGui.Text("转化为：" + asSource.ConvertedItem.NameString);
         if (asSource.SetItems.Count > 1)
         {
-            ImGui.Text("Set Items:");
+            ImGui.Text("套装物品：");
             using (ImRaii.PushIndent())
             {
                 foreach (var item in asSource.SetItems)

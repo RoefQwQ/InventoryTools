@@ -19,8 +19,8 @@ public class ItemFurnitureSourceRenderer : ItemInfoRenderer<ItemFurnitureSource>
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.FurnitureItem;
-    public override string SingularName => "Interior Furniture";
-    public override string HelpText => "Can the item be placed inside houses?";
+    public override string SingularName => "室内家具";
+    public override string HelpText => "该物品能否放置在房屋内？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory>? Categories => [ItemInfoRenderCategory.House];
 

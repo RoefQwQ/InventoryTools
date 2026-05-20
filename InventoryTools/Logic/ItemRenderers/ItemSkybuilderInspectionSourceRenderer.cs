@@ -39,15 +39,15 @@ public class ItemSkybuilderInspectionSourceRenderer : ItemInfoRenderer<ItemSkybu
     }
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.SkybuilderInspection;
-    public override string SingularName => "Sky Builder Inspection";
+    public override string SingularName => "天穹街检验";
     public override string HelpText => "Can the item be inspected at the firmament to convert it into the approved form?";
     public override bool ShouldGroup => true;
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text($"Item Required: {asSource.CostItem?.NameString ?? "Unknown Item"}");
-        ImGui.Text($"Amount Required: {asSource.InspectionData.AmountRequired}");
+        ImGui.Text($"需求物品：{asSource.CostItem?.NameString ?? "未知物品"}");
+        ImGui.Text($"需求数量：{asSource.InspectionData.AmountRequired}");
     };
 
     public override Func<ItemSource, string> GetName => source =>

@@ -34,11 +34,11 @@ public abstract class ItemHouseSourceRenderer<T> : ItemInfoRenderer<T> where T :
         var setName = asSource.HousingPreset.Value.Singular.ExtractText();
         if (setName == string.Empty)
         {
-            ImGui.Text("Not default in any house.");
+            ImGui.Text("不是任何房屋的默认部件。");
         }
         else
         {
-            ImGui.Text("Default in " + setName);
+            ImGui.Text("默认于" + setName);
         }
     };
 
@@ -59,11 +59,11 @@ public abstract class ItemHouseSourceRenderer<T> : ItemInfoRenderer<T> where T :
         var setName = asSource.HousingPreset.Value.Singular.ExtractText();
         if (setName == string.Empty)
         {
-           return "Not default in any house.";
+           return "不是任何房屋的默认部件。";
         }
         else
         {
-            return "Default in " + setName;
+            return "默认于" + setName;
         }
     };
 }
@@ -75,7 +75,7 @@ public class ItemHouseDoorSourceRenderer : ItemHouseSourceRenderer<ItemHouseDoor
     {
     }
 
-    public override string SingularName => "House Fixture (Door)";
+    public override string SingularName => "房屋部件（门）";
 
     public override string HelpText => "Can the item be placed in the door fixture slot in houses?";
 }
@@ -88,7 +88,7 @@ public class ItemHouseFlooringSourceRenderer : ItemHouseSourceRenderer<ItemHouse
     {
     }
 
-    public override string SingularName => "House Fixture (Flooring)";
+    public override string SingularName => "房屋部件（地板）";
     public override string HelpText => "Can the item be placed in the floor fixture slot in houses?";
 }
 
@@ -99,7 +99,7 @@ public class ItemHouseLightingSourceRenderer : ItemHouseSourceRenderer<ItemHouse
     {
     }
 
-    public override string SingularName => "House Fixture (Lighting)";
+    public override string SingularName => "房屋部件（照明）";
     public override string HelpText => "Can the item be placed in the lighting fixture slot in houses?";
 }
 
@@ -110,7 +110,7 @@ public class ItemHouseRoofSourceRenderer : ItemHouseSourceRenderer<ItemHouseRoof
     {
     }
 
-    public override string SingularName => "House Fixture (Roof)";
+    public override string SingularName => "房屋部件（屋顶）";
     public override string HelpText => "Can the item be placed in the roof fixture slot in houses?";
 }
 
@@ -121,7 +121,7 @@ public class ItemHouseWallpaperSourceRenderer : ItemHouseSourceRenderer<ItemHous
     {
     }
 
-    public override string SingularName => "House Fixture (Wallpaper)";
+    public override string SingularName => "房屋部件（墙纸）";
     public override string HelpText => "Can the item be placed in the interior wall fixture slot in houses?";
 }
 
@@ -132,7 +132,7 @@ public class ItemHouseWallSourceRenderer : ItemHouseSourceRenderer<ItemHouseWall
     {
     }
 
-    public override string SingularName => "House Fixture (Wall)";
+    public override string SingularName => "房屋部件（墙壁）";
     public override string HelpText => "Can the item be placed in the exterior wall fixture slot in houses?";
 }
 
@@ -143,6 +143,6 @@ public class ItemHouseWindowSourceRenderer : ItemHouseSourceRenderer<ItemHouseWi
     {
     }
 
-    public override string SingularName => "House Fixture (Window)";
+    public override string SingularName => "房屋部件（窗户）";
     public override string HelpText => "Can the item be placed in the window fixture slot in houses?";
 }

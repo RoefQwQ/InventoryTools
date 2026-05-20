@@ -19,8 +19,8 @@ public class ItemCompanyLeveSourceRenderer : ItemInfoRenderer<ItemCompanyLeveSou
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CompanyLeve;
-    public override string SingularName => "Company Leve";
-    public override string PluralName => "Company Leves";
+    public override string SingularName => "军团理符";
+    public override string PluralName => "军团理符";
     public override string HelpText => "Is this item obtained from a company leve?";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];

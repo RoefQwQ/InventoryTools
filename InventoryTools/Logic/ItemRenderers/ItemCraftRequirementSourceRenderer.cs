@@ -30,7 +30,7 @@ public class ItemCraftRequirementSourceRenderer : ItemInfoRenderer<ItemCraftRequ
     }
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.CraftRecipe;
-    public override string SingularName => "Craft Ingredient";
+    public override string SingularName => "制作材料";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Crafting];
     public override string HelpText => "Can the item be used as a material in a craft recipe?";

@@ -20,8 +20,8 @@ public class ItemGlamourReadySetSourceRenderer : ItemInfoRenderer<ItemGlamourRea
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.GlamourReadySet;
-    public override string SingularName => "Outfit Glamour Set";
-    public override string HelpText => "Is this item the combined form of a 'Outfit Glamour' set?";
+    public override string SingularName => "套装外观套装";
+    public override string HelpText => "该物品是否为套装外观的组合形态？";
 
     public override bool ShouldGroup => true;
 
@@ -30,7 +30,7 @@ public class ItemGlamourReadySetSourceRenderer : ItemInfoRenderer<ItemGlamourRea
         var asSource = AsSource(source);
         if (asSource.SetItems.Count > 1)
         {
-            ImGui.Text("Set Items:");
+            ImGui.Text("套装物品：");
             using (ImRaii.PushIndent())
             {
                 foreach (var item in asSource.SetItems)

@@ -21,19 +21,19 @@ public class ItemCashShopSourceRenderer : ItemInfoRenderer<ItemCashShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CashShop;
-    public override string SingularName => "Bought on SQ Store(real money)";
+    public override string SingularName => "商城";
     public override bool ShouldGroup => true;
-    public override string HelpText => "Can the item be purchased through the mogstation?";
+    public override string HelpText => "该物品是否可以通过商城购买？";
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
         var priceUsd = asSource.PriceUsd.ToString("C2", CultureInfo.GetCultureInfo("en-US"));
-        ImGui.TextUnformatted($"Price(USD): {priceUsd}");
+        ImGui.TextUnformatted($"价格(USD)：{priceUsd}");
         if (asSource.FittingShopItemSetRow?.Items.Count > 1)
         {
-            ImGui.TextUnformatted($"Set: {asSource.FittingShopItemSetRow.Base.Name.ExtractText()}");
-            ImGui.TextUnformatted($"Contains:");
+            ImGui.TextUnformatted($"套装：{asSource.FittingShopItemSetRow.Base.Name.ExtractText()}");
+            ImGui.TextUnformatted($"包含：");
             using (ImRaii.PushIndent())
             {
                 foreach (var item in asSource.FittingShopItemSetRow.Items)
@@ -47,7 +47,7 @@ public class ItemCashShopSourceRenderer : ItemInfoRenderer<ItemCashShopSource>
     public override Func<ItemSource, string> GetName => source =>
     {
         var asSource = AsSource(source);
-        return (asSource.FittingShopItemSetRow?.Base.Name.ExtractText() ?? "Not in a set");
+        return (asSource.FittingShopItemSetRow?.Base.Name.ExtractText() ?? "不在套装中");
     };
 
     public override Func<ItemSource, int> GetIcon => source => Icons.BagStar;
@@ -56,11 +56,11 @@ public class ItemCashShopSourceRenderer : ItemInfoRenderer<ItemCashShopSource>
     {
         var asSource = AsSource(source);
         var priceUsd = asSource.PriceUsd.ToString("C2", CultureInfo.GetCultureInfo("en-US"));
-        var description = $"Price(USD): {priceUsd}";
+        var description = $"价格(USD)：{priceUsd}";
         if (asSource.FittingShopItemSetRow != null)
         {
-            description += $" (Part of {asSource.FittingShopItemSetRow.Base.Name.ExtractText()} set)";
-            description += $" (Contains {String.Join(", ", asSource.FittingShopItemSetRow.Items.Select(c => c.NameString))}";
+            description += $"（{asSource.FittingShopItemSetRow.Base.Name.ExtractText()}套装的一部分）";
+            description += $"（包含 {String.Join("、", asSource.FittingShopItemSetRow.Items.Select(c => c.NameString))}";
         }
         return description;
     };

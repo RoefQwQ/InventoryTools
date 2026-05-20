@@ -20,8 +20,8 @@ public class ItemGearsetUseRenderer : ItemInfoRenderer<ItemGearsetSource>
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.Gearset;
-    public override string SingularName => "Gearset";
-    public override string HelpText => "Is this item part of a gearset?";
+    public override string SingularName => "套装";
+    public override string HelpText => "该物品是否属于套装？";
 
     public override bool ShouldGroup => true;
 
@@ -36,7 +36,7 @@ public class ItemGearsetUseRenderer : ItemInfoRenderer<ItemGearsetSource>
         var asSource = AsSource(source);
         if (asSource.SetItems.Count > 1)
         {
-            ImGui.Text("Set Name: " +  asSource.Gearset.Name);
+            ImGui.Text("套装名称：" +  asSource.Gearset.Name);
             this.DrawItems("Set Items:", asSource.RelatedItems.First().Value);
         }
     };

@@ -94,7 +94,7 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
                 if (quest.RowId != 0)
                 {
                     ImGui.Text(
-                        $"Quest Required: {quest.Value.Name.ExtractText()}");
+                        $"需要任务：{quest.Value.Name.ExtractText()}");
                 }
             }
         }
@@ -107,7 +107,7 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
         var asSource = AsSource(source);
         var maps = source.MapIds?.Select(c => _mapSheet.GetRow(c).FormattedName).ToList() ?? new List<string>();
 
-        ImGui.Text("Costs:");
+        ImGui.Text("费用：");
 
         using (ImRaii.PushIndent())
         {
@@ -121,7 +121,7 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
             if (asSource.GilShopItem.Base.AchievementRequired.RowId != 0)
             {
                 ImGui.Text(
-                    $"Achievement Required: {asSource.GilShopItem.Base.AchievementRequired.Value.Name.ExtractText()}");
+                    $"需要成就：{asSource.GilShopItem.Base.AchievementRequired.Value.Name.ExtractText()}");
             }
 
             foreach (var quest in asSource.GilShopItem.Base.QuestRequired)
@@ -129,7 +129,7 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
                 if (quest.RowId != 0 && quest.IsValid)
                 {
                     ImGui.Text(
-                        $"Quest Required: {quest.Value.Name.ExtractText()}");
+                        $"需要任务：{quest.Value.Name.ExtractText()}");
                 }
             }
         }

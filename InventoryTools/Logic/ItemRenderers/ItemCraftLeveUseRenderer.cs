@@ -32,8 +32,8 @@ public class ItemCraftLeveUseRenderer : ItemInfoRenderer<ItemCraftLeveUse>
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.CraftLeve;
-    public override string SingularName => "Craft Leve";
-    public override string PluralName => "Craft Leves";
+    public override string SingularName => "制作理符";
+    public override string PluralName => "制作理符";
     public override string HelpText => "Is this item required for a craft leve?";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
@@ -49,13 +49,13 @@ public class ItemCraftLeveUseRenderer : ItemInfoRenderer<ItemCraftLeveUse>
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
 
-        ImGui.TextUnformatted("Leve: " + leveRow.Name.ExtractText());
-        ImGui.TextUnformatted("Class: " + leveRow.ClassJobCategory.Value.Name.ExtractText());
-        ImGui.TextUnformatted("EXP Reward: " + asSource.ExpReward);
-        ImGui.TextUnformatted("Allowance Cost: " + leveRow.AllowanceCost);
+        ImGui.TextUnformatted("理符: " + leveRow.Name.ExtractText());
+        ImGui.TextUnformatted("职业: " + leveRow.ClassJobCategory.Value.Name.ExtractText());
+        ImGui.TextUnformatted("经验奖励: " + asSource.ExpReward);
+        ImGui.TextUnformatted("理符消耗: " + leveRow.AllowanceCost);
         ImGui.Separator();
 
-        ImGui.TextUnformatted("Required Items: ");
+        ImGui.TextUnformatted("所需物品: ");
         using (ImRaii.PushIndent())
         {
             for (var index = 0; index < asSource.CraftLeve.Value.Item.Count; index++)
@@ -77,7 +77,7 @@ public class ItemCraftLeveUseRenderer : ItemInfoRenderer<ItemCraftLeveUse>
             }
         }
 
-        ImGui.TextUnformatted("Reward Items: ");
+        ImGui.TextUnformatted("奖励物品: ");
         using (ImRaii.PushIndent())
         {
             for (var itemGroupIndex = 0; itemGroupIndex < asSource.Leve.Value.LeveRewardItem.Value.LeveRewardItemGroup.Count; itemGroupIndex++)
@@ -87,7 +87,7 @@ public class ItemCraftLeveUseRenderer : ItemInfoRenderer<ItemCraftLeveUse>
                 {
                     continue;
                 }
-                ImGui.TextUnformatted("Loot Chance: " + asSource.Leve.Value.LeveRewardItem.Value.ProbabilityPercent[itemGroupIndex] + "%");
+                ImGui.TextUnformatted("掉落概率: " + asSource.Leve.Value.LeveRewardItem.Value.ProbabilityPercent[itemGroupIndex] + "%");
                 for (var index = 0; index < itemGroup.Value.Item.Count; index++)
                 {
                     var itemId = itemGroup.Value.Item[index].RowId;

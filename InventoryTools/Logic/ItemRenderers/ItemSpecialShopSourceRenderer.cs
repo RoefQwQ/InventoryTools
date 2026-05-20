@@ -66,9 +66,9 @@ public class ItemSpecialShopSourceRenderer : ItemInfoRenderer<ItemSpecialShopSou
     {
         var asSource = AsSource(source);
 
-        ImGui.Text($"Shop: {asSource.Shop.Name}");
+        ImGui.Text($"商店：{asSource.Shop.Name}");
 
-        ImGui.Text("Rewards:");
+        ImGui.Text("奖励：");
         using (ImRaii.PushIndent())
         {
             foreach (var reward in asSource.ShopListing.Rewards)

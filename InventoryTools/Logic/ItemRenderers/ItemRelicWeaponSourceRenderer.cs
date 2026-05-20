@@ -34,8 +34,8 @@ public abstract class ItemRelicWeaponSourceRenderer<T> : ItemInfoRenderer<T> whe
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = this.AsSource(source);
-        ImGui.TextUnformatted("Class: " + asSource.RelicWeapon.ClassJob.Value.Name.ToImGuiString().ToTitleCase());
-        this.DrawForms("Forms:", asSource.Forms);
+        ImGui.TextUnformatted("职业：" + asSource.RelicWeapon.ClassJob.Value.Name.ToImGuiString().ToTitleCase());
+        this.DrawForms("形态：", asSource.Forms);
     };
 
     public void DrawForms(string sectionName, IReadOnlyList<RelicWeapon> items)
@@ -116,7 +116,7 @@ public class ItemZodiacWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<Item
     }
 
     public override ItemInfoType Type => ItemInfoType.ZodiacWeapon;
-    public override string SingularName => "Zodiac Weapon";
+    public override string SingularName => "黄道武器";
     public override string HelpText => "Is this a Zodiac Weapon?";
 }
 
@@ -127,7 +127,7 @@ public class ItemAnimaWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<ItemA
     }
 
     public override ItemInfoType Type => ItemInfoType.AnimaWeapon;
-    public override string SingularName => "Anima Weapon";
+    public override string SingularName => "魂武";
     public override string HelpText => "Is this a Anima Weapon?";
 }
 
@@ -138,7 +138,7 @@ public class ItemEurekanWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<Ite
     }
 
     public override ItemInfoType Type => ItemInfoType.EurekanWeapon;
-    public override string SingularName => "Eurekan Weapon";
+    public override string SingularName => "优武";
     public override string HelpText => "Is this a Eurekan Weapon?";
 }
 
@@ -149,7 +149,7 @@ public class ItemResistanceWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<
     }
 
     public override ItemInfoType Type => ItemInfoType.ResistanceWeapon;
-    public override string SingularName => "Resistance Weapon";
+    public override string SingularName => "义武";
     public override string HelpText => "Is this a Resistance Weapon?";
 }
 
@@ -160,7 +160,7 @@ public class ItemMandervilleWeaponSourceRenderer : ItemRelicWeaponSourceRenderer
     }
 
     public override ItemInfoType Type => ItemInfoType.MandervilleWeapon;
-    public override string SingularName => "Manderville Weapon";
+    public override string SingularName => "曼德维尔武器";
     public override string HelpText => "Is this a Manderville Weapon?";
 }
 
@@ -171,6 +171,6 @@ public class ItemPhantomWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<Ite
     }
 
     public override ItemInfoType Type => ItemInfoType.PhantomWeapon;
-    public override string SingularName => "Phantom Weapon";
+    public override string SingularName => "幻武";
     public override string HelpText => "Is this a Phantom Weapon?";
 }

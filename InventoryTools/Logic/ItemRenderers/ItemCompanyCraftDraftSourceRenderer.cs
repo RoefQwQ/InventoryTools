@@ -26,7 +26,7 @@ public class ItemCompanyCraftDraftSourceRenderer : ItemInfoRenderer<ItemCompanyC
     }
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.CompanyCraftDraft;
-    public override string SingularName => "Company Craft Prototype";
+    public override string SingularName => "部队制作图纸";
     public override string HelpText => "Is this item used in the creation of a company craft prototype?";
     public override bool ShouldGroup => true;
     public override Action<ItemSource> DrawTooltip => source =>
