@@ -27,8 +27,8 @@ public class ItemFurnitureSourceRenderer : ItemInfoRenderer<ItemFurnitureSource>
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text($"Category: {asSource.FurnitureCatalogItemList.ValueNullable?.Category.Value.Category.ExtractText() ?? "N/A"}");
-        ImGui.Text($"Patch Added: {asSource.FurnitureCatalogItemList.ValueNullable?.Patch.ToString() ?? "N/A"}");
+        ImGui.Text($"分类：{asSource.FurnitureCatalogItemList.ValueNullable?.Category.Value.Category.ExtractText() ?? "无"}");
+        ImGui.Text($"添加版本：{asSource.FurnitureCatalogItemList.ValueNullable?.Patch.ToString() ?? "无"}");
     };
 
     public override Func<ItemSource, string> GetName => source =>

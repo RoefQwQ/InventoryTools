@@ -43,7 +43,7 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         {
             CompendiumType = this,
             Key = "instance_content",
-            Name = "Instance Content",
+            Name = "副本内容",
             Columns = BuiltColumns
         });
     }
@@ -88,8 +88,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddCompendiumOpenViewColumn(new()
         {
             Key = "icon",
-            Name = "Icon",
-            HelpText = "Duty icon",
+            Name = "图标",
+            HelpText = "副本图标",
             Version = "14.0.3",
             CompendiumType = this,
             RowIdSelector = row => row.RowId,
@@ -100,7 +100,7 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         {
             Key = "name",
             Name = "名称",
-            HelpText = "任务的名称",
+            HelpText = "副本名称",
             Version = "14.0.3",
             ValueSelector = GetName
         });
@@ -108,8 +108,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddIntegerColumn(new()
         {
             Key = "level",
-            Name = "Level",
-            HelpText = "Required class/job level",
+            Name = "等级",
+            HelpText = "所需职业等级",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.ClassJobLevelRequired.ToString()
@@ -118,8 +118,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddBooleanColumn(new BooleanColumnOptions<InstanceContent>()
         {
             Key = "unlocked",
-            Name = "Unlocked?",
-            HelpText = "Is the instance unlocked?",
+            Name = "已解锁？",
+            HelpText = "此副本是否已解锁？",
             Version = "14.1.3",
             ValueSelector = row => _unlockState.IsInstanceContentUnlocked(row)
         });
@@ -127,8 +127,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddBooleanColumn(new BooleanColumnOptions<InstanceContent>()
         {
             Key = "completed",
-            Name = "Completed?",
-            HelpText = "Is the instance completed?",
+            Name = "已完成？",
+            HelpText = "此副本是否已完成？",
             Version = "14.1.3",
             ValueSelector = row => _uiStateService.IsInstanceContentCompleted(row)
         });
@@ -136,8 +136,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddIntegerColumn(new()
         {
             Key = "sync_level",
-            Name = "Sync Level",
-            HelpText = "Level sync applied in the duty",
+            Name = "同步等级",
+            HelpText = "副本中应用的等级同步",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.ClassJobLevelSync.ToString()
@@ -156,8 +156,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddIntegerColumn(new()
         {
             Key = "item_level_sync",
-            Name = "Item Level Sync",
-            HelpText = "Maximum synced item level",
+            Name = "品级同步",
+            HelpText = "最大同步品级",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.ItemLevelSync.ToString()
@@ -166,8 +166,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddBooleanColumn(new()
         {
             Key = "allows_undersized",
-            Name = "Allows Undersized",
-            HelpText = "Whether the duty allows undersized party mode",
+            Name = "允许少人",
+            HelpText = "此副本是否允许少人模式",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.AllowUndersized
@@ -176,8 +176,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddBooleanColumn(new()
         {
             Key = "allows_explorer_mode",
-            Name = "Allows Explorer Mode",
-            HelpText = "Whether the duty supports explorer mode",
+            Name = "允许探索模式",
+            HelpText = "此副本是否支持探索模式",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.AllowExplorerMode
@@ -186,7 +186,7 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddBooleanColumn(new()
         {
             Key = "pvp",
-            Name = "PVP",
+            Name = "PvP",
             HelpText = "该副本是否为PvP",
             Version = "14.0.3",
             ValueSelector = row =>
@@ -196,8 +196,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddStringColumn(new()
         {
             Key = "accepted_classes",
-            Name = "Accepted Classes",
-            HelpText = "Class/job categories allowed to enter",
+            Name = "允许职业",
+            HelpText = "允许进入的职业类别",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.AcceptClassJobCategory.ValueNullable?.Name.ToImGuiString() ?? "Unknown"
@@ -243,9 +243,9 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         return new TerritoryLocation(territoryType.Value.Value);
     }
 
-    public override string Singular => "Instance";
-    public override string Plural => "Instances";
-    public override string Description => "Instances including duties, trials, etc";
+    public override string Singular => "副本";
+    public override string Plural => "副本";
+    public override string Description => "包括副本、讨伐战等";
     public override string Key => "instance";
     public override (string?, uint?) Icon => (null, Icons.DutyIcon);
 }

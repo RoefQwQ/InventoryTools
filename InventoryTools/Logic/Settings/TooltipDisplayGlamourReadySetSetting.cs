@@ -21,7 +21,7 @@ public class TooltipDisplayGlamourReadySetSetting : BooleanSetting
     public override string Key { get; set; } = "TooltipDisplayGlamourReadySet";
     public override string Name { get; set; } = "Outfit Glamour Info";
 
-    public override string WizardName { get; } = "Outfit Glamour Info";
+    public override string WizardName { get; } = "套装幻化信息";
 
     public override string HelpText { get; set; } =
         "When hovering an item, show whether it is a Outfit Glamour Set or part of one, along with which component items you already have in your Armory Chest or Armoire.";

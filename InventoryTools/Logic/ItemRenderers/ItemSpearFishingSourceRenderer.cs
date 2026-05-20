@@ -36,7 +36,7 @@ public class ItemSpearfishingSourceRenderer : ItemInfoRenderer<ItemSpearfishingS
         var asSources = AsSource(sources);
 
         var level = asSources.First().SpearfishingItemRow.Base.GatheringItemLevel.Value.GatheringItemLevel;
-        ImGui.Text("等级：" + (level == 0 ? "N/A" : level));
+        ImGui.Text("等级：" + (level == 0 ? "无" : level));
 
         DrawMaps(sources);
     };
@@ -46,7 +46,7 @@ public class ItemSpearfishingSourceRenderer : ItemInfoRenderer<ItemSpearfishingS
         var asSource = AsSource(source);
 
         var level = asSource.SpearfishingItemRow.Base.GatheringItemLevel.Value.GatheringItemLevel;
-        ImGui.Text("等级：" + (level == 0 ? "N/A" : level));
+        ImGui.Text("等级：" + (level == 0 ? "无" : level));
 
         DrawMaps(source);
     };
@@ -64,6 +64,6 @@ public class ItemSpearfishingSourceRenderer : ItemInfoRenderer<ItemSpearfishingS
         var asSource = AsSource(source);
         var level = asSource.SpearfishingItemRow.Base.GatheringItemLevel.Value.GatheringItemLevel;
 
-        return $"等级 {(level == 0 ? "N/A" : level)} 钓点";
+        return $"等级 {(level == 0 ? "无" : level)} 钓点";
     };
 }

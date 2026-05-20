@@ -21,6 +21,6 @@ public class ContextMenuAddToCuratedListSetting : GenericBooleanSetting
     {
     }
 
-    public override string WizardName { get; } = "Add to Curated List";
+    public override string WizardName { get; } = "添加到精选列表";
 
 }

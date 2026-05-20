@@ -26,9 +26,9 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
         _racingChocoboItemSheet = racingChocoboItemSheet;
     }
 
-    public override string Singular => "Racing Chocobo Item";
-    public override string Plural => "Racing Chocobo Items";
-    public override string Description => "Items used for Racing Chocobo training and breeding.";
+    public override string Singular => "竞赛陆行鸟物品";
+    public override string Plural => "竞赛陆行鸟物品";
+    public override string Description => "用于竞赛陆行鸟训练和繁殖的物品。";
     public override string Key => "racingChocoboItems";
 
     public override (string?, uint?) Icon => (null, 72);
@@ -88,8 +88,8 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
         builder.AddItemColumn(new()
         {
             Key = "icon",
-            Name = "##Icon",
-            HelpText = "Item icon",
+            Name = "##图标",
+            HelpText = "物品图标",
             Version = "1.0",
             ValueSelector = row => row.Item.RowId,
         });
@@ -97,9 +97,9 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
         builder.AddStringColumn(new()
         {
             Key = "name",
-            Name = "Name",
+            Name = "名称",
             Version = "1.0",
-            HelpText = "The name of the item",
+            HelpText = "物品名称",
             ValueSelector = r => r.Item.ValueNullable?.Name.ToImGuiString()
         });
 
@@ -108,16 +108,16 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
             Key = "category",
             Name = "分类",
             Version = "1.0",
-            HelpText = "The category of the item",
+            HelpText = "物品分类",
             ValueSelector = r => GetCategoryName(r.Category)
         });
 
         builder.AddIntegerColumn(new()
         {
             Key = "rank",
-            Name = "Rank",
+            Name = "等级",
             Version = "1.0",
-            HelpText = "The rank of the item",
+            HelpText = "物品等级",
             ValueSelector = r => r.Unknown1.ToString()
         });
     }
@@ -129,7 +129,7 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
     {
         var item = row.Item.ValueNullable;
 
-        viewBuilder.Title = item?.Name.ToImGuiString() ?? "Unknown";
+        viewBuilder.Title = item?.Name.ToImGuiString() ?? "未知";
         viewBuilder.Subtitle = GetCategoryName(row.Category);
         viewBuilder.Icon = item?.Icon ?? 0;
 
@@ -139,9 +139,9 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
             SectionName = "信息",
             Items =
             [
-                ("Category", GetCategoryName(row.Category), true),
-                ("Rank", row.Unknown1.ToString(), true),
-                ("Item ID", row.Item.RowId.ToString(), true),
+                ("分类", GetCategoryName(row.Category), true),
+                ("等级", row.Unknown1.ToString(), true),
+                ("物品ID", row.Item.RowId.ToString(), true),
             ]
         });
     }

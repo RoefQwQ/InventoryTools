@@ -21,7 +21,7 @@ public class TooltipDisplayCofferLootSetting : BooleanSetting
     public override string Key { get; set; } = "TooltipDisplayCofferLoot";
     public override string Name { get; set; } = "Coffer Loot Info";
 
-    public override string WizardName { get; } = "Coffer Loot Info";
+    public override string WizardName { get; } = "宝箱战利品信息";
 
     public override string HelpText { get; set; } =
         "When hovering a coffer, card pack, or loot container, show how many of its possible loot items you already own.";

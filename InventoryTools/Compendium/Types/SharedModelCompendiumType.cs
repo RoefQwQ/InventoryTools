@@ -40,12 +40,12 @@ public class SharedModelCompendiumType : CompendiumType<SharedModelCache.SharedM
 
     public override string? GetName(SharedModelCache.SharedModelGroup row)
     {
-        return "Shared Model #" + _sharedModelCache.IndexOf(row);
+        return "共享模型 #" + _sharedModelCache.IndexOf(row);
     }
 
     public override string? GetSubtitle(SharedModelCache.SharedModelGroup row)
     {
-        return row.Items.Count + " items";
+        return row.Items.Count + " 个物品";
     }
 
     public override (string?, uint?) GetIcon(SharedModelCache.SharedModelGroup row)
@@ -75,21 +75,21 @@ public class SharedModelCompendiumType : CompendiumType<SharedModelCache.SharedM
 
     public override void BuildColumns(CompendiumColumnBuilder<SharedModelCache.SharedModelGroup> builder)
     {
-        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##Icon", HelpText = "The icon of the shared model", Version = "14.0.3", ValueSelector = row => ("armor", null), CompendiumType = this, RowIdSelector = row => (uint)_sharedModelCache.IndexOf(row)});
+        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##图标", HelpText = "共享模型图标", Version = "14.0.3", ValueSelector = row => ("armor", null), CompendiumType = this, RowIdSelector = row => (uint)_sharedModelCache.IndexOf(row)});
         builder.AddStringColumn(new StringColumnOptions<SharedModelCache.SharedModelGroup>
         {
             ValueSelector = row => row.Items.First().ClassJobCategory?.Base.Name.ExtractText() ?? "Unknown",
-            Name = "Class/Job",
+            Name = "职业",
             Key = "class_job",
-            HelpText = "The class/job of the item",
+            HelpText = "物品的职业",
             Version = "14.0.3"
         });
         builder.AddStringColumn(new StringColumnOptions<SharedModelCache.SharedModelGroup>
         {
             ValueSelector = row => string.Join(", ", row.Items.First().EquipSlotCategory?.PossibleSlots.Select(c => c.Humanize()) ?? []),
-            Name = "Equip Slots",
+            Name = "装备部位",
             Key = "equip_slots",
-            HelpText = "The equipment slots of the item",
+            HelpText = "物品的装备部位",
             Version = "14.0.3"
         });
         builder.AddItemsColumn(new ItemsColumnOptions<SharedModelCache.SharedModelGroup>
@@ -97,7 +97,7 @@ public class SharedModelCompendiumType : CompendiumType<SharedModelCache.SharedM
             ValueSelector = row => row.Items.ToList(),
             Name = "物品",
             Key = "items",
-            HelpText = "The items that share this model",
+            HelpText = "共享此模型的物品",
             Version = "14.0.3",
             ColumnFlags = ImGuiTableColumnFlags.WidthStretch
         });
@@ -106,19 +106,19 @@ public class SharedModelCompendiumType : CompendiumType<SharedModelCache.SharedM
     public override void BuildViewFields(CompendiumViewBuilder viewBuilder, SharedModelCache.SharedModelGroup row)
     {
         viewBuilder.Icon = row.Items.First().Icon;
-        viewBuilder.Title = "Shared Model #" + _sharedModelCache.IndexOf(row);
-        viewBuilder.Subtitle = row.Items.Count + " items";
+        viewBuilder.Title = "共享模型 #" + _sharedModelCache.IndexOf(row);
+        viewBuilder.Subtitle = row.Items.Count + " 个物品";
         viewBuilder.AddItemListSection(new ItemListSectionOptions()
         {
             Items = row.Items.Select(c => new ItemInfo(c)),
             SectionKey = "items",
-            SectionName = "Items",
+            SectionName = "物品",
         });
     }
 
-    public override string Singular => "Shared Model Set";
-    public override string Plural => "Shared Model Sets";
-    public override string Description => "Items that share the same model.";
+    public override string Singular => "共享模型组";
+    public override string Plural => "共享模型组";
+    public override string Description => "共享相同模型的物品。";
     public override string Key => "shared_models";
     public override (string?, uint?) Icon => (null, Icons.CombinedClothingIcon);
 }

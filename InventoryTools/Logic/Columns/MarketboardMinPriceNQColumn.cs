@@ -27,8 +27,8 @@ namespace InventoryTools.Logic.Columns
         }
         public override ColumnCategory ColumnCategory => ColumnCategory.Market;
 
-        protected readonly string LoadingString = "loading...";
-        protected readonly string UntradableString = "untradable";
+        protected readonly string LoadingString = "加载中...";
+        protected readonly string UntradableString = "不可交易";
         protected readonly int Loading = -1;
         protected readonly int Untradable = -2;
         public override bool IsConfigurable => true;

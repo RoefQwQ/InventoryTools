@@ -240,11 +240,11 @@ public abstract class ItemGatheringSourceRenderer<T> : ItemInfoRenderer<T> where
         var asSource = (ItemGatheringSource)source;
 
          var level = asSource.GatheringItem.Base.GatheringItemLevel.Value.GatheringItemLevel;
-         ImGui.Text("等级：" + (level == 0 ? "N/A" : level));
+         ImGui.Text("等级：" + (level == 0 ? "无" : level));
          var stars = asSource.GatheringItem.Base.GatheringItemLevel.Value.Stars;
-         ImGui.Text("星级：" + (stars == 0 ? "N/A" : stars));
+         ImGui.Text("星级：" + (stars == 0 ? "无" : stars));
          var perceptionRequired = asSource.GatheringItem.Base.PerceptionReq;
-         ImGui.Text("需求采集识别力：" + (perceptionRequired == 0 ? "N/A" : stars));
+         ImGui.Text("需求采集识别力：" + (perceptionRequired == 0 ? "无" : stars));
 
          if (asSource.GatheringItem.AvailableAtTimedNode)
          {
@@ -336,6 +336,6 @@ public abstract class ItemGatheringSourceRenderer<T> : ItemInfoRenderer<T> where
             starsString += "*";
         }
 
-        return $"等级 {(level == 0 ? "N/A" : level)} ({starsString}) (需求采集识别力：{perceptionRequired})";
+        return $"等级 {(level == 0 ? "无" : level)} ({starsString}) (需求采集识别力：{perceptionRequired})";
     };
 }

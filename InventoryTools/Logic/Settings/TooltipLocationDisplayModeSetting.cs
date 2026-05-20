@@ -22,7 +22,7 @@ public class TooltipLocationDisplayModeSetting : ChoiceSetting<TooltipLocationDi
     public override string Key { get; set; } = "TooltipLocationDisplayMode";
     public override string Name { get; set; } = "Add Item Locations (Display Mode)";
 
-    public override string WizardName { get; } = "Display Mode";
+    public override string WizardName { get; } = "显示模式";
 
     public override string HelpText { get; set; } =
         "How the locations of items should be presented in the tooltip. This requires 'Add Item Locations?' to be on.";

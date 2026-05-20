@@ -73,7 +73,7 @@ namespace InventoryTools.Ui
             else
             {
                 ImGui.TextUnformatted(SubmarineExploration.Base.Destination.ExtractText());
-                ImGui.TextUnformatted(_localizationService["Window_Submarine_UnlockedVia"] + SubmarineExploration.Unlock?.Base.Destination.ExtractText() ?? "N/A");
+                ImGui.TextUnformatted(_localizationService["Window_Submarine_UnlockedVia"] + SubmarineExploration.Unlock?.Base.Destination.ExtractText() ?? "无");
                 ImGui.TextUnformatted(_localizationService["Window_Submarine_RankRequired"] + SubmarineExploration.Base.RankReq);
                 ;
                 ImGui.Image(ImGuiService.GetIconTexture(Icons.AirshipIcon).Handle, new Vector2(100, 100) * ImGui.GetIO().FontGlobalScale);

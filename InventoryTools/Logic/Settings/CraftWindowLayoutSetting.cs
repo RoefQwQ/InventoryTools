@@ -22,7 +22,7 @@ public class CraftWindowLayoutSetting : ChoiceSetting<WindowLayout>
     public override string Key { get; set; } = "CraftWindowLayout";
     public override string Name { get; set; } = "Craft Window Layout";
 
-    public override string WizardName { get; } = "Craft Window";
+    public override string WizardName { get; } = "制作窗口";
     public override string HelpText { get; set; } = "Set the layout of the craft window";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.Windows;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.WindowLayout;

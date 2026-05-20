@@ -115,8 +115,8 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
         builder.AddBooleanColumn(new()
         {
             Key = "training_item",
-            Name = "Training Item?",
-            HelpText = "Is this item used for training?",
+            Name = "训练物品？",
+            HelpText = "此物品是否用于训练？",
             Version = "1",
             ValueSelector = r => r.BuddyItem?.Value.UseTraining
         });
@@ -177,7 +177,7 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
             new CompendiumGrouping<ChocoboItem>()
             {
                 Key = "source",
-                Name = "Source",
+                Name = "来源",
                 GroupFunc = r => r.SourceType,
                 GroupMapping = o =>
                 {

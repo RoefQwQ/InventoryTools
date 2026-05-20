@@ -65,9 +65,9 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
         return row.RowId;
     }
 
-    public override string Singular => "Achievement";
-    public override string Plural => "Achievements";
-    public override string Description => "Achievements earned by the player.";
+    public override string Singular => "成就";
+    public override string Plural => "成就";
+    public override string Description => "搜索游戏中的成就";
     public override string Key => "achievements";
     public override (string?, uint?) Icon => (null, Icons.AchievementCertIcon);
 
@@ -89,14 +89,14 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
 
     public override void BuildColumns(CompendiumColumnBuilder<AchievementRow> builder)
     {
-        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "Icon", HelpText = "The icon of the achievement", Version = "14.0.3", CompendiumType = this, RowIdSelector = row => row.RowId, ValueSelector = this.GetIcon});
-        builder.AddStringColumn(new (){Key = "name", Name = "Name", HelpText = "The name of the achievement", Version = "14.0.3", ValueSelector = row => row.Base.Name.ToImGuiString()});
-        builder.AddStringColumn(new (){Key = "category", Name = "Category", HelpText = "The category of the achievement", Version = "14.0.3", ValueSelector = row => row.Base.AchievementCategory.Value.Name.ToImGuiString()});
-        builder.AddStringColumn(new (){Key = "description", Name = "Description", HelpText = "The description of the achievement", Version = "14.0.3", ValueSelector = row => row.Base.Description.ToImGuiString()});
-        builder.AddIntegerColumn(new (){Key = "points", Name = "Points", HelpText = "The points earned for the achievement", Version = "14.0.3", ValueSelector = row => row.Base.Points.ToString()});
-        builder.AddBooleanColumn(new (){Key = "completed", Name = "Completed", HelpText = "Is the achievement completed?", Version = "14.0.3", ValueSelector = item => _characterMonitor.ActiveCharacter?.IsAchievementCompleted(item.RowId)
+        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "图标", HelpText = "成就图标", Version = "14.0.3", CompendiumType = this, RowIdSelector = row => row.RowId, ValueSelector = this.GetIcon});
+        builder.AddStringColumn(new (){Key = "name", Name = "名称", HelpText = "成就名称", Version = "14.0.3", ValueSelector = row => row.Base.Name.ToImGuiString()});
+        builder.AddStringColumn(new (){Key = "category", Name = "分类", HelpText = "成就分类", Version = "14.0.3", ValueSelector = row => row.Base.AchievementCategory.Value.Name.ToImGuiString()});
+        builder.AddStringColumn(new (){Key = "description", Name = "描述", HelpText = "成就描述", Version = "14.0.3", ValueSelector = row => row.Base.Description.ToImGuiString()});
+        builder.AddIntegerColumn(new (){Key = "points", Name = "点数", HelpText = "成就获得的点数", Version = "14.0.3", ValueSelector = row => row.Base.Points.ToString()});
+        builder.AddBooleanColumn(new (){Key = "completed", Name = "已完成", HelpText = "此成就是否已完成？", Version = "14.0.3", ValueSelector = item => _characterMonitor.ActiveCharacter?.IsAchievementCompleted(item.RowId)
         });
-        builder.AddIntegerColumn(new (){Key = "title", Name = "Title", HelpText = "The title unlocked for earning this achievement", Version = "14.0.3", ValueSelector =
+        builder.AddIntegerColumn(new (){Key = "title", Name = "称号", HelpText = "获得此成就解锁的称号", Version = "14.0.3", ValueSelector =
             item =>
             {
                 if (item.Base.Title.RowId == 0 || item.Base.Title.ValueNullable == null)
@@ -115,7 +115,7 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
             new CompendiumGrouping<AchievementRow>()
             {
                 Key = "category",
-                Name = "Category",
+                Name = "分类",
                 GroupFunc = row => row.Base.AchievementCategory.RowId,
                 GroupMapping = row =>
                 {
@@ -138,9 +138,9 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
         viewBuilder.Icon = row.Base.Icon;
         var information = new List<(string Header, string Value, bool IsVisible)>
         {
-            ("Category", row.Base.AchievementCategory.Value.Name.ToImGuiString(), true),
-            ("Points", row.Base.Points.ToString(), true),
-            ("Completed", _characterMonitor.ActiveCharacter?.IsAchievementCompleted(row.RowId) ?? false ? "Yes" : "No", true)
+            ("分类", row.Base.AchievementCategory.Value.Name.ToImGuiString(), true),
+            ("点数", row.Base.Points.ToString(), true),
+            ("已完成", _characterMonitor.ActiveCharacter?.IsAchievementCompleted(row.RowId) ?? false ? "是" : "否", true)
         };
         if (row.Base.Title.RowId != 0 && row.Base.Title.ValueNullable != null)
         {
@@ -149,7 +149,7 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
         viewBuilder.AddInfoTableSection(new InfoTableSectionOptions()
         {
             SectionKey = "information",
-            SectionName = "Information",
+            SectionName = "信息",
             Items = information.AsReadOnly()
         });
 
@@ -172,7 +172,7 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
                 RelatedRefs = relatedAchievements,
                 Filter = typeof(Achievement),
                 SectionKey = "related_achievements",
-                SectionName = "Related Achievements"
+                SectionName = "相关成就"
             });
         }
 

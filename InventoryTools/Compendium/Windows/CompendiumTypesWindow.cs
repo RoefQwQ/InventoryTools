@@ -24,7 +24,7 @@ public class CompendiumTypesWindow : GenericWindow
     private readonly IFramework _framework;
     private string _search = string.Empty;
 
-    public CompendiumTypesWindow(IEnumerable<ICompendiumType> compendiumTypes, ITextureProvider textureProvider, IFramework framework, ILogger<CompendiumTypesWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration) : base(logger, mediator, imGuiService, configuration, "Compendium")
+    public CompendiumTypesWindow(IEnumerable<ICompendiumType> compendiumTypes, ITextureProvider textureProvider, IFramework framework, ILogger<CompendiumTypesWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration) : base(logger, mediator, imGuiService, configuration, "百科")
     {
         _compendiumTypes = compendiumTypes.Where(c => c.ShowInListing).OrderBy(c => c.Plural);
         _textureProvider = textureProvider;
@@ -132,7 +132,7 @@ public class CompendiumTypesWindow : GenericWindow
 
     public override FilterConfiguration? SelectedConfiguration => null;
     public override string GenericKey => "compendium_types";
-    public override string GenericName => "Compendium";
+    public override string GenericName => "百科";
     public override bool DestroyOnClose => true;
     public override bool SaveState => true;
     public override Vector2? DefaultSize => new Vector2(600, 600);

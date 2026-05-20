@@ -85,16 +85,16 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
 
     public override void BuildColumns(CompendiumColumnBuilder<RelicToolGroup> builder)
     {
-        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##Icon", HelpText = "The icon of the BGM", Version = "14.1.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
+        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##图标", HelpText = "工具图标", Version = "14.1.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
         var grouping = builder.CompendiumGrouping?.Key;
         if (grouping != "category")
         {
             builder.AddStringColumn(new ()
             {
                 ValueSelector = row => _toolCategoryLocalizer.Format(row.ToolCategory),
-                Name = "Category",
+                Name = "类别",
                 Key = "Category",
-                HelpText = "The category of the item",
+                HelpText = "物品类别",
                 Version = "14.1.3"
             });
         }
@@ -103,9 +103,9 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
             builder.AddStringColumn(new ()
             {
                 ValueSelector = row => row.ClassJob.Value.Name.ToImGuiString().FirstCharToUpper() ?? "Unknown",
-                Name = "Class/Job",
+                Name = "职业",
                 Key = "class_job",
-                HelpText = "The class/job of the item",
+                HelpText = "物品的职业",
                 Version = "14.1.3"
             });
         }
@@ -144,7 +144,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
                         builder.AddItemsColumn(new()
                         {
                             Key = "item_" + i,
-                            Name = _toolTypeLocalizer.Format(relicToolType), HelpText = "Form " + (i + 1) + " of this tool.",
+                            Name = _toolTypeLocalizer.Format(relicToolType), HelpText = "此工具的形态 " + (i + 1),
                             Version = "14.1.3",
                             ValueSelector = relicTool => toolCategory == relicTool.ToolCategory ? [_itemSheet.GetRow(relicTool.RelicTools[i1].ItemId)] : []
                         });
@@ -162,7 +162,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
             builder.AddItemColumn(new()
             {
                 Key = "item_" + i,
-                Name = "Form " + (i + 1), HelpText = "Form " + (i + 1) + " of this tool.",
+                Name = "形态 " + (i + 1), HelpText = "此工具的形态 " + (i + 1),
                 Version = "14.1.3",
                 ValueSelector = relicTool =>
                     i1 >= 0 && i1 < relicTool.RelicTools.Count ? relicTool.RelicTools[i1].ItemId : null
@@ -195,7 +195,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
         {
             SectionKey = "related_quests",
-            SectionName = "Related Quests",
+            SectionName = "相关任务",
             RelatedRefs = row.Quests.Where(c => c.RowId != 0).Select(c => (RowRef)c).ToList(),
         });
         viewBuilder.AddItemFlowSection(new ItemFlowSectionOptions()
@@ -219,7 +219,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
             new CompendiumGrouping<RelicToolGroup>()
             {
                 Key = "class_job",
-                Name = "Class/Job",
+                Name = "职业",
                 GroupFunc = row => row.ClassJob.RowId,
                 GroupMapping = row =>
                 {
@@ -265,9 +265,9 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
         return "category";
     }
 
-    public override string Singular => "Relic Tool";
-    public override string Plural => "Relic Tools";
-    public override string Description => "Relic Tools";
+    public override string Singular => "古武工具";
+    public override string Plural => "古武工具";
+    public override string Description => "古武工具";
     public override string Key => "relic_tools";
     public override (string?, uint?) Icon => (null, Icons.ToolIcon);
 }

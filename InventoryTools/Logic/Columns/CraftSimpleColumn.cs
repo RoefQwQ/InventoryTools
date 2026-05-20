@@ -95,7 +95,7 @@ namespace InventoryTools.Logic.Columns
                 }
                 else
                 {
-                    ImGui.Text("N/A");
+                    ImGui.Text("无");
                 }
 
                 var craftPrices = searchResult.CraftItem.CraftPrices;

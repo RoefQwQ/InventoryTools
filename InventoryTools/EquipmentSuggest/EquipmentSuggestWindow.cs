@@ -50,7 +50,7 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
         EquipmentSuggestFilterStatsField statsField, EquipmentSuggestModeSetting modeSetting, EquipmentSuggestToolModeCategorySetting toolModeCategorySetting,
         EquipmentSuggestService equipmentSuggestService,
         ICharacterMonitor characterMonitor) : base(logger, mediator, imGuiService, configuration,
-        "Equipment Recommendations")
+        "装备推荐")
     {
         _configuration = configuration;
         _equipmentSuggestGrid = equipmentSuggestGrid;
@@ -381,7 +381,7 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
 
     public override FilterConfiguration? SelectedConfiguration { get; } = null;
     public override string GenericKey { get; } = "EquipmentSuggest";
-    public override string GenericName { get; } = "Equipment Recommendations";
+    public override string GenericName { get; } = "装备推荐";
     public override bool DestroyOnClose { get; } = true;
     public override bool SaveState { get; } = true;
     public override Vector2? DefaultSize { get; } = new Vector2(800, 500);

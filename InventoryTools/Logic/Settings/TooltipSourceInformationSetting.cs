@@ -37,7 +37,7 @@ public class TooltipSourceInformationEnabledSetting : GenericBooleanSetting
     {
     }
 
-    public override string WizardName { get; } = "Show Source Information";
+    public override string WizardName { get; } = "显示来源信息";
     public override uint? Order { get; } = 0;
 }
 

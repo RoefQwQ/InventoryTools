@@ -65,7 +65,7 @@ namespace InventoryTools.Ui
             else
             {
                 ImGui.TextUnformatted(AirshipExplorationPoint.Base.NameShort.ExtractText());
-                ImGui.TextUnformatted(_localizationService["Window_Airship_UnlockedVia"] + AirshipExplorationPoint.Unlock?.Base.NameShort.ExtractText() ?? "N/A");
+                ImGui.TextUnformatted(_localizationService["Window_Airship_UnlockedVia"] + AirshipExplorationPoint.Unlock?.Base.NameShort.ExtractText() ?? "无");
                 ImGui.TextUnformatted(_localizationService["Window_Airship_RankRequired"] + AirshipExplorationPoint.Base.RankReq);
                 ;
                 var itemIcon = ImGuiService.GetIconTexture(Icons.AirshipIcon);

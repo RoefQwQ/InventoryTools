@@ -36,7 +36,7 @@ public class ItemFishingSourceRenderer : ItemInfoRenderer<ItemFishingSource>
         var asSources = AsSource(sources);
 
         var level = asSources.First().FishParameter.Base.GatheringItemLevel.Value.GatheringItemLevel;
-        ImGui.Text("等级：" + (level == 0 ? "N/A" : level));
+        ImGui.Text("等级：" + (level == 0 ? "无" : level));
 
         DrawMaps(sources);
     };
@@ -46,7 +46,7 @@ public class ItemFishingSourceRenderer : ItemInfoRenderer<ItemFishingSource>
         var asSource = AsSource(source);
 
         var level = asSource.FishParameter.Base.GatheringItemLevel.Value.GatheringItemLevel;
-        ImGui.Text("等级：" + (level == 0 ? "N/A" : level));
+        ImGui.Text("等级：" + (level == 0 ? "无" : level));
 
         DrawMaps(source);
     };
@@ -65,6 +65,6 @@ public class ItemFishingSourceRenderer : ItemInfoRenderer<ItemFishingSource>
         var level = asSource.FishParameter.Base.GatheringItemLevel.Value.GatheringItemLevel;
         var fishingType = asSource.FishParameter.FishRecordType;
 
-        return $"等级 {(level == 0 ? "N/A" : level)} {fishingType} 钓点";
+        return $"等级 {(level == 0 ? "无" : level)} {fishingType} 钓点";
     };
 }

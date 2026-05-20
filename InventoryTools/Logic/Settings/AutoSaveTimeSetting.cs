@@ -34,7 +34,7 @@ namespace InventoryTools.Logic.Settings
             var currentX = ImGui.GetCursorPosX();
             currentX += ImGui.GetFontSize() + ImGui.GetStyle().FramePadding.X * 3.0f + ImGui.GetStyle().ItemInnerSpacing.X;
             ImGui.SetCursorPosX(currentX);
-            ImGui.LabelText("##NextAutoSave","Next Autosave: " + (_pluginLogic.NextSaveTime?.ToString() ?? "N/A"));
+            ImGui.LabelText("##NextAutoSave","下次自动保存：" + (_pluginLogic.NextSaveTime?.ToString() ?? "无"));
         }
 
         public override string Key { get; set; } = "AutoSaveMinutes";

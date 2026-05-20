@@ -45,7 +45,7 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
         {
             CompendiumType = this,
             Key = "classes",
-            Name = "Classes",
+            Name = "职业",
             Columns = BuiltColumns
         });
     }
@@ -95,11 +95,11 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
 
     public override void BuildColumns(CompendiumColumnBuilder<ClassJobRow> builder)
     {
-        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##Icon", HelpText = "The icon of the class", Version = "14.0.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
-        builder.AddStringColumn(new (){Key = "name", Name = "Name", HelpText = "The name of the class", Version = "14.0.3", ValueSelector = this.GetName});
-        builder.AddStringColumn(new (){Key = "type", Name = "Type", HelpText = "The type of the class", Version = "14.0.3", ValueSelector = row => row.Base.ClassJobCategory.Value.Name.ToImGuiString()});
-        builder.AddStringColumn(new (){Key = "role", Name = "Role", HelpText = "The role of the class", Version = "14.0.3", ValueSelector = row => _roleLocalizer.Format(row.Role)});
-        builder.AddIntegerColumn(new (){Key = "start_level", Name = "Start Level", HelpText = "The level the class starts at", Version = "14.0.3", ValueSelector = row => row.Base.StartingLevel.ToString()});
+        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##图标", HelpText = "职业图标", Version = "14.0.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
+        builder.AddStringColumn(new (){Key = "name", Name = "名称", HelpText = "职业名称", Version = "14.0.3", ValueSelector = this.GetName});
+        builder.AddStringColumn(new (){Key = "type", Name = "类型", HelpText = "职业类型", Version = "14.0.3", ValueSelector = row => row.Base.ClassJobCategory.Value.Name.ToImGuiString()});
+        builder.AddStringColumn(new (){Key = "role", Name = "职责", HelpText = "职业职责", Version = "14.0.3", ValueSelector = row => _roleLocalizer.Format(row.Role)});
+        builder.AddIntegerColumn(new (){Key = "start_level", Name = "初始等级", HelpText = "职业初始等级", Version = "14.0.3", ValueSelector = row => row.Base.StartingLevel.ToString()});
     }
 
     public override void BuildViewFields(CompendiumViewBuilder viewBuilder, ClassJobRow row)
@@ -114,7 +114,7 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             SectionKey = "soul_crystal",
-            SectionName = "Soul Crystal",
+            SectionName = "灵魂水晶",
             RelatedRef = (RowRef)row.Base.ItemSoulCrystal,
         });
         var firstQuest = _treeTipsClassQuestSheet.GetRow(row.RowId).FirstOrNull();
@@ -172,9 +172,9 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
 
     public override List<Type>? RelatedTypes => [typeof(ClassJob)];
 
-    public override string Singular => "Class";
-    public override string Plural => "Classes";
-    public override string Description => "The classes/jobs your character can learn.";
+    public override string Singular => "职业";
+    public override string Plural => "职业";
+    public override string Description => "角色可以学习的职业/特职。";
     public override string Key => "classes";
     public override (string?, uint?) Icon => (null, Icons.ManSwordIcon);
 }

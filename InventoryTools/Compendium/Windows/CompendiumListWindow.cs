@@ -158,26 +158,26 @@ public class CompendiumListWindow : CompendiumWindow
             {
                 if (menuBar)
                 {
-                    using (var menu = ImRaii.Menu("File"))
+                    using (var menu = ImRaii.Menu("文件"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Configuration"))
+                            if (ImGui.MenuItem("配置"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWindow)));
                             }
 
-                            if (ImGui.MenuItem("Changelog"))
+                            if (ImGui.MenuItem("更新日志"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ChangelogWindow)));
                             }
 
-                            if (ImGui.MenuItem("Help"))
+                            if (ImGui.MenuItem("帮助"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow)));
                             }
 
-                            if (ImGui.MenuItem("Enable Verbose Logging", "",
+                            if (ImGui.MenuItem("启用详细日志", "",
                                     this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose))
                             {
                                 if (this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose)
@@ -190,7 +190,7 @@ public class CompendiumListWindow : CompendiumWindow
                                 }
                             }
 
-                            if (ImGui.MenuItem("Report a Issue"))
+                            if (ImGui.MenuItem("报告问题"))
                             {
                                 "https://github.com/Critical-Impact/InventoryTools".OpenBrowser();
                             }
@@ -200,7 +200,7 @@ public class CompendiumListWindow : CompendiumWindow
                                 "https://ko-fi.com/critical_impact".OpenBrowser();
                             }
 
-                            if (ImGui.MenuItem("Close"))
+                            if (ImGui.MenuItem("关闭"))
                             {
                                 this.IsOpen = false;
                             }
@@ -211,11 +211,11 @@ public class CompendiumListWindow : CompendiumWindow
                     var groupings = _compendiumType.GetGroupings();
                     if (groupings != null)
                     {
-                        using (var groupingMenu = ImRaii.Menu("Group By"))
+                        using (var groupingMenu = ImRaii.Menu("分组依据"))
                         {
                             if (groupingMenu)
                             {
-                                if (ImGui.MenuItem("None", _compendiumGrouping == null))
+                                if (ImGui.MenuItem("无", _compendiumGrouping == null))
                                 {
                                     _compendiumGrouping = null;
                                     _table.Value.ClearGrouping();
@@ -233,7 +233,7 @@ public class CompendiumListWindow : CompendiumWindow
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Windows"))
+                    using (var menu = ImRaii.Menu("窗口"))
                     {
                         if (menu)
                         {
@@ -247,7 +247,7 @@ public class CompendiumListWindow : CompendiumWindow
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Compendium"))
+                    using (var menu = ImRaii.Menu("百科"))
                     {
                         if (menu)
                         {
@@ -265,7 +265,7 @@ public class CompendiumListWindow : CompendiumWindow
                     {
                         using (ImRaii.Tooltip())
                         {
-                            ImGui.Text("Compendium is a WIP feature, expect more here soon!");
+                            ImGui.Text("百科功能正在开发中，敬请期待！");
                         }
                     }
 

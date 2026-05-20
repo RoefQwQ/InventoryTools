@@ -123,7 +123,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_configuration.AddMoreInformationContextMenu)
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "More Information";
+                menuItem.Name = "更多信息";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += clickedArgs => MoreInformationClicked(clickedArgs, itemId);
                 args.AddMenuItem(menuItem);
@@ -223,7 +223,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_moreInformationNpcsSetting.CurrentValue(_configuration))
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "More Information";
+                menuItem.Name = "更多信息";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += _ => MediatorService.Publish(new OpenUintWindowMessage(typeof(ENpcWindow), eNpcResidentId.Value));
                 args.AddMenuItem(menuItem);
@@ -234,7 +234,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_moreInformationMonstersSetting.CurrentValue(_configuration))
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "More Information";
+                menuItem.Name = "更多信息";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += _ => MediatorService.Publish(new OpenUintWindowMessage(typeof(BNpcWindow), bNpcNameId.Value));
                 args.AddMenuItem(menuItem);

@@ -27,7 +27,7 @@ namespace InventoryTools.Logic.Settings
         public override string Key { get; set; } = "ItemSearchContextMenu";
         public override string Name { get; set; } = "Context Menu - Search";
 
-        public override string WizardName { get; } = "Search";
+        public override string WizardName { get; } = "搜索";
 
         public override string HelpText { get; set; } =
             "Performs a search covering either all inventories or the scope defined below?";

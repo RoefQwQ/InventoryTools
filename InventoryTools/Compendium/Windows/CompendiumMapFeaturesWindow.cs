@@ -39,7 +39,7 @@ public class CompendiumMapFeaturesWindow : UintWindow
         MediatorService mediator,
         ImGuiService imGuiService,
         InventoryToolsConfiguration configuration)
-        : base(logger, mediator, imGuiService, configuration, "Territory Compendium")
+        : base(logger, mediator, imGuiService, configuration, "区域百科")
     {
         _compendiumTypes = compendiumTypes;
         _territoryTypeCompendiumType = territoryTypeCompendiumType;
@@ -51,7 +51,7 @@ public class CompendiumMapFeaturesWindow : UintWindow
         base.Initialize(windowId);
 
         var relatedRows = _territoryTypeCompendiumType.GetRow(windowId);
-        _territoryName = relatedRows?.FirstOrDefault()?.Base.PlaceName.ValueNullable?.Name.ToImGuiString() ?? "Unknown Territory";
+        _territoryName = relatedRows?.FirstOrDefault()?.Base.PlaceName.ValueNullable?.Name.ToImGuiString() ?? "未知区域";
         WindowName = _territoryName + " - " + "POIs";
         var relatedIds = relatedRows?.Select(c => c.RowId).ToHashSet() ?? [];
 
@@ -249,7 +249,7 @@ public class CompendiumMapFeaturesWindow : UintWindow
     public override FilterConfiguration? SelectedConfiguration => null;
 
     public override string GenericKey => "territory_compendium";
-    public override string GenericName => "Territory Compendium";
+    public override string GenericName => "区域百科";
     public override bool DestroyOnClose => true;
     public override bool SaveState => true;
     public override Vector2? DefaultSize => new Vector2(700, 600);

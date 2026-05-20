@@ -21,6 +21,6 @@ public class ContextMenuAddToFavouritesSetting : GenericBooleanSetting
     {
     }
 
-    public override string WizardName { get; } = "Add/Remove to Favourites";
+    public override string WizardName { get; } = "添加/移除收藏";
 
 }

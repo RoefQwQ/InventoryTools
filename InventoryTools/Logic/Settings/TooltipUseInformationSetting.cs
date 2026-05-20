@@ -21,7 +21,7 @@ public class TooltipUseInformationEnabledSetting : GenericBooleanSetting
     public TooltipUseInformationEnabledSetting(ILogger<TooltipUseInformationEnabledSetting> logger, ImGuiService imGuiService, ILocalizationService localizationService) : base("TooltipUseInformationEnabled", "Use Information Enabled", "Should use information be shown in the tooltip? For example, the item is used in a recipe or as currency at a shop, etc", false, SettingCategory.ToolTips, SettingSubCategory.UseInformation, "1.11.0.11", logger, imGuiService, localizationService)
     {
     }
-    public override string WizardName { get; } = "Show Use Information";
+    public override string WizardName { get; } = "显示用途信息";
     public override uint? Order { get; } = 0;
 }
 

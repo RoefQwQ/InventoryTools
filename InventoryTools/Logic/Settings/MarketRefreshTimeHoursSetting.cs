@@ -32,7 +32,7 @@ namespace InventoryTools.Logic.Settings
         public override string Key { get; set; } = "MarketRefreshTime";
         public override string Name { get; set; } = "Keep market prices for X hours";
 
-        public override string WizardName { get; } = "Persist for X hours";
+        public override string WizardName { get; } = "保留 X 小时";
         public override string HelpText { get; set; } = "How long should we store the market prices for before refreshing from universalis?";
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.MarketBoard;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Market;

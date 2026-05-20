@@ -44,7 +44,7 @@ public class CompendiumViewWindow : CompendiumWindow
 
     public delegate Owned<CompendiumViewWindow> Factory(ICompendiumType compendiumType, uint entityId);
 
-    public CompendiumViewWindow(uint entityId, ILogger<CompendiumViewWindow> logger, CompendiumSectionStateService sectionStateService, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, ICompendiumType compendiumType, IPluginLog pluginLog, IEnumerable<IMenuWindow> menuWindows, IEnumerable<ICompendiumType> compendiumTypes) : base(logger, mediator, imGuiService, configuration, compendiumType.Singular + " - " + (compendiumType.GetName(entityId) ?? "Unknown Entity") + "##" + entityId)
+    public CompendiumViewWindow(uint entityId, ILogger<CompendiumViewWindow> logger, CompendiumSectionStateService sectionStateService, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, ICompendiumType compendiumType, IPluginLog pluginLog, IEnumerable<IMenuWindow> menuWindows, IEnumerable<ICompendiumType> compendiumTypes) : base(logger, mediator, imGuiService, configuration, compendiumType.Singular + " - " + (compendiumType.GetName(entityId) ?? "未知实体") + "##" + entityId)
     {
         _entityId = entityId;
         _sectionStateService = sectionStateService;
@@ -56,7 +56,7 @@ public class CompendiumViewWindow : CompendiumWindow
         TitleBarButtons.Add(new TitleBarButton
         {
             Icon = FontAwesomeIcon.Edit,
-            ShowTooltip = () => ImGui.SetTooltip(_sectionState?.EditMode == true ? "Exit edit mode" : "Edit section layout"),
+            ShowTooltip = () => ImGui.SetTooltip(_sectionState?.EditMode == true ? "退出编辑模式" : "编辑版面布局"),
             Click = _ =>
             {
                 if (_sectionState != null)
@@ -95,9 +95,9 @@ public class CompendiumViewWindow : CompendiumWindow
     public void DrawDebug()
     {
 #if DEBUG
-        if (ImGui.CollapsingHeader("Debug"))
+        if (ImGui.CollapsingHeader("调试"))
         {
-            ImGui.TextUnformatted("Entity ID: " + _entityId);
+            ImGui.TextUnformatted("实体 ID：" + _entityId);
             var relatedObject = _compendiumType.GetObject(_entityId);
             if (relatedObject != null)
             {
@@ -117,7 +117,7 @@ public class CompendiumViewWindow : CompendiumWindow
 
         if (_viewBuilder == null)
         {
-            ImGui.Text("No item could be found with the ID " +  _entityId);
+            ImGui.Text("找不到 ID 为 " +  _entityId + " 的物品");
             return;
         }
         _viewBuilder.Draw(sectionState);
@@ -129,26 +129,26 @@ public class CompendiumViewWindow : CompendiumWindow
             {
                 if (menuBar)
                 {
-                    using (var menu = ImRaii.Menu("File"))
+                    using (var menu = ImRaii.Menu("文件"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Configuration"))
+                            if (ImGui.MenuItem("配置"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWindow)));
                             }
 
-                            if (ImGui.MenuItem("Changelog"))
+                            if (ImGui.MenuItem("更新日志"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ChangelogWindow)));
                             }
 
-                            if (ImGui.MenuItem("Help"))
+                            if (ImGui.MenuItem("帮助"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow)));
                             }
 
-                            if (ImGui.MenuItem("Enable Verbose Logging", "",
+                            if (ImGui.MenuItem("启用详细日志", "",
                                     this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose))
                             {
                                 if (this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose)
@@ -161,7 +161,7 @@ public class CompendiumViewWindow : CompendiumWindow
                                 }
                             }
 
-                            if (ImGui.MenuItem("Report a Issue"))
+                            if (ImGui.MenuItem("报告问题"))
                             {
                                 "https://github.com/Critical-Impact/InventoryTools".OpenBrowser();
                             }
@@ -171,14 +171,14 @@ public class CompendiumViewWindow : CompendiumWindow
                                 "https://ko-fi.com/critical_impact".OpenBrowser();
                             }
 
-                            if (ImGui.MenuItem("Close"))
+                            if (ImGui.MenuItem("关闭"))
                             {
                                 this.IsOpen = false;
                             }
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Windows"))
+                    using (var menu = ImRaii.Menu("窗口"))
                     {
                         if (menu)
                         {
@@ -192,7 +192,7 @@ public class CompendiumViewWindow : CompendiumWindow
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Compendium"))
+                    using (var menu = ImRaii.Menu("百科"))
                     {
                         if (menu)
                         {
@@ -210,7 +210,7 @@ public class CompendiumViewWindow : CompendiumWindow
                     {
                         using (ImRaii.Tooltip())
                         {
-                            ImGui.Text("Compendium is a WIP feature, expect more here soon!");
+                            ImGui.Text("百科功能正在开发中，敬请期待！");
                         }
                     }
 
