@@ -189,7 +189,7 @@ public class CharacterDebuggerPane : DebugLogPane
 
                     foreach (var retainer in _characterMonitor.GetRetainerCharacters())
                     {
-                        if (retainer.Value.Name == "Unhired")
+                        if (retainer.Value.Name == "未雇佣")
                             continue;
 
                         ImGui.TableNextColumn();

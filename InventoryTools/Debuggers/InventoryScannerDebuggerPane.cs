@@ -199,7 +199,7 @@ public class InventoryScannerDebuggerPane : IDebugPane
             ImGui.TreePop();
         }
 
-        if (ImGui.TreeNode("Armoury - Legs##armouryLegs"))
+        if (ImGui.TreeNode("兵装柜-腿部##armouryLegs"))
         {
             for (int i = 0; i < _inventoryScanner.ArmouryLegs.Length; i++)
             {
@@ -254,7 +254,7 @@ public class InventoryScannerDebuggerPane : IDebugPane
             ImGui.TreePop();
         }
 
-        if (ImGui.TreeNode("Armoury - Wrists##armouryWrists"))
+        if (ImGui.TreeNode("兵装柜-手腕##armouryWrists"))
         {
             for (int i = 0; i < _inventoryScanner.ArmouryWrists.Length; i++)
             {
