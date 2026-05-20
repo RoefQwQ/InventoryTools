@@ -54,7 +54,7 @@ public class StainColumn : TextColumn
 
     public override string Name { get; set; } = "Dye";
     public override float Width { get; set; } = 100;
-    public override string HelpText { get; set; } = "The current dye of the item";
+    public override string HelpText { get; set; } = "物品当前的染色";
     public override bool HasFilter { get; set; } = true;
     public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
 }

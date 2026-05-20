@@ -22,7 +22,7 @@ namespace InventoryTools.Logic.Columns
 
         public override string Name { get; set; } = "Equipped By (Gender)";
         public override float Width { get; set; } = 200;
-        public override string HelpText { get; set; } = "Shows if an item can be equipped by a specific gender.";
+        public override string HelpText { get; set; } = "显示该物品是否可由特定性别装备";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
     }

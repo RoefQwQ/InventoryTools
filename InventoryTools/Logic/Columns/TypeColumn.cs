@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using CriticalCommonLib.Services.Mediator;
 using DalaMock.Host.Mediator;
 using Dalamud.Interface.Utility.Raii;
@@ -66,7 +66,7 @@ namespace InventoryTools.Logic.Columns
         }
         public override string Name { get; set; } = "Type";
         public override float Width { get; set; } = 80.0f;
-        public override string HelpText { get; set; } = "The type of the item.";
+        public override string HelpText { get; set; } = "物品类型";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
 

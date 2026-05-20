@@ -28,9 +28,9 @@ namespace InventoryTools.Logic.Columns
         }
         
         public override string Name { get; set; } = "Gearset Number";
-        public override string RenderName => "Gearsets";
+        public override string RenderName => "套装";
         public override float Width { get; set; } = 100;
-        public override string HelpText { get; set; } = "Provides the gearsets that an item is part of.";
+        public override string HelpText { get; set; } = "显示包含该物品的套装";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
     }

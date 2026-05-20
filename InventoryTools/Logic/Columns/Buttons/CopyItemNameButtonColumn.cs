@@ -10,7 +10,7 @@ public class CopyItemNameButtonColumn(IClipboardService clipboardService) : Butt
 {
     public override string Name { get; set; } = "Copy Item Name Button";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "Copies the item name to the clipboard.";
+    public override string HelpText { get; set; } = "将物品名称复制到剪贴板";
 
     public override List<MessageBase>? Draw(FilterConfiguration configuration, ColumnConfiguration columnConfiguration, SearchResult searchResult,
         int rowIndex, int columnIndex)

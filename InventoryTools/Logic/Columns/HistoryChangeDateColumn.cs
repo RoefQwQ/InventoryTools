@@ -28,9 +28,9 @@ public class HistoryChangeDateColumn : DateTimeColumn
     }
 
     public override string Name { get; set; } = "History Event Date/Time";
-    public override string RenderName => "Date/Time";
+    public override string RenderName => "日期/时间";
     public override float Width { get; set; } = 50;
-    public override string HelpText { get; set; } = "When did the historical inventory event happen?";
+    public override string HelpText { get; set; } = "历史库存事件发生的时间";
     public override bool HasFilter { get; set; } = true;
     public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
     public override FilterType AvailableIn { get; } = Logic.FilterType.HistoryFilter;

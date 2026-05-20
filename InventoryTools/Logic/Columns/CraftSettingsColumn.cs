@@ -57,7 +57,7 @@ public class CraftSettingsColumn : IColumn
 
     public string Name { get; set; } = "Settings";
     public float Width { get; set; } = 120;
-    public string HelpText { get; set; } = "Modify each items craft settings in this column";
+    public string HelpText { get; set; } = "在此列中修改每个物品的制作设置";
     public string FilterText { get; set; } = "";
 
     public string RenderName { get; } = "Settings";

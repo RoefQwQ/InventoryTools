@@ -31,5 +31,5 @@ public class ExpertDeliverySealsColumn : IntegerColumn
     public override float Width { get; set; } = 90;
 
     public override string HelpText { get; set; } =
-        "The number of seals that are rewarded when handing this item in as an expert delivery.";
+        "通过高级交付可获得的军票数量";
 }

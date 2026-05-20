@@ -27,5 +27,5 @@ public class GatheredByColumn : TextColumn
 
     public override string Name { get; set; } = "Gathered By?";
     public override float Width { get; set; } = 100;
-    public override string HelpText { get; set; } = "How is this item gathered?";
+    public override string HelpText { get; set; } = "该物品如何采集？";
 }

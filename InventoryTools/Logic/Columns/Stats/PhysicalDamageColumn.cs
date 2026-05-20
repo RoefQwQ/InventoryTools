@@ -25,5 +25,5 @@ public class PhysicalDamageColumn : IntegerColumn
 
     public override string Name { get; set; } = "Physical Damage";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "The physical damage of the item";
+    public override string HelpText { get; set; } = "物品的物理伤害";
 }

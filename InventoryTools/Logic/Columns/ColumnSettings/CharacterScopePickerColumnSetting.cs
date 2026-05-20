@@ -56,7 +56,7 @@ public class CharacterScopePickerColumnSetting : ColumnSetting<List<CharacterSea
 
     public override string Key { get; set; } = "CharacterScopePicker";
     public override string Name { get; set; } = "Character Search Scope";
-    public override string HelpText { get; set; } = "Select the characters you want to search inside.";
+    public override string HelpText { get; set; } = "选择要搜索的角色";
     public override List<CharacterSearchScope>? DefaultValue { get; set; } = null;
 
     public override bool DrawFilter(ColumnConfiguration configuration, string? helpText)

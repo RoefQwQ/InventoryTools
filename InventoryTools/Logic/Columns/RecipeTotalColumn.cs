@@ -1,4 +1,4 @@
-﻿using InventoryTools.Logic.Columns.Abstract;
+using InventoryTools.Logic.Columns.Abstract;
 using InventoryTools.Services;
 using Microsoft.Extensions.Logging;
 
@@ -19,5 +19,5 @@ public class RecipeTotalColumn : IntegerColumn
 
     public override string Name { get; set; } = "Recipe Total Count";
     public override float Width { get; set; } = 100;
-    public override string HelpText { get; set; } = "The number of recipes the item is a component of.";
+    public override string HelpText { get; set; } = "该物品作为材料的配方数量";
 }

@@ -22,5 +22,5 @@ public class IsGlamourReadySetColumn : CheckboxColumn
 
     public override string Name { get; set; } = "Is Outfit Glamour Set?";
     public override float Width { get; set; } = 100;
-    public override string HelpText { get; set; } = "Is this item the combined form of a outfit glamour set?";
+    public override string HelpText { get; set; } = "该物品是否为套装外观的组合形态？";
 }

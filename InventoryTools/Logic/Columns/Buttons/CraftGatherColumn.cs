@@ -354,7 +354,7 @@ namespace InventoryTools.Logic.Columns.Buttons
         public override string RenderName { get; } = "Gather/Purchase";
         public override string Name { get; set; } = "Gather/Purchase/Buy";
         public override float Width { get; set; } = 100;
-        public override string HelpText { get; set; } = "Shows a button that links to gatherbuddy's /gather function.";
+        public override string HelpText { get; set; } = "显示链接到Gatherbuddy的/gather功能的按钮";
         public override bool HasFilter { get; set; } = false;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
         public override FilterType DefaultIn => Logic.FilterType.CraftFilter;

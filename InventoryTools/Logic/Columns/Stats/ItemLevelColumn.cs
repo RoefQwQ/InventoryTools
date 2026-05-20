@@ -1,4 +1,4 @@
-﻿using InventoryTools.Logic.Columns.Abstract;
+using InventoryTools.Logic.Columns.Abstract;
 using InventoryTools.Services;
 using Microsoft.Extensions.Logging;
 
@@ -16,7 +16,7 @@ namespace InventoryTools.Logic.Columns.Stats
         }
         public override string Name { get; set; } = "Required Level";
         public override float Width { get; set; } = 80.0f;
-        public override string HelpText { get; set; } = "The required level to equip the item.";
+        public override string HelpText { get; set; } = "装备该物品所需的等级";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
         public override FilterType DefaultIn => Logic.FilterType.GameItemFilter;

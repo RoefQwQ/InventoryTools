@@ -12,7 +12,7 @@ public class MateriaCountColumn : IntegerColumn
 
     public override string Name { get; set; } = "Materia Count";
     public override float Width { get; set; } = 90;
-    public override string HelpText { get; set; } = "How many materia does this item have or can it have?";
+    public override string HelpText { get; set; } = "该物品拥有或可镶嵌的魔晶石数量";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Stats;
     public override int? CurrentValue(ColumnConfiguration columnConfiguration, SearchResult searchResult)
     {

@@ -30,7 +30,7 @@ public class SourceWorldColumn : TextColumn
     public override float Width { get; set; } = 120;
 
     public override string HelpText { get; set; } =
-        "The world where the item is stored(be it in a character, retainer, free company)";
+        "显示物品所在的世界";
 
     public override bool HasFilter { get; set; } = true;
     public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;

@@ -17,7 +17,7 @@ public class GatherButtonColumn : ButtonColumn
     }
     public override string Name { get; set; } = "Gathering Log Button";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "Shows a button that opens the item's gathering/fishing log entry if applicable.";
+    public override string HelpText { get; set; } = "显示打开物品采集/钓鱼日志的按钮";
 
     public override List<MessageBase>? Draw(FilterConfiguration configuration, ColumnConfiguration columnConfiguration,
         SearchResult searchResult, int rowIndex, int columnIndex)

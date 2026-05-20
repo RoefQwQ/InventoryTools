@@ -46,7 +46,7 @@ public class FavouritesColumn : CheckboxColumn
 
     public override string Name { get; set; } = "Favourite?";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "Is this item in your list of favourites?";
+    public override string HelpText { get; set; } = "该物品是否在收藏列表中？";
 
     public override FilterType DefaultIn => Logic.FilterType.SearchFilter | Logic.FilterType.SortingFilter | Logic.FilterType.GameItemFilter;
 }

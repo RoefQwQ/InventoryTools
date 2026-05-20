@@ -34,7 +34,7 @@ public class CraftBuyColumn : ButtonColumn
     }
     public override string Name { get; set; } = "Buy Button";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "A button/list to show you where you can buy an item";
+    public override string HelpText { get; set; } = "显示物品购买位置的按钮/列表";
     public override List<MessageBase>? Draw(FilterConfiguration configuration, ColumnConfiguration columnConfiguration,
         SearchResult searchResult, int rowIndex, int columnIndex)
     {

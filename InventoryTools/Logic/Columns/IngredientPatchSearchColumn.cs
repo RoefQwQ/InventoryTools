@@ -37,5 +37,5 @@ public class IngredientPatchSearchColumn : DecimalColumn
     public override float Width { get; set; } = 100;
 
     public override string HelpText { get; set; } =
-        "Shows a number indicating the highest patch a craft material is used in.";
+        "搜索在特定版本中作为材料添加的物品";
 }

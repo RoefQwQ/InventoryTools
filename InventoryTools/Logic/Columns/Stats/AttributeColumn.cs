@@ -78,5 +78,5 @@ public class AttributeColumn : IntegerColumn
 
     public override string Name { get; set; } = "Attribute";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "An bonus attributes of the item(Strength, HP, Perception, etc)";
+    public override string HelpText { get; set; } = "物品的附加属性（力量、HP、感知等）";
 }

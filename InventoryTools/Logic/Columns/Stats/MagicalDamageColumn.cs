@@ -25,5 +25,5 @@ public class MagicalDamageColumn : IntegerColumn
 
     public override string Name { get; set; } = "Magical Damage";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "The magical damage of the item";
+    public override string HelpText { get; set; } = "物品的魔法伤害";
 }

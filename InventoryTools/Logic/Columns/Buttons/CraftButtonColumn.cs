@@ -19,7 +19,7 @@ public class CraftButtonColumn : ButtonColumn
     }
     public override string Name { get; set; } = "Craft Button";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "A button that opens the crafting log for the item";
+    public override string HelpText { get; set; } = "打开物品制作日志的按钮";
 
     public override List<MessageBase>? Draw(FilterConfiguration configuration, ColumnConfiguration columnConfiguration,
         SearchResult searchResult, int rowIndex, int columnIndex)

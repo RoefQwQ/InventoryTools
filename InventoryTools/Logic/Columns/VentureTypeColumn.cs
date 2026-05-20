@@ -20,7 +20,7 @@ public class VentureTypeColumn : TextColumn
     }
     public override string Name { get; set; } = "Venture Type";
     public override float Width { get; set; } = 100;
-    public override string HelpText { get; set; } = "The type of ventures that the item can be acquired from";
+    public override string HelpText { get; set; } = "该物品可从哪类探险获取";
     public override bool HasFilter { get; set; } = true;
     public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
 }

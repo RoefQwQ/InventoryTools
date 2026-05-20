@@ -65,7 +65,7 @@ public sealed class CharacterColumnSetting : ChoiceColumnSetting<ulong?>
 
     public override string Key { get; set; } = "character";
     public override string Name { get; set; } = "Character";
-    public override string HelpText { get; set; } = "The character to use";
+    public override string HelpText { get; set; } = "要使用的角色";
     public override ulong? DefaultValue { get; set; } = null;
 
 }

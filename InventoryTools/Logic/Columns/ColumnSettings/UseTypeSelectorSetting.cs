@@ -48,7 +48,7 @@ public class UseTypeSelectorSetting : MultiChoiceColumnSetting<(ItemInfoType,str
 
     public override string Key { get; set; } = "UseTypes";
     public override string Name { get; set; } = "Types";
-    public override string HelpText { get; set; } = "Which use types should this display?";
+    public override string HelpText { get; set; } = "应显示哪些用途类型？";
     public override List<(ItemInfoType,string)>? DefaultValue { get; set; } = null;
     public override List<(ItemInfoType,string)> GetChoices(ColumnConfiguration configuration)
     {

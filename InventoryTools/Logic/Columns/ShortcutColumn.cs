@@ -29,7 +29,7 @@ namespace InventoryTools.Logic.Columns
         public override float Width { get; set; } = 32.0f;
 
         public override string HelpText { get; set; } =
-            "Provides a series of small buttons that allow opening garland tools and trying on items.";
+            "显示快捷按钮";
         public override bool HasFilter { get; set; } = false;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
 
