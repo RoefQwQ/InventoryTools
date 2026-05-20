@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -147,7 +147,7 @@ namespace InventoryTools
                 activeCraftList.CraftList.MarkCrafted(itemid, flags, quantity);
                 if (activeCraftList is { IsEphemeralCraftList: true, CraftList.IsCompleted: true })
                 {
-                    _chatUtilities.Print("Ephemeral craft list '" + activeCraftList.Name + "' completed. List has been removed.");
+                    _chatUtilities.Print("临时制作列表「" + activeCraftList.Name + "」已完成，列表已移除。");
                     _listService.RemoveList(activeCraftList);
                 }
                 else
@@ -380,7 +380,7 @@ namespace InventoryTools
                 activeCraftList.CraftList.MarkCrafted(itemId, itemFlags, (uint)qtyIncrease);
                 if (activeCraftList is { IsEphemeralCraftList: true, CraftList.IsCompleted: true })
                 {
-                    _chatUtilities.Print("Ephemeral craft list '" + activeCraftList.Name + "' completed. List has been removed.");
+                    _chatUtilities.Print("临时制作列表「" + activeCraftList.Name + "」已完成，列表已移除。");
                     _listService.RemoveList(activeCraftList);
                 }
                 else

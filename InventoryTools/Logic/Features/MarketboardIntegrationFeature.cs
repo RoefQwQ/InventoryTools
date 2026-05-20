@@ -15,7 +15,7 @@ public class MarketboardIntegrationFeature : Feature
         settings)
     {
     }
-    public override string Name { get; } = "Marketboard";
+    public override string Name { get; } = "市场板";
     public override string Description { get; } =
-        "Configure the marketboard integration. This downloads data from Universalis on a set timer, allowing you to filter against the minimum and average prices of items across multiple servers.";
+        "配置市场板集成功能。此功能会按设定的时间间隔从 Universalis 下载数据，允许您根据多个服务器的物品最低价格和平均价格进行筛选。";
 }

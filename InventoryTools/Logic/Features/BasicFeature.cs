@@ -17,6 +17,6 @@ public class BasicFeature : Feature
     {
     }
     
-    public override string Name { get; } = "Basic";
-    public override string Description { get; } = "Configure the basic settings of Allagan Tools";
+    public override string Name { get; } = "基本";
+    public override string Description { get; } = "配置 Allagan Tools 的基本设置";
 }

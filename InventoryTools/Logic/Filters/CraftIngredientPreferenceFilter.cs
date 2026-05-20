@@ -41,7 +41,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
                 }
                 else
                 {
-                    itemName = " (Unknown Item)";
+                    itemName = " (未知物品)";
                 }
             }
             return (c.Item1.FormattedName() + itemName, null);

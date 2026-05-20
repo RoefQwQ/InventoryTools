@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using AllaganLib.GameSheets.Sheets;
 using AllaganLib.GameSheets.Sheets.Rows;
@@ -34,7 +34,7 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
             }
             else
             {
-                itemName = " (Unknown Item)";
+                itemName = " (未知物品)";
             }
             return (itemName, null);
         }

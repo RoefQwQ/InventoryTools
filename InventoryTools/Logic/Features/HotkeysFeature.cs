@@ -27,8 +27,8 @@ public class HotkeysFeature : Feature
     }
 
     public string Version { get; } = "1.0.0.0";
-    public override string Name { get; } = "Hotkeys";
+    public override string Name { get; } = "快捷键";
 
     public override string Description { get; } =
-        "Set hotkeys for opening the various Allagan Tools windows. A hotkey to open the 'More Information' window for items is also available.";
+        "设置打开各种 Allagan Tools 窗口的快捷键。还可设置打开物品\"更多信息\"窗口的快捷键。";
 }

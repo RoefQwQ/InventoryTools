@@ -15,7 +15,7 @@ public class LayoutFeature : Feature
     {
     }
 
-    public override string Name { get; } = "Layout";
+    public override string Name { get; } = "布局";
     public override string Description { get; } =
-        "How should the main items window and craft windows be laid out? Should we display your lists as tabs or in a side bar?";
+        "主物品窗口和制作窗口应如何布局？是否将列表显示为标签页或侧边栏？";
 }

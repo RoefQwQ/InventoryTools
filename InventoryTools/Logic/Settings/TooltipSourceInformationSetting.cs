@@ -273,12 +273,12 @@ public class TooltipSourceInformationSetting : Setting<Dictionary<ItemInfoType, 
     }
 
     public override string Key { get; set; } = "TooltipSourceInformation";
-    public override string Name { get; set; } = "Source Information Configuration";
+    public override string Name { get; set; } = "来源信息配置";
 
     public override uint? Order { get; } = 3;
 
     public override string HelpText { get; set; } =
-        "If the source information tooltip is enabled, how should the various sources be ordered/displayed/etc?";
+        "如果启用了来源信息工具提示，各项来源应如何排序/显示/等？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.SourceInformation;

@@ -177,7 +177,7 @@ namespace InventoryTools.Logic.Settings.Abstract
                 {
                     using (ImRaii.Tooltip())
                     {
-                        ImGui.Text("Click to open colour selector.");
+                        ImGui.Text("点击打开颜色选择器");
                     }
                 }
             }

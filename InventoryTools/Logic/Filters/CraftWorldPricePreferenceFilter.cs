@@ -38,7 +38,7 @@ public class CraftWorldPricePreference : SortedListFilter<uint, uint>
             }
             else
             {
-                worldName = " (Unknown World)";
+                worldName = " (未知世界)";
             }
             return (worldName, null);
         }

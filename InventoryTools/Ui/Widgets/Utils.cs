@@ -118,8 +118,8 @@ public static class ImGuiUtil
         if (pop)
         {
             content();
-            const string yesButtonText   = "Yes";
-            const string noButtonText   = "No";
+            const string yesButtonText   = "是";
+            const string noButtonText   = "否";
             var          yesButtonSize   = Math.Max(size.X / 5, ImGui.CalcTextSize(yesButtonText).X + 2 * ImGui.GetStyle().FramePadding.X);
             var          noButtonSize   = Math.Max(size.X / 5, ImGui.CalcTextSize(yesButtonText).X + 2 * ImGui.GetStyle().FramePadding.X);
             ImGui.SetCursorPos(new Vector2(2 * ImGui.GetStyle().FramePadding.X, size.Y - ImGui.GetFrameHeight() * 1.75f));

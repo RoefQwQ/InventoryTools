@@ -92,7 +92,7 @@ public class DisplayUnlockTooltip : BaseTooltip
 
             if (displayModeSetting == TooltipDisplayUnlockDisplayMode.CharacterPerLine)
             {
-                var textLines = unlockStatuses.Select(c => _characterMonitor.GetCharacterById(c.Key)!.FormattedName + " - " + (c.Item2 ? "Acquired" : "Not Acquired") + "\n").OrderBy(c => c).ToList();
+                var textLines = unlockStatuses.Select(c => _characterMonitor.GetCharacterById(c.Key)!.FormattedName + " - " + (c.Item2 ? "已获得" : "未获得") + "\n").OrderBy(c => c).ToList();
                 if (textLines.Count != 0)
                 {
                     newText += "\n";

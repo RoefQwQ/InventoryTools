@@ -24,7 +24,7 @@ public class ListDebugWindow : GenericWindow
     }
 
     public override string GenericKey { get; } = "listdebug";
-    public override string GenericName { get; } = "List Debug";
+    public override string GenericName { get; } = "列表调试";
     public override bool DestroyOnClose => true;
     public override bool SaveState => false;
     public override Vector2? DefaultSize { get; } = new(500, 500);
@@ -40,9 +40,9 @@ public class ListDebugWindow : GenericWindow
     {
         foreach (var list in _lists)
         {
-            ImGui.Text("List: " + list.Name);
-            ImGui.Text("Refreshing: " + (list.Refreshing ? "Yes" : "No"));
-            ImGui.Text("Needs Refresh: " + (list.NeedsRefresh ? "Yes" : "No"));
+            ImGui.Text("列表: " + list.Name);
+            ImGui.Text("正在刷新: " + (list.Refreshing ? "是" : "否"));
+            ImGui.Text("需要刷新: " + (list.NeedsRefresh ? "是" : "否"));
         }
     }
 

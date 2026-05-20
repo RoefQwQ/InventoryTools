@@ -282,7 +282,7 @@ namespace InventoryTools.Ui
                 ImGui.TextUnformatted(_localizationService.GetString("Window_Item_Patch", Item.Patch));
                 if (Item.CanBeDesynthed && Item.Base.ClassJobRepair.RowId != 0)
                 {
-                    ImGui.TextUnformatted("Desynth with " + (Item.Base.ClassJobRepair.ValueNullable?.Name.ToString().ToTitleCase() ?? "Unknown"));
+                    ImGui.TextUnformatted("分解职业: " + (Item.Base.ClassJobRepair.ValueNullable?.Name.ToString().ToTitleCase() ?? "未知"));
                 }
 
                 var description = Item.Base.Description.ExtractText();
@@ -296,22 +296,22 @@ namespace InventoryTools.Ui
                 if (Item.CanBeAcquired)
                 {
                     var hasAcquired = _unlockTrackerService.IsUnlocked(Item);
-                    ImGui.TextUnformatted("Acquired:" + (hasAcquired == null ? "Checking" : hasAcquired == true ? "Yes" : "No"));
+                    ImGui.TextUnformatted("已获得:" + (hasAcquired == null ? "检查中" : hasAcquired == true ? "是" : "否"));
                 }
 
                 if (Item.SellToVendorPrice != 0)
                 {
-                    ImGui.TextUnformatted("Sell to Vendor: " + Item.SellToVendorPrice + SeIconChar.Gil.ToIconString());
+                    ImGui.TextUnformatted("出售给商人: " + Item.SellToVendorPrice + SeIconChar.Gil.ToIconString());
                 }
 
                 if (Item.BuyFromVendorPrice != 0 && Item.HasSourcesByType(ItemInfoType.GilShop))
                 {
-                    ImGui.TextUnformatted("Buy from Vendor: " + Item.BuyFromVendorPrice + SeIconChar.Gil.ToIconString());
+                    ImGui.TextUnformatted("从商人购买: " + Item.BuyFromVendorPrice + SeIconChar.Gil.ToIconString());
                 }
 
                 if (Item.BuyFromVendorPrice != 0 && Item.HasSourcesByType(ItemInfoType.CalamitySalvagerShop))
                 {
-                    ImGui.TextUnformatted("Buy from Calamity Salvager: " + Item.BuyFromVendorPrice + SeIconChar.Gil.ToIconString());
+                    ImGui.TextUnformatted("从灾祸拯救者购买: " + Item.BuyFromVendorPrice + SeIconChar.Gil.ToIconString());
                 }
                 ImGui.Image(ImGuiService.GetIconTexture(Item.Icon).Handle, new Vector2(100, 100) * ImGui.GetIO().FontGlobalScale);
                 if (_tooltipModeSetting.CurrentValue(Configuration) != ImGuiTooltipMode.Never)
@@ -424,7 +424,7 @@ namespace InventoryTools.Ui
                             {
                                 using (ImRaii.PushId(filter.Key))
                                 {
-                                    if (ImGui.Selectable("Add item to craft list - " + filter.Name))
+                                    if (ImGui.Selectable("添加物品到制作列表 - " + filter.Name))
                                     {
                                         _framework.RunOnFrameworkThread(() =>
                                         {
@@ -511,10 +511,10 @@ namespace InventoryTools.Ui
 
 
 #if DEBUG
-                if (ImGui.CollapsingHeader("Debug"))
+                if (ImGui.CollapsingHeader("调试"))
                 {
-                    ImGui.TextUnformatted("Item ID: " + _itemId);
-                    if (ImGui.Button("Copy"))
+                    ImGui.TextUnformatted("物品ID: " + _itemId);
+                    if (ImGui.Button("复制"))
                     {
                         _clipboardService.CopyToClipboard(_itemId.ToString());
                     }
@@ -551,7 +551,7 @@ namespace InventoryTools.Ui
                     var craftTypes = new Dictionary<uint, string>();
                     if (Item.IsCompanyCraft)
                     {
-                        craftTypes.Add(0, "All");
+                        craftTypes.Add(0, "全部");
                         var companyCraftIndex = 1u;
                         if (Item.CompanyCraftSequence != null)
                         {
@@ -569,7 +569,7 @@ namespace InventoryTools.Ui
                     {
                         foreach (var recipe in recipes)
                         {
-                            craftTypes[recipe.RowId] = recipe.CraftType?.FormattedName ?? "Unknown Craft Type";
+                            craftTypes[recipe.RowId] = recipe.CraftType?.FormattedName ?? "未知制作类型";
                         }
                     }
 
@@ -795,7 +795,7 @@ namespace InventoryTools.Ui
                                 float lastButtonX2 = ImGui.GetItemRectMax().X;
                                 float nextButtonX2 = lastButtonX2 + style.ItemSpacing.X + 32;
                                 ImGuiUtil.HoverTooltip(recipe.ItemResult!.NameString + " - " +
-                                                       (recipe.CraftType?.FormattedName ?? "Unknown"));
+                                                       (recipe.CraftType?.FormattedName ?? "未知"));
                                 if (index + 1 < RecipesAsRequirement.Length && nextButtonX2 < windowVisibleX2)
                                 {
                                     ImGui.SameLine();
@@ -888,7 +888,7 @@ namespace InventoryTools.Ui
             ImGui.TableNextColumn();
             ImGui.TextWrapped(obj.Quantity.ToString());
             ImGui.TableNextColumn();
-            ImGui.TextWrapped(obj.IsHQ ? "Yes" : "No");
+            ImGui.TextWrapped(obj.IsHQ ? "是" : "否");
         }
 
 
@@ -1029,7 +1029,7 @@ namespace InventoryTools.Ui
                 ImGui.TableNextColumn();
                 ImGui.TextWrapped(_worldSheet.GetRowOrDefault(obj.WorldId)?.Name.ExtractText() ?? _localizationService["Window_Item_Unknown"]);
                 ImGui.TableNextColumn();
-                ImGui.TextWrapped((obj.LastUpdate - DateTime.Now).Humanize(minUnit: TimeUnit.Minute, maxUnit: TimeUnit.Hour, precision: 1) + " ago");
+                ImGui.TextWrapped((obj.LastUpdate - DateTime.Now).Humanize(minUnit: TimeUnit.Minute, maxUnit: TimeUnit.Hour, precision: 1) + " 前");
                 ImGui.TableNextColumn();
                 ImGui.TextWrapped(obj.Available.ToString());
                 ImGui.TableNextColumn();
@@ -1216,7 +1216,7 @@ namespace InventoryTools.Ui
                     _gameInterface.OpenGatheringLog(_itemId);
                 }
 
-                ImGuiUtil.HoverTooltip(source.NameString + " - Open in Gathering Log");
+                ImGuiUtil.HoverTooltip(source.NameString + " - 在采集笔记中打开");
                 ImGui.TableNextColumn();
                 ImGui.TextUnformatted(obj.GatheringItem.Base.GatheringItemLevel.RowId.ToString());
                 ImGui.TableNextColumn();

@@ -106,7 +106,7 @@ public class GlamourReadySetTooltip : BaseTooltip
                 .Where(i => i.ItemId == itemId)
                 .Select(i => i.SortedCategory)
                 .Distinct();
-            return string.Concat(categories.Select(c => $"Already in {c.FormattedDetailedName()}\n"));
+            return string.Concat(categories.Select(c => $"已存在于{c.FormattedDetailedName()}\n"));
         }
 
         var newText = "";

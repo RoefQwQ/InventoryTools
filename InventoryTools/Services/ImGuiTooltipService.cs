@@ -122,8 +122,8 @@ public class ImGuiTooltipService
                         {
                             if (table)
                             {
-                                ImGui.TableSetupColumn("BaseAttributes");
-                                ImGui.TableSetupColumn("Attributes");
+                                ImGui.TableSetupColumn("基础属性");
+                                ImGui.TableSetupColumn("属性");
                                 ImGui.TableNextRow();
                                 ImGui.TableNextColumn();
                                 DrawBaseAttributes(item);
@@ -191,7 +191,7 @@ public class ImGuiTooltipService
                     if (item.Sources.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.TextUnformatted("Available From: ");
+                        ImGui.TextUnformatted("获取途径：");
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
                         var sources = item.Sources.Select(c => c.Type).Distinct().Select(
@@ -439,8 +439,8 @@ public class ImGuiTooltipService
                     if (storageCount > 0)
                     {
                         ImGui.Separator();
-                        ImGui.TextUnformatted($"Owned: {storageCount}");
-                        ImGui.TextUnformatted($"Locations:");
+                        ImGui.TextUnformatted($"拥有：{storageCount}");
+                        ImGui.TextUnformatted($"位置：");
                         using (Dalamud.Interface.Utility.Raii.ImRaii.PushIndent())
                         {
                             for (var index = 0; index < locations.Count; index++)
@@ -457,7 +457,7 @@ public class ImGuiTooltipService
                         ImGui.TextUnformatted("Ctrl: Link");
                         if (item.CanTryOn)
                         {
-                            ImGui.TextUnformatted("Shift: Try on");
+                            ImGui.TextUnformatted("Shift: 试穿");
                         }
                     }
                 }
@@ -470,7 +470,7 @@ public class ImGuiTooltipService
         ImGui.TextUnformatted($"Item Level {item.Base.LevelItem.RowId}");
         if (item.ClassJobCategory != null)
         {
-            ImGui.TextUnformatted($"Equip Level {item.Base.LevelEquip}");
+            ImGui.TextUnformatted($"装备等级 {item.Base.LevelEquip}");
         }
 
         ImGui.TextUnformatted(item.FormattedRarity);
@@ -482,7 +482,7 @@ public class ImGuiTooltipService
 
         if (item.EquippableByGender != CharacterSex.Both && item.EquippableByGender != CharacterSex.NotApplicable)
         {
-            ImGui.TextUnformatted($"Only equippable by {item.EquippableByGender.ToString()}");
+            ImGui.TextUnformatted($"仅可由{item.EquippableByGender.ToString()}装备");
         }
 
         if (item.Base.CanBeHq)
@@ -492,7 +492,7 @@ public class ImGuiTooltipService
 
         if (item.Base.IsUnique)
         {
-            ImGui.TextUnformatted("Unique");
+            ImGui.TextUnformatted("稀有");
         }
 
         if (item.Base.IsUntradable)

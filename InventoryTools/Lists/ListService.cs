@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -119,7 +119,7 @@ namespace InventoryTools.Lists
                 ValidateAndInjectListColumns(list);
                 if (list.Name == string.Empty)
                 {
-                    list.Name = "Untitled List";
+                    list.Name = "未命名列表";
                 }
             }
             return new ConcurrentDictionary<string, FilterConfiguration>(savedLists.ToDictionary(c => c.Key, c => c));
