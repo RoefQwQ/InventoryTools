@@ -69,7 +69,7 @@ namespace InventoryTools.Ui
             mediator,
             imGuiService,
             configuration,
-            "Configuration Window")
+            "配置窗口")
         {
             _localizationService = localizationService;
             _pluginLog = pluginLog;

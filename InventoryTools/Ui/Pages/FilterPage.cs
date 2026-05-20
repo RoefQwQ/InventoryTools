@@ -55,10 +55,10 @@ namespace InventoryTools.Ui.Pages
             var filterConfiguration = FilterConfiguration;
             var filterName = filterConfiguration.Name;
             var labelName = "##" + filterConfiguration.Key;
-            if (ImGui.CollapsingHeader("通用", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader("常规", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 ImGui.SetNextItemWidth(100);
-                ImGui.LabelText(labelName + "FilterNameLabel", "名称: ");
+                ImGui.LabelText(labelName + "FilterNameLabel", "名称：");
                 ImGui.SameLine();
                 ImGui.InputText(labelName + "FilterName", ref filterName, 100);
                 if (filterName != filterConfiguration.Name)
@@ -76,12 +76,12 @@ namespace InventoryTools.Ui.Pages
 
                 var filterType = filterConfiguration.FormattedFilterType;
                 ImGui.SetNextItemWidth(100);
-                ImGui.LabelText(labelName + "FilterTypeLabel", "筛选器类型: ");
+                ImGui.LabelText(labelName + "FilterTypeLabel", "筛选类型：");
                 ImGui.SameLine();
                 ImGui.TextDisabled(filterType);
 
                 ImGui.SetNextItemWidth(150);
-                ImGui.LabelText(labelName + "DisplayInTabs", "在标签列表中显示: ");
+                ImGui.LabelText(labelName + "DisplayInTabs", "在标签列表中显示：");
                 ImGui.SameLine();
                 var displayInTabs = filterConfiguration.DisplayInTabs;
                 if (ImGui.Checkbox(labelName + "DisplayInTabsCheckbox", ref displayInTabs))

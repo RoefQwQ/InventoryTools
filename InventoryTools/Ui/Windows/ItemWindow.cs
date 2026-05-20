@@ -306,7 +306,7 @@ namespace InventoryTools.Ui
 
                 if (Item.BuyFromVendorPrice != 0 && Item.HasSourcesByType(ItemInfoType.GilShop))
                 {
-                    ImGui.TextUnformatted("从商人购买: " + Item.BuyFromVendorPrice + SeIconChar.Gil.ToIconString());
+                    ImGui.TextUnformatted("从商人购买：" + Item.BuyFromVendorPrice + SeIconChar.Gil.ToIconString());
                 }
 
                 if (Item.BuyFromVendorPrice != 0 && Item.HasSourcesByType(ItemInfoType.CalamitySalvagerShop))
@@ -513,7 +513,7 @@ namespace InventoryTools.Ui
 #if DEBUG
                 if (ImGui.CollapsingHeader("调试"))
                 {
-                    ImGui.TextUnformatted("物品ID: " + _itemId);
+                    ImGui.TextUnformatted("物品ID：" + _itemId);
                     if (ImGui.Button("复制"))
                     {
                         _clipboardService.CopyToClipboard(_itemId.ToString());

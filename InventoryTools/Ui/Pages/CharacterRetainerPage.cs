@@ -55,7 +55,7 @@ namespace InventoryTools.Ui.Pages
                 _popupMenus[character] = new PopupMenu("cm_" + character.CharacterId, PopupMenu.PopupMenuButtons.Right,
                     new List<PopupMenu.IPopupMenuItem>()
                     {
-                        new PopupMenu.PopupMenuItemSelectableConfirm("清空背包", "ci_" + character.CharacterId, "确定要清空此" + character.CharacterType.FormattedName() + "的背包吗？", ClearInventories, "清空此" + character.CharacterType.FormattedName() + "的背包？"),
+                        new PopupMenu.PopupMenuItemSelectableConfirm("清除背包", "ci_" + character.CharacterId, "确定要清空此" + character.CharacterType.FormattedName() + "的背包吗？", ClearInventories, "清空此" + character.CharacterType.FormattedName() + "的背包？"),
                         new PopupMenu.PopupMenuItemSelectableConfirm("删除" + character.CharacterType.FormattedName(), "dc_" + character.CharacterId, "确定要删除此" + character.CharacterType.FormattedName() + "吗？", DeleteCharacter, "删除此" + character.CharacterType.FormattedName() + "？"),
                     }
                 );
@@ -234,7 +234,7 @@ namespace InventoryTools.Ui.Pages
 
                     if (retainers.Count != 0)
                     {
-                        ImGui.TextUnformatted("无主雇员:");
+                        ImGui.TextUnformatted("孤立雇员：");
                         ImGui.Separator();
                         for (var index2 = 0; index2 < retainers.Count; index2++)
                         {
@@ -275,7 +275,7 @@ namespace InventoryTools.Ui.Pages
                         selectedWorld = _worldSheet.GetRowOrDefault(_currentWorld);
                     }
 
-                    ImGui.Text("世界: ");
+                    ImGui.Text("世界：");
                     using var combo = ImRaii.Combo("##activeWorld", selectedWorld?.Name.ExtractText() ?? "全部");
                     if (combo.Success)
                     {
@@ -327,7 +327,7 @@ namespace InventoryTools.Ui.Pages
                             if (_editMode)
                             {
                                 var newName = _newName;
-                                ImGui.Text("自定义名称: ");
+                                ImGui.Text("自定义名称：");
                                 ImGui.SameLine();
                                 if (ImGui.InputText("##customName", ref newName, 100))
                                 {
@@ -360,20 +360,20 @@ namespace InventoryTools.Ui.Pages
                             ImGui.Separator();
                             if (character.CharacterType is CharacterType.Character or CharacterType.Retainer )
                             {
-                                ImGui.Text("等级: " + character.Level);
-                                ImGui.Text("金币: " + character.Gil);
-                                ImGui.Text("性别: " + character.Gender);
-                                ImGui.Text("部队: " + character.FreeCompanyName);
-                                ImGui.Text("世界: " + (character.World?.Name.ExtractText() ?? "未知"));
-                                ImGui.Text("职业/特职: " +
+                                ImGui.Text("等级：" + character.Level);
+                                ImGui.Text("金币：" + character.Gil);
+                                ImGui.Text("性别：" + character.Gender);
+                                ImGui.Text("部队：" + character.FreeCompanyName);
+                                ImGui.Text("世界：" + (character.World?.Name.ExtractText() ?? "未知"));
+                                ImGui.Text("职业/特职：" +
                                            (character.ActualClassJob?.Base.Name.ExtractText().ToTitleCase() ?? "未知"));
                             }
                             else if (character.CharacterType is CharacterType.Housing)
                             {
-                                ImGui.Text("世界: " + (character.World?.Name.ExtractText() ?? "未知"));
-                                ImGui.Text("房屋大小: " + character.GetPlotSize());
-                                ImGui.Text("位置: " + character.HousingName);
-                                ImGui.Text("所有者: ");
+                                ImGui.Text("世界：" + (character.World?.Name.ExtractText() ?? "未知"));
+                                ImGui.Text("地块大小：" + character.GetPlotSize());
+                                ImGui.Text("位置：" + character.HousingName);
+                                ImGui.Text("所有者：");
                                 foreach (var ownerId in character.Owners)
                                 {
                                     var owner = _characterMonitor.GetCharacterById(ownerId);
@@ -383,8 +383,8 @@ namespace InventoryTools.Ui.Pages
                             }
                             else if (character.CharacterType is CharacterType.FreeCompanyChest)
                             {
-                                ImGui.Text("世界: " + (character.World?.Name.ExtractText() ?? "未知"));
-                                ImGui.Text("关联角色: ");
+                                ImGui.Text("世界：" + (character.World?.Name.ExtractText() ?? "未知"));
+                                ImGui.Text("关联角色：");
                                 foreach (var relatedCharacter in _characterMonitor.GetFreeCompanyCharacters(character.CharacterId))
                                 {
                                     var relatedCharacterName = relatedCharacter.Value.FormattedName;
@@ -393,7 +393,7 @@ namespace InventoryTools.Ui.Pages
                             }
 
                             ImGui.NewLine();
-                            ImGui.Text("背包: ");
+                            ImGui.Text("背包：");
                             ImGui.Separator();
                             var inventories =
                                 _inventoryMonitor.Inventories.ContainsKey(character.CharacterId)
@@ -505,7 +505,7 @@ namespace InventoryTools.Ui.Pages
                         }
                         else
                         {
-                            ImGui.Text("选择了无效的角色。");
+                            ImGui.Text("选择了无效角色。");
                         }
                     }
                 }

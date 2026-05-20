@@ -136,7 +136,7 @@ namespace InventoryTools.Ui.Pages
                         _draggedItemKey = key;
                         _draggedSection = payloadId;
                         ImGui.SetDragDropPayload(payloadId, []);
-                        ImGui.TextUnformatted("移动: " + (config.Name != "" ? config.Name : "未命名"));
+                        ImGui.TextUnformatted("移动中：" + (config.Name != "" ? config.Name : "未命名"));
                     }
                 }
 
