@@ -99,8 +99,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddStringColumn(new()
         {
             Key = "name",
-            Name = "Name",
-            HelpText = "The name of the duty",
+            Name = "名称",
+            HelpText = "任务的名称",
             Version = "14.0.3",
             ValueSelector = GetName
         });
@@ -146,8 +146,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         builder.AddIntegerColumn(new()
         {
             Key = "item_level",
-            Name = "Item Level",
-            HelpText = "Minimum item level required",
+            Name = "装等要求",
+            HelpText = "最低装备品级要求",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.ItemLevelRequired.ToString()
@@ -187,7 +187,7 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
         {
             Key = "pvp",
             Name = "PVP",
-            HelpText = "Whether this duty is PvP",
+            HelpText = "该副本是否为PvP",
             Version = "14.0.3",
             ValueSelector = row =>
                 row.ContentFinderCondition.Value.PvP
@@ -208,8 +208,8 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
     {
         viewBuilder.SetupDefaults(this, row);
 
-        viewBuilder.AddTag("Unlocked?", "Is the instance unlocked?", () => _unlockState.IsInstanceContentUnlocked(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
-        viewBuilder.AddTag("Completed?", "Is the instance completed?", () => _uiStateService.IsInstanceContentCompleted(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
+        viewBuilder.AddTag("已解锁", "该副本是否已解锁？", () => _unlockState.IsInstanceContentUnlocked(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
+        viewBuilder.AddTag("已完成", "该副本是否已完成？", () => _uiStateService.IsInstanceContentCompleted(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
 
         var relatedQuests = _questSheet.Where(c => c.InstanceContent.Any(c => c.RowId == row.RowId) || c.QuestParams.Any(c => c.ScriptArg == row.RowId && c.ScriptInstruction.ToString().StartsWith("INSTANCEDUNGEON")))
             .Select(c => c.AsUntypedRowRef()).ToList();
@@ -220,13 +220,13 @@ public class InstanceContentCompendiumType : CompendiumType<InstanceContent>
             RelatedRefs = relatedQuests,
             HideWhenEmpty = true,
             SectionKey = "related_quests",
-            SectionName = "Related Quests"
+            SectionName = "相关任务"
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             RelatedRef = row.ContentFinderCondition.Value.TerritoryType.Value.AsUntypedRowRef(),
             SectionKey = "related_map",
-            SectionName = "Related Map"
+            SectionName = "相关地图"
         });
     }
 

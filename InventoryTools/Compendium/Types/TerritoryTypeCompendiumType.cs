@@ -86,8 +86,8 @@ public class TerritoryTypeCompendiumType : CompendiumType<IGrouping<string, Terr
         builder.AddStringColumn(new()
         {
             Key = "name",
-            Name = "Name",
-            HelpText = "The name of the territory",
+            Name = "名称",
+            HelpText = "区域的名称",
             Version = "14.0.3",
             ValueSelector = GetName
         });

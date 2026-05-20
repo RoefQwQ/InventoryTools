@@ -116,7 +116,7 @@ public class ENpcCompendiumType : CompendiumType<IGrouping<string, ENpcBaseRow>>
         {
             MapLinks = mapLinks,
             SectionKey = "known_locations",
-            SectionName = "Known Locations"
+            SectionName = "已知位置"
         });
 
     }

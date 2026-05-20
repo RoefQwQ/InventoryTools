@@ -123,7 +123,7 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
                 SectionKey = "unlock_quest",
-                SectionName = "Unlock Quest",
+                SectionName = "解锁任务",
                 RelatedRef = (RowRef)firstQuest.Value.Quest
             });
         }
@@ -133,7 +133,7 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
                 SectionKey = "unlock_quest",
-                SectionName = "Unlock Quest",
+                SectionName = "解锁任务",
                 RelatedRef = (RowRef)row.Base.UnlockQuest
             });
         }
@@ -141,13 +141,13 @@ public class ClassJobCompendiumType : CompendiumType<ClassJobRow>
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             SectionKey = "relic_quest",
-            SectionName = "Relic Quest",
+            SectionName = "武魂任务",
             RelatedRef = (RowRef)row.Base.RelicQuest
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             SectionKey = "prerequisite_quest",
-            SectionName = "Prerequisite Quest",
+            SectionName = "前置任务",
             RelatedRef = (RowRef)row.Base.Prerequisite
         });
     }

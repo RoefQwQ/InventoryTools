@@ -154,7 +154,7 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
         viewBuilder.AddInfoTableSection(new()
         {
             SectionKey = "info",
-            SectionName = "Info",
+            SectionName = "信息",
             Items =
             [
                 ("Source", _itemSourceTypeLocalizer.Format(row.SourceType), true),

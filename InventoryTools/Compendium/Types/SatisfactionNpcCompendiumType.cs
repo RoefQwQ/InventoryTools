@@ -157,7 +157,7 @@ public class SatisfactionNpcCompendiumType : CompendiumType<SatisfactionNpc>
         builder.AddStringColumn(new()
         {
             Key = "unlock_quest",
-            Name = "Unlock Quest",
+            Name = "解锁任务",
             HelpText = "Required quest",
             Version = "1.0.0",
             ValueSelector = row => row.QuestRequired.ValueNullable?.Name.ToImGuiString() ?? ""
@@ -236,7 +236,7 @@ public class SatisfactionNpcCompendiumType : CompendiumType<SatisfactionNpc>
         {
             RelatedRef = (RowRef)row.Npc,
             SectionKey = "related_npc",
-            SectionName = "Related NPC"
+            SectionName = "相关NPC"
         });
 
     }
@@ -247,7 +247,7 @@ public class SatisfactionNpcCompendiumType : CompendiumType<SatisfactionNpc>
         [
             new CompendiumGrouping<SatisfactionNpc>()
             {
-                Name = "Expansion",
+                Name = "资料片",
                 Key = "expansion",
                 GroupFunc = row => row.QuestRequired.ValueNullable?.Expansion.RowId ?? 0,
                 GroupMapping = row =>

@@ -49,7 +49,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
             Columns = BuiltColumns,
             CompendiumType = this,
             Key = "relic_tools",
-            Name = "Relic Tools",
+            Name = "魂武工具",
         });
     }
 
@@ -189,7 +189,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             SectionKey = "class_job",
-            SectionName = "Class/Job",
+            SectionName = "职业/特职",
             RelatedRef = (RowRef)row.ClassJob
         });
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
@@ -201,7 +201,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
         viewBuilder.AddItemFlowSection(new ItemFlowSectionOptions()
         {
             SectionKey = "tools",
-            SectionName = "Tools",
+            SectionName = "工具",
             Items = itemFlowEntries,
             ItemsPerColumn = Math.Max(3, (int)Math.Ceiling((double)itemFlowEntries.Count / 3))
         });
@@ -237,7 +237,7 @@ public class RelicToolCompendiumType : CompendiumType<RelicToolGroup>
             new CompendiumGrouping<RelicToolGroup>()
             {
                 Key = "category",
-                Name = "Category",
+                Name = "分类",
                 GroupFunc = row => row.ToolCategory,
                 GroupMapping = row =>
                 {

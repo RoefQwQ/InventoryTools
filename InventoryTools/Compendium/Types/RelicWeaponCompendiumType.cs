@@ -193,7 +193,7 @@ public class RelicWeaponCompendiumType : CompendiumType<RelicWeaponGroup>
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             SectionKey = "class_job",
-            SectionName = "Class/Job",
+            SectionName = "职业/特职",
             RelatedRef = (RowRef)row.ClassJob
         });
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
@@ -223,7 +223,7 @@ public class RelicWeaponCompendiumType : CompendiumType<RelicWeaponGroup>
             new CompendiumGrouping<RelicWeaponGroup>()
             {
                 Key = "class_job",
-                Name = "Class/Job",
+                Name = "职业/特职",
                 GroupFunc = row => row.ClassJob.RowId,
                 GroupMapping = row =>
                 {

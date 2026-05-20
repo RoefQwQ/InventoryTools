@@ -95,7 +95,7 @@ public class SharedModelCompendiumType : CompendiumType<SharedModelCache.SharedM
         builder.AddItemsColumn(new ItemsColumnOptions<SharedModelCache.SharedModelGroup>
         {
             ValueSelector = row => row.Items.ToList(),
-            Name = "Items",
+            Name = "物品",
             Key = "items",
             HelpText = "The items that share this model",
             Version = "14.0.3",

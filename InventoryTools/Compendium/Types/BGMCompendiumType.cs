@@ -114,7 +114,7 @@ public class BGMCompendiumType : CompendiumType<BGM>
                     viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
                     {
                         SectionKey = "orchestrion_roll",
-                        SectionName = "Orchestrion Roll",
+                        SectionName = "管弦乐琴乐谱",
                         RelatedRef = _itemSheet.GetRow(orchestrionItemId).AsUntypedRowRef()
                     });
                 }

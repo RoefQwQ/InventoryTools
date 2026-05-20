@@ -45,7 +45,7 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
             Columns = BuiltColumns,
             CompendiumType = this,
             Key = "items",
-            Name = "Items"
+            Name = "物品"
         });
     }
 
@@ -85,8 +85,8 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
 
     public override void BuildColumns(CompendiumColumnBuilder<ItemRow> builder)
     {
-        builder.AddCompendiumOpenViewColumn(new() { Key = "icon", Name = "##Icon", HelpText = "The icon of the leve", Version = "14.0.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId });
-        builder.AddStringColumn(new() { Key = "name", Name = "Name", HelpText = "The name of the leve", Version = "14.0.3", ValueSelector = row => row.NameString });
+        builder.AddCompendiumOpenViewColumn(new() { Key = "icon", Name = "##Icon", HelpText = "物品图标", Version = "14.0.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId });
+        builder.AddStringColumn(new() { Key = "name", Name = "名称", HelpText = "物品名称", Version = "14.0.3", ValueSelector = row => row.NameString });
     }
 
     public override void BuildViewFields(CompendiumViewBuilder viewBuilder, ItemRow row)
@@ -123,7 +123,7 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
             Sources = row.Sources,
             SourceType = SourceType.Source,
             SectionKey = "sources",
-            SectionName = "Sources",
+            SectionName = "来源",
         });
 
         viewBuilder.AddItemSourcesSection(new ItemSourcesSectionOptions()
@@ -131,13 +131,13 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
             Sources = row.Uses,
             SourceType = SourceType.Use,
             SectionKey = "uses",
-            SectionName = "Uses"
+            SectionName = "用途"
         });
 
         viewBuilder.AddMetadataSection(new MetadataSectionOptions()
         {
             SectionKey = "information",
-            SectionName = "Information",
+            SectionName = "信息",
             Rows = new List<MetadataSectionOptions.Row>()
             {
                 new()
@@ -157,7 +157,7 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             SectionKey = "desynthesis_class",
-            SectionName = "Desynthesis Class",
+            SectionName = "分解职业",
             RelatedRef = (RowRef)row.Base.ClassJobRepair,
             HideWhenEmpty = true
         });
@@ -165,7 +165,7 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
         viewBuilder.AddItemListSection(new ItemListSectionOptions()
         {
             SectionKey = "shared_models",
-            SectionName = "Shared Models",
+            SectionName = "共享模型",
             Items = sharedModels.Select(c => new ItemInfo(c)),
             HideWhenEmpty = true
         });
@@ -182,7 +182,7 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
         viewBuilder.AddMetadataSection(new MetadataSectionOptions()
         {
             SectionKey = "unlock_requirements",
-            SectionName = "Unlock Requirements",
+            SectionName = "解锁要求",
             Rows = requirementRows,
             HideWhenEmpty = true
         });

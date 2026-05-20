@@ -84,7 +84,7 @@ public class SubmarineRoutesCompendiumType : CompendiumType<SubmarineExploration
         viewBuilder.AddInfoTableSection(new InfoTableSectionOptions()
         {
             SectionKey = "information",
-            SectionName = "Information",
+            SectionName = "信息",
             Items = information.AsReadOnly()
         });
         if (row.Unlock != null)

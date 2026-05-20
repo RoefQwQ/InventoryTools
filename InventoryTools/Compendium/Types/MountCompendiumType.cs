@@ -88,7 +88,7 @@ public class MountCompendiumType : CompendiumType<Mount>
     {
         return Factory.Invoke(new CompendiumTableOptions<Mount>()
         {
-            Name = "Mounts",
+            Name = "坐骑",
             Columns = BuiltColumns,
             CompendiumType = this,
             Key = "mounts",
@@ -135,7 +135,7 @@ public class MountCompendiumType : CompendiumType<Mount>
         {
             Key = "icon",
             Name = "##Icon",
-            HelpText = "Mount icon",
+            HelpText = "坐骑图标",
             Version = "14.1.2",
             ValueSelector = GetIcon,
             CompendiumType = this,
@@ -145,8 +145,8 @@ public class MountCompendiumType : CompendiumType<Mount>
         builder.AddStringColumn(new()
         {
             Key = "name",
-            Name = "Name",
-            HelpText = "Mount name",
+            Name = "名称",
+            HelpText = "坐骑名称",
             Version = "14.1.2",
             ValueSelector = GetName
         });
@@ -154,8 +154,8 @@ public class MountCompendiumType : CompendiumType<Mount>
         builder.AddBooleanColumn(new()
         {
             Key = "unlocked",
-            Name = "Unlocked",
-            HelpText = "Is unlocked",
+            Name = "已解锁",
+            HelpText = "是否已解锁",
             Version = "14.1.2",
             ValueSelector = r => _unlockState.IsMountUnlocked(r)
         });
@@ -164,8 +164,8 @@ public class MountCompendiumType : CompendiumType<Mount>
         builder.AddIntegerColumn(new()
         {
             Key = "seats",
-            Name = "Seats",
-            HelpText = "How many people does this mount seat?",
+            Name = "座位数",
+            HelpText = "坐骑可容纳人数",
             Version = "14.1.2",
             ValueSelector = r => (r.ExtraSeats + 1).ToString()
         });
@@ -173,8 +173,8 @@ public class MountCompendiumType : CompendiumType<Mount>
         builder.AddItemSourcesColumn(new()
         {
             Key = "sources",
-            Name = "Sources",
-            HelpText = "Mount sources",
+            Name = "来源",
+            HelpText = "坐骑来源",
             Version = "14.1.2",
             ValueSelector = r =>
             {
@@ -197,9 +197,9 @@ public class MountCompendiumType : CompendiumType<Mount>
         viewBuilder.Description =
             transient.Description.ToImGuiString();
 
-        viewBuilder.AddTag("Unlocked?", "Is unlocked", () => _unlockState.IsMountUnlocked(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
+        viewBuilder.AddTag("已解锁?", "是否已解锁", () => _unlockState.IsMountUnlocked(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
 
-        viewBuilder.AddTag("Seats " + (row.ExtraSeats + 1), "How many people does this mount seat?");
+        viewBuilder.AddTag("座位数 " + (row.ExtraSeats + 1), "坐骑可容纳人数");
 
         var relatedItem = GetRelatedItem(row.RowId);
 
@@ -208,7 +208,7 @@ public class MountCompendiumType : CompendiumType<Mount>
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
                 SectionKey = "related_item",
-                SectionName = "Related Item",
+                SectionName = "相关物品",
                 RelatedRef = relatedItem.Value.AsUntypedRowRef()
             });
             var sources =
@@ -218,7 +218,7 @@ public class MountCompendiumType : CompendiumType<Mount>
             viewBuilder.AddItemSourcesSection(new ItemSourcesSectionOptions()
                 {
                     SectionKey = "sources",
-                    SectionName = "Sources",
+                    SectionName = "来源",
                     Sources = sources ?? [],
                     SourceType = SourceType.Source
                 });

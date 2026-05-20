@@ -93,7 +93,7 @@ public class MinionCompendiumType : CompendiumType<Companion>
     {
         return Factory.Invoke(new CompendiumTableOptions<Companion>()
         {
-            Name = "Minions",
+            Name = "宠物",
             Columns = BuiltColumns,
             CompendiumType = this,
             Key = "minions",
@@ -132,11 +132,11 @@ public class MinionCompendiumType : CompendiumType<Companion>
 
     public override void BuildColumns(CompendiumColumnBuilder<Companion> builder)
     {
-        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##Icon", HelpText = "The icon of the minion", Version = "14.1.2", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
-        builder.AddStringColumn(new (){Key = "name", Name = "Name", HelpText = "The name of the minion", Version = "14.1.2", ValueSelector = this.GetName});
-        builder.AddStringColumn(new (){Key = "category", Name = "Category", HelpText = "The category of the minion", Version = "14.1.2", ValueSelector = row => row.MinionRace.Value.Name.ToImGuiString()});
-        builder.AddBooleanColumn(new (){Key = "unlocked", Name = "Unlocked", HelpText = "Is the minion unlocked?.", Version = "14.1.2", ValueSelector = row => _unlockState.IsCompanionUnlocked(row)});
-        builder.AddItemSourcesColumn(new (){Key = "sources", Name = "Sources", HelpText = "The sources for obtaining the minion", Version = "14.1.2", ValueSelector =
+        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##Icon", HelpText = "宠物图标", Version = "14.1.2", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
+        builder.AddStringColumn(new (){Key = "name", Name = "名称", HelpText = "宠物名称", Version = "14.1.2", ValueSelector = this.GetName});
+        builder.AddStringColumn(new (){Key = "category", Name = "分类", HelpText = "宠物分类", Version = "14.1.2", ValueSelector = row => row.MinionRace.Value.Name.ToImGuiString()});
+        builder.AddBooleanColumn(new (){Key = "unlocked", Name = "已解锁", HelpText = "宠物是否已解锁", Version = "14.1.2", ValueSelector = row => _unlockState.IsCompanionUnlocked(row)});
+        builder.AddItemSourcesColumn(new (){Key = "sources", Name = "来源", HelpText = "宠物获取来源", Version = "14.1.2", ValueSelector =
             row =>
             {
                 var relatedItem = GetRelatedItem(row.RowId);
@@ -154,18 +154,18 @@ public class MinionCompendiumType : CompendiumType<Companion>
         viewBuilder.SetupDefaults(this, row);
         var transientInformation = _companionTransientSheet.GetRow(row.RowId);
         viewBuilder.Description = transientInformation.DescriptionEnhanced.ToImGuiString();
-        viewBuilder.AddTag("Unlocked?", "Is the minion unlocked?", () => _unlockState.IsCompanionUnlocked(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
-        viewBuilder.AddTag("Type: " + transientInformation.MinionSkillType.Value.Name.ToImGuiString(), "The skill type of the minion.");
-        viewBuilder.AddTag("Action: " + transientInformation.SpecialActionName.ToImGuiString(), transientInformation.SpecialActionDescription.ToImGuiString());
+        viewBuilder.AddTag("已解锁?", "宠物是否已解锁?", () => _unlockState.IsCompanionUnlocked(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
+        viewBuilder.AddTag("类型: " + transientInformation.MinionSkillType.Value.Name.ToImGuiString(), "宠物的技能类型。");
+        viewBuilder.AddTag("技能: " + transientInformation.SpecialActionName.ToImGuiString(), transientInformation.SpecialActionDescription.ToImGuiString());
         viewBuilder.AddInfoTableSection(new InfoTableSectionOptions()
         {
             SectionKey = "stats",
-            SectionName = "Stats",
+            SectionName = "属性",
             Items =
             [
-                ("Attack", transientInformation.Attack.ToString(), true),
-                ("Defense", transientInformation.Defense.ToString(), true),
-                ("Attack", transientInformation.Speed.ToString(), true),
+                ("攻击", transientInformation.Attack.ToString(), true),
+                ("防御", transientInformation.Defense.ToString(), true),
+                ("速度", transientInformation.Speed.ToString(), true),
             ]
         });
         var relatedItem = GetRelatedItem(row.RowId);
@@ -174,14 +174,14 @@ public class MinionCompendiumType : CompendiumType<Companion>
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
                 SectionKey = "related_item",
-                SectionName = "Related Item",
+                SectionName = "相关物品",
                 RelatedRef = relatedItem.Value.AsUntypedRowRef()
             });
             var itemSources = _itemInfoCache.GetItemSources(relatedItem.Value.RowId);
             viewBuilder.AddItemSourcesSection(new ItemSourcesSectionOptions()
             {
                 SectionKey = "sources",
-                SectionName = "Sources",
+                SectionName = "来源",
                 Sources = itemSources ?? [],
                 SourceType = SourceType.Source
             });

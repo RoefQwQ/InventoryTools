@@ -106,7 +106,7 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
         builder.AddStringColumn(new()
         {
             Key = "category",
-            Name = "Category",
+            Name = "分类",
             Version = "1.0",
             HelpText = "The category of the item",
             ValueSelector = r => GetCategoryName(r.Category)
@@ -136,7 +136,7 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
         viewBuilder.AddInfoTableSection(new()
         {
             SectionKey = "info",
-            SectionName = "Info",
+            SectionName = "信息",
             Items =
             [
                 ("Category", GetCategoryName(row.Category), true),
@@ -158,7 +158,7 @@ public class RacingChocoboItemCompendiumType : CompendiumType<RacingChocoboItem>
             new CompendiumGrouping<RacingChocoboItem>()
             {
                 Key = "category",
-                Name = "Category",
+                Name = "分类",
                 GroupFunc = r => r.Category,
                 GroupMapping = r => GetCategoryName((byte)r)
             }

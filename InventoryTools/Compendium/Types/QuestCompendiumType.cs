@@ -64,7 +64,7 @@ public class QuestCompendiumType : CompendiumType<Quest>
         {
             CompendiumType = this,
             Key = "quests",
-            Name = "Quests",
+            Name = "任务",
             Columns = BuiltColumns
         });
     }
@@ -133,13 +133,13 @@ public class QuestCompendiumType : CompendiumType<Quest>
 
     public override void BuildColumns(CompendiumColumnBuilder<Quest> builder)
     {
-        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##Icon", HelpText = "The icon of the quest", Version = "14.0.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
-        builder.AddStringColumn(new (){Key = "name", Name = "Name", HelpText = "The name of the quest", Version = "14.0.3", ValueSelector = this.GetName});
-        builder.AddStringColumn(new (){Key = "category", Name = "Category", HelpText = "The category of the quest", Version = "14.0.3", ValueSelector = row => row.JournalGenre.Value.Name.ToImGuiString()});
-        builder.AddStringColumn(new (){Key = "required_class", Name = "Required Class", HelpText = "The required class of the quest", Version = "14.0.3", ValueSelector = row => row.ClassJobRequired.ValueNullable?.Name.ToImGuiString().FirstCharToUpper() ?? ""});
-        builder.AddStringColumn(new (){Key = "level", Name = "Level", HelpText = "The required level of the quest", Version = "14.0.3", ValueSelector = row => row.ClassJobLevel[0].ToString() ?? ""});
-        builder.AddStringColumn(new (){Key = "expansion", Name = "Expansion", HelpText = "The expansion the quest corresponds to.", Version = "14.0.3", ValueSelector = row => row.Expansion.Value.Name.ToImGuiString() ?? ""});
-        builder.AddBooleanColumn(new (){Key = "completed", Name = "Completed", HelpText = "Is the quest completed?.", Version = "14.1.2", ValueSelector = row => _unlockState.IsQuestCompleted(row)});
+        builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##Icon", HelpText = "任务图标", Version = "14.0.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
+        builder.AddStringColumn(new (){Key = "name", Name = "名称", HelpText = "任务名称", Version = "14.0.3", ValueSelector = this.GetName});
+        builder.AddStringColumn(new (){Key = "category", Name = "分类", HelpText = "任务分类", Version = "14.0.3", ValueSelector = row => row.JournalGenre.Value.Name.ToImGuiString()});
+        builder.AddStringColumn(new (){Key = "required_class", Name = "需求职业", HelpText = "任务需求职业", Version = "14.0.3", ValueSelector = row => row.ClassJobRequired.ValueNullable?.Name.ToImGuiString().FirstCharToUpper() ?? ""});
+        builder.AddStringColumn(new (){Key = "level", Name = "等级", HelpText = "任务需求等级", Version = "14.0.3", ValueSelector = row => row.ClassJobLevel[0].ToString() ?? ""});
+        builder.AddStringColumn(new (){Key = "expansion", Name = "资料片", HelpText = "任务所属资料片", Version = "14.0.3", ValueSelector = row => row.Expansion.Value.Name.ToImGuiString() ?? ""});
+        builder.AddBooleanColumn(new (){Key = "completed", Name = "已完成", HelpText = "任务是否已完成", Version = "14.1.2", ValueSelector = row => _unlockState.IsQuestCompleted(row)});
     }
 
     public override void BuildViewFields(CompendiumViewBuilder viewBuilder, Quest row)
@@ -152,38 +152,38 @@ public class QuestCompendiumType : CompendiumType<Quest>
         {
             viewBuilder.Description = dialogue.Value.Value.ToImGuiString();
         }
-        viewBuilder.AddTag("Completed?", "Is the quest completed?", () => _unlockState.IsQuestCompleted(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
+        viewBuilder.AddTag("已完成?", "任务是否已完成?", () => _unlockState.IsQuestCompleted(row) ? ImGuiColors.HealerGreen : ImGuiColors.DalamudRed);
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
         {
             RelatedRefs = row.PreviousQuest.Select(c => (RowRef)c).ToList(),
             SectionKey = "previous_quests",
-            SectionName = "Previous Quests",
+            SectionName = "前置任务",
             HideWhenEmpty = false
         });
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
         {
             RelatedRefs = _questSheet.Where(c => c.PreviousQuest.Any(c => c.RowId == row.RowId)).Select(c => (RowRef)new RowRef<Quest>(c.ExcelPage.Module, c.RowId)).ToList(),
             SectionKey = "next_quests",
-            SectionName = "Next Quests",
+            SectionName = "后续任务",
             HideWhenEmpty = false
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             RelatedRef = (RowRef)row.ClassJobRequired,
             SectionKey = "required_class",
-            SectionName = "Required Class"
+            SectionName = "需求职业"
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             RelatedRef = (RowRef)row.ClassJobUnlock,
             SectionKey = "class_unlocked",
-            SectionName = "Class Unlocked"
+            SectionName = "解锁职业"
         });
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             RelatedRef = (RowRef)row.BeastTribe,
             SectionKey = "allied_society_beast_tribe",
-            SectionName = "Allied Society (Beast Tribe)"
+            SectionName = "蛮族"
         });
         //TODO: Add in some sort of automatic level mapping shit
         if (row.IssuerLocation.RowId != 0)
@@ -200,13 +200,13 @@ public class QuestCompendiumType : CompendiumType<Quest>
             }
             else
             {
-                issuerName = "Issuer";
+                issuerName = "发布者";
             }
             viewBuilder.AddMapLinkSectionSection(new MapLinkViewSectionOptions()
             {
                 MapLink = new MapLinkEntry(Icons.FlagIcon, issuerName,  issuerLocation.FormattedName, issuerLocation),
                 SectionKey = "issuer_location",
-                SectionName = "Issuer Location"
+                SectionName = "发布者位置"
             });
         }
         var relatedNpcs = _eNpcBaseSheet.Where(c => c.Base.ENpcDataRaw.Any(c => c == row.RowId)).DistinctBy(c => c.Name).Select(c => c.Base.AsUntypedRowRef()).DistinctBy(c => c.RowId).ToList();
@@ -215,7 +215,7 @@ public class QuestCompendiumType : CompendiumType<Quest>
         {
             RelatedRefs = relatedNpcs,
             SectionKey = "related_npcs",
-            SectionName = "Related NPCs",
+            SectionName = "相关NPC",
             Filter = typeof(ENpcBase)
         });
 
@@ -242,7 +242,7 @@ public class QuestCompendiumType : CompendiumType<Quest>
         {
             RelatedRefs = relatedInstances,
             SectionKey = "related_instances",
-            SectionName = "Related Instances"
+            SectionName = "相关副本"
         });
 
     }

@@ -86,7 +86,7 @@ public class AirshipRoutesCompendiumType : CompendiumType<AirshipExplorationPoin
         viewBuilder.AddInfoTableSection(new InfoTableSectionOptions()
         {
             SectionKey = "information",
-            SectionName = "Information",
+            SectionName = "信息",
             Items = information.AsReadOnly()
         });
         if (row.Unlock != null)
@@ -102,7 +102,7 @@ public class AirshipRoutesCompendiumType : CompendiumType<AirshipExplorationPoin
         {
             RelatedRefs = _airshipExplorationPointSheet.Where(c => c.UnlockId != null && c.UnlockId == row.RowId).Select(c => c.Base.AsUntypedRowRef()).ToList(),
             SectionKey = "unlocks",
-            SectionName = "Unlocks",
+            SectionName = "解锁",
             HideWhenEmpty = true
         });
 
@@ -110,7 +110,7 @@ public class AirshipRoutesCompendiumType : CompendiumType<AirshipExplorationPoin
         {
             Items = row.DropItems.Select(c => new ItemInfo(c)).ToList(),
             SectionKey = "potential_drops",
-            SectionName = "Potential Drops"
+            SectionName = "可能掉落"
         });
     }
 

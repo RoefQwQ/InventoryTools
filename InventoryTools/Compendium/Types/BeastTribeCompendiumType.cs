@@ -121,20 +121,20 @@ public class BeastTribeCompendiumType : CompendiumType<BeastTribe>
         viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
         {
             SectionKey = "currency_item",
-            SectionName = "Currency Item",
+            SectionName = "货币物品",
             RelatedRef = (RowRef)row.CurrencyItem,
         });
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
         {
             SectionKey = "main_quests",
-            SectionName = "Main Quests",
+            SectionName = "主线任务",
             RelatedRefs = mainQuests,
             HideWhenEmpty = true
         });
         viewBuilder.AddCollectionRowRefSection(new CollectionRowRefSectionOptions()
         {
             SectionKey = "repeatable_quests",
-            SectionName = "Repeatable Quests",
+            SectionName = "可重复任务",
             RelatedRefs = repeatableQuests,
             HideWhenEmpty = true
         });

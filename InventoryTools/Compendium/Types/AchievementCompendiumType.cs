@@ -144,7 +144,7 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
         };
         if (row.Base.Title.RowId != 0 && row.Base.Title.ValueNullable != null)
         {
-            information.Add(("Title", row.Base.Title.ValueNullable.Value.Masculine.ToImGuiString() + "/" + row.Base.Title.ValueNullable.Value.Feminine.ToImGuiString(), true));
+            information.Add(("称号", row.Base.Title.ValueNullable.Value.Masculine.ToImGuiString() + "/" + row.Base.Title.ValueNullable.Value.Feminine.ToImGuiString(), true));
         }
         viewBuilder.AddInfoTableSection(new InfoTableSectionOptions()
         {
@@ -161,7 +161,7 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
             RelatedRefs = items,
             Filter = typeof(Achievement),
             SectionKey = "required_achievements",
-            SectionName = "Required Achievements"
+            SectionName = "前置成就"
         });
 
         var relatedAchievements = _achievementSheet.Where(c => c.Base.Key.RowType == typeof(Achievement) && c.Base.Key.RowId == row.RowId || c.Base.Data.Any(d => d.RowType == typeof(Achievement) && d.RowId == row.RowId)).Select(c => c.Base.AsUntypedRowRef()).ToList();
@@ -181,7 +181,7 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
             viewBuilder.AddSingleRowRefSection(new SingleRowRefSectionOptions()
             {
                 SectionKey = "unlocked_item",
-                SectionName = "Unlocked Item",
+                SectionName = "解锁物品",
                 RelatedRef = row.Base.Item.Value.AsUntypedRowRef()
             });
         }
