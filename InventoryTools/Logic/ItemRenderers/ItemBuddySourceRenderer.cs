@@ -32,17 +32,17 @@ public class ItemBuddySourceRenderer : ItemInfoRenderer<ItemBuddySource>
 
         if (usedField)
         {
-            ImGui.Text("Battle: Increases EXP earned by your chocobo companion.");
+            ImGui.Text("战斗：增加陆行鸟搭档获得的经验值。");
         }
 
         if (usedTraining)
         {
-            ImGui.Text("Stable: Training food for a stabled Chocobo companion.");
+            ImGui.Text("陆行鸟房：用于圈养陆行鸟的训练食物。");
         }
 
         if (usedDyeing)
         {
-            ImGui.Text("Dying: Used in Chocobo Dyeing.");
+            ImGui.Text("染色：用于陆行鸟染色。");
         }
     };
     public override Func<ItemSource, string> GetName => source =>

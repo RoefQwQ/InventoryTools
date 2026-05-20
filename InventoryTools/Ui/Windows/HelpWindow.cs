@@ -131,7 +131,7 @@ namespace InventoryTools.Ui
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
                         ImGui.TextUnformatted(_localizationService["Window_Help_FilterBasics_SortFilterDesc"]);
-                        ImGui.TextUnformatted("Example Usages:");
+                        ImGui.TextUnformatted("示例用法：");
                         ImGui.BulletText(_localizationService["Window_Help_FilterBasics_ExamplePutAwayMaterials"]);
                         ImGui.BulletText(_localizationService["Window_Help_FilterBasics_ExampleChocoboSaddlebag"]);
                         ImGui.BulletText(_localizationService["Window_Help_FilterBasics_ExampleFreeCompanyChest"]);
@@ -142,7 +142,7 @@ namespace InventoryTools.Ui
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
                         ImGui.TextUnformatted(_localizationService["Window_Help_FilterBasics_GameItemFilterDesc"]);
-                        ImGui.TextUnformatted("Example Usages:");
+                        ImGui.TextUnformatted("示例用法：");
                         ImGui.BulletText(_localizationService["Window_Help_FilterBasics_ExampleGlamours"]);
                         ImGui.BulletText(_localizationService["Window_Help_FilterBasics_ExampleMountsMinions"]);
                         ImGui.BulletText(_localizationService["Window_Help_FilterBasics_ExampleTrackPrices"]);

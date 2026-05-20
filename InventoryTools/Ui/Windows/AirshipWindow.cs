@@ -116,7 +116,7 @@ namespace InventoryTools.Ui
                 #if DEBUG
                 if (ImGui.CollapsingHeader("Debug"))
                 {
-                    ImGui.TextUnformatted("Duty ID: " + _airshipExplorationPointId);
+                    ImGui.TextUnformatted("副本 ID：" + _airshipExplorationPointId);
                     Utils.PrintOutObject(AirshipExplorationPoint, 0, new List<string>());
                 }
                 #endif

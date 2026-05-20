@@ -89,7 +89,7 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
         {
             Key = "icon",
             Name = "##Icon",
-            HelpText = "The icon of the chocobo item.",
+            HelpText = "陆行鸟物品图标",
             Version = "1",
             ValueSelector = row => row.Item.RowId,
         });
@@ -98,7 +98,7 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
         {
             Key = "name",
             Name = "Name",
-            HelpText = "The name of the chocobo item.",
+            HelpText = "陆行鸟物品名称",
             Version = "1",
             ValueSelector = r => r.Item.NameString
         });
@@ -107,7 +107,7 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
         {
             Key = "source",
             Name = "Source",
-            HelpText = "The source of the chocobo item.",
+            HelpText = "陆行鸟物品来源",
             Version = "1",
             ValueSelector = r => _itemSourceTypeLocalizer.Format(r.SourceType)
         });
@@ -125,7 +125,7 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
         {
             Key = "field_item",
             Name = "Field Item?",
-            HelpText = "Is this item used in the field?",
+            HelpText = "此物品是否在野外使用？",
             Version = "1",
             ValueSelector = r => r.BuddyItem?.Value.UseField
         });
@@ -134,7 +134,7 @@ public class ChocoboItemCompendiumType : CompendiumType<ChocoboItem>
         {
             Key = "recolor_item",
             Name = "Dye Item?",
-            HelpText = "Is this item used to alter a chocobos colour?",
+            HelpText = "此物品是否用于改变陆行鸟颜色？",
             Version = "1",
             ValueSelector = r => r.BuddyItem?.Value.Unknown0
         });

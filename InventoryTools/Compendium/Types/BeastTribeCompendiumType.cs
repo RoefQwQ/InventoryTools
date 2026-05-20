@@ -80,7 +80,7 @@ public class BeastTribeCompendiumType : CompendiumType<BeastTribe>
     {
         builder.AddCompendiumOpenViewColumn(new(){Key = "icon", Name = "##图标", HelpText = "蛮族图标", Version = "14.0.3", ValueSelector = this.GetIcon, CompendiumType = this, RowIdSelector = row => row.RowId});
         builder.AddStringColumn(new (){Key = "name", Name = "名称", HelpText = "蛮族名称", Version = "14.0.3", ValueSelector = this.GetName});
-        builder.AddStringColumn(new (){Key = "expansion", Name = "Expansion", HelpText = "The expansion the beast tribe was introduced", Version = "14.0.3", ValueSelector = row => row.Expansion.Value.Name.ToImGuiString()});
+        builder.AddStringColumn(new (){Key = "expansion", Name = "资料片", HelpText = "蛮族所属资料片", Version = "14.0.3", ValueSelector = row => row.Expansion.Value.Name.ToImGuiString()});
     }
 
     public override List<ICompendiumGrouping>? GetGroupings()

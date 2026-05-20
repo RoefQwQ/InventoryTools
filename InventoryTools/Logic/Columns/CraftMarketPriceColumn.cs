@@ -98,11 +98,11 @@ public class CraftMarketPriceColumn : GilColumn
                             totalAvailable += price.Left;
                         }
 
-                        ImGui.Text("Available: " + totalAvailable);
+                        ImGui.Text("可用：" + totalAvailable);
 
                         if (searchResult.CraftItem.MarketAvailable != searchResult.CraftItem.QuantityNeeded)
                         {
-                            ImGui.Text("Missing: " + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
+                            ImGui.Text("缺少：" + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
                         }
                     }
                 }

@@ -41,7 +41,7 @@ public class ItemDungeonBossChestSourceRenderer : ItemInfoRenderer<ItemDungeonBo
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Dungeon: " + asSource.ContentFinderCondition.FormattedName);
+        ImGui.Text("副本：" + asSource.ContentFinderCondition.FormattedName);
         using (ImRaii.PushIndent())
         {
             ImGui.Text(asSource.BNpcName.Base.Singular.ExtractText().ToTitleCase() + " (Boss " + (asSource.DungeonBoss.FightNo + 1) + ")");
@@ -61,7 +61,7 @@ public class ItemDungeonBossChestSourceRenderer : ItemInfoRenderer<ItemDungeonBo
         var groupedByDungeon = asSources.GroupBy(c => c.DungeonBoss.ContentFinderCondition.RowId);
         foreach (var dungeon in groupedByDungeon)
         {
-            ImGui.Text("Dungeon: " + dungeon.First().DungeonBoss.ContentFinderCondition.Value.Name.ExtractText());
+            ImGui.Text("副本：" + dungeon.First().DungeonBoss.ContentFinderCondition.Value.Name.ExtractText());
             using (ImRaii.PushIndent())
             {
                 foreach (var itemSource in dungeon.DistinctBy(c => c.DungeonBoss.BNpcName.RowId))

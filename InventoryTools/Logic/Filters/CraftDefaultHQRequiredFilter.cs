@@ -27,7 +27,7 @@ public class CraftDefaultHQRequiredFilter : BooleanFilter
 
     public override string[] GetChoices()
     {
-        return ["Yes", "No"];
+        return ["是", "否"];
     }
 
     public override void UpdateFilterConfiguration(FilterConfiguration configuration, bool? newValue)

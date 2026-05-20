@@ -2939,7 +2939,7 @@ namespace InventoryTools.Ui
                             var filterConfigurations = Filters.Where(c => c != SelectedConfiguration).ToList();
                             foreach (var filter in filterConfigurations)
                             {
-                                if (ImGui.Selectable("Copy configuration from '" + filter.Name + "'"))
+                                if (ImGui.Selectable("从'" + filter.Name + "'复制配置"))
                                 {
                                     _listService.ResetFilter(_filterService.AvailableFilters, filterConfiguration, filter);
                                 }

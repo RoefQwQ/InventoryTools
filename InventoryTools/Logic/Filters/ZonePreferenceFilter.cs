@@ -139,7 +139,7 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
                 ImGui.Separator();
                 if (_searchString == "")
                 {
-                    ImGui.TextUnformatted("Start typing to search...");
+                    ImGui.TextUnformatted("输入以搜索...");
                 }
                 foreach (var item in SearchTerritories.Where(c => !currentValue.ContainsKey(c.RowId)))
                 {

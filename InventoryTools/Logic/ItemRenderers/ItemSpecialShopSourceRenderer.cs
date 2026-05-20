@@ -87,7 +87,7 @@ public class ItemSpecialShopSourceRenderer : ItemInfoRenderer<ItemSpecialShopSou
                 }
             }
         }
-        ImGui.Text("Costs:");
+        ImGui.Text("花费：");
         using (ImRaii.PushIndent())
         {
             foreach (var cost in asSource.ShopListing.Costs)

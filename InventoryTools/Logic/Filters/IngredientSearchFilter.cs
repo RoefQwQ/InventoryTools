@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AllaganLib.GameSheets.Caches;
@@ -86,7 +86,7 @@ public class IngredientSearchFilter : UintMultipleChoiceFilter
                         c.FilterType is Logic.FilterType.SearchFilter or FilterType.SortingFilter or FilterType.GameItemFilter && c != configuration).ToArray();
                 foreach (var filter in filters)
                 {
-                    if (ImGui.Selectable("Add all from " + filter.Name))
+                    if (ImGui.Selectable("从'" + filter.Name + "'添加全部"))
                     {
                         var filterResult = _listFilterService.Value.RefreshList(filter);
                         foreach (var item in filterResult)

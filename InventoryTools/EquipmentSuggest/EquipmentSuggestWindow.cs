@@ -81,22 +81,22 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                 {
                     if (menu)
                     {
-                        if (ImGui.MenuItem("Configuration"))
+                        if (ImGui.MenuItem("配置"))
                         {
                             MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWindow)));
                         }
 
-                        if (ImGui.MenuItem("Changelog"))
+                        if (ImGui.MenuItem("更新日志"))
                         {
                             MediatorService.Publish(new OpenGenericWindowMessage(typeof(ChangelogWindow)));
                         }
 
-                        if (ImGui.MenuItem("Help"))
+                        if (ImGui.MenuItem("帮助"))
                         {
                             MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow)));
                         }
 
-                        if (ImGui.MenuItem("Enable Verbose Logging", "",
+                        if (ImGui.MenuItem("启用详细日志", "",
                                 this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose))
                         {
                             if (this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose)
@@ -109,7 +109,7 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                             }
                         }
 
-                        if (ImGui.MenuItem("Report a Issue"))
+                        if (ImGui.MenuItem("报告问题"))
                         {
                             "https://github.com/Critical-Impact/InventoryTools".OpenBrowser();
                         }
@@ -119,7 +119,7 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                             "https://ko-fi.com/critical_impact".OpenBrowser();
                         }
 
-                        if (ImGui.MenuItem("Close"))
+                        if (ImGui.MenuItem("关闭"))
                         {
                             this.IsOpen = false;
                         }
@@ -130,13 +130,13 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                 {
                     if (menu)
                     {
-                        if (ImGui.MenuItem("Class/Job", "",
+                        if (ImGui.MenuItem("职业", "",
                                 _modeSetting.CurrentValue(_configuration) == EquipmentSuggestMode.Class))
                         {
                             _modeSetting.UpdateFilterConfiguration(_configuration, EquipmentSuggestMode.Class);
                         }
 
-                        if (ImGui.MenuItem("Tool/Weapon", "",
+                        if (ImGui.MenuItem("工具/武器", "",
                                 _modeSetting.CurrentValue(_configuration) == EquipmentSuggestMode.Tool))
                         {
                             _modeSetting.UpdateFilterConfiguration(_configuration, EquipmentSuggestMode.Tool);
@@ -148,20 +148,20 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                 {
                     if (menu)
                     {
-                        if (ImGui.MenuItem("Normal", "",
+                        if (ImGui.MenuItem("普通", "",
                                 _viewModeSetting.CurrentValue(_configuration) == EquipmentSuggestViewMode.Normal))
                         {
                             _viewModeSetting.UpdateFilterConfiguration(_configuration, EquipmentSuggestViewMode.Normal);
                         }
 
-                        if (ImGui.MenuItem("Expanded", "",
+                        if (ImGui.MenuItem("扩展", "",
                                 _viewModeSetting.CurrentValue(_configuration) == EquipmentSuggestViewMode.Expanded))
                         {
                             _viewModeSetting.UpdateFilterConfiguration(_configuration,
                                 EquipmentSuggestViewMode.Expanded);
                         }
 
-                        if (ImGui.MenuItem("Compact", "",
+                        if (ImGui.MenuItem("紧凑", "",
                                 _viewModeSetting.CurrentValue(_configuration) == EquipmentSuggestViewMode.Compact))
                         {
                             _viewModeSetting.UpdateFilterConfiguration(_configuration,

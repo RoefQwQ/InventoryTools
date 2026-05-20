@@ -154,22 +154,22 @@ namespace InventoryTools.Logic.Columns
             if (itemHovered || ImGui.IsItemHovered(ImGuiHoveredFlags.None))
             {
                 using var tt = ImRaii.Tooltip();
-                ImGui.Text("Ingredient Breakdown:");
-                ImGui.TextUnformatted("Amount Originally Required: " + searchResult.CraftItem.QuantityRequired);
-                ImGui.TextUnformatted("Amount Required: " + searchResult.CraftItem.QuantityNeededPreUpdate);
-                ImGui.TextUnformatted("Amount in Inventory: " + searchResult.CraftItem.QuantityReady);
-                ImGui.TextUnformatted("Amount to Retrieve: " + searchResult.CraftItem.QuantityAvailable);
+                ImGui.Text("材料分解：");
+                ImGui.TextUnformatted("原始需求量：" + searchResult.CraftItem.QuantityRequired);
+                ImGui.TextUnformatted("需求量：" + searchResult.CraftItem.QuantityNeededPreUpdate);
+                ImGui.TextUnformatted("背包中的数量：" + searchResult.CraftItem.QuantityReady);
+                ImGui.TextUnformatted("需取回数量：" + searchResult.CraftItem.QuantityAvailable);
                 ImGui.Separator();
-                ImGui.TextUnformatted("Amount Missing: " + searchResult.CraftItem.QuantityMissingOverall);
+                ImGui.TextUnformatted("缺少数量：" + searchResult.CraftItem.QuantityMissingOverall);
                 if (searchResult.Item.CanBeCrafted)
                 {
-                    ImGui.TextUnformatted("Amount Craftable: " + searchResult.CraftItem.QuantityCanCraft);
+                    ImGui.TextUnformatted("可制作数量：" + searchResult.CraftItem.QuantityCanCraft);
                     if (searchResult.CraftItem.Yield != 1)
                     {
                         ImGui.Separator();
-                        ImGui.TextUnformatted("Craft Operations Required: " +
+                        ImGui.TextUnformatted("所需制作次数：" +
                                               searchResult.CraftItem.QuantityNeeded / searchResult.CraftItem.Yield);
-                        ImGui.TextUnformatted("Recipe Yield: " + searchResult.CraftItem.Yield);
+                        ImGui.TextUnformatted("配方产出：" + searchResult.CraftItem.Yield);
                     }
                 }
 

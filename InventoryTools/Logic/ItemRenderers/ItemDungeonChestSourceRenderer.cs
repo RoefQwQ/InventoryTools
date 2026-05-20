@@ -42,7 +42,7 @@ public class ItemDungeonChestSourceRenderer : ItemInfoRenderer<ItemDungeonChestS
     {
         var asSource = AsSource(source);
 
-        ImGui.Text("Dungeon: " + asSource.ContentFinderCondition.FormattedName);
+        ImGui.Text("副本：" + asSource.ContentFinderCondition.FormattedName);
         using (ImRaii.PushIndent())
         {
             ImGui.Text(
@@ -63,13 +63,13 @@ public class ItemDungeonChestSourceRenderer : ItemInfoRenderer<ItemDungeonChestS
         var groupedByDungeon = asSources.GroupBy(c => c.DungeonChest.ContentFinderCondition.RowId);
         foreach (var dungeon in groupedByDungeon)
         {
-            ImGui.Text("Dungeon: " + dungeon.First().ContentFinderCondition.Base.Name.ExtractText());
+            ImGui.Text("副本：" + dungeon.First().ContentFinderCondition.Base.Name.ExtractText());
             using (ImRaii.PushIndent())
             {
                 foreach (var chest in dungeon.OrderBy(c => c.DungeonChest.ChestNo))
                 {
                     ImGui.Text(
-                        $"Chest {chest.DungeonChest.ChestNo + 1}");
+                        $"宝箱 {chest.DungeonChest.ChestNo + 1}");
                 }
             }
         }

@@ -36,7 +36,7 @@ public class ItemGcSupplyDutySourceRenderer : ItemInfoRenderer<ItemGCSupplyDutyS
         }
         else
         {
-            ImGui.Text("Unknown rewards");
+            ImGui.Text("未知奖励");
         }
     };
 

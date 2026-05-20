@@ -59,12 +59,12 @@ namespace InventoryTools.Logic.Filters
         {
             if (choice == FilterItemsRetainerEnum.No)
             {
-                return "No";
+                return "否";
             }
 
             if (choice == FilterItemsRetainerEnum.Yes)
             {
-                return "Yes";
+                return "是";
             }
 
             if (choice == FilterItemsRetainerEnum.Only)

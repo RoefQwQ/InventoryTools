@@ -120,11 +120,11 @@ namespace InventoryTools.Logic.Columns
                                 totalAvailable += price.Left;
                             }
 
-                            ImGui.Text("Available: " + totalAvailable);
+                            ImGui.Text("可用：" + totalAvailable);
 
                             if (searchResult.CraftItem.MarketAvailable != searchResult.CraftItem.QuantityNeeded)
                             {
-                                ImGui.Text("Missing: " + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
+                                ImGui.Text("缺少：" + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
                             }
                         }
                     }
@@ -141,7 +141,7 @@ namespace InventoryTools.Logic.Columns
                 if (ImGui.IsItemHovered(ImGuiHoveredFlags.None))
                 {
                     using var tt = ImRaii.Tooltip();
-                    ImGui.Text("Missing Ingredients: ");
+                    ImGui.Text("缺少材料：");
                     foreach (var missingIngredient in searchResult.CraftItem.MissingIngredients)
                     {
                         var itemId = missingIngredient.Key.Item1;

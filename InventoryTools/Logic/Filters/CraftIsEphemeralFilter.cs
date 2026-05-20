@@ -1,4 +1,4 @@
-﻿using AllaganLib.GameSheets.Sheets.Rows;
+using AllaganLib.GameSheets.Sheets.Rows;
 using CriticalCommonLib.Models;
 
 using InventoryTools.Logic.Filters.Abstract;
@@ -37,7 +37,7 @@ public class CraftIsEphemeralFilter : BooleanFilter
         configuration.IsEphemeralCraftList = newValue ?? false;
     }
 
-    private readonly string[] _choices = new []{"Yes", "No"};
+    private readonly string[] _choices = new []{"是", "否"};
 
     public override string[] GetChoices()
     {

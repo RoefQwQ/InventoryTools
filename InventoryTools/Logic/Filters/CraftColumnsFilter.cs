@@ -129,7 +129,7 @@ namespace InventoryTools.Logic.Filters
         {
             base.DrawButtons(configuration, item, index);
             ImGui.SameLine();
-            if (ImGui.Button("Edit##Column" + index))
+            if (ImGui.Button("编辑##Column" + index))
             {
                 EditItem(configuration, item.Key);
             }
@@ -171,7 +171,7 @@ namespace InventoryTools.Logic.Filters
                         ImGui.Separator();
                         if (_searchString == "")
                         {
-                            ImGui.TextUnformatted("Start typing to search...");
+                            ImGui.TextUnformatted("输入以搜索...");
                         }
 
                         ImGui.Separator();
@@ -335,7 +335,7 @@ namespace InventoryTools.Logic.Filters
                         }
                         ImGui.SameLine();
                         ImGui.SetCursorPosX(posX - ImGui.GetStyle().ItemSpacing.X - 50);
-                        if (ImGui.Button("Cancel", new Vector2(50, 20)))
+                        if (ImGui.Button("取消", new Vector2(50, 20)))
                         {
                             _selectedColumnName = "";
                             _selectedColumnKey = "";
@@ -355,7 +355,7 @@ namespace InventoryTools.Logic.Filters
             {
                 if (table.Success)
                 {
-                    ImGui.Text("Current Columns:");
+                    ImGui.Text("当前列：");
                     ImGui.Separator();
                     DrawTable(configuration);
                 }

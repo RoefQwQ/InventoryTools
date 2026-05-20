@@ -93,7 +93,7 @@ public class CompendiumMapFeaturesWindow : UintWindow
     {
         if (_results.Count == 0)
         {
-            ImGui.TextUnformatted("No entries found for this territory.");
+            ImGui.TextUnformatted("未找到此区域的条目。");
             return;
         }
 

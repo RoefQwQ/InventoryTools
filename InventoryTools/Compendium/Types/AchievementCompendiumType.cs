@@ -105,7 +105,7 @@ public class AchievementCompendiumType : CompendiumType<AchievementRow>
                 }
                 return item.Base.Title.ValueNullable.Value.Masculine.ToImGuiString() + "/" + item.Base.Title.ValueNullable.Value.Feminine.ToImGuiString();
             }});
-        builder.AddItemColumn(new(){Key = "reward", Name = "Reward Item", HelpText = "The reward item for the achievement", Version = "14.0.3", ValueSelector = row => row.Base.Item.RowId});
+        builder.AddItemColumn(new(){Key = "reward", Name = "奖励物品", HelpText = "成就的奖励物品", Version = "14.0.3", ValueSelector = row => row.Base.Item.RowId});
     }
 
     public override List<ICompendiumGrouping>? GetGroupings()

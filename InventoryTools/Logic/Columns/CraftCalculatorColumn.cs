@@ -146,7 +146,7 @@ public class CraftCalculatorColumn : IntegerColumn, IDisposable
         }
         else if (_craftCalculator.IsRunning)
         {
-            if (ImGui.Button("Stop Calculating Crafts"))
+            if (ImGui.Button("停止计算制作"))
             {
                 _craftCalculator.CancelProcessing();
             }

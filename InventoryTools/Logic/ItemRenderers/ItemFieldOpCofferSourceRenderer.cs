@@ -28,7 +28,7 @@ public abstract class ItemFieldOpCofferSourceRenderer<T> : ItemInfoRenderer<T> w
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Drops from " + asSource.CofferType + " coffer");
+        ImGui.Text("从" + asSource.CofferType + "宝箱掉落");
         if (asSource.Min != null && asSource.Max != null)
         {
             ImGui.SameLine();

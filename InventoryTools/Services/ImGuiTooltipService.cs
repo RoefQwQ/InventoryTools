@@ -152,7 +152,7 @@ public class ImGuiTooltipService
                                     {
                                         ImGui.NewLine();
                                         ImGui.Separator();
-                                        ImGui.Text("When HQ:");
+                                        ImGui.Text("高品质时：");
                                         for (var index = 0; index < item.Base.BaseParamSpecial.Count; index++)
                                         {
                                             var baseParamSpecial = item.Base.BaseParamSpecial[index];
@@ -204,7 +204,7 @@ public class ImGuiTooltipService
                     if (item.Uses.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.TextUnformatted("Used In: ");
+                        ImGui.TextUnformatted("用途：");
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
                         var uses = item.Uses.Select(c => c.Type).Distinct().Select(
@@ -454,7 +454,7 @@ public class ImGuiTooltipService
                     ImGui.Separator();
                     using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudGrey))
                     {
-                        ImGui.TextUnformatted("Ctrl: Link");
+                        ImGui.TextUnformatted("Ctrl：链接");
                         if (item.CanTryOn)
                         {
                             ImGui.TextUnformatted("Shift: 试穿");
@@ -487,7 +487,7 @@ public class ImGuiTooltipService
 
         if (item.Base.CanBeHq)
         {
-            ImGui.TextUnformatted("Can be HQ");
+            ImGui.TextUnformatted("可高品质");
         }
 
         if (item.Base.IsUnique)
@@ -497,7 +497,7 @@ public class ImGuiTooltipService
 
         if (item.Base.IsUntradable)
         {
-            ImGui.TextUnformatted("Untradable");
+            ImGui.TextUnformatted("不可交易");
         }
     }
 }

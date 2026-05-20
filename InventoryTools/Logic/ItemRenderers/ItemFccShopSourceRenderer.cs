@@ -33,7 +33,7 @@ public class ItemFccShopUseRenderer : ItemFccShopSourceRenderer
             ? new List<string>()
             : shopSource.MapIds.Select(c => MapSheet.GetRow(c).FormattedName)).Distinct().ToList();
 
-        ImGui.Text("Items that can be purchased:");
+        ImGui.Text("可购买的物品：");
 
         using (ImRaii.PushIndent())
         {

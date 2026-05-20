@@ -205,7 +205,7 @@ public class ConfigurationWizard : GenericWindow
                                     _configuration.ShowWizardNewFeatures = false;
                                 }
 
-                                if (ImGui.Button("Close (and show next time the plugin loads)"))
+                                if (ImGui.Button("关闭（下次加载插件时再次显示）"))
                                 {
                                     Close();
                                     _configuration.ShowWizardNewFeatures = true;

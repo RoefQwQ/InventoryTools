@@ -101,7 +101,7 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
         ImGuiService.HelpMarker(HelpText);
         ImGui.Separator();
 
-        ImGui.TextUnformatted("Add Override:");
+        ImGui.TextUnformatted("添加覆盖：");
         ImGui.SameLine();
 
         var selectedItemName = _selectedItemId != null
@@ -123,7 +123,7 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
                 ImGui.Separator();
                 if (_itemSearchString == "")
                 {
-                    ImGui.TextUnformatted("Start typing to search...");
+                    ImGui.TextUnformatted("输入以搜索...");
                 }
                 foreach (var item in SearchItems)
                 {
@@ -169,7 +169,7 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
 
         using (ImRaii.Disabled(_selectedItemId == null || _selectedPreference == null))
         {
-            if (ImGui.Button("Add##ItemOverride"))
+            if (ImGui.Button("添加##ItemOverride"))
             {
                 configuration.CraftList.UpdateIngredientPreference(_selectedItemId!.Value, _selectedPreference);
                 configuration.NeedsRefresh = true;
@@ -241,7 +241,7 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
                 }
                 else
                 {
-                    ImGui.TextUnformatted("Unknown Item (" + itemId + ")");
+                    ImGui.TextUnformatted("未知物品（" + itemId + "）");
                 }
 
                 ImGui.TableNextColumn();

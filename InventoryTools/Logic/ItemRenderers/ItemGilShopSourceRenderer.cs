@@ -72,7 +72,7 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
         var asSources = AsSource(sources);
         var firstItem = asSources[0];
 
-        ImGui.Text("Costs:");
+        ImGui.Text("花费：");
 
         using (ImRaii.PushIndent())
         {

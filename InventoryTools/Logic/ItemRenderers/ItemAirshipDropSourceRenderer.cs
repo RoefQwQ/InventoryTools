@@ -53,7 +53,7 @@ public class ItemAirshipDropSourceRenderer : ItemInfoRenderer<ItemAirshipDropSou
             {
                 using (ImRaii.PushIndent())
                 {
-                    ImGui.TextUnformatted("Unlocks via: " + asSource.AirshipExplorationPoint.Unlock.Base.Name.ToImGuiString());
+                    ImGui.TextUnformatted("解锁方式：" + asSource.AirshipExplorationPoint.Unlock.Base.Name.ToImGuiString());
                 }
             }
         }
@@ -67,7 +67,7 @@ public class ItemAirshipDropSourceRenderer : ItemInfoRenderer<ItemAirshipDropSou
         {
             using (ImRaii.PushIndent())
             {
-                ImGui.TextUnformatted("Unlocks via: " + asSource.AirshipExplorationPoint.Unlock.Base.Name.ToImGuiString());
+                ImGui.TextUnformatted("解锁方式：" + asSource.AirshipExplorationPoint.Unlock.Base.Name.ToImGuiString());
             }
         }
     };

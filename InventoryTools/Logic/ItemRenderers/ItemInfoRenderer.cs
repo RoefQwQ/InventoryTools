@@ -119,7 +119,7 @@ public abstract class ItemInfoRenderer<T> : IItemInfoRenderer where T : ItemSour
 
         if (maps.Count != 0)
         {
-            ImGui.Text("Maps:");
+            ImGui.Text("地图：");
             using (ImRaii.PushIndent())
             {
                 foreach (var map in maps)
@@ -141,7 +141,7 @@ public abstract class ItemInfoRenderer<T> : IItemInfoRenderer where T : ItemSour
 
         if (maps.Count != 0)
         {
-            ImGui.Text("Maps:");
+            ImGui.Text("地图：");
             using (ImRaii.PushIndent())
             {
                 foreach (var map in maps)

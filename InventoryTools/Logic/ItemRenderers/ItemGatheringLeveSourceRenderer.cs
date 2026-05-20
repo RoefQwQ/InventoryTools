@@ -54,13 +54,13 @@ public class ItemGatheringLeveSourceRenderer : ItemInfoRenderer<ItemGatheringLev
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
 
-        ImGui.TextUnformatted("Leve: " + leveRow.Name.ExtractText());
-        ImGui.TextUnformatted("Class: " + leveRow.ClassJobCategory.Value.Name.ExtractText());
+        ImGui.TextUnformatted("理符：" + leveRow.Name.ExtractText());
+        ImGui.TextUnformatted("职业：" + leveRow.ClassJobCategory.Value.Name.ExtractText());
         ImGui.TextUnformatted("EXP Reward: " + asSource.ExpReward);
-        ImGui.TextUnformatted("Allowance Cost: " + leveRow.AllowanceCost);
-        ImGui.TextUnformatted("Loot Chance: " + asSource.LeveRewardItem.Value.ProbabilityPercent[asSource.RewardItemIndex] + "%");
+        ImGui.TextUnformatted("理符限额消耗：" + leveRow.AllowanceCost);
+        ImGui.TextUnformatted("掉落概率：" + asSource.LeveRewardItem.Value.ProbabilityPercent[asSource.RewardItemIndex] + "%");
 
-        ImGui.TextUnformatted("Reward Items: ");
+        ImGui.TextUnformatted("奖励物品：");
         using (ImRaii.PushIndent())
         {
             for (var itemGroupIndex = 0; itemGroupIndex < asSource.Leve.Value.LeveRewardItem.Value.LeveRewardItemGroup.Count; itemGroupIndex++)

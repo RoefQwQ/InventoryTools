@@ -97,12 +97,12 @@ namespace InventoryTools.Logic.Columns
                             var pricing = _marketCache.GetPricing(searchResult.Item.RowId, selectedWorldId, false);
                             if (pricing is { recentHistory: null, listings: null })
                             {
-                                ImGui.Text("No data available");
+                                ImGui.Text("无可用数据");
                             }
 
                             if (pricing is { listings: not null })
                             {
-                                ImGui.Text("Listings: ");
+                                ImGui.Text("上架：");
                                 ImGui.Separator();
 
                                 foreach (var price in pricing.listings)
@@ -114,7 +114,7 @@ namespace InventoryTools.Logic.Columns
 
                             if (pricing is { recentHistory: not null })
                             {
-                                ImGui.Text("History: ");
+                                ImGui.Text("历史：");
                                 ImGui.Separator();
 
                                 foreach (var price in pricing.recentHistory)

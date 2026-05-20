@@ -71,7 +71,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
             var containerSize = _viewModeSetting.GetIconContainerSize(_configuration);
             if (item.SelectedItem == null)
             {
-                ImGui.Text("No item selected");
+                ImGui.Text("未选择物品");
             }
             else
             {
@@ -259,7 +259,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                         filter.NeedsRefresh = true;
                     });
                 }
-                if (ImGui.Selectable("Add to new Craft List (ephemeral)"))
+                if (ImGui.Selectable("添加到新建临时制作列表"))
                 {
                     Task.Run(() =>
                     {

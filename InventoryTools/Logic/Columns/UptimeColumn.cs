@@ -58,7 +58,7 @@ public class UptimeColumn : TimeIntervalColumn
                 {
                     using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.HealerGreen))
                     {
-                        ImGui.Text("Up for " +
+                        ImGui.Text("剩余时间 " +
                                    TimeInterval.DurationString(currentValue.Value.End, TimeStamp.UtcNow,
                                        true));
                     }
@@ -92,7 +92,7 @@ public class UptimeColumn : TimeIntervalColumn
                             {
                                 using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.HealerGreen))
                                 {
-                                    ImGui.Text(" (Up for " +
+                                    ImGui.Text(" (剩余时间 " +
                                                TimeInterval.DurationString(nextUptime.Item2.End, TimeStamp.UtcNow,
                                                    true) + ")");
                                 }
