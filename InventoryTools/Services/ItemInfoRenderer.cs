@@ -142,37 +142,37 @@ public class ItemInfoRenderService : IDisposable
         switch (renderCategory)
         {
             case ItemInfoRenderCategory.Gathering:
-                return "Gathering";
+                return "采集";
             case ItemInfoRenderCategory.Mining:
-                return "Mining";
+                return "采矿";
             case ItemInfoRenderCategory.Botany:
-                return "Botany";
+                return "园艺";
             case ItemInfoRenderCategory.EphemeralGathering:
-                return "Gathering (Ephemeral)";
+                return "采集（限时）";
             case ItemInfoRenderCategory.TimedGathering:
-                return "Gathering (Timed)";
+                return "采集（定时）";
             case ItemInfoRenderCategory.HiddenGathering:
-                return "Gathering (Hidden)";
+                return "采集（隐藏）";
             case ItemInfoRenderCategory.Fishing:
-                return "Fishing";
+                return "捕鱼";
             case ItemInfoRenderCategory.Venture:
-                return "Venture";
+                return "探险";
             case ItemInfoRenderCategory.ExplorationVenture:
-                return "Venture (Exploration)";
+                return "探险（探索）";
             case ItemInfoRenderCategory.Crafting:
-                return "Crafting";
+                return "制作";
             case ItemInfoRenderCategory.Leve:
-                return "Leves";
+                return "理符";
             case ItemInfoRenderCategory.Duty:
-                return "Duties";
+                return "副本";
             case ItemInfoRenderCategory.Shop:
-                return "Shops";
+                return "商店";
             case ItemInfoRenderCategory.House:
-                return "Housing";
+                return "房屋";
             case ItemInfoRenderCategory.RelicWeapon:
-                return "Relic Weapon";
+                return "武魂武器";
             case ItemInfoRenderCategory.RelicTool:
-                return "Relic Tool";
+                return "武魂工具";
         }
 
         return renderCategory.ToString().Titleize();
@@ -183,31 +183,31 @@ public class ItemInfoRenderService : IDisposable
         switch (relationshipType)
         {
             case RelationshipType.None:
-                return "None";
+                return "无";
             case RelationshipType.CraftedInto:
-                return "Crafted Into";
+                return "制成";
             case RelationshipType.CraftedFrom:
-                return "Crafted From";
+                return "制成自";
             case RelationshipType.Rewards:
-                return "Rewards";
+                return "奖励";
             case RelationshipType.Required:
-                return "Required For";
+                return "所需于";
             case RelationshipType.DropsFrom:
-                return "Drops From";
+                return "掉落自";
             case RelationshipType.Purchaseable:
-                return "Purchaseable";
+                return "可购买";
             case RelationshipType.RelatedTo:
-                return "Related To";
+                return "相关于";
             case RelationshipType.PurchasedWith:
-                return "Purchased With";
+                return "购买用";
             case RelationshipType.UsedIn:
-                return "Used In";
+                return "用于";
             case RelationshipType.StoredIn:
-                return "Stored In";
+                return "存放于";
             case RelationshipType.CollectedFrom:
-                return "Collected From";
+                return "收集自";
             case RelationshipType.InSet:
-                return "In Set";
+                return "套装中";
         }
 
         return relationshipType.Humanize();
@@ -275,7 +275,7 @@ public class ItemInfoRenderService : IDisposable
             return renderer.HelpText;
         }
 
-        return "Can this item be sourced via " + type.ToString();
+        return "此物品是否可以通过 " + type.ToString() + " 获得";
     }
 
     public (string Singular, string? Plural) GetSourceTypeName(Type type)
@@ -305,7 +305,7 @@ public class ItemInfoRenderService : IDisposable
             return renderer.HelpText;
         }
 
-        return "Can this item be used for " + type.ToString();
+        return "此物品是否可以用于 " + type.ToString();
     }
 
 
@@ -530,7 +530,7 @@ public class ItemInfoRenderService : IDisposable
 
                 if (rendererType == RendererType.Source)
                 {
-                    ImGui.Text("Item");
+                    ImGui.Text("物品");
                     ImGui.Separator();
                     foreach (var item in items)
                     {
@@ -550,7 +550,7 @@ public class ItemInfoRenderService : IDisposable
                     if (costItems.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.Text("Related Items:");
+                        ImGui.Text("相关物品：");
                         ImGui.Separator();
                         foreach (var item in costItems)
                         {
@@ -572,7 +572,7 @@ public class ItemInfoRenderService : IDisposable
                 {
                     if (costItems.Count > 0)
                     {
-                        ImGui.Text("Items:");
+                        ImGui.Text("物品：");
                         ImGui.Separator();
                         foreach (var item in costItems)
                         {
@@ -593,7 +593,7 @@ public class ItemInfoRenderService : IDisposable
                     if (items.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.Text("Related Items");
+                        ImGui.Text("相关物品");;
                         ImGui.Separator();
                         foreach (var item in items)
                         {
@@ -621,7 +621,7 @@ public class ItemInfoRenderService : IDisposable
                 if (popup.Success)
                 {
                     var typeName = (rendererType == RendererType.Source ? this.GetSourceTypeName(firstItem.GetType()) : this.GetUseTypeName(firstItem.GetType()));
-                    ImGui.Text("Pick a " + (typeName.Plural ?? typeName.Singular));
+                    ImGui.Text("选择一个 " + (typeName.Plural ?? typeName.Singular));
                     ImGui.Separator();
                     for (var index = 0; index < itemSources.Count; index++)
                     {
@@ -684,7 +684,7 @@ public class ItemInfoRenderService : IDisposable
                     {
                         if (rendererType == RendererType.Source)
                         {
-                            ImGui.Text(items.Count == 1 ? "Item" : "Items");
+                            ImGui.Text(items.Count == 1 ? "物品" : "物品");
                             ImGui.Separator();
                             foreach (var item in items)
                             {
@@ -705,7 +705,7 @@ public class ItemInfoRenderService : IDisposable
                             if (costItems.Count > 0)
                             {
                                 ImGui.NewLine();
-                                ImGui.Text("Related Items");
+                                ImGui.Text("相关物品");;
                                 ImGui.Separator();
                                 foreach (var item in costItems)
                                 {
@@ -755,7 +755,7 @@ public class ItemInfoRenderService : IDisposable
                             {
                                 using (ImRaii.PushId("costItem"))
                                 {
-                                    ImGui.Text("Items:");
+                                    ImGui.Text("物品：");
                                     ImGui.Separator();
                                     foreach (var item in costItems)
                                     {
@@ -784,7 +784,7 @@ public class ItemInfoRenderService : IDisposable
 
                                 using (ImRaii.PushId("relatedItem"))
                                 {
-                                    ImGui.Text("Related Items");
+                                    ImGui.Text("相关物品");;
                                     ImGui.Separator();
                                     foreach (var item in items)
                                     {
@@ -844,8 +844,8 @@ public class ItemInfoRenderService : IDisposable
                 {
                     ImGui.Separator();
                     if (ImGui.Selectable(rendererType == RendererType.Source
-                            ? "Copy Source Information"
-                            : "Copy Use Information"))
+                            ? "复制来源信息"
+                            : "复制用途信息"))
                     {
                         var typeName = rendererType == RendererType.Source
                             ? this.GetSourceTypeName(firstItem.GetType())
@@ -862,7 +862,7 @@ public class ItemInfoRenderService : IDisposable
                 if (relatedTypes.Count > 0)
                 {
                     ImGui.NewLine();
-                    ImGui.Text("Compendium Entries");
+                    ImGui.Text("百科条目");
                     ImGui.Separator();
 
                     foreach (var relatedGroup in relatedTypes)
@@ -956,7 +956,7 @@ public class ItemInfoRenderService : IDisposable
 
                             float windowWidth = ImGui.GetContentRegionAvail().X;
                             string leftText = FontAwesomeIcon.ArrowLeft.ToIconString();
-                            string centerText = $"Source {currentIndex + 1} of {totalSources}";
+                            string centerText = $"来源 {currentIndex + 1} / {totalSources}";
                             string rightText =  FontAwesomeIcon.ArrowRight.ToIconString();
                             string keyboardIcon = FontAwesomeIcon.Keyboard.ToIconString();
 
@@ -1029,9 +1029,9 @@ public class ItemInfoRenderService : IDisposable
             _lastTooltipTime = _framework.LastUpdate;
             using (ImRaii.Tooltip())
             {
-                ImGui.Text("No tooltip configured for " + (rendererType == RendererType.Source
+                ImGui.Text("未为 " + (rendererType == RendererType.Source
                     ? this.GetSourceTypeName(firstItem.GetType())
-                    : this.GetUseTypeName(firstItem.GetType())).Singular + ", please report this!");
+                    : this.GetUseTypeName(firstItem.GetType())).Singular + " 配置提示文本，请报告此问题！");
             }
         }
     }

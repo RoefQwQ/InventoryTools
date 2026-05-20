@@ -275,7 +275,7 @@ public class MigrationManagerService : IHostedService
             if (!hasExistingHistoryList && !config.FirstRun)
             {
                 var historyFilter = _filterConfigFactory.Invoke();
-                historyFilter.Name = "History";
+                historyFilter.Name = "历史";
                 historyFilter.FilterType = FilterType.HistoryFilter;
                 historyFilter.DisplayInTabs = true;
                 historyFilter.SourceAllCharacters = true;

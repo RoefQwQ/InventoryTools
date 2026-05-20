@@ -173,7 +173,7 @@ public class ImGuiService : AllaganLib.Interface.Services.ImGuiService
         }
         else
         {
-            ImGui.Text("Invalid Icon ID");
+            ImGui.Text("无效图标 ID");
         }
     }
 

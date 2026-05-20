@@ -132,7 +132,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_configuration.ItemSearchContextMenu)
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "Search";
+                menuItem.Name = "搜索";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += clickedArgs => ItemSearchClicked(clickedArgs, itemId);
                 args.AddMenuItem(menuItem);
@@ -409,7 +409,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
         menuItems.Add(newButton);
 
         newButton = new MenuItem();
-        newButton.Name = "Add to New Ephemeral Craft List";
+        newButton.Name = "添加到新建临时制作列表";
         newButton.OnClicked += args => AddToNewEphemeralCraftList(args, itemId);
         menuItems.Add(newButton);
         obj.OpenSubmenu(menuItems);
@@ -431,7 +431,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
         }
 
         var newButton = new MenuItem();
-        newButton.Name = "Add to New Curated List";
+        newButton.Name = "添加到新建精选列表";
         newButton.OnClicked += args => AddToNewCuratedList(args, itemId);
         menuItems.Add(newButton);
 

@@ -96,9 +96,9 @@ public class ImGuiMenuService
 
     public List<MessageBase> DrawRightClickPopup(List<SearchResult> searchResults, List<MessageBase> messages)
     {
-        ImGui.Text(searchResults.Count + (searchResults.Count == 1 ? " item" : " items"));
+        ImGui.Text(searchResults.Count + (searchResults.Count == 1 ? " 个物品" : " 个物品"));
         ImGui.Separator();
-        if (searchResults.Any(c => c.Item.CanTryOn) && ImGui.MenuItem("Try on"))
+        if (searchResults.Any(c => c.Item.CanTryOn) && ImGui.MenuItem("试穿"))
         {
             if (_tryOn.CanUseTryOn)
             {
@@ -108,7 +108,7 @@ public class ImGuiMenuService
 
         ImGui.Separator();
 
-        if (ImGui.MenuItem("Mark as favourite"))
+        if (ImGui.MenuItem("标记为收藏"))
         {
             foreach (var item in searchResults)
             {
@@ -116,7 +116,7 @@ public class ImGuiMenuService
             }
         }
 
-        if (ImGui.MenuItem("Unmark as favourite"))
+        if (ImGui.MenuItem("取消收藏标记"))
         {
             foreach (var item in searchResults)
             {
@@ -129,7 +129,7 @@ public class ImGuiMenuService
             _listService.Lists.Where(c => c.FilterType == FilterType.CuratedList).ToArray();
         if (curatedLists.Length != 0)
         {
-            using var menu = ImRaii.Menu("Add to Curated List");
+            using var menu = ImRaii.Menu("添加到精选列表");
             if(menu)
             {
                 foreach (var filter in curatedLists)
@@ -146,7 +146,7 @@ public class ImGuiMenuService
             }
         }
 
-        if (ImGui.MenuItem("Add to new Curated List"))
+        if (ImGui.MenuItem("添加到新建精选列表"))
         {
             var filter = _listService.AddNewCuratedList();
             foreach (var item in searchResults)
@@ -164,7 +164,7 @@ public class ImGuiMenuService
                 c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
         if (craftFilters.Length != 0)
         {
-            using var menu = ImRaii.Menu("Add to Craft List");
+            using var menu = ImRaii.Menu("添加到制作列表");
             if(menu)
             {
                 foreach (var filter in craftFilters)
@@ -182,7 +182,7 @@ public class ImGuiMenuService
             }
         }
 
-        if (ImGui.MenuItem("Add to new Craft List"))
+        if (ImGui.MenuItem("添加到新建制作列表"))
         {
              var filter = _listService.AddNewCraftList();
              foreach (var item in searchResults)
@@ -194,7 +194,7 @@ public class ImGuiMenuService
              messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
              filter.NeedsRefresh = true;
         }
-        if (ImGui.MenuItem("Add to new Craft List (ephemeral)"))
+        if (ImGui.MenuItem("添加到新建临时制作列表"))
         {
              var filter = _listService.AddNewCraftList(null,true);
              foreach (var item in searchResults)
@@ -220,7 +220,7 @@ public class ImGuiMenuService
             _listService.Lists.Where(c => c.FilterType == FilterType.CuratedList).ToArray();
         if (curatedLists.Length != 0)
         {
-            using var menu = ImRaii.Menu("Add to Curated List");
+            using var menu = ImRaii.Menu("添加到精选列表");
             if(menu)
             {
                 foreach (var filter in curatedLists)
@@ -233,7 +233,7 @@ public class ImGuiMenuService
             }
         }
 
-        if (ImGui.MenuItem("Add to new Curated List"))
+        if (ImGui.MenuItem("添加到新建精选列表"))
         {
             var filter = _listService.AddNewCuratedList();
             filter.AddCuratedItem(new CuratedItem(searchResult.Item.RowId));
@@ -241,7 +241,7 @@ public class ImGuiMenuService
             filter.NeedsRefresh = true;
         }
 
-        if (filterConfiguration != null && searchResult.CuratedItem != null && ImGui.MenuItem("Remove from Curated List"))
+        if (filterConfiguration != null && searchResult.CuratedItem != null && ImGui.MenuItem("从精选列表移除"))
         {
             filterConfiguration.RemoveCuratedItem(searchResult.CuratedItem);
             filterConfiguration.NeedsRefresh = true;
@@ -253,7 +253,7 @@ public class ImGuiMenuService
                 c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
         if (craftFilters.Length != 0)
         {
-            using var menu = ImRaii.Menu("Add to Craft List");
+            using var menu = ImRaii.Menu("添加到制作列表");
             if(menu)
             {
                 foreach (var filter in craftFilters)
@@ -267,7 +267,7 @@ public class ImGuiMenuService
             }
         }
 
-        if (ImGui.MenuItem("Add to new Craft List"))
+        if (ImGui.MenuItem("添加到新建制作列表"))
         {
              var filter = _listService.AddNewCraftList();
              filter.CraftList.AddCraftItem(searchResult.Item.RowId);
@@ -275,7 +275,7 @@ public class ImGuiMenuService
              messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
              filter.NeedsRefresh = true;
         }
-        if (ImGui.MenuItem("Add to new Craft List (ephemeral)"))
+        if (ImGui.MenuItem("添加到新建临时制作列表"))
         {
              var filter = _listService.AddNewCraftList(null,true);
              filter.CraftList.AddCraftItem(searchResult.Item.RowId);
@@ -289,7 +289,7 @@ public class ImGuiMenuService
         {
             if (searchResult.CraftItem.IsOutputItem)
             {
-                if (ImGui.MenuItem("Remove from Craft List"))
+                if (ImGui.MenuItem("从制作列表移除"))
                 {
                     filterConfiguration.CraftList.RemoveCraftItem(searchResult.Item.RowId, searchResult.CraftItem.Flags);
                     filterConfiguration.NeedsRefresh = true;
@@ -301,7 +301,7 @@ public class ImGuiMenuService
                 ImGui.Separator();
                 if (searchResult.Item.CompanyCraftSequence != null && searchResult.Item.CompanyCraftSequence.CompanyCraftParts.Length > 1)
                 {
-                    if (searchResult.CraftItem.Phase != null && ImGui.MenuItem("Switch to All Phases"))
+                    if (searchResult.CraftItem.Phase != null && ImGui.MenuItem("切换到全部阶段"))
                     {
                         filterConfiguration.CraftList.SetCraftPhase(searchResult.Item.RowId, null, searchResult.CraftItem.Phase);
                         filterConfiguration.NeedsRefresh = true;
@@ -317,7 +317,7 @@ public class ImGuiMenuService
                         if (part.RowId == 0) continue;
                         if (searchResult.CraftItem.Phase != index)
                         {
-                            if (ImGui.MenuItem("Switch to " + ((part.Base.CompanyCraftType.ValueNullable?.Name.ExtractText() ?? "") + " (Phase " + (index + 1) + ")")))
+                            if (ImGui.MenuItem("切换到 " + ((part.Base.CompanyCraftType.ValueNullable?.Name.ExtractText() ?? "") + "（阶段 " + (index + 1) + "）")))
                             {
                                 filterConfiguration.CraftList.SetCraftPhase(searchResult.Item.RowId, index,
                                     searchResult.CraftItem.Phase);
@@ -351,7 +351,7 @@ public class ImGuiMenuService
                         }
                     }
 
-                    if (ImGui.MenuItem("Add " + searchResult.CraftItem.QuantityNeeded + " item to new craft list"))
+                    if (ImGui.MenuItem("将 " + searchResult.CraftItem.QuantityNeeded + " 个物品添加到新建制作列表"))
                     {
                         var filter = _listService.AddNewCraftList();
                         filter.CraftList.AddCraftItem(searchResult.Item.RowId,
@@ -362,8 +362,8 @@ public class ImGuiMenuService
                         filterConfiguration.NeedsRefresh = true;
                     }
 
-                    if (ImGui.MenuItem("Add " + searchResult.CraftItem.QuantityNeeded +
-                                         " item to new craft list (ephemeral)"))
+                    if (ImGui.MenuItem("将 " + searchResult.CraftItem.QuantityNeeded +
+                                         " 个物品添加到新建临时制作列表"))
                     {
                         var filter = _listService.AddNewCraftList(null, true);
                         filter.CraftList.AddCraftItem(searchResult.Item.RowId,
@@ -382,19 +382,19 @@ public class ImGuiMenuService
     {
         ImGui.Text(searchResult.Item.NameString);
         ImGui.Separator();
-        if (ImGui.MenuItem("Open in Garland Tools"))
+        if (ImGui.MenuItem("在 Garland Tools 中打开"))
         {
             $"https://www.garlandtools.org/db/#item/{searchResult.Item.GarlandToolsId}".OpenBrowser();
         }
-        if (ImGui.MenuItem("Open in Teamcraft"))
+        if (ImGui.MenuItem("在 Teamcraft 中打开"))
         {
             $"https://ffxivteamcraft.com/db/en/item/{searchResult.Item.RowId}".OpenBrowser();
         }
-        if (ImGui.MenuItem("Open in Universalis"))
+        if (ImGui.MenuItem("在 Universalis 中打开"))
         {
             $"https://universalis.app/market/{searchResult.Item.RowId}".OpenBrowser();
         }
-        if (ImGui.MenuItem("Open in Gamer Escape"))
+        if (ImGui.MenuItem("在 Gamer Escape 中打开"))
         {
             var name = searchResult.Item.NameString.Replace(' ', '_');
             name = name.Replace('–', '-');
@@ -403,7 +403,7 @@ public class ImGuiMenuService
                 name = name.Substring(2);
             $"https://ffxiv.gamerescape.com/wiki/{HttpUtility.UrlEncode(name)}?useskin=Vector".OpenBrowser();
         }
-        if (ImGui.MenuItem("Open in Console Games Wiki"))
+        if (ImGui.MenuItem("在 Console Games Wiki 中打开"))
         {
             var name = searchResult.Item.NameString.Replace("#"," ").Replace("  ", " ").Replace(' ', '_');
             name = name.Replace('–', '-');
@@ -413,22 +413,22 @@ public class ImGuiMenuService
             $"https://ffxiv.consolegameswiki.com/wiki/{HttpUtility.UrlEncode(name)}".OpenBrowser();
         }
         ImGui.Separator();
-        if (ImGui.MenuItem("Copy Name"))
+        if (ImGui.MenuItem("复制名称"))
         {
             _clipboardService.CopyToClipboard(searchResult.Item.NameString);
         }
-        if (ImGui.MenuItem("Link"))
+        if (ImGui.MenuItem("链接"))
         {
             _chatUtilities.LinkItem(searchResult.Item);
         }
-        if (searchResult.Item.CanTryOn && ImGui.MenuItem("Try On"))
+        if (searchResult.Item.CanTryOn && ImGui.MenuItem("试穿"))
         {
             if (_tryOn.CanUseTryOn)
             {
                 _tryOn.TryOnItem(searchResult.Item);
             }
         }
-        if (ImGui.MenuItem("Search"))
+        if (ImGui.MenuItem("搜索"))
         {
             messages.Add(new ItemSearchRequestedMessage(searchResult.Item.RowId, InventoryItem.ItemFlags.None));
         }
@@ -442,13 +442,13 @@ public class ImGuiMenuService
         ImGui.Separator();
 
         if (ImGui.MenuItem(_configuration.IsFavouriteItem(searchResult.Item.RowId)
-                ? "Unmark Favourite"
-                : "Mark Favourite"))
+                ? "取消收藏"
+                : "标记收藏"))
         {
             _configuration.ToggleFavouriteItem(searchResult.Item.RowId);
         }
 
-        if (ImGui.MenuItem("More Information"))
+        if (ImGui.MenuItem("更多信息"))
         {
             messages.Add(new OpenUintWindowMessage(typeof(ItemWindow), searchResult.Item.RowId));
         }
@@ -466,7 +466,7 @@ public class ImGuiMenuService
             hasActions = true;
             if (searchResult.Item.Recipes.Count == 1 || searchResult.CraftItem != null && searchResult.CraftItem.Recipe != null)
             {
-                if (ImGui.MenuItem("Open Crafting Log"))
+                if (ImGui.MenuItem("打开制作笔记"))
                 {
                     if (searchResult.CraftItem?.Recipe != null)
                     {
@@ -481,13 +481,13 @@ public class ImGuiMenuService
 
             if (searchResult.Item.Recipes.Count > 1)
             {
-                using (var menu = ImRaii.Menu("Open Crafting Log(Recipes)"))
+                using (var menu = ImRaii.Menu("打开制作笔记（配方）"))
                 {
                     if(menu)
                     {
                         foreach (var recipe in searchResult.Item.Recipes)
                         {
-                            if (ImGui.MenuItem(recipe.CraftType?.FormattedName ?? "Unknown"))
+                            if (ImGui.MenuItem(recipe.CraftType?.FormattedName ?? "未知"))
                             {
                                 _gameInterface.OpenCraftingLog(searchResult.Item.RowId, recipe.RowId);
                             }
@@ -497,19 +497,19 @@ public class ImGuiMenuService
             }
         }
 
-        if (searchResult.Item.HasSourcesByCategory(ItemInfoCategory.Gathering) && ImGui.MenuItem("Open Gathering Log"))
+        if (searchResult.Item.HasSourcesByCategory(ItemInfoCategory.Gathering) && ImGui.MenuItem("打开采集笔记"))
         {
             _gameInterface.OpenGatheringLog(searchResult.Item.RowId);
         }
 
-        if (searchResult.Item.ObtainedFishing && ImGui.MenuItem("Open Fishing Log"))
+        if (searchResult.Item.ObtainedFishing && ImGui.MenuItem("打开捕鱼笔记"))
         {
             _gameInterface.OpenFishingLog(searchResult.Item.RowId, searchResult.Item.ObtainedSpearFishing);
         }
 
         if (searchResult.Item.HasSourcesByCategory(ItemInfoCategory.Gathering))
         {
-            if (ImGui.MenuItem("Gather (Gatherbuddy)"))
+            if (ImGui.MenuItem("采集 (Gatherbuddy)"))
             {
                 _commandManager.ProcessCommand("/gather " + searchResult.Item.Base.Name.ExtractText());
             }
@@ -519,7 +519,7 @@ public class ImGuiMenuService
 
             var groupedGatheringSources = gatheringSources.SelectMany(c => c.GatheringItem.GatheringPoints).DistinctBy(c => c.RowId).GroupBy(c => c.Map.RowId).ToDictionary(c => c.Key, c => c);
 
-            using (var menu = ImRaii.Menu("Gather (Advanced)"))
+            using (var menu = ImRaii.Menu("采集（高级）"))
             {
                 if(menu)
                 {
@@ -547,7 +547,7 @@ public class ImGuiMenuService
                 }
             }
 
-            using(var menu = ImRaii.Menu("Open Map"))
+            using(var menu = ImRaii.Menu("打开地图"))
             {
                 if (menu)
                 {
@@ -578,11 +578,11 @@ public class ImGuiMenuService
         if (searchResult.Item.HasSourcesByType(ItemInfoType.Fishing))
         {
             hasActions = true;
-            if (ImGui.MenuItem("Gather (Gatherbuddy)"))
+            if (ImGui.MenuItem("采集 (Gatherbuddy)"))
             {
                 _commandManager.ProcessCommand("/gatherfish " + searchResult.Item.Base.Name.ExtractText());
             }
-            using(var menu = ImRaii.Menu("Gather (Advanced)"))
+            using(var menu = ImRaii.Menu("采集（高级）"))
             {
                 if (menu)
                 {
@@ -621,7 +621,7 @@ public class ImGuiMenuService
                     }
                 }
             }
-            using(var menu = ImRaii.Menu("Open Map"))
+            using(var menu = ImRaii.Menu("打开地图"))
             {
                 if (menu)
                 {
@@ -665,12 +665,12 @@ public class ImGuiMenuService
         if (searchResult.Item.HasSourcesByType(ItemInfoType.Spearfishing))
         {
             hasActions = true;
-            if (ImGui.MenuItem("Gather (Gatherbuddy)"))
+            if (ImGui.MenuItem("采集 (Gatherbuddy)"))
             {
                 _commandManager.ProcessCommand("/gatherfish " + searchResult.Item.Base.Name.ExtractText());
             }
 
-            using (var gatherMenu = ImRaii.Menu("Gather (Advanced)"))
+            using (var gatherMenu = ImRaii.Menu("采集（高级）"))
             {
                 if(gatherMenu)
                 {
@@ -712,7 +712,7 @@ public class ImGuiMenuService
                 }
             }
 
-            using var openMapMenu = ImRaii.Menu("Open Map");
+            using var openMapMenu = ImRaii.Menu("打开地图");
             if(openMapMenu)
             {
                 var gatheringSources = searchResult.Item
@@ -763,7 +763,7 @@ public class ImGuiMenuService
 
             if (hasShopSources)
             {
-                using (var menu = ImRaii.Menu("Buy"))
+                using (var menu = ImRaii.Menu("购买"))
                 {
                     if (menu)
                     {
@@ -790,7 +790,7 @@ public class ImGuiMenuService
                                 {
                                     foreach (var shopSource in groupedShop.Value)
                                     {
-                                        if (ImGui.MenuItem(shopSource.Shop.Name + " - Teleport"))
+                                        if (ImGui.MenuItem(shopSource.Shop.Name + " - 传送"))
                                         {
                                             var eNpcBaseRow = shopSource.Shop.ENpcs.FirstOrDefault(c =>
                                                 c.Locations.Any(d => d.Map.RowId == groupedShop.Key));
@@ -816,7 +816,7 @@ public class ImGuiMenuService
 
         if (searchResult.Item.HasSourcesByType(ItemInfoType.Monster))
         {
-            using (var menu = ImRaii.Menu("Hunt"))
+            using (var menu = ImRaii.Menu("狩猎"))
             {
                 if (menu)
                 {
