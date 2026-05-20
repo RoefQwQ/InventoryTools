@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using CriticalCommonLib.MarketBoard;
 using CriticalCommonLib.Services;
 using CriticalCommonLib.Services.Mediator;
@@ -119,11 +119,11 @@ namespace InventoryTools.Logic.Columns
             return Loading;
         }
         public override string Name { get; set; } = "Market Board Minimum Price HQ";
-        public override string RenderName => "MB Min. Price HQ";
+        public override string RenderName => "板子最低价 HQ";
         public override float Width { get; set; } = 250.0f;
 
         public override string HelpText { get; set; } =
-            "Shows the minimum price of the HQ form of the item. If no world is selected, your home world is used. This data is sourced from universalis.";
+            "显示物品HQ形式的最低价格。如未选择世界，则使用所在主世界。数据来源于universalis。";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
     }

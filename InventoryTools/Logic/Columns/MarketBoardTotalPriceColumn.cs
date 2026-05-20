@@ -63,9 +63,9 @@ namespace InventoryTools.Logic.Columns
             return value.HasValue ? ((int)(value.Value.Item1 * quantity), (int)(value.Value.Item2 * quantity)) : null;
         }
         public override string Name { get; set; } = "Market Board Average Total Price(Qty * Price) NQ/HQ";
-        public override string RenderName => "MB Avg. Total NQ/HQ";
+        public override string RenderName => "板子均价总价 NQ/HQ";
         public override string HelpText { get; set; } =
-            "Shows the average price of both the NQ and HQ form of the item and multiplies it by the quantity available. If no world is selected, your home world is used. This data is sourced from universalis.";
+            "显示物品NQ和HQ形式的平均价格，并乘以可用数量。如果未选择世界，则使用您的家乡世界。数据来源于universalis。";
         public override float Width { get; set; } = 250.0f;
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;

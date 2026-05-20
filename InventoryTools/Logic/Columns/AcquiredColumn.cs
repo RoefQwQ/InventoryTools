@@ -27,11 +27,11 @@ namespace InventoryTools.Logic.Columns
         }
 
         public override string Name { get; set; } = "Has Been Acquired?";
-        public override string RenderName => "Acquired?";
+        public override string RenderName => "已获得？";
         public override float Width { get; set; } = 125.0f;
 
         public override string HelpText { get; set; } =
-            "If a item can be acquired(mounts, minions, etc) this shows whether or not it has been acquired on the currently logged in character.";
+            "该物品是否已获得？";
 
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Boolean;

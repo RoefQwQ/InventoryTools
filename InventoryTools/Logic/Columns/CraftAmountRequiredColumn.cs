@@ -194,10 +194,10 @@ namespace InventoryTools.Logic.Columns
         }
         public override FilterType AvailableIn { get; } = Logic.FilterType.CraftFilter;
         public override string Name { get; set; } = "Amount Required";
-        public override string RenderName => "Required";
+        public override string RenderName => "需求量";
         public override float Width { get; set; } = 60;
         public override bool? CraftOnly => true;
-        public override string HelpText { get; set; } = "The amount required with inventory and external sources factored in/The amount required without inventory and external sources factored in.";
+        public override string HelpText { get; set; } = "已计入库存和外部来源的需求量/未计入库存和外部来源的需求量。";
         public override bool HasFilter { get; set; } = false;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
 

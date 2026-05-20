@@ -1,4 +1,4 @@
-﻿using CriticalCommonLib.MarketBoard;
+using CriticalCommonLib.MarketBoard;
 using CriticalCommonLib.Services;
 
 using InventoryTools.Logic.Columns.Abstract;
@@ -69,7 +69,7 @@ namespace InventoryTools.Logic.Columns
             return (Loading, Loading);
         }
         public override string Name { get; set; } = "Market Board Minimum Price NQ/HQ";
-        public override string RenderName => "MB Min. Price NQ/HQ";
+        public override string RenderName => "板子最低价 NQ/HQ";
 
         public override FilterType DefaultIn => Logic.FilterType.CraftFilter;
     }

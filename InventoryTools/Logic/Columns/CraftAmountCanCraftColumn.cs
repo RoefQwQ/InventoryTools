@@ -62,11 +62,11 @@ namespace InventoryTools.Logic.Columns
         }
 
         public override string Name { get; set; } = "Amount can Craft";
-        public override string RenderName => "Craftable";
+        public override string RenderName => "可制作";
         public override float Width { get; set; } = 60;
         public override bool? CraftOnly => true;
         public override string HelpText { get; set; } =
-            "This is the amount that you could craft given the items in your inventory";
+            "这是根据你库存中的物品可以制作的数量。";
         public override bool HasFilter { get; set; } = false;
         public override FilterType AvailableIn { get; } = Logic.FilterType.CraftFilter;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;

@@ -16,7 +16,7 @@ namespace InventoryTools.Logic.Columns
         }
         public override string Name { get; set; } = "Can be Placed on Market?";
         public override float Width { get; set; } = 90.0f;
-        public override string HelpText { get; set; } = "Can the item be placed on the marketboard?";
+        public override string HelpText { get; set; } = "该物品能否上架市场板？";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Boolean;
     }

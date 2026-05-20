@@ -18,7 +18,7 @@ namespace InventoryTools.Logic.Columns
 
         public override string Name { get; set; } = "Is Desynthable?";
         public override float Width { get; set; } = 100;
-        public override string HelpText { get; set; } = "Can the item by desynthed?";
+        public override string HelpText { get; set; } = "该物品能否分解？";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Boolean;
     }

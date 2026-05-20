@@ -47,7 +47,7 @@ namespace InventoryTools.Logic.Columns
         public override float Width { get; set; } = 60;
         public override bool? CraftOnly => true;
         public override string HelpText { get; set; } =
-            "This is the amount that needs to be sourced from MB/gathering excluding potential items to be withdrawn from retainers.";
+            "这是需要从市场板/采集获取的数量，不包括可从雇员处提取的物品。";
         public override bool HasFilter { get; set; } = false;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
     }

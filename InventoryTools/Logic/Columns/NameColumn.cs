@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Dalamud.Interface.Colors;
 using InventoryTools.Logic.Columns.Abstract;
 using InventoryTools.Services;
@@ -21,7 +21,7 @@ namespace InventoryTools.Logic.Columns
         }
         public override string Name { get; set; } = "Name";
         public override float Width { get; set; } = 250.0f;
-        public override string HelpText { get; set; } = "The name of the item.";
+        public override string HelpText { get; set; } = "物品名称";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
 

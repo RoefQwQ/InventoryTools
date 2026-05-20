@@ -19,5 +19,5 @@ public class CanBeEquippedColumn : CheckboxColumn
     }
     public override string Name { get; set; } = "Can be Equipped?";
     public override float Width { get; set; } = 100;
-    public override string HelpText { get; set; } = "Can this item be equipped?";
+    public override string HelpText { get; set; } = "该物品能否装备？";
 }

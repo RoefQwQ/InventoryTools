@@ -17,7 +17,7 @@ namespace InventoryTools.Logic.Columns
         }
         public override string Name { get; set; } = "Is Purchasable?";
         public override float Width { get; set; } = 70.0f;
-        public override string HelpText { get; set; } = "Can the item be purchased with gil?";
+        public override string HelpText { get; set; } = "该物品能否用金币购买？";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Boolean;
         public override FilterType DefaultIn => Logic.FilterType.GameItemFilter;

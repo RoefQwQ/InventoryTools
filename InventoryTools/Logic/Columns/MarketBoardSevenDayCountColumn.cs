@@ -104,12 +104,12 @@ namespace InventoryTools.Logic.Columns
             set { }
         }
 
-        public override string RenderName => "MB " + _configuration.MarketSaleHistoryLimit + " Day Sales";
+        public override string RenderName => "板子" + _configuration.MarketSaleHistoryLimit + "日销量";
         public override string HelpText
         {
             get =>
-                "Shows the number of sales over a " + +_configuration.MarketSaleHistoryLimit +
-                " day period for the item. If no world is selected, your home world is used. This data is sourced from universalis.";
+                "显示物品在" + _configuration.MarketSaleHistoryLimit +
+                "天内的销售数量。如未选择世界，则使用您的出生世界。数据来源于universalis。";
             set { }
         }
 

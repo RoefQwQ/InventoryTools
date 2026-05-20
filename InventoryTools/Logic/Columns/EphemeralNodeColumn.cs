@@ -19,9 +19,9 @@ namespace InventoryTools.Logic.Columns
         }
 
         public override string Name { get; set; } = "Is From Ephemeral Node?";
-        public override string RenderName => "Ephemeral Node?";
+        public override string RenderName => "幻象节点？";
         public override float Width { get; set; } = 125.0f;
-        public override string HelpText { get; set; } = "Is this item available at a ephemeral node?";
+        public override string HelpText { get; set; } = "该物品是否在幻象节点可获得？";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Boolean;
     }

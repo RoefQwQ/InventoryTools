@@ -80,9 +80,9 @@ public class NameIconColumn : TextIconColumn
     }
 
     public override string Name { get; set; } = "Name & Icon";
-    public override string RenderName => "Name";
+    public override string RenderName => "名称";
     public override float Width { get; set; } = 100;
-    public override string HelpText { get; set; } = "The name of the item with the icon next to it.";
+    public override string HelpText { get; set; } = "物品名称（带图标）";
     public override bool HasFilter { get; set; } = false;
     public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
 }

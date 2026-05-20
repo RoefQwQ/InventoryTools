@@ -160,13 +160,13 @@ namespace InventoryTools.Logic.Columns
         }
 
         public override string Name { get; set; } = "Next Step in Craft";
-        public override string RenderName => "Next Step";
+        public override string RenderName => "下一步";
 
         public override float Width { get; set; } = 200;
         public override bool? CraftOnly => true;
 
         public override string HelpText { get; set; } =
-            "Shows a simplified version of what you should do next in your craft";
+            "显示制作过程中下一步应做什么的简化版本";
         public override bool HasFilter { get; set; } = false;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
         public override FilterType AvailableIn { get; } = Logic.FilterType.CraftFilter;

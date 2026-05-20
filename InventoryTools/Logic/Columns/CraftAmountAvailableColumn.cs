@@ -66,7 +66,7 @@ namespace InventoryTools.Logic.Columns
         public override bool? CraftOnly => false;
 
         public override string HelpText { get; set; } =
-            "This is the amount to retrieve from retainers.";
+            "这是可以从雇员处取出的数量。";
         public override FilterType AvailableIn { get; } = Logic.FilterType.CraftFilter | Logic.FilterType.SortingFilter;
         public override bool HasFilter { get; set; } = false;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;

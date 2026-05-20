@@ -20,7 +20,7 @@ namespace InventoryTools.Logic.Columns
         }
         public override ColumnCategory ColumnCategory => ColumnCategory.Market;
         public override string HelpText { get; set; } =
-            "Shows the minimum price of both the NQ and HQ form of the item and multiplies it by the quantity available. If no world is selected, your home world is used. This data is sourced from universalis.";
+            "显示物品NQ和HQ形式的最低价格并乘以可用数量。如未选择世界，则使用所在主世界。数据来源于universalis。";
         public override FilterType AvailableIn => Logic.FilterType.SearchFilter | Logic.FilterType.SortingFilter;
 
         public override List<MessageBase>? DoDraw(SearchResult searchResult, (int, int)? currentValue, int rowIndex,
