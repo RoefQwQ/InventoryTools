@@ -140,7 +140,7 @@ public sealed class EquipmentSuggestSuggestionColumn : StringFormField<Equipment
                         {
                             ImGui.Separator();
                             ImGui.PushTextWrapPos();
-                            ImGui.Text("This item is from outside the range visible as it's the closest item that matches, it has a lower level than the level of this column.");
+                            ImGui.Text("此物品来自可见范围之外，因为它是匹配的最近物品，其等级低于此列的等级。");
                             ImGui.PopTextWrapPos();
                         }
                     }

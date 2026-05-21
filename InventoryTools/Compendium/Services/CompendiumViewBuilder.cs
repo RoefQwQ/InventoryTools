@@ -445,7 +445,7 @@ public class CompendiumViewBuilder
                     {
                         _draggedSectionKey = key;
                         ImGui.SetDragDropPayload("##SectionReorder"u8, []);
-                        ImGui.TextUnformatted("Moving: " + section.SectionOptions.SectionName);
+                        ImGui.TextUnformatted("移动中：" + section.SectionOptions.SectionName);
                     }
                 }
 
