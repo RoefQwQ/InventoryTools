@@ -25,7 +25,7 @@ public class ItemSpecialShopUseRenderer : ItemSpecialShopSourceRenderer
 
     public override RendererType RendererType => RendererType.Use;
 
-    public override string HelpText => "Can the item be spent at a special currency shop?";
+    public override string HelpText => "该物品能否在特殊货币商店中使用？";
 
     public override Func<ItemSource, int> GetIcon => source =>
     {
@@ -49,9 +49,9 @@ public class ItemSpecialShopSourceRenderer : ItemInfoRenderer<ItemSpecialShopSou
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.SpecialShop;
-    public override string SingularName => "Special Shop";
-    public override string PluralName => "Special Shops";
-    public override string HelpText => "Can the item be purchased from a special currency shop?";
+    public override string SingularName => "特殊商店";
+    public override string PluralName => "特殊商店";
+    public override string HelpText => "该物品能否从特殊货币商店购买？";
     public override bool ShouldGroup => true;
 
     public override byte MaxColumns => 3;

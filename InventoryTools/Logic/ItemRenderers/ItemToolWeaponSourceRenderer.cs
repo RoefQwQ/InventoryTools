@@ -104,7 +104,7 @@ public class ItemMastercraftToolSourceRenderer : ItemRelicToolSourceRenderer<Ite
 
     public override ItemInfoType Type => ItemInfoType.MastercraftTool;
     public override string SingularName => "名家工具";
-    public override string HelpText => "Is this a Mastercraft Tool?";
+    public override string HelpText => "该物品是否是名家工具？";
 }
 
 public class ItemSkysteelToolSourceRenderer : ItemRelicToolSourceRenderer<ItemSkysteelToolSource>
@@ -115,7 +115,7 @@ public class ItemSkysteelToolSourceRenderer : ItemRelicToolSourceRenderer<ItemSk
 
     public override ItemInfoType Type => ItemInfoType.SkysteelTool;
     public override string SingularName => "天钢工具";
-    public override string HelpText => "Is this a Skysteel Tool?";
+    public override string HelpText => "该物品是否是天钢工具？";
 }
 
 public class ItemResplendentToolSourceRenderer : ItemRelicToolSourceRenderer<ItemResplendentToolSource>
@@ -126,7 +126,7 @@ public class ItemResplendentToolSourceRenderer : ItemRelicToolSourceRenderer<Ite
 
     public override ItemInfoType Type => ItemInfoType.ResplendentTool;
     public override string SingularName => "辉光工具";
-    public override string HelpText => "Is this a Resplendent Tool?";
+    public override string HelpText => "该物品是否是辉光工具？";
 }
 
 public class ItemSplendorousToolSourceRenderer : ItemRelicToolSourceRenderer<ItemSplendorousToolSource>
@@ -137,7 +137,7 @@ public class ItemSplendorousToolSourceRenderer : ItemRelicToolSourceRenderer<Ite
 
     public override ItemInfoType Type => ItemInfoType.SplendorousTool;
     public override string SingularName => "华丽工具";
-    public override string HelpText => "Is this a Splendorous Tool?";
+    public override string HelpText => "该物品是否是华丽工具？";
 }
 
 public class ItemCosmicToolSourceRenderer : ItemRelicToolSourceRenderer<ItemCosmicToolSource>
@@ -148,5 +148,5 @@ public class ItemCosmicToolSourceRenderer : ItemRelicToolSourceRenderer<ItemCosm
 
     public override ItemInfoType Type => ItemInfoType.CosmicTool;
     public override string SingularName => "宇宙工具";
-    public override string HelpText => "Is this a Cosmic Tool?";
+    public override string HelpText => "该物品是否是宇宙工具？";
 }

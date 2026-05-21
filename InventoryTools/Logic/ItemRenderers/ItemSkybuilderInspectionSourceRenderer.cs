@@ -18,7 +18,7 @@ public class ItemSkybuilderInspectionUseRenderer : ItemSkybuilderInspectionSourc
     }
 
     public override RendererType RendererType => RendererType.Use;
-    public override string HelpText => "Is the item the approved form of a item that must be inspected at the firmament?";
+    public override string HelpText => "该物品是否是在天穹街检验后的认可形态？";
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
@@ -40,7 +40,7 @@ public class ItemSkybuilderInspectionSourceRenderer : ItemInfoRenderer<ItemSkybu
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.SkybuilderInspection;
     public override string SingularName => "天穹街检验";
-    public override string HelpText => "Can the item be inspected at the firmament to convert it into the approved form?";
+    public override string HelpText => "该物品能否在天穹街检验并转换为认可形态？";
     public override bool ShouldGroup => true;
 
     public override Action<ItemSource> DrawTooltip => source =>
