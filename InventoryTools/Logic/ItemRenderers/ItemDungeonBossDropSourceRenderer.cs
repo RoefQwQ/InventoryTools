@@ -28,7 +28,7 @@ public class ItemDungeonBossDropSourceRenderer : ItemInfoRenderer<ItemDungeonBos
     public override ItemInfoType Type => ItemInfoType.DungeonBossDrop;
     public override string SingularName => "副本Boss掉落";
     public override string PluralName => "副本Boss掉落";
-    public override string HelpText => "Can the item be drop from a dungeon boss?";
+    public override string HelpText => "该物品是否可以从副本Boss身上掉落？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Duty];
 

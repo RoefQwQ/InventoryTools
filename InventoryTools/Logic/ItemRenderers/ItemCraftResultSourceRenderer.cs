@@ -36,7 +36,7 @@ public class ItemCraftResultSourceRenderer : ItemInfoRenderer<ItemCraftResultSou
     public override string SingularName => "制作产物";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Crafting];
-    public override string HelpText => "Can the item be crafted via a craft recipe?";
+    public override string HelpText => "该物品是否可以通过制作配方生产？";
     public override Func<ItemSource, List<MessageBase>?>? OnClick => source =>
     {
         var asSource = AsSource(source);
