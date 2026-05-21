@@ -182,9 +182,9 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
 
         if (configuration.CraftList.IngredientPreferences.Count > 0)
         {
-            var clearButtonWidth = ImGui.CalcTextSize("Clear All").X + ImGui.GetStyle().FramePadding.X * 2;
+            var clearButtonWidth = ImGui.CalcTextSize("清除全部").X + ImGui.GetStyle().FramePadding.X * 2;
             ImGui.SameLine(ImGui.GetContentRegionMax().X - clearButtonWidth);
-            if (ImGui.Button("Clear All##ItemOverrides"))
+            if (ImGui.Button("清除全部##ItemOverrides"))
             {
                 _popupService.AddPopup(new ConfirmPopup(typeof(CraftsWindow), "clearAllItemOverrides",
                     "你确定要清除所有物品覆盖吗？",
@@ -210,7 +210,7 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
         var overrides = configuration.CraftList.IngredientPreferences;
         if (overrides.Count == 0)
         {
-            ImGui.TextUnformatted("No per-item overrides set.");
+            ImGui.TextUnformatted("未设置物品覆盖。");
             return;
         }
 

@@ -243,7 +243,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
             }
         }
         ImGui.SameLine();
-        ImGui.TextUnformatted("Add Item Preference:");
+        ImGui.TextUnformatted("添加物品偏好：");
         ImGui.SameLine();
         ImGui.SetNextItemWidth(LabelSize);
         using (var combo = ImRaii.Combo("##AddItem" + Key, "", ImGuiComboFlags.HeightLarge))
