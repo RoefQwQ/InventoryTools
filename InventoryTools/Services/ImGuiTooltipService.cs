@@ -457,7 +457,7 @@ public class ImGuiTooltipService
                         ImGui.TextUnformatted("Ctrl：链接");
                         if (item.CanTryOn)
                         {
-                            ImGui.TextUnformatted("Shift: 试穿");
+                            ImGui.TextUnformatted("Shift：试穿");
                         }
                     }
                 }

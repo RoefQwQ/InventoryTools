@@ -113,7 +113,7 @@ public class CollectionRowRefSection : ViewSection
 
         if (!hasDrawnAny && !_options.HideWhenEmpty)
         {
-            ImGui.Text("No related items found.");
+            ImGui.Text("未找到相关物品。");
         }
     }
 
