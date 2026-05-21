@@ -36,14 +36,14 @@ public class SampleFilter100GillOrLess : BooleanSetting, ISampleFilter
     }
 
     public override string Key { get; set; } = "sample1";
-    public override string Name { get; set; } = "100 gil or less";
-    public string SampleDefaultName => "100 gil or less";
+    public override string Name { get; set; } = "100金币以下";
+    public string SampleDefaultName => "100金币以下";
 
     public string SampleDescription =>
-        "This will add a list that will show all items that can be purchased from gil shops under 100 gil. It will look in both character and retainer inventories.";
+        "这将添加一个列表，显示所有可在金币商店以100金币以下购买的物品。它会搜索角色和雇员背包。";
 
     public SampleFilterType SampleFilterType => SampleFilterType.Sample;
-    public override string HelpText { get; set; } = "Shows you any items that sell for under 100 gil at shops.";
+    public override string HelpText { get; set; } = "显示商店中售价低于100金币的物品。";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.None;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.None;
     public override string Version => "1.7.0.0";
