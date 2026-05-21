@@ -187,7 +187,7 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
             if (ImGui.Button("Clear All##ItemOverrides"))
             {
                 _popupService.AddPopup(new ConfirmPopup(typeof(CraftsWindow), "clearAllItemOverrides",
-                    "Are you sure you want to clear all per-item overrides?",
+                    "你确定要清除所有物品覆盖吗？",
                     confirmed =>
                     {
                         if (!confirmed)

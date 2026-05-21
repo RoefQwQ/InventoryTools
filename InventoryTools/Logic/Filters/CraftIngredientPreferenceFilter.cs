@@ -278,7 +278,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
         if (ImGui.Button("重置为默认##IngredientPref"))
         {
             _popupService.AddPopup(new ConfirmPopup(typeof(CraftsWindow), "resetIngredientPref",
-                "Are you sure you want to reset the ingredient sourcing order to default?",
+                "你确定要将材料来源顺序重置为默认吗？",
                 confirmed =>
                 {
                     if (confirmed)

@@ -37,7 +37,7 @@ public class ItemCompanyLeveSourceRenderer : ItemInfoRenderer<ItemCompanyLeveSou
         var leveRow = asSource.Leve.Value;
         ImGui.TextUnformatted("理符：" + leveRow.Name.ExtractText());
         ImGui.TextUnformatted("职业：" + leveRow.ClassJobCategory.Value.Name.ExtractText());
-        ImGui.TextUnformatted("EXP Reward: " + asSource.ExpReward);
+        ImGui.TextUnformatted("EXP 奖励：" + asSource.ExpReward);
         ImGui.TextUnformatted("奖励军票：" + asSource.SealsRewarded);
         ImGui.TextUnformatted("理符限额消耗：" + leveRow.AllowanceCost);
     };
