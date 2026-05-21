@@ -21,7 +21,7 @@ public class ItemCompanyLeveSourceRenderer : ItemInfoRenderer<ItemCompanyLeveSou
     public override ItemInfoType Type => ItemInfoType.CompanyLeve;
     public override string SingularName => "军团理符";
     public override string PluralName => "军团理符";
-    public override string HelpText => "Is this item obtained from a company leve?";
+    public override string HelpText => "该物品是否从军团理符中获得？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
 
