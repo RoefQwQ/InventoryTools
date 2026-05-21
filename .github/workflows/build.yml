@@ -11,6 +11,9 @@ env:
   CONFIGURATION: Release
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-2022
@@ -40,6 +43,32 @@ jobs:
           New-Item -ItemType Directory -Force -Path output
           $src = "InventoryTools\bin\Release\InventoryTools"
           Compress-Archive -Path "$src\*" -DestinationPath "output\latest.zip" -Force
+
+      - name: Delete old latest release
+        uses: dev-drprasad/delete-tag-and-release@v1.0
+        with:
+          tag_name: latest
+          delete_release: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Wait for deletion
+        shell: pwsh
+        run: Start-Sleep -Seconds 10
+
+      - name: Create Release
+        shell: pwsh
+        run: |
+          $date = Get-Date -Format 'yyyy-MM-dd-HHmm'
+          $zipPath = "output\latest.zip"
+          gh release create "latest" `
+            --title "Build $date" `
+            --notes "Automated build from main branch at $date" `
+            --target main `
+            "$zipPath"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

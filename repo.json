@@ -23,8 +23,8 @@
   ],
   "IsHide": false,
   "IsTestingExclusive": false,
-  "DownloadLinkInstall": "https://raw.githubusercontent.com/RoefQwQ/InventoryTools/main/output/latest.zip",
-  "DownloadLinkUpdate": "https://raw.githubusercontent.com/RoefQwQ/InventoryTools/main/output/latest.zip",
+  "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/latest.zip",
+  "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/latest.zip",
   "Changelog": "",
   "LastUpdate": 20260521
 }

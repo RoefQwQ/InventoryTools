@@ -15,6 +15,7 @@ InventoryToolsMock/Fonts/*.otf
 **/bin/
 **/obj/
 **/out/
+output/
 *.dll
 *.pdb
 *.cache
