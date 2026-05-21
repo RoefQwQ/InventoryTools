@@ -20,7 +20,7 @@ public class ItemGilShopUseRenderer : ItemGilShopSourceRenderer
 {
     private readonly MapSheet _mapSheet;
     private readonly ItemSheet _itemSheet;
-    public override string HelpText => "Can the item be spent at a gil shop?";
+    public override string HelpText => "该物品能否在金币商店中使用？";
 
     public ItemGilShopUseRenderer(MapSheet mapSheet, ItemSheet itemSheet, ITextureProvider textureProvider,
         IDalamudPluginInterface dalamudPluginInterface) : base(mapSheet, itemSheet, textureProvider, dalamudPluginInterface)
@@ -59,9 +59,9 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GilShop;
-    public override string SingularName => "Gil Shop";
-    public override string PluralName => "Gil Shops";
-    public override string HelpText => "Can the item be purchased at a gil shop?";
+    public override string SingularName => "金币商店";
+    public override string PluralName => "金币商店";
+    public override string HelpText => "该物品能否在金币商店购买？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
 

@@ -117,7 +117,7 @@ public class ItemZodiacWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<Item
 
     public override ItemInfoType Type => ItemInfoType.ZodiacWeapon;
     public override string SingularName => "黄道武器";
-    public override string HelpText => "Is this a Zodiac Weapon?";
+    public override string HelpText => "该物品是否是黄道武器？";
 }
 
 public class ItemAnimaWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<ItemAnimaWeaponSource>
@@ -128,7 +128,7 @@ public class ItemAnimaWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<ItemA
 
     public override ItemInfoType Type => ItemInfoType.AnimaWeapon;
     public override string SingularName => "魂武";
-    public override string HelpText => "Is this a Anima Weapon?";
+    public override string HelpText => "该物品是否是魂武？";
 }
 
 public class ItemEurekanWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<ItemEurekanWeaponSource>
@@ -139,7 +139,7 @@ public class ItemEurekanWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<Ite
 
     public override ItemInfoType Type => ItemInfoType.EurekanWeapon;
     public override string SingularName => "优武";
-    public override string HelpText => "Is this a Eurekan Weapon?";
+    public override string HelpText => "该物品是否是优武？";
 }
 
 public class ItemResistanceWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<ItemResistanceWeaponSource>
@@ -150,7 +150,7 @@ public class ItemResistanceWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<
 
     public override ItemInfoType Type => ItemInfoType.ResistanceWeapon;
     public override string SingularName => "义武";
-    public override string HelpText => "Is this a Resistance Weapon?";
+    public override string HelpText => "该物品是否是义武？";
 }
 
 public class ItemMandervilleWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<ItemMandervilleWeaponSource>
@@ -161,7 +161,7 @@ public class ItemMandervilleWeaponSourceRenderer : ItemRelicWeaponSourceRenderer
 
     public override ItemInfoType Type => ItemInfoType.MandervilleWeapon;
     public override string SingularName => "曼德维尔武器";
-    public override string HelpText => "Is this a Manderville Weapon?";
+    public override string HelpText => "该物品是否是曼德维尔武器？";
 }
 
 public class ItemPhantomWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<ItemPhantomWeaponSource>
@@ -172,5 +172,5 @@ public class ItemPhantomWeaponSourceRenderer : ItemRelicWeaponSourceRenderer<Ite
 
     public override ItemInfoType Type => ItemInfoType.PhantomWeapon;
     public override string SingularName => "幻武";
-    public override string HelpText => "Is this a Phantom Weapon?";
+    public override string HelpText => "该物品是否是幻武？";
 }
