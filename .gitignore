@@ -7,3 +7,24 @@ exd-datadocs/
 docs/
 InventoryTools/Fonts/*.otf
 InventoryToolsMock/Fonts/*.otf
+
+# Build output
+**/bin/
+**/obj/
+**/out/
+*.dll
+*.pdb
+*.cache
+
+# Build logs
+build-output.log
+*.log
+
+# External projects (not part of this repo)
+ACR.dev/
+YesPlayMusic/
+dalamud-test/
+tosu/
+
+# Trae specs output
+.trae/specs/output/
