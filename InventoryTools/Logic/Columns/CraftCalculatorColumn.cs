@@ -73,7 +73,7 @@ public class CraftCalculatorColumn : IntegerColumn, IDisposable
 
         if (_craftCalculator == null || !_craftCalculator.IsRunning)
         {
-            if (ImGui.Button("Calculate Crafts"))
+            if (ImGui.Button("计算制作"))
             {
                 if (_craftCalculator == null)
                 {

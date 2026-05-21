@@ -49,7 +49,7 @@ public class UptimeColumn : TimeIntervalColumn
                 {
                     using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudRed))
                     {
-                        ImGui.Text("Up in " +
+                        ImGui.Text("刷新倒计时 " +
                                    TimeInterval.DurationString(currentValue.Value.Start, TimeStamp.UtcNow,
                                        true));
                     }

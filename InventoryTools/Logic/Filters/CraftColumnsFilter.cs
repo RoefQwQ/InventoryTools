@@ -159,7 +159,7 @@ namespace InventoryTools.Logic.Filters
                     var groupedItems = GetGroupedItems(configuration);
                     if (_selectedColumnKey == "")
                     {
-                        ImGui.Text("Add Column");
+                        ImGui.Text("添加列");
                         ImGui.Separator();
                         var searchString = SearchString;
                         ImGui.InputText("##ItemSearch", ref searchString, 50);
@@ -245,7 +245,7 @@ namespace InventoryTools.Logic.Filters
                                         ImGui.PushTextWrapPos();
                                         ImGui.Text(column.Value.HelpText);
                                         ImGui.PopTextWrapPos();
-                                        if (ImGui.Button("Add"))
+                                        if (ImGui.Button("添加"))
                                         {
                                             _selectedColumnName = column.Value.Name;
                                             _selectedColumnHelp = column.Value.HelpText;
@@ -303,7 +303,7 @@ namespace InventoryTools.Logic.Filters
                         ImGui.NewLine();
                         ImGui.SetCursorPosX(posX - ImGui.GetStyle().ItemSpacing.X - 40);
                         posX = ImGui.GetCursorPosX();
-                        if (ImGui.Button(_editMode ? "Save" : "Add", new Vector2(40, 20)))
+                        if (ImGui.Button(_editMode ? "保存" : "添加", new Vector2(40, 20)))
                         {
                             if (_editMode)
                             {

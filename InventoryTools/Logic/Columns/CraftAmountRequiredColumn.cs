@@ -177,7 +177,7 @@ namespace InventoryTools.Logic.Columns
                 if (searchResult.CraftItem.Recipe != null)
                 {
                     ImGui.Separator();
-                    ImGui.TextUnformatted("Ingredients: ");
+                    ImGui.TextUnformatted("材料：");
                     using (ImRaii.PushIndent())
                     {
                         foreach (var ingredient in searchResult.CraftItem.Recipe.IngredientCounts)
