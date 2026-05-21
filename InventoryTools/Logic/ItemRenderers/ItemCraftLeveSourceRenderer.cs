@@ -34,7 +34,7 @@ public class ItemCraftLeveSourceRenderer : ItemInfoRenderer<ItemCraftLeveSource>
     public override ItemInfoType Type => ItemInfoType.CraftLeve;
     public override string SingularName => "制作理符";
     public override string PluralName => "制作理符";
-    public override string HelpText => "Is this item obtained from a craft leve?";
+    public override string HelpText => "该物品是否从制作理符中获得？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
 

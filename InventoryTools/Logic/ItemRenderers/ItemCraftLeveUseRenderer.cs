@@ -34,7 +34,7 @@ public class ItemCraftLeveUseRenderer : ItemInfoRenderer<ItemCraftLeveUse>
     public override ItemInfoType Type => ItemInfoType.CraftLeve;
     public override string SingularName => "制作理符";
     public override string PluralName => "制作理符";
-    public override string HelpText => "Is this item required for a craft leve?";
+    public override string HelpText => "该物品是否是制作理符所需的？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
 
