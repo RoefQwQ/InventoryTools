@@ -87,11 +87,11 @@ public class CollectionRowRefSection : ViewSection
             {
                 if (item.RefType == null)
                 {
-                    ImGui.Text("Unknown related row type.");
+                    ImGui.Text("未知关联行类型。");
                 }
                 else
                 {
-                    ImGui.Text("No matching compendium type for " + item.RefType.Name);
+                    ImGui.Text("没有匹配的百科类型：" + item.RefType.Name);
                 }
                 hasDrawnAny = true;
             }
