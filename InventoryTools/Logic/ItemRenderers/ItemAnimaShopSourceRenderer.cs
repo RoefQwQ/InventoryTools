@@ -25,7 +25,7 @@ public class ItemAnimaShopUseRenderer : ItemAnimaShopSourceRenderer
 
     public override RendererType RendererType => RendererType.Use;
 
-    public override string HelpText => "Can the item be spent at an anima shop?";
+    public override string HelpText => "该物品能否在魂武商店中使用？";
 
     public override Func<ItemSource, int> GetIcon => source =>
     {
@@ -51,7 +51,7 @@ public class ItemAnimaShopSourceRenderer : ItemInfoRenderer<ItemAnimaShopSource>
     public override ItemInfoType Type => ItemInfoType.AnimaShop;
     public override string SingularName => "魂武商店";
     public override string PluralName => "魂武商店";
-    public override string HelpText => "Can the item be purchased from a anima currency shop?";
+    public override string HelpText => "该物品能否从魂武货币商店购买？";
     public override bool ShouldGroup => true;
 
     public override byte MaxColumns => 3;
@@ -66,10 +66,10 @@ public class ItemAnimaShopSourceRenderer : ItemInfoRenderer<ItemAnimaShopSource>
     {
         var asSource = AsSource(source);
 
-        ImGui.Text($"Shop: {asSource.Shop.Name}");
+        ImGui.Text($"商店：{asSource.Shop.Name}");
 
-        this.DrawItems("Rewards:", asSource.RewardItems);
-        this.DrawItems("Costs:", asSource.CostItems);
+        this.DrawItems("奖励：", asSource.RewardItems);
+        this.DrawItems("花费：", asSource.CostItems);
 
         DrawMaps(source);
     };

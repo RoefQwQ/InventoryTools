@@ -23,7 +23,7 @@ public class ItemAquariumUseRenderer : ItemInfoRenderer<ItemAquariumSource>
     public override ItemInfoType Type => ItemInfoType.Aquarium;
     public override string SingularName => "水族箱";
     public override string PluralName => "水族箱";
-    public override string HelpText => "Can the item be placed in aquariums?";
+    public override string HelpText => "该物品能否放入水族箱？";
     public override bool ShouldGroup => false;
 
     public override Action<ItemSource> DrawTooltip => source =>
@@ -37,7 +37,7 @@ public class ItemAquariumUseRenderer : ItemInfoRenderer<ItemAquariumSource>
     {
         var aquariumSource = AsSource(source);
 
-        return "Aquarium: " + aquariumSource.AquariumFish.Base.AquariumWater.Value.Name.ExtractText() + " (" +
+        return "水族箱：" + aquariumSource.AquariumFish.Base.AquariumWater.Value.Name.ExtractText() + " (" +
                aquariumSource.AquariumFish.Size + " )";
     };
 
@@ -53,6 +53,6 @@ public class ItemAquariumUseRenderer : ItemInfoRenderer<ItemAquariumSource>
     public override Func<ItemSource, string> GetDescription => source =>
     {
         var asSource = AsSource(source);
-        return $"Can be placed in {asSource.AquariumFish.Size} aquariums with {asSource.AquariumFish.Base.AquariumWater.Value.Name}";
+        return $"可放入{asSource.AquariumFish.Size}水族箱，水质：{asSource.AquariumFish.Base.AquariumWater.Value.Name}";
     };
 }
