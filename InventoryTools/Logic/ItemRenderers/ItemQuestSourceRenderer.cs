@@ -63,8 +63,8 @@ public class ItemQuestUseRenderer : ItemInfoRenderer<ItemQuestUse>
             ImGui.PopTextWrapPos();
         }
 
-        DrawItems("Required Items: ", asSource.CostItems);
-        DrawItems("Rewards: ", asSource.RewardItems);
+        DrawItems("需求物品：", asSource.CostItems);
+        DrawItems("奖励物品：", asSource.RewardItems);
     };
 
     public override Func<ItemSource, string> GetName => source =>
@@ -131,8 +131,8 @@ public class ItemQuestSourceRenderer : ItemInfoRenderer<ItemQuestSource>
             ImGui.PopTextWrapPos();
         }
 
-        DrawItems("Required Items: ", asSource.CostItems);
-        DrawItems("Rewards: ", asSource.RewardItems);
+        DrawItems("需求物品：", asSource.CostItems);
+        DrawItems("奖励物品：", asSource.RewardItems);
     };
 
     public override Func<ItemSource, string> GetName => source =>
