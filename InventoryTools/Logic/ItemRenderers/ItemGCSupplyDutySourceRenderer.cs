@@ -18,8 +18,8 @@ public class ItemGcSupplyDutySourceRenderer : ItemInfoRenderer<ItemGCSupplyDutyS
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.GCDailySupply;
-    public override string SingularName => "Grand Company Supply & Provisioning";
-    public override string HelpText => "Can the item be handed in for 'Supply & Provisioning' at your grand company?";
+    public override string SingularName => "军队筹备";
+    public override string HelpText => "该物品能否在军队中上缴以完成筹备任务？";
     public override bool ShouldGroup => true;
 
     public override Action<ItemSource> DrawTooltip => source =>

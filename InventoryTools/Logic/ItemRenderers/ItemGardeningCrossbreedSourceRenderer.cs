@@ -20,7 +20,7 @@ public class ItemGardeningCrossbreedSourceRenderer : ItemInfoRenderer<ItemGarden
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GardeningCrossbreed;
     public override string SingularName => "园艺杂交";
-    public override string HelpText => "Is this item created by crossbreeding 2 seeds?";
+    public override string HelpText => "该物品是否是通过2个种子杂交获得的？";
     public override bool ShouldGroup => true;
 
     public ItemGardeningCrossbreedSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet,
@@ -113,7 +113,7 @@ public class ItemGardeningCrossbreedSourceUseRenderer : ItemGardeningCrossbreedS
 
     public override RendererType RendererType => RendererType.Use;
     public override string SingularName => "园艺杂交种子";
-    public override string HelpText => "Is this item part of a crossbreed when gardening?";
+    public override string HelpText => "该物品是否是园艺杂交中使用的种子？";
 
     public override Func<ItemSource, string> GetDescription => source =>
     {

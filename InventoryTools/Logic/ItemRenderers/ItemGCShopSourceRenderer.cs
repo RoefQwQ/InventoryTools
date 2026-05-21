@@ -25,7 +25,7 @@ public class ItemGCShopUseRenderer : ItemGCShopSourceRenderer
     {
     }
 
-    public override string HelpText => "Can the item be spent at a grand company shop?";
+    public override string HelpText => "该物品能否在军团商店中使用？";
 
     public override Action<List<ItemSource>>? DrawTooltipGrouped => sources =>
     {
@@ -67,7 +67,7 @@ public class ItemGCShopSourceRenderer : ItemInfoRenderer<ItemGCShopSource>
     public override ItemInfoType Type => ItemInfoType.GCShop;
     public override string SingularName => "军团商店";
     public override string PluralName => "军团商店";
-    public override string HelpText => "该物品是否可以在军团商店购买？";
+    public override string HelpText => "该物品能否在军团商店购买？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
 
