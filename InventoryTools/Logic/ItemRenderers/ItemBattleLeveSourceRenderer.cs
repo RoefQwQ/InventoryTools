@@ -34,7 +34,7 @@ public class ItemBattleLeveSourceRenderer : ItemInfoRenderer<ItemBattleLeveSourc
     public override ItemInfoType Type => ItemInfoType.BattleLeve;
     public override string SingularName => "战斗理符";
     public override string PluralName => "战斗理符";
-    public override string HelpText => "Is this item obtained from a battle leve?";
+    public override string HelpText => "该物品是否从战斗理符中获得？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
 
@@ -54,7 +54,7 @@ public class ItemBattleLeveSourceRenderer : ItemInfoRenderer<ItemBattleLeveSourc
         ImGui.TextUnformatted("理符限额消耗：" + leveRow.AllowanceCost);
         ImGui.TextUnformatted("掉落概率：" + asSource.LeveRewardItem.Value.ProbabilityPercent[asSource.RewardItemIndex] + "%");
 
-        DrawItems("Possible Reward Items: ", asSource.RewardItems);
+        DrawItems("可能奖励物品：", asSource.RewardItems);
         DrawMaps(asSource);
     };
 

@@ -20,19 +20,19 @@ public class ItemArmoireSourceRenderer : ItemInfoRenderer<ItemArmoireSource>
     public override ItemInfoType Type => ItemInfoType.Armoire;
     public override string SingularName => "衣柜";
     public override bool ShouldGroup => true;
-    public override string HelpText => "Can the item be placed in the armoire?";
+    public override string HelpText => "该物品能否放入衣柜？";
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
         ImGui.Text("分类：" +
-                   (asSource.Cabinet.CabinetCategory?.Base.Category.Value.Text.ExtractText() ?? "Unknown"));
+                   (asSource.Cabinet.CabinetCategory?.Base.Category.Value.Text.ExtractText() ?? "未知"));
     };
     public override Func<ItemSource, string> GetName => source =>
     {
         var asSource = AsSource(source);
 
-        return "Category: " + asSource.Cabinet.CabinetCategory?.Base.Category.Value.Text.ExtractText();
+        return "分类：" + asSource.Cabinet.CabinetCategory?.Base.Category.Value.Text.ExtractText();
     };
 
     public override Func<ItemSource, int> GetIcon => _ => Icons.ArmoireIcon;
@@ -40,6 +40,6 @@ public class ItemArmoireSourceRenderer : ItemInfoRenderer<ItemArmoireSource>
     public override Func<ItemSource, string> GetDescription => source =>
     {
         var asSource = AsSource(source);
-        return $"Can be placed in the {asSource.Cabinet.CabinetCategory?.Base.Category.Value.Text}";
+        return $"可放入{asSource.Cabinet.CabinetCategory?.Base.Category.Value.Text}";
     };
 }
