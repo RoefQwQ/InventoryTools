@@ -8,6 +8,9 @@ docs/
 InventoryTools/Fonts/*.otf
 InventoryToolsMock/Fonts/*.otf
 
+# Trae IDE workspace
+.trae/
+
 # Build output
 **/bin/
 **/obj/
@@ -26,5 +29,5 @@ YesPlayMusic/
 dalamud-test/
 tosu/
 
-# Trae specs output
-.trae/specs/output/
+# Submodule local modifications (upstream repo, cannot push)
+CriticalCommonLib
