@@ -58,7 +58,7 @@ public class CraftCalculatorColumn : IntegerColumn, IDisposable
         ImGui.NewLine();
         ImGui.Separator();
         ImGui.SetNextItemWidth(220);
-        ImGui.LabelText("##" + configuration.Key + "Search", "Inventories to search in:");
+        ImGui.LabelText("##" + configuration.Key + "Search", "要搜索的库存：");
         ImGui.SetNextItemWidth(250);
         ImGui.SameLine();
         _scopePickerColumnSetting.Draw(columnConfiguration, "Please make sure you include at least one inventory that contains crystals otherwise the craft calculator will not work. If no scopes are picked, the craft calculator will look in your active characters inventories and their retainers.");

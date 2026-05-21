@@ -186,7 +186,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
                 if (item != null && item.CanOpenCraftingLog)
                 {
                     var menuItem = new MenuItem();
-                    menuItem.Name = "Open Crafting Log";
+                    menuItem.Name = "打开制作笔记";
                     menuItem.PrefixChar = 'A';
                     menuItem.OnClicked += _ => _gameInterface.OpenCraftingLog(itemId.Value);
                     args.AddMenuItem(menuItem);
@@ -404,7 +404,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
         }
 
         var newButton = new MenuItem();
-        newButton.Name = "Add to New Craft List";
+        newButton.Name = "添加到新建制作列表";
         newButton.OnClicked += args => AddToNewCraftList(args, itemId);
         menuItems.Add(newButton);
 

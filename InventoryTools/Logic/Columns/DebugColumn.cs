@@ -13,7 +13,7 @@ namespace InventoryTools.Logic.Columns
 
         public override string? CurrentValue(ColumnConfiguration columnConfiguration, SearchResult searchResult)
         {
-            return "Item Search: " + searchResult.Item.Base.ItemSearchCategory.RowId + " - Ui Category: " + searchResult.Item.Base.ItemUICategory.RowId + " - Sort Category: " + searchResult.Item.Base.ItemSortCategory.RowId + " - Equip Slot Category: " + searchResult.Item.Base.EquipSlotCategory.RowId + " - Class Job Category: " + searchResult.Item.Base.ClassJobCategory.RowId + " - Buy: " + searchResult.Item.Base.PriceMid;
+            return "物品搜索分类：" + searchResult.Item.Base.ItemSearchCategory.RowId + " - UI分类：" + searchResult.Item.Base.ItemUICategory.RowId + " - 排序分类：" + searchResult.Item.Base.ItemSortCategory.RowId + " - 装备槽位分类：" + searchResult.Item.Base.EquipSlotCategory.RowId + " - 职业分类：" + searchResult.Item.Base.ClassJobCategory.RowId + " - 购买价格：" + searchResult.Item.Base.PriceMid;
         }
         public override string Name { get; set; } = "Debug - General Information";
         public override float Width { get; set; } = 200;

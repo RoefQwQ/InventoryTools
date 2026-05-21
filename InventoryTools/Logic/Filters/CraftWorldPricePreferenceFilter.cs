@@ -112,7 +112,7 @@ public class CraftWorldPricePreference : SortedListFilter<uint, uint>
 
         var currentValue = CurrentValue(configuration);
         ImGui.SetNextItemWidth(LabelSize);
-        ImGui.LabelText("##" + Key + "Label", "Add new world: ");
+        ImGui.LabelText("##" + Key + "Label", "添加新服务器：");
         ImGui.SameLine();
         var currentAddItem = "";
         using (var combo = ImRaii.Combo("##AddWorld" + Key, currentAddItem, ImGuiComboFlags.HeightLarge))

@@ -45,7 +45,7 @@ public class ItemDungeonDropSourceRenderer : ItemInfoRenderer<ItemDungeonDropSou
     {
         var dungeonDropSource = AsSource(source);
 
-        return "Dungeon: " + dungeonDropSource.ContentFinderCondition.FormattedName;
+        return "副本：" + dungeonDropSource.ContentFinderCondition.FormattedName;
     };
 
     public override Func<ItemSource, int> GetIcon => _ => Icons.DutyIcon;

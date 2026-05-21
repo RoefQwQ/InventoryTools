@@ -122,7 +122,7 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
 
         var currentValue = CurrentValue(configuration);
         ImGui.SetNextItemWidth(LabelSize);
-        ImGui.LabelText("##" + Key + "Label", "Add new zone: ");
+        ImGui.LabelText("##" + Key + "Label", "添加新区域：");
         ImGui.SameLine();
         var currentAddItem = "";
         using (var combo = ImRaii.Combo("##AddZone" + Key, currentAddItem, ImGuiComboFlags.HeightLarge))

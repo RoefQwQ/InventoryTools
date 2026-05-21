@@ -271,7 +271,7 @@ namespace InventoryTools.Logic.Filters
                         ImGui.PopTextWrapPos();
                         ImGui.Separator();
                         ImGui.SetNextItemWidth(LabelSize);
-                        ImGui.LabelText("##" + Key + "Custom", "Custom Column Name: ");
+                        ImGui.LabelText("##" + Key + "Custom", "自定义列名：");
                         ImGui.SetNextItemWidth(InputSize);
                         ImGui.SameLine();
                         if (ImGui.InputTextWithHint("##CustomColumnName", _selectedColumnName, ref customName, 100,
@@ -282,7 +282,7 @@ namespace InventoryTools.Logic.Filters
 
                         string exportName = _exportName;
                         ImGui.SetNextItemWidth(LabelSize);
-                        ImGui.LabelText("##" + Key + "Export", "Custom Export Name: ");
+                        ImGui.LabelText("##" + Key + "Export", "自定义导出名称：");
                         ImGui.SetNextItemWidth(InputSize);
                         ImGui.SameLine();
                         if (ImGui.InputTextWithHint("##CustomExportName", _selectedColumnName, ref exportName, 100,

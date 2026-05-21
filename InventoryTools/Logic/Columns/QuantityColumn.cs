@@ -93,7 +93,7 @@ namespace InventoryTools.Logic.Columns
                 ImGui.NewLine();
                 ImGui.Separator();
                 ImGui.SetNextItemWidth(220);
-                ImGui.LabelText("##" + configuration.Key + "Search", "Characters to search in:");
+                ImGui.LabelText("##" + configuration.Key + "Search", "要搜索的角色：");
                 ImGui.SetNextItemWidth(250);
                 ImGui.SameLine();
                 _scopePickerColumnSetting.Draw(columnConfiguration,

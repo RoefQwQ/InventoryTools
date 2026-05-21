@@ -142,13 +142,13 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
             {
                 new()
                 {
-                    Label = "Buy from Vendor Price",
+                    Label = "商店购买价格",
                     Value = () => row.BuyFromVendorPrice + SeIconChar.Gil.ToIconString(),
                     ShouldDraw = () => row.BuyFromVendorPrice != 0 && row.HasSourcesByType(ItemInfoType.GilShop)
                 },
                 new()
                 {
-                    Label = "Sell to Vendor Price",
+                    Label = "商店出售价格",
                     Value = () => row.SellToVendorPrice + SeIconChar.Gil.ToIconString(),
                     ShouldDraw = () => row.SellToVendorPrice != 0
                 },

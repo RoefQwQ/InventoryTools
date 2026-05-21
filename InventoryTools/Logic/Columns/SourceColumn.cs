@@ -21,7 +21,7 @@ namespace InventoryTools.Logic.Columns
             {
                 return _characterMonitor.Characters.TryGetValue(searchResult.InventoryItem.RetainerId, out var character)
                     ? character.FormattedName
-                    : "Unknown (" + searchResult.InventoryItem.RetainerId + ")";
+                    : "未知 (" + searchResult.InventoryItem.RetainerId + ")";
             }
 
             return null;

@@ -37,7 +37,7 @@ public class ItemGearsetUseRenderer : ItemInfoRenderer<ItemGearsetSource>
         if (asSource.SetItems.Count > 1)
         {
             ImGui.Text("套装名称：" +  asSource.Gearset.Name);
-            this.DrawItems("Set Items:", asSource.RelatedItems.First().Value);
+            this.DrawItems("套装物品：", asSource.RelatedItems.First().Value);
         }
     };
 
@@ -47,6 +47,6 @@ public class ItemGearsetUseRenderer : ItemInfoRenderer<ItemGearsetSource>
     public override Func<ItemSource, string> GetDescription => source =>
     {
         var asSource = AsSource(source);
-        return "Contains " + string.Join(", ", asSource.SetItems.Select(c => c.NameString));
+        return "包含：" + string.Join("、", asSource.SetItems.Select(c => c.NameString));
     };
 }

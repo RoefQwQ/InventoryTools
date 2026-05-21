@@ -29,10 +29,10 @@ namespace InventoryTools.Logic.Filters
         }
         public override int Order { get; set; } = 2;
         public override string Key { get; set; } = "Destinations";
-        public override string Name { get; set; } = "Destinations";
+        public override string Name { get; set; } = "去向";
 
         public override string HelpText { get; set; } =
-            "This lists all the destinations that are applicable given the destinations picked above.";
+            "根据上面选择的目的地，列出所有适用的去向。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Inventories;
 

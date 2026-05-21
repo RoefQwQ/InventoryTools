@@ -29,10 +29,10 @@ namespace InventoryTools.Logic.Filters
         }
         public override int Order { get; set; } = 1;
         public override string Key { get; set; } = "Sources";
-        public override string Name { get; set; } = "Sources";
+        public override string Name { get; set; } = "来源";
 
         public override string HelpText { get; set; } =
-            "This lists all the sources that are applicable given the sources picked above.";
+            "根据上面选择的来源，列出所有适用的来源。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Inventories;
 

@@ -974,7 +974,7 @@ namespace InventoryTools.Lists
         public FilterConfiguration GenerateDefaultCraftList()
         {
             var defaultFilter = _filterConfigFactory.Invoke();
-            defaultFilter.Name = "Default Craft List";
+            defaultFilter.Name = "默认制作列表";
             defaultFilter.FilterType = FilterType.CraftFilter;
             AddDefaultColumns(defaultFilter);
             defaultFilter.ApplyDefaultCraftFilterConfiguration();
