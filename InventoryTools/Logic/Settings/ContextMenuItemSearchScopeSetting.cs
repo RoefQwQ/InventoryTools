@@ -67,8 +67,8 @@ public class ContextMenuItemSearchScopeSetting : Setting<List<InventorySearchSco
     }
 
     public override string Key { get; set; } = "ItemSearchScope";
-    public override string Name { get; set; } = "Context Menu - Search Scope";
-    public override string HelpText { get; set; } = "When searching for an item across the inventories AT knows about, which inventories should be searched?";
+    public override string Name { get; set; } = "右键菜单 - 搜索范围";
+    public override string HelpText { get; set; } = "在 AT 已知的库存中搜索物品时，应该搜索哪些库存？";
 
     public override string WizardName { get; } = "搜索范围";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ContextMenu;

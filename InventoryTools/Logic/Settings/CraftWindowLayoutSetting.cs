@@ -20,10 +20,10 @@ public class CraftWindowLayoutSetting : ChoiceSetting<WindowLayout>
     }
 
     public override string Key { get; set; } = "CraftWindowLayout";
-    public override string Name { get; set; } = "Craft Window Layout";
+    public override string Name { get; set; } = "制作窗口布局";
 
     public override string WizardName { get; } = "制作窗口";
-    public override string HelpText { get; set; } = "Set the layout of the craft window";
+    public override string HelpText { get; set; } = "设置制作窗口的布局";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.Windows;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.WindowLayout;
 
@@ -33,9 +33,9 @@ public class CraftWindowLayoutSetting : ChoiceSetting<WindowLayout>
 
     public override Dictionary<WindowLayout, string> Choices { get; } = new Dictionary<WindowLayout, string>()
     {
-        { WindowLayout.Sidebar, "Sidebar" },
-        { WindowLayout.Tabs , "Tabs" },
-        { WindowLayout.Single , "Single" }
+        { WindowLayout.Sidebar, "侧边栏" },
+        { WindowLayout.Tabs , "标签页" },
+        { WindowLayout.Single , "单窗口" }
     };
     public override string Version => "1.7.0.0";
 

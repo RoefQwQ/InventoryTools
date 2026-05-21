@@ -30,8 +30,8 @@ public class HistoryTrackEventsSetting : MultipleChoiceSetting<InventoryChangeRe
     }
 
     public override string Key { get; set; } = "HistoryTrackEvents";
-    public override string Name { get; set; } = "History Track Events";
-    public override string HelpText { get; set; } = "Which events should be tracked by the history module?";
+    public override string Name { get; set; } = "历史记录追踪事件";
+    public override string HelpText { get; set; } = "历史模块应追踪哪些事件？";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.History;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;
     private Dictionary<InventoryChangeReason, string>? _changeReasons;

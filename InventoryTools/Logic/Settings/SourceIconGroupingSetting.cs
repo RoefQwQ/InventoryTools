@@ -133,8 +133,8 @@ public class SourceIconGroupingSetting : Setting<Dictionary<Type, bool>?>
     }
 
     public override string Key { get; set; } = "SourceIconGrouping";
-    public override string Name { get; set; } = "Source Acquisition Icon Grouping";
-    public override string HelpText { get; set; } = "When source acquisition icons are displayed, how should they be grouped?";
+    public override string Name { get; set; } = "来源获取图标分组";
+    public override string HelpText { get; set; } = "显示来源获取图标时，应该如何分组？";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.Items;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.SourceGrouping;
     public override string Version { get; } = "1.11.0.10";

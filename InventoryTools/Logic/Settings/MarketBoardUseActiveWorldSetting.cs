@@ -18,8 +18,8 @@ public class MarketBoardUseActiveWorldSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "MarketBoardUseActiveWorld";
-    public override string Name { get; set; } = "Price Active World?";
-    public override string HelpText { get; set; } = "Should the currently active world be automatically priced?";
+    public override string Name { get; set; } = "当前服务器定价？";
+    public override string HelpText { get; set; } = "是否自动获取当前所在服务器的价格？";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.MarketBoard;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Market;
     public override string Version { get; } = "1.7.0.0";

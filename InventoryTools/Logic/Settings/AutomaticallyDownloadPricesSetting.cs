@@ -29,10 +29,10 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "AutomaticallyDownloadPrices";
-        public override string Name { get; set; } = "Automatically download prices?";
+        public override string Name { get; set; } = "自动下载价格？";
 
         public override string WizardName { get; } = "下载价格数据";
-        public override string HelpText { get; set; } = "Should price data be automatically downloaded when it's viewed in a list?";
+        public override string HelpText { get; set; } = "在列表中查看价格时，是否应自动下载价格数据？";
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.MarketBoard;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Market;
         public override string Version => "1.7.0.0";

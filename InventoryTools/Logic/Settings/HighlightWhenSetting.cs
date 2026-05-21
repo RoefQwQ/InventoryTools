@@ -26,8 +26,8 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "HighlightWhen";
-        public override string Name { get; set; } = "Highlight When?";
-        public override string HelpText { get; set; } = "When highlighting is turned on for a list, should it always be active or should it only be active when a column is being searched in";
+        public override string Name { get; set; } = "何时高亮？";
+        public override string HelpText { get; set; } = "为列表开启高亮时，应该始终生效还是仅在搜索列时生效？";
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.Highlighting;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;
 

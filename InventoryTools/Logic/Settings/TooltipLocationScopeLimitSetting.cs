@@ -69,8 +69,8 @@ public class TooltipLocationScopeLimitSetting : Setting<List<InventorySearchScop
     }
 
     public override string Key { get; set; } = "TooltipLocationScopeLimit";
-    public override string Name { get; set; } = "Add Item Locations (Search Locations)";
-    public override string HelpText { get; set; } = "When showing the locations of the items you own in the tooltip, which inventories should be included in the search?";
+    public override string Name { get; set; } = "添加物品位置（搜索位置）";
+    public override string HelpText { get; set; } = "在工具提示中显示你拥有的物品位置时，应该包含哪些库存的搜索结果？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.AddItemLocations;

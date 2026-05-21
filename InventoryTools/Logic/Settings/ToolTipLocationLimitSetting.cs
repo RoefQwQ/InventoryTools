@@ -18,8 +18,8 @@ public class ToolTipLocationLimitSetting : IntegerSetting
     }
 
     public override string Key { get; set; } = "TooltipLocationLimit";
-    public override string Name { get; set; } = "Add Item Locations (Max Results)";
-    public override string HelpText { get; set; } = "The maximum amount of locations to list on the tooltip. This requires 'Display Amount Owned?' to be enabled.";
+    public override string Name { get; set; } = "添加物品位置（最大结果数）";
+    public override string HelpText { get; set; } = "工具提示中列出的最大位置数量。需要启用「显示拥有数量」功能。";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.AddItemLocations;
     public override string Version => "1.7.0.0";

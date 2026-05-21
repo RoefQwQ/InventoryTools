@@ -18,8 +18,8 @@ public class TooltipCategoryBlacklistSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "TooltipCategoryBlacklist";
-    public override string Name { get; set; } = "Tooltip Category Blacklist";
-    public override string HelpText { get; set; } = "Makes the Tooltip Category Whitelist into a Blacklist if checked.";
+    public override string Name { get; set; } = "工具提示分类黑名单";
+    public override string HelpText { get; set; } = "勾选后将工具提示分类白名单变为黑名单。";
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;
     public override string Version => "1.7.0.0";

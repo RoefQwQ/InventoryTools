@@ -21,8 +21,8 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "TabHighlightColour";
-        public override string Name { get; set; } = "Tab Highlight Colour";
-        public override string HelpText { get; set; } = "The color to set the highlighted tabs(that contain filtered items) to.";
+        public override string Name { get; set; } = "标签高亮颜色";
+        public override string HelpText { get; set; } = "设置包含筛选物品的标签页的高亮颜色。";
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.Highlighting;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Colours;
         public override string Version => "1.7.0.0";
