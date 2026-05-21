@@ -18,7 +18,7 @@ namespace InventoryTools.Logic.ItemRenderers;
 public class ItemFccShopUseRenderer : ItemFccShopSourceRenderer
 {
     private readonly ItemSheet _itemSheet;
-    public override string HelpText => "Can the item be spent at a free company shop?";
+    public override string HelpText => "该物品能否在部队商店中使用？";
     public ItemFccShopUseRenderer(MapSheet mapSheet, ItemSheet itemSheet, ITextureProvider textureProvider,
         IDalamudPluginInterface dalamudPluginInterface) : base(mapSheet, itemSheet, textureProvider, dalamudPluginInterface)
     {
@@ -65,7 +65,7 @@ public class ItemFccShopSourceRenderer : ItemInfoRenderer<ItemFccShopSource>
     public override ItemInfoType Type => ItemInfoType.FCShop;
     public override string SingularName => "部队商店";
     public override string PluralName => "部队商店";
-    public override string HelpText => "Can the item be purchased from a free company shop?";
+    public override string HelpText => "该物品能否从部队商店购买？";
     public override bool ShouldGroup => true;
 
     public override byte MaxColumns => 1;
@@ -77,7 +77,7 @@ public class ItemFccShopSourceRenderer : ItemInfoRenderer<ItemFccShopSource>
 
         using (ImRaii.PushIndent())
         {
-            ImGui.Text($"Cost: Company Credit x {asSources.First().FccShopListing.Cost.Count}");
+            ImGui.Text($"花费：部队信用点 x {asSources.First().FccShopListing.Cost.Count}");
         }
 
         DrawMaps(sources);
@@ -89,7 +89,7 @@ public class ItemFccShopSourceRenderer : ItemInfoRenderer<ItemFccShopSource>
 
         using (ImRaii.PushIndent())
         {
-            ImGui.Text($"Cost: Company Credit x {asSource.FccShopListing.Cost.Count}");
+            ImGui.Text($"花费：部队信用点 x {asSource.FccShopListing.Cost.Count}");
         }
 
         DrawMaps(source);

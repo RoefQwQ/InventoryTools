@@ -56,7 +56,7 @@ public abstract class ItemFieldOpCofferSourceRenderer<T> : ItemInfoRenderer<T> w
     public override Func<ItemSource, string> GetDescription => source =>
     {
         var asSource = AsSource(source);
-        return asSource.CofferType + " coffer";
+        return asSource.CofferType + " 宝箱";
     };
 }
 
@@ -70,7 +70,7 @@ public class ItemPagosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<I
     }
 
     public override string SingularName => "优雷卡恒冰（宝箱）";
-    public override string HelpText => "Does this item drop from a pagos treasure coffer?";
+    public override string HelpText => "该物品是否从恒冰宝藏箱中掉落？";
 }
 
 public class ItemPyrosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemPyrosTreasureCofferSource>
@@ -83,7 +83,7 @@ public class ItemPyrosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<I
     }
 
     public override string SingularName => "优雷卡火光（宝箱）";
-    public override string HelpText => "Does this item drop from a pyros treasure coffer?";
+    public override string HelpText => "该物品是否从火光宝藏箱中掉落？";
 }
 
 public class ItemHydatosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemHydatosTreasureCofferSource>
@@ -96,7 +96,7 @@ public class ItemHydatosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer
     }
 
     public override string SingularName => "优雷卡丰水（宝箱）";
-    public override string HelpText => "Does this item drop from a hydatos treasure coffer?";
+    public override string HelpText => "该物品是否从丰水宝藏箱中掉落？";
 }
 
 public class ItemOccultTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemOccultTreasureCofferSource>
@@ -109,7 +109,7 @@ public class ItemOccultTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<
     }
 
     public override string SingularName => "秘银幻岛（宝箱）";
-    public override string HelpText => "Does this item drop from a occult crescent treasure coffer?";
+    public override string HelpText => "该物品是否从秘银幻岛宝藏箱中掉落？";
 }
 
 public class ItemOccultPotSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemOccultPotSource>
@@ -122,7 +122,7 @@ public class ItemOccultPotSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemO
     }
 
     public override string SingularName => "秘银幻岛（罐子）";
-    public override string HelpText => "Does this item drop from a occult crescent pot?";
+    public override string HelpText => "该物品是否从秘银幻岛罐子中掉落？";
 }
 
 public class ItemOccultGoldenCofferSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemOccultGoldenCofferSource>
@@ -135,5 +135,5 @@ public class ItemOccultGoldenCofferSourceRenderer : ItemFieldOpCofferSourceRende
     }
 
     public override string SingularName => "秘银幻岛（金宝箱）";
-    public override string HelpText => "Does this item drop from a occult crescent golden coffer?";
+    public override string HelpText => "该物品是否从秘银幻岛金宝箱中掉落？";
 }
