@@ -17,8 +17,8 @@ namespace InventoryTools.Logic.Filters
             ShowOperatorTooltip = true;
         }
         public override string Key { get; set; } = "MBMinTotalPrice";
-        public override string Name { get; set; } = "Market Board Total Minimum Price";
-        public override string HelpText { get; set; } = "The total market board price of the item(minimum price * quantity). For this to work you need to have automatic pricing enabled and also note that any background price updates will not be evaluated until an event that refreshes the inventory occurs(this happens fairly often).";
+        public override string Name { get; set; } = "板子最低总价";
+        public override string HelpText { get; set; } = "该物品在市场板上的最低总价（最低单价 × 数量）。需要启用自动定价功能，且后台价格更新只有在触发库存刷新事件时才会生效（这发生得相当频繁）。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Market;
 
         public override bool? FilterItem(FilterConfiguration configuration,InventoryItem item)

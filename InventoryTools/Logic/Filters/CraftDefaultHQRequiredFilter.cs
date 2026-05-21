@@ -10,10 +10,10 @@ namespace InventoryTools.Logic.Filters;
 public class CraftDefaultHQRequiredFilter : BooleanFilter
 {
     public override bool? DefaultValue { get; set; } = false;
-    public override string Key { get; set; } = "CraftDefaultHqRequired";
-    public override string Name { get; set; } = "HQ Required";
-    public override string HelpText { get; set; } = "Should each item in the list require a HQ version of the item(if applicable)?";
-    public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
+    public override string Key { get; set; } = "DefaultHQRequired";
+    public override string Name { get; set; } = "默认需要HQ？";
+    public override string HelpText { get; set; } = "列表中的每个物品是否都需要HQ版本（如适用）？";
+    public override FilterCategory FilterCategory { get; set; } = FilterCategory.Crafting;
     public override FilterType AvailableIn { get; set; } = FilterType.CraftFilter;
     public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)
     {

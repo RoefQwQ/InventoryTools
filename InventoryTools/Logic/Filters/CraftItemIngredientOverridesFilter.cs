@@ -49,10 +49,10 @@ public class CraftItemIngredientOverridesFilter : Filter<bool>
         _popupService = popupService;
     }
 
-    public override string Key { get; set; } = "CraftItemIngredientOverrides";
-    public override string Name { get; set; } = "Per-Item Ingredient Source Overrides";
-    public override string HelpText { get; set; } = "Override the ingredient source for specific items. Overrides set here take precedence over the list's default ingredient sourcing order.";
-    public override FilterCategory FilterCategory { get; set; } = FilterCategory.ItemIngredientOverrides;
+    public override string Key { get; set; } = "IngredientPreference";
+    public override string Name { get; set; } = "材料来源偏好";
+    public override string HelpText { get; set; } = "为特定物品覆盖材料来源。此处设置的覆盖优先于列表的默认材料来源顺序。";
+    public override FilterCategory FilterCategory { get; set; } = FilterCategory.Crafting;
     public override FilterType AvailableIn { get; set; } = FilterType.CraftFilter;
     public override bool DefaultValue { get; set; } = false;
     public override bool ShowReset { get; set; } = false;

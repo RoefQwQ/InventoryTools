@@ -33,9 +33,9 @@ public class IngredientSearchFilter : UintMultipleChoiceFilter
         _craftListFactory = craftListFactory;
     }
     public override string Key { get; set; } = "IngredientSearchFilter";
-    public override string Name { get; set; } = "Ingredient Search Filter";
+    public override string Name { get; set; } = "材料搜索筛选器";
 
-    public override string HelpText { get; set; } = "Select craftable items and the filter will determine the ingredients used in the craft and will only list those ingredients. The add all from filter button will add all the items from the selected filter to the list.";
+    public override string HelpText { get; set; } = "选择可制作物品，筛选器将确定制作中使用的材料并仅列出这些材料。从筛选器添加全部按钮会将所选筛选器中的所有物品添加到列表中。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Searching;
 

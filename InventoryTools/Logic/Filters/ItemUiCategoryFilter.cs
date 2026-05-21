@@ -21,9 +21,9 @@ namespace InventoryTools.Logic.Filters
 
         public override string Key { get; set; } = "UiCategory";
 
-        public override string Name { get; set; } = "Categories";
+        public override string Name { get; set; } = "物品分类";
 
-        public override string HelpText { get; set; } = "Filter by the categories the game gives items when you scroll over them.";
+        public override string HelpText { get; set; } = "按游戏中鼠标悬停时显示的物品分类进行筛选。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Searching;
 
         private Dictionary<uint, string> _choices = new();
