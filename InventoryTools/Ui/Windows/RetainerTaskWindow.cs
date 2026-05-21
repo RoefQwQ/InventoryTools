@@ -129,7 +129,7 @@ namespace InventoryTools.Ui
                 #if DEBUG
                 if (ImGui.CollapsingHeader("Debug"))
                 {
-                    ImGui.TextUnformatted("Duty ID: " + _retainerTaskId);
+                    ImGui.TextUnformatted("副本 ID：" + _retainerTaskId);
                     Utils.PrintOutObject(RetainerTask, 0, new List<string>());
                 }
                 #endif

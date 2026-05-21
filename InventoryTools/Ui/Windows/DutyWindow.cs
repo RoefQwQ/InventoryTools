@@ -344,7 +344,7 @@ namespace InventoryTools.Ui
                 #if DEBUG
                 if (ImGui.CollapsingHeader("Debug"))
                 {
-                    ImGui.TextUnformatted("Duty ID: " + _contentFinderConditionId);
+                    ImGui.TextUnformatted("副本 ID：" + _contentFinderConditionId);
                     Utils.PrintOutObject(ContentFinderCondition, 0, new List<string>());
                 }
                 #endif

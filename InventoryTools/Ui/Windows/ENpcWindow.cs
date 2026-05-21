@@ -224,7 +224,7 @@ namespace InventoryTools.Ui
                 if (ImGui.CollapsingHeader("Debug"))
                 {
                     ImGui.TextUnformatted("eNpc ID: " + _eNpcId);
-                    if (ImGui.Button("Copy"))
+                    if (ImGui.Button("复制"))
                     {
                         _clipboardService.CopyToClipboard(_eNpcId.ToString());
                     }

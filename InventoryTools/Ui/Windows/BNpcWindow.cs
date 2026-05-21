@@ -240,7 +240,7 @@ namespace InventoryTools.Ui
                 if (ImGui.CollapsingHeader("Debug"))
                 {
                     ImGui.TextUnformatted("bNpc ID: " + _bNpcId);
-                    if (ImGui.Button("Copy"))
+                    if (ImGui.Button("复制"))
                     {
                         _clipboardService.CopyToClipboard(_bNpcId.ToString());
                     }
