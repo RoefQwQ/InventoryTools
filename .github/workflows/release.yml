@@ -53,3 +53,11 @@ jobs:
         files: InventoryTools-${{ steps.version.outputs.VERSION }}.zip
         generate_release_notes: true
         prerelease: false
+        
+    - name: Trigger DalamudPlugins update
+      uses: peter-evans/repository-dispatch@v3
+      with:
+        token: ${{ secrets.REPO_SYNC_TOKEN }}
+        repository: RoefQwQ/DalamudPlugins
+        event-type: update-plugin
+        client-payload: '{"version": "${{ steps.version.outputs.VERSION }}"}'
