@@ -17,8 +17,8 @@
         "DalamudApiLevel": 15,
         "RepoUrl": "https://github.com/RoefQwQ/InventoryTools",
         "IconUrl": "https://raw.githubusercontent.com/RoefQwQ/InventoryTools/main/InventoryTools/Images/icon.png",
-        "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/InventoryTools.zip",
-        "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/InventoryTools.zip",
+        "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/download/v1.15.0.5/InventoryTools.zip",
+        "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/download/v1.15.0.5/InventoryTools.zip",
         "DownloadCount": 0,
         "LastUpdate": "0"
     }

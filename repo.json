@@ -25,9 +25,9 @@
     ],
     "IsHide": false,
     "IsTestingExclusive": false,
-    "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/latest.zip",
-    "DownloadLinkTesting": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/latest.zip",
-    "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/latest.zip",
+    "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/InventoryTools.zip",
+    "DownloadLinkTesting": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/InventoryTools.zip",
+    "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/InventoryTools.zip",
     "Changelog": "",
     "LastUpdate": 20260521
   }
