@@ -1,0 +1,46 @@
+name: Update Plugin Master
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-pluginmaster:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Update pluginmaster.json
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          
+          // Read current pluginmaster.json
+          let pluginmaster = JSON.parse(fs.readFileSync('pluginmaster.json', 'utf8'));
+          
+          // Get release info
+          const release = context.payload.release;
+          const version = release.tag_name.replace('v', '');
+          const timestamp = Math.floor(Date.now() / 1000).toString();
+          
+          // Update version and timestamp
+          if (pluginmaster.length > 0) {
+            pluginmaster[0].AssemblyVersion = version;
+            pluginmaster[0].LastUpdate = timestamp;
+          }
+          
+          // Write updated file
+          fs.writeFileSync('pluginmaster.json', JSON.stringify(pluginmaster, null, 4));
+          
+    - name: Commit changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add pluginmaster.json
+        git diff --staged --quiet || git commit -m "Update pluginmaster.json to version ${{ github.event.release.tag_name }}"
+        git push

@@ -1,0 +1,25 @@
+[
+    {
+        "Author": "RoefQwQ (汉化)",
+        "Name": "InventoryTools (中文版)",
+        "Punchline": "FF14 库存管理插件 - 中文汉化版",
+        "Description": "Allagan Tools - InventoryTools 的中文汉化版本。功能包括：背包管理、物品筛选、制作列表、市场板价格追踪等。",
+        "Tags": [
+            "inventory",
+            "items",
+            "crafting",
+            "marketboard",
+            "utility"
+        ],
+        "InternalName": "InventoryTools",
+        "AssemblyVersion": "1.15.0.5",
+        "ApplicableVersion": "any",
+        "DalamudApiLevel": 15,
+        "RepoUrl": "https://github.com/RoefQwQ/InventoryTools",
+        "IconUrl": "https://raw.githubusercontent.com/RoefQwQ/InventoryTools/main/InventoryTools/Images/icon.png",
+        "DownloadLinkInstall": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/InventoryTools.zip",
+        "DownloadLinkUpdate": "https://github.com/RoefQwQ/InventoryTools/releases/latest/download/InventoryTools.zip",
+        "DownloadCount": 0,
+        "LastUpdate": "0"
+    }
+]

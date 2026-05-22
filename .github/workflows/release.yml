@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+      
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore InventoryTools.sln
+      
+    - name: Build Release
+      run: dotnet build InventoryTools.sln --configuration Release --no-restore
+      
+    - name: Get version from tag
+      id: version
+      shell: bash
+      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      
+    - name: Create plugin package
+      shell: pwsh
+      run: |
+        $version = "${{ steps.version.outputs.VERSION }}"
+        $outputDir = "plugin-output"
+        New-Item -ItemType Directory -Path $outputDir -Force
+        
+        # Copy DLL and related files
+        Copy-Item "InventoryTools/bin/Release/net9.0/InventoryTools.dll" -Destination $outputDir
+        Copy-Item "InventoryTools/bin/Release/net9.0/InventoryTools.json" -Destination $outputDir -ErrorAction SilentlyContinue
+        
+        # Create zip
+        Compress-Archive -Path "$outputDir/*" -DestinationPath "InventoryTools-$version.zip"
+        
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: InventoryTools-${{ steps.version.outputs.VERSION }}.zip
+        generate_release_notes: true
+        prerelease: false
