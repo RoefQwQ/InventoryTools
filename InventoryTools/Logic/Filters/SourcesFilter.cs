@@ -88,7 +88,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "RetainerLabel", "Retainer Sources" + ":");
+            ImGui.LabelText("##" + Key + "RetainerLabel", "雇员来源" + ":");
             if (sources.Count != 0)
             {
                 ImGui.PopStyleColor();
@@ -125,7 +125,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "CharacterLabel", "Character Sources" + ":");
+            ImGui.LabelText("##" + Key + "CharacterLabel", "角色来源" + ":");
             if (sources.Count != 0)
             {
                 ImGui.PopStyleColor();
@@ -163,7 +163,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "CharacterLabel", "Free Company Sources" + ":");
+            ImGui.LabelText("##" + Key + "CharacterLabel", "部队来源" + ":");
             if (sources.Count != 0)
             {
                 ImGui.PopStyleColor();
@@ -201,7 +201,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "CharacterLabel", "Housing Sources" + ":");
+            ImGui.LabelText("##" + Key + "CharacterLabel", "房屋来源" + ":");
             if (sources.Count != 0)
             {
                 ImGui.PopStyleColor();

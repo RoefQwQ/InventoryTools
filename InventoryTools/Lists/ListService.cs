@@ -363,7 +363,7 @@ namespace InventoryTools.Lists
         public FilterConfiguration AddNewCraftList(string? newName = null, bool? isEphemeral = false)
         {
             var isEphemeralNN = isEphemeral ?? false;
-            var newNameNN = newName ?? (isEphemeralNN ? "New Ephemeral List" : "New Craft List");
+            var newNameNN = newName ?? (isEphemeralNN ? "新建临时列表" : "新建制作列表");
 
             var names = Lists.Where(c =>
                 c.FilterType == FilterType.CraftFilter && !c.CraftListDefault &&
@@ -390,7 +390,7 @@ namespace InventoryTools.Lists
 
         public FilterConfiguration AddNewCuratedList(string? name = null)
         {
-            name ??= "New Curated List";
+            name ??= "新建精选列表";
 
             var names = Lists.Where(c =>
                 c.FilterType == FilterType.CuratedList).Select(c => c.Name).Distinct().ToHashSet();

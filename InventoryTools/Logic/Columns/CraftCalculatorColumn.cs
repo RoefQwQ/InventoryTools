@@ -42,11 +42,11 @@ public class CraftCalculatorColumn : IntegerColumn, IDisposable
         return (int?)(_craftable.ContainsKey(searchResult.Item.RowId) ? _craftable[searchResult.Item.RowId] : 0);
     }
 
-    public override string Name { get; set; } = "Craft Calculator";
+    public override string Name { get; set; } = "制作计算器";
     public override float Width { get; set; } = 80;
 
     public override string HelpText { get; set; } =
-        "This will calculate the total amount of an item that could be crafted based on the items within your character and retainers. You can override which inventories are looked in by selecting a custom scope below.";
+        "根据您角色和雇员背包中的材料，计算可制作的物品总数。您可以在下方选择自定义搜索范围来指定要查看哪些库存。";
 
     public override bool HasFilter { get; set; } = true;
     public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;

@@ -26,7 +26,7 @@ namespace InventoryTools.Logic.Columns
 
             return null;
         }
-        public override string Name { get; set; } = "Source";
+        public override string Name { get; set; } = "来源";
         public override float Width { get; set; } = 100.0f;
         public override string HelpText { get; set; } = "显示物品所在的角色/雇员";
         public override bool HasFilter { get; set; } = true;

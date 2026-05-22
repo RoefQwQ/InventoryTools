@@ -100,7 +100,7 @@ namespace InventoryTools.Logic.Columns
         }
         public override string Name
         {
-            get => "Market Board " + _configuration.MarketSaleHistoryLimit + " Day Sale Count";
+            get => "市场板 " + _configuration.MarketSaleHistoryLimit + " 天销量";
             set { }
         }
 

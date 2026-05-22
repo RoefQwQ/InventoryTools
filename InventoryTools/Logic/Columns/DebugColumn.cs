@@ -15,7 +15,7 @@ namespace InventoryTools.Logic.Columns
         {
             return "物品搜索分类：" + searchResult.Item.Base.ItemSearchCategory.RowId + " - UI分类：" + searchResult.Item.Base.ItemUICategory.RowId + " - 排序分类：" + searchResult.Item.Base.ItemSortCategory.RowId + " - 装备槽位分类：" + searchResult.Item.Base.EquipSlotCategory.RowId + " - 职业分类：" + searchResult.Item.Base.ClassJobCategory.RowId + " - 购买价格：" + searchResult.Item.Base.PriceMid;
         }
-        public override string Name { get; set; } = "Debug - General Information";
+        public override string Name { get; set; } = "调试 - 基本信息";
         public override float Width { get; set; } = 200;
         public override string HelpText { get; set; } = "显示基本调试信息";
         public override bool HasFilter { get; set; } = true;

@@ -174,7 +174,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_addToFavouritesSetting.CurrentValue(_configuration))
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = _configuration.IsFavouriteItem(itemId.Value) ? "Remove from Favourites" : "Add to Favourites";
+                menuItem.Name = _configuration.IsFavouriteItem(itemId.Value) ? "从收藏中移除" : "添加到收藏";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += _ => _configuration.ToggleFavouriteItem(itemId.Value);
                 args.AddMenuItem(menuItem);

@@ -86,7 +86,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "RetainerLabel", "Retainer Destinations" + ":");
+            ImGui.LabelText("##" + Key + "RetainerLabel", "雇员去向" + ":");
             if (destinations.Count != 0)
             {
                 ImGui.PopStyleColor();
@@ -122,7 +122,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "CharacterLabel", "Character Destinations" + ":");
+            ImGui.LabelText("##" + Key + "CharacterLabel", "角色去向" + ":");
             if (destinations.Count != 0)
             {
                 ImGui.PopStyleColor();
@@ -158,7 +158,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "CharacterLabel", "Free Company Destinations" + ":");
+            ImGui.LabelText("##" + Key + "CharacterLabel", "部队去向" + ":");
             if (destinations.Count != 0)
             {
                 ImGui.PopStyleColor();
@@ -194,7 +194,7 @@ namespace InventoryTools.Logic.Filters
             {
                 ImGui.PushStyleColor(ImGuiCol.Text,ImGuiColors.HealerGreen);
             }
-            ImGui.LabelText("##" + Key + "CharacterLabel", "Free Company Destinations" + ":");
+            ImGui.LabelText("##" + Key + "CharacterLabel", "房屋去向" + ":");
             if (destinations.Count != 0)
             {
                 ImGui.PopStyleColor();

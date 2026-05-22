@@ -93,11 +93,11 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
     {
         viewBuilder.SetupDefaults(this, row);
         viewBuilder.Description = row.Base.Description.ToImGuiString();
-        viewBuilder.AddTag("iLvl " + row.Base.LevelItem.RowId, "The item level of the item");
-        viewBuilder.AddTag("Patch " + row.Patch, "The patch the item was introduced");
+        viewBuilder.AddTag("iLvl " + row.Base.LevelItem.RowId, "物品等级");
+        viewBuilder.AddTag("Patch " + row.Patch, "物品加入的版本");
         if (row.CanBeAcquired)
         {
-            viewBuilder.AddTag("Acquired", "Is the item acquired?", () =>
+            viewBuilder.AddTag("Acquired", "是否已获得该物品？", () =>
             {
                 var isUnlocked = _unlockTrackerService.IsUnlocked(row);
                 if (isUnlocked == null)
@@ -111,11 +111,11 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
 
         if (row.CanBeCrafted)
         {
-            viewBuilder.AddTag("Craftable", "Is the item craftable?");
+            viewBuilder.AddTag("Craftable", "该物品是否可以制作？");
         }
         if (row.CanBeDesynthed)
         {
-            viewBuilder.AddTag("Desynthable", "Can the item be desynthed?");
+            viewBuilder.AddTag("Desynthable", "该物品是否可以分解？");
         }
 
         viewBuilder.AddItemSourcesSection(new ItemSourcesSectionOptions()
@@ -173,7 +173,7 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
         var (allRequirements, requirementRows) = BuildObtainabilityRows(row);
         if (allRequirements.Count > 0)
         {
-            viewBuilder.AddTag("Unlocked?", "Are all unlock requirements met for this item?", () =>
+            viewBuilder.AddTag("Unlocked?", "该物品的解锁要求是否全部满足？", () =>
                 allRequirements.All(r => r.IsMet)
                     ? ImGuiColors.ParsedGreen
                     : ImGuiColors.DalamudRed);
@@ -187,15 +187,15 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
             HideWhenEmpty = true
         });
 
-        viewBuilder.AddLink($"https://www.garlandtools.org/db/#item/{row.GarlandToolsId}", "Open in Garland Tools", "garlandtools");
-        viewBuilder.AddLink($"https://ffxivteamcraft.com/db/en/item/{row.RowId}", "Open in Teamcraft", "teamcraft");
+        viewBuilder.AddLink($"https://www.garlandtools.org/db/#item/{row.GarlandToolsId}", "在 Garland Tools 中打开", "garlandtools");
+        viewBuilder.AddLink($"https://ffxivteamcraft.com/db/en/item/{row.RowId}", "在 Teamcraft 中打开", "teamcraft");
         if (row.CanBePlacedOnMarket)
         {
-            viewBuilder.AddLink($"https://universalis.app/market/{row.RowId}", "Open in Universalis", "universalis");
+            viewBuilder.AddLink($"https://universalis.app/market/{row.RowId}", "在 Universalis 中打开", "universalis");
         }
 
-        viewBuilder.AddLink($"https://ffxiv.gamerescape.com/wiki/{HttpUtility.UrlEncode(row.GamerEscapeName)}?useskin=Vector", "Open in Gamerescape", "gamerescape");
-        viewBuilder.AddLink($"https://ffxiv.consolegameswiki.com/wiki/{HttpUtility.UrlEncode(row.ConsoleGamesWikiName)}", "Open in Console Games Wiki", "consolegameswiki");
+        viewBuilder.AddLink($"https://ffxiv.gamerescape.com/wiki/{HttpUtility.UrlEncode(row.GamerEscapeName)}?useskin=Vector", "在 Gamerescape 中打开", "gamerescape");
+        viewBuilder.AddLink($"https://ffxiv.consolegameswiki.com/wiki/{HttpUtility.UrlEncode(row.ConsoleGamesWikiName)}", "在 Console Games Wiki 中打开", "consolegameswiki");
     }
 
     private (List<ObtainabilityRequirement> AllRequirements, List<MetadataSectionOptions.Row> Rows) BuildObtainabilityRows(ItemRow row)
@@ -229,7 +229,7 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
                 rows.Add(new MetadataSectionOptions.Row
                 {
                     Label = $"{label}: {captured.Description}",
-                    Value = () => captured.IsMet ? "Met" : "Not Met",
+                    Value = () => captured.IsMet ? "已满足" : "未满足",
                 });
             }
         }
@@ -251,9 +251,9 @@ public class ItemCompendiumType : CompendiumType<ItemRow>
     public override bool ShowInListing => false;
     public override Type ViewRedirection => typeof(ItemWindow);
 
-    public override string Singular => "Item";
-    public override string Plural => "Items";
-    public override string Description => "All the items available in the game";
+    public override string Singular => "物品";
+    public override string Plural => "物品";
+    public override string Description => "游戏中所有可用的物品";
     public override string Key => "items";
     public override (string?, uint?) Icon => (null, Icons.QuestionMarkBag);
 }

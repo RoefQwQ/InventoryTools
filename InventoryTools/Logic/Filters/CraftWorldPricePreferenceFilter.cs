@@ -59,10 +59,10 @@ public class CraftWorldPricePreference : SortedListFilter<uint, uint>
     }
 
     public override string Key { get; set; } = "CraftWorldPricePreference";
-    public override string Name { get; set; } = "World Price Preference";
+    public override string Name { get; set; } = "服务器价格偏好";
 
     public override string HelpText { get; set; } =
-        "Which worlds should prices be sourced from?";
+        "应从哪些服务器获取价格数据？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.WorldPricePreference;
     public override Dictionary<uint, (string, string?)> DefaultValue { get; set; } = new();

@@ -53,7 +53,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
     public override string DefaultValue { get; set; } = string.Empty;
     public override string Key { get; set; } = "SelectedItem";
     public override string Name {
-        get => _modeSetting.CurrentValue(_configuration) == EquipmentSuggestMode.Tool ? "Main Hand" : "Selected Item";
+        get => _modeSetting.CurrentValue(_configuration) == EquipmentSuggestMode.Tool ? "主手" : "选中物品";
         set { }
     }
     public string? RenderName { get; set; } = null;
@@ -339,7 +339,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
         return "";
     }
 
-    public override string HelpText { get; set; } = "The item you've selected from the list of recommendations";
+    public override string HelpText { get; set; } = "从推荐列表中选中的物品";
     public override string Version { get; set; } = "1.12.0.10";
 
     public string? CurrentValue(EquipmentSuggestItem item)

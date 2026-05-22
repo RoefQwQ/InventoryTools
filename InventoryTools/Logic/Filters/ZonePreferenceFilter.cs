@@ -55,10 +55,10 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
     }
 
     public override string Key { get; set; } = "CraftZonePreference";
-    public override string Name { get; set; } = "Default Zone Order";
+    public override string Name { get; set; } = "默认区域顺序";
 
     public override string HelpText { get; set; } =
-        "When grouping items by zone, which zones should take preference?";
+        "按区域分组物品时，哪些区域应优先显示？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.ZonePreference;
     public override Dictionary<uint, (string, string?)> DefaultValue { get; set; } = new();
