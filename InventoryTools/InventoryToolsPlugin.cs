@@ -22,6 +22,7 @@ using AllaganLib.Shared.Time;
 using AllaganLib.Shared.Windows;
 using Autofac;
 using CharacterTools.Logic.Editors;
+using CriticalCommonLib.Crafting;
 using CriticalCommonLib.Models;
 using CriticalCommonLib.Resolvers;
 using CriticalCommonLib.Services;
@@ -126,6 +127,7 @@ namespace InventoryTools
             //Hosted service registrations
             this.RegisterHostedService(typeof(BootService));
             this.RegisterHostedService(typeof(ConfigurationManagerService));
+            this.RegisterHostedService(typeof(HostedCraftMonitor));
             this.RegisterHostedService(typeof(HostedInventoryHistory));
             this.RegisterHostedService(typeof(InventoryToolsUi));
             this.RegisterHostedService(typeof(ListFilterService));
