@@ -13,11 +13,8 @@ namespace InventoryTools.Services;
 
 public class BootService : DisposableMediatorSubscriberBase, IHostedService
 {
-    private readonly IConfigurationWizardService _configurationWizardService;
-
-    public BootService(IConfigurationWizardService configurationWizardService, ILogger<BootService> logger, MediatorService mediatorService) : base(logger, mediatorService)
+    public BootService(ILogger<BootService> logger, MediatorService mediatorService) : base(logger, mediatorService)
     {
-        _configurationWizardService = configurationWizardService;
     }
 
     public Task StartAsync(CancellationToken cancellationToken)
@@ -29,10 +26,6 @@ public class BootService : DisposableMediatorSubscriberBase, IHostedService
 
     private void PluginLoaded(PluginLoadedMessage obj)
     {
-        if (_configurationWizardService.ShouldShowWizard)
-        {
-            MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWizard)));
-        }
         MediatorService.Publish(new OpenSavedWindowsMessage());
     }
 

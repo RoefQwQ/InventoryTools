@@ -93,8 +93,6 @@
     <Content Include="cimplot.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Fonts\FontAwesomeFreeSolid.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+
   </ItemGroup>
 </Project>

@@ -145,30 +145,6 @@ namespace InventoryTools.Ui.Pages
                                 if (tabItem)
                                 {
                                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudWhite);
-                                    if (group.Key == FilterCategory.CraftColumns)
-                                    {
-                                        using (var craftColumns = ImRaii.Child("craftColumns", new(0, -100)))
-                                        {
-                                            if (craftColumns.Success)
-                                            {
-                                                group.Value.Single(c => c is CraftColumnsFilter or ColumnsFilter)
-                                                    .Draw(filterConfiguration);
-                                            }
-                                        }
-
-                                        using (var otherFilters = ImRaii.Child("otherFilters", new(0, 0)))
-                                        {
-                                            if (otherFilters.Success)
-                                            {
-                                                foreach (var filter in group.Value.Where(c =>
-                                                             c is not CraftColumnsFilter && c is not ColumnsFilter))
-                                                {
-                                                    filter.Draw(filterConfiguration);
-                                                }
-                                            }
-                                        }
-                                    }
-                                    else
                                     {
                                         foreach (var filter in group.Value)
                                         {
@@ -177,9 +153,6 @@ namespace InventoryTools.Ui.Pages
                                                  ||
                                                  (filter.AvailableIn.HasFlag(FilterType.SortingFilter) &&
                                                   filterConfiguration.FilterType.HasFlag(FilterType.SortingFilter))
-                                                 ||
-                                                 (filter.AvailableIn.HasFlag(FilterType.CraftFilter) &&
-                                                  filterConfiguration.FilterType.HasFlag(FilterType.CraftFilter))
                                                  ||
                                                  (filter.AvailableIn.HasFlag(FilterType.HistoryFilter) &&
                                                   filterConfiguration.FilterType.HasFlag(FilterType.HistoryFilter))

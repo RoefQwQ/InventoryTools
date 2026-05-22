@@ -5,8 +5,6 @@ using AllaganLib.GameSheets.Sheets.Rows;
 using CriticalCommonLib.Services.Mediator;
 using DalaMock.Host.Mediator;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using InventoryTools.Compendium;
-using InventoryTools.Compendium.Interfaces;
 using InventoryTools.Logic;
 using Lumina.Excel.Sheets;
 
@@ -36,10 +34,7 @@ public record ListAddedMessage(FilterConfiguration filterConfiguration) : Messag
 public record ListRemovedMessage(FilterConfiguration filterConfiguration) : MessageBase;
 public record ListUpdatedMessage(FilterConfiguration FilterConfiguration) : MessageBase;
 public record RequestListUpdateMessage(FilterConfiguration FilterConfiguration) : MessageBase;
-public record TeamCraftDataImported(List<(uint, uint)> listData) : MessageBase;
-public record AddToCraftListMessage(string FilterKey, uint ItemId, uint Quantity, InventoryItem.ItemFlags Flags) : MessageBase;
 public record AddToCuratedListMessage(string FilterKey, uint ItemId, uint Quantity, InventoryItem.ItemFlags Flags) : MessageBase;
-public record AddToNewCraftListMessage(uint ItemId, uint Quantity, InventoryItem.ItemFlags Flags, bool IsEphemeral) : MessageBase;
 public record AddToNewCuratedListMessage(uint ItemId, uint Quantity, InventoryItem.ItemFlags Flags) : MessageBase;
 public record FocusListMessage(Type windowType, FilterConfiguration FilterConfiguration) : MessageBase;
 public record RequestTeleportMessage(uint aetheryteId) : MessageBase;
@@ -51,8 +46,4 @@ public record RequestTeleportToGatheringPointRowMessage(GatheringPointRow gather
 public record OverlaysRequestRefreshMessage() : MessageBase;
 public record ItemSearchRequestedMessage(uint ItemId, InventoryItem.ItemFlags Flags) : MessageBase;
 public record NewColumnSetNameMessage(string? name, string? exportName) : MessageBase;
-public record OpenCompendiumListMessage(ICompendiumType CompendiumType) : MessageBase;
-public record OpenCompendiumViewMessage(ICompendiumType CompendiumType, uint rowId) : MessageBase;
-public record ToggleCompendiumListMessage(ICompendiumType CompendiumType) : MessageBase;
-public record ToggleCompendiumViewMessage(ICompendiumType CompendiumType, uint rowId) : MessageBase;
 public record OpenCurrentPOIMessage() : MessageBase;

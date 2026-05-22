@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using AllaganLib.GameSheets.Sheets.Rows;
 using CharacterTools.Logic.Editors;
-using CriticalCommonLib.Crafting;
 using CriticalCommonLib.Extensions;
 using CriticalCommonLib.Models;
 
@@ -20,8 +19,6 @@ namespace InventoryTools.Logic
 {
     public class FilterConfiguration
     {
-        [JsonIgnore] //Stops the object copy from erasing the field
-        private readonly CraftList.Factory _craftListFactory;
         private List<(ulong, InventoryCategory)> _destinationInventories = [];
         private bool _displayInTabs = true;
         private bool? _duplicatesOnly;
@@ -60,7 +57,6 @@ namespace InventoryTools.Logic
         private bool? _sourceIncludeCrossCharacter;
         private bool? _destinationIncludeCrossCharacter;
         private int? _freezeColumns;
-        private int? _freezeCraftColumns;
         private HashSet<InventoryCategory>? _destinationCategories;
         private HashSet<InventoryCategory>? _sourceCategories;
         private string _quantity = "";
@@ -69,8 +65,6 @@ namespace InventoryTools.Logic
         private string _iLevel = "";
         private string _shopSellingPrice = "";
         private string _shopBuyingPrice = "";
-        private string _marketAveragePrice = "";
-        private string _marketTotalAveragePrice = "";
         private bool _openAsWindow = false;
         private bool? _canBeBought;
         private bool? _isAvailableAtTimedNode;
@@ -86,17 +80,11 @@ namespace InventoryTools.Logic
         private bool? _highlightDestination = null;
         private bool? _highlightDestinationEmpty = null;
         private bool? _ignoreHQWhenSorting = null;
-        private bool _craftListDefault = false;
         private string? _highlightWhen = null;
         private int _tableHeight = 24;
-        private int _craftTableHeight = 24;
         private List<ColumnConfiguration>? _columns;
-        private List<ColumnConfiguration>? _craftColumns;
         private string? _icon;
         private HashSet<uint>? _sourceWorlds;
-        private Vector4 _craftHeaderColour = new (0.0f, 0.439f, 1f, 1f);
-        private CraftDisplayMode _craftDisplayMode = CraftDisplayMode.SingleTable;
-        private bool _isEphemeralCraftList = false;
         private string? _defaultSortColumn = null;
         private ImGuiSortDirection? _defaultSortOrder = null;
 
@@ -125,9 +113,6 @@ namespace InventoryTools.Logic
         /// </summary>
         [JsonIgnore] public bool Active { get; set; }
 
-        //Crafting
-        private CraftList? _craftList = null;
-        private bool? _simpleCraftingMode = null;
         private bool? _useORFiltering = null;
 
 
@@ -151,31 +136,10 @@ namespace InventoryTools.Logic
             return TableId;
         }
 
-        public string CraftTableId
-        {
-            get
-            {
-                if (_craftTableId == null)
-                {
-                    var newCraftTableId = GenerateNewCraftTableId();
-                    return newCraftTableId;
-                }
-                return _craftTableId;
-            }
-            set => _craftTableId = value;
-        }
-
-        public string GenerateNewCraftTableId()
-        {
-            CraftTableId = Guid.NewGuid().ToString("N");
-            return CraftTableId;
-        }
-
         [JsonIgnore]
         private List<SearchResult>? _searchResults = null;
 
         private string? _tableId = null;
-        private string? _craftTableId = null;
         private HighlightWhen _highlightWhenEnum;
         public HighlightMode HighlightMode { get; set; } = HighlightMode.Never;
 
@@ -194,16 +158,9 @@ namespace InventoryTools.Logic
 
         public delegate FilterConfiguration Factory();
 
-        public FilterConfiguration(CraftList.Factory craftListFactory)
+        public FilterConfiguration()
         {
-            _craftListFactory = craftListFactory;
             Key = Guid.NewGuid().ToString("N");
-        }
-
-        public void ApplyDefaultCraftFilterConfiguration()
-        {
-            CraftListDefault = true;
-            HighlightWhenEnum = Filters.HighlightWhen.Always;
         }
 
         [Obsolete("Remove with API14")]
@@ -256,26 +213,6 @@ namespace InventoryTools.Logic
             }
         }
 
-        [DefaultValue(24)]
-        public int CraftTableHeight
-        {
-            get => _craftTableHeight;
-            set { _craftTableHeight = value;
-                NeedsRefresh = true;
-                ConfigurationDirty = true;
-            }
-        }
-
-        [Vector4Default("0.0, 0.439, 1, 1")]
-        public Vector4 CraftHeaderColour
-        {
-            get => _craftHeaderColour;
-            set { _craftHeaderColour = value;
-                NeedsRefresh = true;
-                ConfigurationDirty = true;
-            }
-        }
-
         [Obsolete("Remove with API14")]
         public List<uint> ItemSortCategoryId
         {
@@ -316,15 +253,6 @@ namespace InventoryTools.Logic
             }
         }
 
-        public bool IsEphemeralCraftList
-        {
-            get => _isEphemeralCraftList;
-            set { _isEphemeralCraftList = value;
-                NeedsRefresh = true;
-                ConfigurationDirty = true;
-            }
-        }
-
         public string Name
         {
             get => _name == null ? "" :  _name;
@@ -343,10 +271,6 @@ namespace InventoryTools.Logic
             get
             {
                 var actualName = Name == "" ? "Untitled" : Name;
-                if (IsEphemeralCraftList)
-                {
-                    actualName += " (*)";
-                }
                 return actualName;
             }
         }
@@ -585,15 +509,6 @@ namespace InventoryTools.Logic
             }
         }
 
-        public int? FreezeCraftColumns
-        {
-            get => _freezeCraftColumns;
-            set { _freezeCraftColumns = value;
-                NeedsRefresh = true;
-                TableConfigurationDirty = true;
-            }
-        }
-
         [Obsolete("Remove with API14")]
         public HashSet<InventoryCategory>? DestinationCategories
         {
@@ -648,29 +563,7 @@ namespace InventoryTools.Logic
             }
         }
 
-        [Obsolete("Remove with API14")]
-        public string MarketAveragePrice
-        {
-            get => _marketAveragePrice;
-            set
-            {
-                _marketAveragePrice = value;
-                NeedsRefresh = true;
-                ConfigurationDirty = true;
-            }
-        }
 
-        [Obsolete("Remove with API14")]
-        public string MarketTotalAveragePrice
-        {
-            get => _marketTotalAveragePrice;
-            set
-            {
-                _marketTotalAveragePrice = value;
-                NeedsRefresh = true;
-                ConfigurationDirty = true;
-            }
-        }
 
         [Obsolete("Remove with API14")]
         public bool? CanBeBought
@@ -808,26 +701,6 @@ namespace InventoryTools.Logic
             }
         }
 
-        public bool CraftListDefault
-        {
-            get => _craftListDefault;
-            set
-            {
-                _craftListDefault = value;
-                ConfigurationDirty = true;
-            }
-        }
-
-        public bool? SimpleCraftingMode
-        {
-            get => _simpleCraftingMode;
-            set
-            {
-                _simpleCraftingMode = value;
-                TableConfigurationDirty = true;
-            }
-        }
-
         [Obsolete("Remove with API14")]
         public HashSet<uint>? SourceWorlds
         {
@@ -858,26 +731,8 @@ namespace InventoryTools.Logic
             }
         }
 
-        public CraftDisplayMode CraftDisplayMode
-        {
-            get => _craftDisplayMode;
-            set { _craftDisplayMode = value;
-                NeedsRefresh = true;
-                ConfigurationDirty = true;
-            }
-        }
-
         public bool FilterItem(List<IFilter> filters, ItemRow item)
         {
-            if (FilterType == FilterType.CraftFilter)
-            {
-                var requiredMaterialsList = CraftList.BeenUpdated ? CraftList.GetAvailableMaterialsList().Where(c => c.Value != 0).ToDictionary(c => c.Key, c => c.Value) : CraftList.GetRequiredMaterialsList();
-                if (!requiredMaterialsList.ContainsKey(item.RowId))
-                {
-                    return false;
-                }
-            }
-
             var matchesAny = false;
             for (var index = 0; index < filters.Count; index++)
             {
@@ -942,17 +797,6 @@ namespace InventoryTools.Logic
             {
                 return null;
             }
-            uint? requiredAmount = null;
-            if (FilterType == FilterType.CraftFilter)
-            {
-                var requiredMaterial = CraftList.GetItemById(item.ItemId, item.Flags);
-                if (requiredMaterial == null)
-                {
-                    return null;
-                }
-
-                requiredAmount = CraftList.BeenUpdated ? requiredMaterial.QuantityWillRetrieve : requiredMaterial.QuantityRequired;
-            }
 
             var matchesAny = false;
             for (var index = 0; index < filters.Count; index++)
@@ -981,26 +825,19 @@ namespace InventoryTools.Logic
 
             if (UseORFiltering != null && UseORFiltering == true && matchesAny)
             {
-                return new FilteredItem(item, requiredAmount);
+                return new FilteredItem(item, null);
             }
             else if(UseORFiltering != null && UseORFiltering == true)
             {
                 return null;
             }
 
-            return new FilteredItem(item, requiredAmount);
+            return new FilteredItem(item, null);
         }
 
         public ColumnConfiguration? GetColumn(string columnKey)
         {
             var columns = _columns;
-
-            return columns?.FirstOrDefault(c => c?.Key == columnKey, null);
-        }
-
-        public ColumnConfiguration? GetCraftColumn(string columnKey)
-        {
-            var columns = _craftColumns;
 
             return columns?.FirstOrDefault(c => c?.Key == columnKey, null);
         }
@@ -1012,20 +849,6 @@ namespace InventoryTools.Logic
                 _columns = [];
             }
             _columns.Add(column);
-            if (notify)
-            {
-                GenerateNewTableId();
-                TableConfigurationDirty = true;
-            }
-        }
-
-        public void AddCraftColumn(ColumnConfiguration craftColumn, bool notify = true)
-        {
-            if (_craftColumns == null)
-            {
-                _craftColumns = [];
-            }
-            _craftColumns.Add(craftColumn);
             if (notify)
             {
                 GenerateNewTableId();
@@ -1103,17 +926,6 @@ namespace InventoryTools.Logic
             set
             {
                 _columns = value;
-                TableConfigurationDirty = true;
-            }
-        }
-
-        [JsonConverter(typeof(ColumnConverter))]
-        public List<ColumnConfiguration>? CraftColumns
-        {
-            get => _craftColumns;
-            set
-            {
-                _craftColumns = value;
                 TableConfigurationDirty = true;
             }
         }
@@ -1525,18 +1337,6 @@ namespace InventoryTools.Logic
             return true;
         }
 
-        public CraftList CraftList
-        {
-            get
-            {
-                if (_craftList == null)
-                {
-                    _craftList = _craftListFactory.Invoke();
-                }
-                return _craftList;
-            }
-        }
-
         public uint Order
         {
             get => _order;
@@ -1557,17 +1357,7 @@ namespace InventoryTools.Logic
 
         public void AddItemsToList(List<(uint, uint)> items)
         {
-            if (this.FilterType == FilterType.CraftFilter)
-            {
-                foreach (var item in items)
-                {
-                    bool isHq = item.Item1 > 1000000;
-                    var itemId = item.Item1 % 500000;
-                    CraftList.AddCraftItem(itemId, item.Item2, isHq ? FFXIVClientStructs.FFXIV.Client.Game.InventoryItem.ItemFlags.HighQuality : FFXIVClientStructs.FFXIV.Client.Game.InventoryItem.ItemFlags.None);
-                }
-                NeedsRefresh = true;
-            }
-            else if (this.FilterType == FilterType.CuratedList)
+            if (this.FilterType == FilterType.CuratedList)
             {
                 foreach (var item in items)
                 {
@@ -1587,13 +1377,6 @@ namespace InventoryTools.Logic
             SearchResults = null;
             originalFilterConfiguration.CopyFields(this);
             SearchResults = null;
-
-            if (this.FilterType == FilterType.CraftFilter)
-            {
-                var newCraftList = _craftListFactory.Invoke();
-                var clonedCraftList = CraftList.Clone(newCraftList);
-                _craftList = clonedCraftList;
-            }
         }
     }
 

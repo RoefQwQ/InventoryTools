@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
-using AllaganLib.GameSheets.Caches;
 using CriticalCommonLib.Models;
 using Dalamud.Configuration;
 using Dalamud.Interface.Colors;
@@ -26,7 +25,6 @@ namespace InventoryTools
         [JsonIgnore]
         public bool IsDirty { get; set; }
 
-        private bool _automaticallyDownloadMarketPrices;
         private bool _colorRetainerList = true;
 
         private bool _displayCrossCharacter = true;
@@ -45,20 +43,10 @@ namespace InventoryTools
         private bool _invertTabHighlighting;
         private bool _highlightDestination;
         private bool _highlightDestinationEmpty;
-        private bool _addMoreInformationContextMenu;
-        private bool _addToCraftListContextMenu;
-        private bool _addToActiveCraftListContextMenu;
-        private bool _openCraftingLogContextMenu;
-        private bool _openGatheringLogContextMenu;
-        private bool _openFishingLogContextMenu;
-        private bool _itemSearchContextMenu;
 
         private bool _isVisible;
-        private int _marketRefreshTimeHours = 24;
-        private int _marketSaleHistoryLimit = 7;
         private bool _showItemNumberRetainerList = true;
         private bool _historyEnabled;
-        private bool _addTitleMenuButton;
 
         private Vector4 _tabHighlightColor = new (0.007f, 0.008f,
             0.007f, 0.2f);
@@ -67,20 +55,13 @@ namespace InventoryTools
 
         public Dictionary<ulong, Character> SavedCharacters = new();
 
-        private Dictionary<ulong, HashSet<uint>> _acquiredItems = new();
         public bool InventoriesMigrated { get; set; } = false;
         public bool InventoriesMigratedToCsv { get; set; } = false;
 
         private HashSet<string>? _openWindows = new();
         private Dictionary<string, Vector2>? _savedWindowPositions = new();
         private List<InventoryChangeReason> _historyTrackReasons = new();
-        private List<uint>? _tooltipWhitelistCategories = new();
-        private bool _tooltipWhitelistBlacklist;
-        private List<InventorySearchScope>? _tooltipSearchScope;
-        private List<InventorySearchScope>? _itemSearchScope;
         private HashSet<string>? _windowsIgnoreEscape = new HashSet<string>();
-        private HashSet<uint>? _favouriteItemsList = new HashSet<uint>();
-        private TooltipAmountOwnedSort _tooltipAmountOwnedSort = TooltipAmountOwnedSort.Alphabetically;
         private Dictionary<string, bool>? _booleanSettings = new();
         private Dictionary<string, int>? _integerSettings = new();
         private Dictionary<string, uint>? _uintegerSettings = new();
@@ -88,10 +69,6 @@ namespace InventoryTools
         private Dictionary<string, Enum>? _enumSettings = new();
         private Dictionary<string, Dictionary<Type, bool>>? _typeDictionarySettings = new();
         private Dictionary<string, List<string>>? _listSettings = new();
-        private Dictionary<ItemInfoType, TooltipSourceSetting>? _tooltipInfoSourceSetting = new();
-        private Dictionary<ItemInfoType, TooltipSourceSetting>? _tooltipInfoUseSetting = new();
-
-        [JsonProperty] [DefaultValue(300)] public int CraftWindowSplitterPosition { get; set; } = 300;
 
         public void ClearDirtyFlags()
         {
@@ -113,115 +90,12 @@ namespace InventoryTools
             }
         }
 
-        public HashSet<uint> FavouriteItemsList
-        {
-            get => _favouriteItemsList ??= new();
-            set
-            {
-                _favouriteItemsList = value;
-                IsDirty = true;
-            }
-        }
-
-        public Dictionary<ItemInfoType, TooltipSourceSetting> TooltipInfoSourceSetting
-        {
-            get => _tooltipInfoSourceSetting ??= new();
-            set
-            {
-                _tooltipInfoSourceSetting = value;
-                IsDirty = true;
-            }
-        }
-
-        public Dictionary<ItemInfoType, TooltipSourceSetting> TooltipInfoUseSetting
-        {
-            get => _tooltipInfoUseSetting ??= new();
-            set
-            {
-                _tooltipInfoUseSetting = value;
-                IsDirty = true;
-            }
-        }
-
-        public bool IsFavouriteItem(uint itemId)
-        {
-            return FavouriteItemsList.Contains(itemId);
-        }
-
-        public void FavouriteItem(uint itemId)
-        {
-            FavouriteItemsList.Add(itemId);
-            IsDirty = true;
-        }
-
-        public void UnfavouriteItem(uint itemId)
-        {
-            FavouriteItemsList.Remove(itemId);
-            IsDirty = true;
-        }
-
-        public void ToggleFavouriteItem(uint itemId)
-        {
-            if (FavouriteItemsList.Contains(itemId))
-            {
-                FavouriteItemsList.Remove(itemId);
-            }
-            else
-            {
-                FavouriteItemsList.Add(itemId);
-            }
-            IsDirty = true;
-        }
-
-
-
-
         public bool HistoryEnabled
         {
             get => _historyEnabled;
             set
             {
                 _historyEnabled = value;
-                IsDirty = true;
-            }
-        }
-        public bool AddTitleMenuButton
-        {
-            get => _addTitleMenuButton;
-            set
-            {
-                _addTitleMenuButton = value;
-                IsDirty = true;
-            }
-        }
-        public bool TooltipWhitelistBlacklist
-        {
-            get => _tooltipWhitelistBlacklist;
-            set
-            {
-                _tooltipWhitelistBlacklist = value;
-                IsDirty = true;
-            }
-        }
-        public List<uint> TooltipWhitelistCategories
-        {
-            get => _tooltipWhitelistCategories ??= new();
-            set
-            {
-                _tooltipWhitelistCategories = value;
-                IsDirty = true;
-            }
-        }
-
-        public List<InventoryChangeReason> HistoryTrackReasons
-        {
-            get
-            {
-                return _historyTrackReasons;
-            }
-            set
-            {
-                _historyTrackReasons = value;
                 IsDirty = true;
             }
         }
@@ -236,83 +110,15 @@ namespace InventoryTools
             }
         }
 
-        public bool AddMoreInformationContextMenu
+        public List<InventoryChangeReason> HistoryTrackReasons
         {
-            get => _addMoreInformationContextMenu;
-            set
+            get
             {
-                _addMoreInformationContextMenu = value;
-                IsDirty = true;
+                return _historyTrackReasons;
             }
-        }
-
-        [DefaultValue(true)]
-        public bool AddToCraftListContextMenu
-        {
-            get => _addToCraftListContextMenu;
             set
             {
-                _addToCraftListContextMenu = value;
-                IsDirty = true;
-            }
-        }
-        [DefaultValue(false)]
-        public bool AddToActiveCraftListContextMenu
-        {
-            get => _addToActiveCraftListContextMenu;
-            set
-            {
-                _addToActiveCraftListContextMenu = value;
-                IsDirty = true;
-            }
-        }
-        [DefaultValue(false)]
-        public bool OpenCraftingLogContextMenu
-        {
-            get => _openCraftingLogContextMenu;
-            set
-            {
-                _openCraftingLogContextMenu = value;
-                IsDirty = true;
-            }
-        }
-        [DefaultValue(false)]
-        public bool OpenGatheringLogContextMenu
-        {
-            get => _openGatheringLogContextMenu;
-            set
-            {
-                _openGatheringLogContextMenu = value;
-                IsDirty = true;
-            }
-        }
-        [DefaultValue(false)]
-        public bool OpenFishingLogContextMenu
-        {
-            get => _openFishingLogContextMenu;
-            set
-            {
-                _openFishingLogContextMenu = value;
-                IsDirty = true;
-            }
-        }
-        [DefaultValue(false)]
-        public bool ItemSearchContextMenu
-        {
-            get => _itemSearchContextMenu;
-            set
-            {
-                _itemSearchContextMenu = value;
-                IsDirty = true;
-            }
-        }
-
-        public List<InventorySearchScope>? ItemSearchScope
-        {
-            get => _itemSearchScope;
-            set
-            {
-                _itemSearchScope = value;
+                _historyTrackReasons = value;
                 IsDirty = true;
             }
         }
@@ -349,31 +155,20 @@ namespace InventoryTools
         public int SelectedConfigurationPage { get; set; }
         public bool ShowFilterTab { get; set; } = true;
         public bool SwitchFiltersAutomatically { get; set; } = true;
-        public bool SwitchCraftListsAutomatically { get; set; } = true;
-        private bool _tooltipCurrentCharacter;
-        private bool _tooltipDisplayGlamourReadySet;
-        private uint? _tooltipGlamourReadySetColor;
-        private GlamourReadySetDisplayMode _tooltipGlamourReadySetDisplayMode = GlamourReadySetDisplayMode.Detailed;
-        private List<InventorySearchScope>? _tooltipGlamourReadySetScope;
-        private bool _tooltipDisplayCofferLoot;
-        private uint? _tooltipCofferLootColor;
-        private List<InventorySearchScope>? _tooltipCofferLootScope;
         private bool _tooltipDisplayAmountOwned = true;
-        private bool _tooltipDisplayUnlock;
-        private List<ulong>? _tooltipDisplayUnlockCharacters = new();
-        private bool _tooltipDisplayMarketAveragePrice;
-        private bool _tooltipDisplayMarketLowestPrice = true;
-        private bool _tooltipAddCharacterNameOwned;
-        private bool _tooltipDisplayRetrieveAmount;
+        private bool _tooltipDisplayHeader = false;
+        private bool _tooltipCurrentCharacter = false;
+        private bool _tooltipAddCharacterNameOwned = false;
+        private bool _tooltipWhitelistBlacklist = false;
         private int _tooltipLocationLimit = 10;
-        private bool _tooltipDisplayHeader;
-        private int _tooltipHeaderLines;
-        private int _tooltipFooterLines;
+        private int _tooltipHeaderLines = 0;
+        private int _tooltipFooterLines = 0;
         private TooltipLocationDisplayMode _tooltipLocationDisplayMode = TooltipLocationDisplayMode.CharacterCategoryQuantityQuality;
-        private WindowLayout _craftWindowLayout =  WindowLayout.Tabs;
+        private TooltipAmountOwnedSort _tooltipAmountOwnedSort = TooltipAmountOwnedSort.Alphabetically;
         private WindowLayout _filtersLayout = WindowLayout.Tabs;
         private uint? _tooltipColor;
-        private HashSet<NotificationPopup>? _notificationsSeen = new ();
+        private HashSet<uint> _tooltipWhitelistCategories = new();
+        private List<InventorySearchScope> _tooltipSearchScope = new();
 
         [Vector4Default("0.007, 0.008,0.007, 0.212")]
         public Vector4 HighlightColor
@@ -438,86 +233,6 @@ namespace InventoryTools
             }
         }
 
-        public bool TooltipCurrentCharacter
-        {
-            get => _tooltipCurrentCharacter;
-            set
-            {
-                _tooltipCurrentCharacter = value;
-                IsDirty = true;
-            }
-        }
-
-        public bool TooltipDisplayGlamourReadySet
-        {
-            get => _tooltipDisplayGlamourReadySet;
-            set
-            {
-                _tooltipDisplayGlamourReadySet = value;
-                IsDirty = true;
-            }
-        }
-
-        public uint? TooltipGlamourReadySetColor
-        {
-            get => _tooltipGlamourReadySetColor;
-            set
-            {
-                _tooltipGlamourReadySetColor = value;
-                IsDirty = true;
-            }
-        }
-
-        public GlamourReadySetDisplayMode TooltipGlamourReadySetDisplayMode
-        {
-            get => _tooltipGlamourReadySetDisplayMode;
-            set
-            {
-                _tooltipGlamourReadySetDisplayMode = value;
-                IsDirty = true;
-            }
-        }
-
-        public List<InventorySearchScope>? TooltipGlamourReadySetScope
-        {
-            get => _tooltipGlamourReadySetScope;
-            set
-            {
-                _tooltipGlamourReadySetScope = value;
-                IsDirty = true;
-            }
-        }
-
-        public bool TooltipDisplayCofferLoot
-        {
-            get => _tooltipDisplayCofferLoot;
-            set
-            {
-                _tooltipDisplayCofferLoot = value;
-                IsDirty = true;
-            }
-        }
-
-        public uint? TooltipCofferLootColor
-        {
-            get => _tooltipCofferLootColor;
-            set
-            {
-                _tooltipCofferLootColor = value;
-                IsDirty = true;
-            }
-        }
-
-        public List<InventorySearchScope>? TooltipCofferLootScope
-        {
-            get => _tooltipCofferLootScope;
-            set
-            {
-                _tooltipCofferLootScope = value;
-                IsDirty = true;
-            }
-        }
-
         public bool TooltipDisplayAmountOwned
         {
             get => _tooltipDisplayAmountOwned;
@@ -527,21 +242,23 @@ namespace InventoryTools
                 IsDirty = true;
             }
         }
-        public bool TooltipDisplayUnlock
+
+        public bool TooltipDisplayHeader
         {
-            get => _tooltipDisplayUnlock;
+            get => _tooltipDisplayHeader;
             set
             {
-                _tooltipDisplayUnlock = value;
+                _tooltipDisplayHeader = value;
                 IsDirty = true;
             }
         }
-        public List<ulong>? TooltipDisplayUnlockCharacters
+
+        public bool TooltipCurrentCharacter
         {
-            get => _tooltipDisplayUnlockCharacters;
+            get => _tooltipCurrentCharacter;
             set
             {
-                _tooltipDisplayUnlockCharacters = value;
+                _tooltipCurrentCharacter = value;
                 IsDirty = true;
             }
         }
@@ -556,32 +273,12 @@ namespace InventoryTools
             }
         }
 
-        public bool TooltipDisplayMarketAveragePrice
+        public bool TooltipWhitelistBlacklist
         {
-            get => _tooltipDisplayMarketAveragePrice;
+            get => _tooltipWhitelistBlacklist;
             set
             {
-                _tooltipDisplayMarketAveragePrice = value;
-                IsDirty = true;
-            }
-        }
-
-        public bool TooltipDisplayMarketLowestPrice
-        {
-            get => _tooltipDisplayMarketLowestPrice;
-            set
-            {
-                _tooltipDisplayMarketLowestPrice = value;
-                IsDirty = true;
-            }
-        }
-
-        public bool TooltipDisplayRetrieveAmount
-        {
-            get => _tooltipDisplayRetrieveAmount;
-            set
-            {
-                _tooltipDisplayRetrieveAmount = value;
+                _tooltipWhitelistBlacklist = value;
                 IsDirty = true;
             }
         }
@@ -596,6 +293,29 @@ namespace InventoryTools
                 IsDirty = true;
             }
         }
+
+        [DefaultValue(0)]
+        public int TooltipHeaderLines
+        {
+            get => _tooltipHeaderLines;
+            set
+            {
+                _tooltipHeaderLines = value;
+                IsDirty = true;
+            }
+        }
+
+        [DefaultValue(0)]
+        public int TooltipFooterLines
+        {
+            get => _tooltipFooterLines;
+            set
+            {
+                _tooltipFooterLines = value;
+                IsDirty = true;
+            }
+        }
+
         public TooltipLocationDisplayMode TooltipLocationDisplayMode
         {
             get => _tooltipLocationDisplayMode;
@@ -605,38 +325,30 @@ namespace InventoryTools
                 IsDirty = true;
             }
         }
-        public WindowLayout CraftWindowLayout
+
+        public TooltipAmountOwnedSort TooltipAmountOwnedSort
         {
-            get => _craftWindowLayout;
+            get => _tooltipAmountOwnedSort;
             set
             {
-                _craftWindowLayout = value;
-                IsDirty = true;
-            }
-        }
-        public WindowLayout FiltersLayout
-        {
-            get => _filtersLayout;
-            set
-            {
-                _filtersLayout = value;
+                _tooltipAmountOwnedSort = value;
                 IsDirty = true;
             }
         }
 
-        public bool AutomaticallyDownloadMarketPrices
+        public HashSet<uint> TooltipWhitelistCategories
         {
-            get => _automaticallyDownloadMarketPrices;
+            get => _tooltipWhitelistCategories ??= new HashSet<uint>();
             set
             {
-                _automaticallyDownloadMarketPrices = value;
+                _tooltipWhitelistCategories = value;
                 IsDirty = true;
             }
         }
 
-        public List<InventorySearchScope>? TooltipSearchScope
+        public List<InventorySearchScope> TooltipSearchScope
         {
-            get => _tooltipSearchScope;
+            get => _tooltipSearchScope ??= new List<InventorySearchScope>();
             set
             {
                 _tooltipSearchScope = value;
@@ -644,24 +356,12 @@ namespace InventoryTools
             }
         }
 
-        [DefaultValue(24)]
-        public int MarketRefreshTimeHours
+        public WindowLayout FiltersLayout
         {
-            get => _marketRefreshTimeHours;
+            get => _filtersLayout;
             set
             {
-                _marketRefreshTimeHours = value;
-                IsDirty = true;
-            }
-        }
-
-        [DefaultValue(7)]
-        public int MarketSaleHistoryLimit
-        {
-            get => _marketSaleHistoryLimit;
-            set
-            {
-                _marketSaleHistoryLimit = value;
+                _filtersLayout = value;
                 IsDirty = true;
             }
         }
@@ -757,146 +457,14 @@ namespace InventoryTools
             }
         }
 
-        public bool TrackMobSpawns
-        {
-            get => _trackMobSpawns;
-            set
-            {
-                _trackMobSpawns = value;
-                IsDirty = true;
-            }
-        }
-
-        public bool TooltipDisplayHeader
-        {
-            get => _tooltipDisplayHeader;
-            set
-            {
-                _tooltipDisplayHeader = value;
-                IsDirty = true;
-            }
-        }
-
-        public HashSet<NotificationPopup> NotificationsSeen
-        {
-            get => _notificationsSeen ??= new HashSet<NotificationPopup>();
-            set
-            {
-                _notificationsSeen = value;
-                IsDirty = true;
-            }
-        }
-
-        public bool HasSeenNotification(NotificationPopup popup)
-        {
-            return NotificationsSeen.Contains(popup);
-        }
-
-        public void MarkNotificationSeen(NotificationPopup popup)
-        {
-            NotificationsSeen.Add(popup);
-            IsDirty = true;
-        }
-
-        public Dictionary<ulong, HashSet<uint>> AcquiredItems
-        {
-            get => _acquiredItems ??= new Dictionary<ulong, HashSet<uint>>();
-            set => _acquiredItems = value;
-        }
-
-        public HashSet<string> WizardVersionsSeen
-        {
-            get => _wizardVersionsSeen ??= new();
-            set
-            {
-                _wizardVersionsSeen = value;
-                IsDirty = true;
-            }
-        }
-
-        [DefaultValue(true)]
-        public bool MarketBoardUseActiveWorld
-        {
-            get => _marketBoardUseActiveWorld;
-            set
-            {
-                _marketBoardUseActiveWorld = value;
-                IsDirty = true;
-            }
-        }
-
-        [DefaultValue(true)]
-        public bool MarketBoardUseHomeWorld
-        {
-            get => _marketBoardUseHomeWorld;
-            set
-            {
-                _marketBoardUseHomeWorld = value;
-                IsDirty = true;
-            }
-        }
-
-        public List<uint> MarketBoardWorldIds
-        {
-            get => _marketBoardWorldIds ??= new List<uint>();
-            set
-            {
-                _marketBoardWorldIds = value;
-                IsDirty = true;
-            }
-        }
-
-
-        public bool SeenWizardVersion(string versionNumber)
-        {
-            return WizardVersionsSeen.Contains(versionNumber);
-        }
-
-        public void MarkWizardVersionSeen(string versionNumber)
-        {
-            WizardVersionsSeen.Add(versionNumber);
-            IsDirty = true;
-        }
-
-        [DefaultValue(true)]
-        public bool ShowWizardNewFeatures
-        {
-            get => _showWizardNewFeatures;
-            set
-            {
-                _showWizardNewFeatures = value;
-                IsDirty = true;
-            }
-        }
-
-        [DefaultValue(Logic.Settings.TooltipAmountOwnedSort.Alphabetically)]
-        public TooltipAmountOwnedSort TooltipAmountOwnedSort
-        {
-            get => _tooltipAmountOwnedSort;
-            set
-            {
-                _tooltipAmountOwnedSort = value;
-                IsDirty = true;
-            }
-        }
-
-
         public string? ActiveUiFilter { get; set; } = null;
 
-        public bool TetrisEnabled { get; set; } = false;
-
         public string? ActiveBackgroundFilter { get; set; }
-
-        public string? ActiveCraftList { get; set; } = null;
 
         public bool SaveBackgroundFilter { get; set; } = false;
 
         public bool FirstRun { get; set; } = true;
 
-        [DefaultValue(true)]
-        private bool _showWizardNewFeatures { get; set; } = true;
-
-        private HashSet<string>? _wizardVersionsSeen { get; set; }
         public int SelectedHelpPage { get; set; }
         #if DEBUG
         public int SelectedDebugPage { get; set; }
@@ -910,36 +478,6 @@ namespace InventoryTools
         {
             get => _tooltipColor;
             set => _tooltipColor = value;
-        }
-
-        public ModifiableHotkey? MoreInformationHotKey
-        {
-            get => _moreInformationHotKey;
-            set => _moreInformationHotKey = value;
-        }
-
-        public ModifiableHotkey? OpenCraftingLogHotKey
-        {
-            get => _openCraftingLogHotKey;
-            set => _openCraftingLogHotKey = value;
-        }
-
-        public ModifiableHotkey? OpenGatheringLogHotKey
-        {
-            get => _openGatheringLogHotKey;
-            set => _openGatheringLogHotKey = value;
-        }
-
-        public ModifiableHotkey? OpenFishingLogHotKey
-        {
-            get => _openFishingLogHotKey;
-            set => _openFishingLogHotKey = value;
-        }
-
-        public ModifiableHotkey? OpenItemLogHotKey
-        {
-            get => _openItemLogHotKey;
-            set => _openItemLogHotKey = value;
         }
 
         public ConcurrentDictionary<string,ModifiableHotkey> Hotkeys
@@ -958,16 +496,7 @@ namespace InventoryTools
             }
         }
 
-        private ModifiableHotkey? _moreInformationHotKey;
-        private ModifiableHotkey? _openCraftingLogHotKey;
-        private ModifiableHotkey? _openGatheringLogHotKey;
-        private ModifiableHotkey? _openFishingLogHotKey;
-        private ModifiableHotkey? _openItemLogHotKey;
         private ConcurrentDictionary<string,ModifiableHotkey>? _hotkeys;
-        private bool _trackMobSpawns;
-        private bool _marketBoardUseActiveWorld = true;
-        private bool _marketBoardUseHomeWorld = true;
-        private List<uint>? _marketBoardWorldIds;
         private HighlightWhen _highlightWhenEnum;
 
         public ModifiableHotkey? GetHotkey(string hotkey)
@@ -1003,26 +532,6 @@ namespace InventoryTools
                 return _savedWindowPositions;
             }
             set => _savedWindowPositions = value;
-        }
-
-        public int TooltipHeaderLines
-        {
-            get => _tooltipHeaderLines;
-            set
-            {
-                _tooltipHeaderLines = value;
-                IsDirty = true;
-            }
-        }
-
-        public int TooltipFooterLines
-        {
-            get => _tooltipFooterLines;
-            set
-            {
-                _tooltipFooterLines = value;
-                IsDirty = true;
-            }
         }
 
         public LogLevel LogLevel { get; set; } = LogLevel.Information;
@@ -1090,16 +599,6 @@ namespace InventoryTools
             {
                 ActiveBackgroundFilter = null;
             }
-        }
-
-        public bool HasDefaultCraftList()
-        {
-            if (FilterConfigurations.Any(c => c.FilterType == FilterType.CraftFilter && c.CraftListDefault))
-            {
-                return true;
-            }
-
-            return false;
         }
 
         public bool HasList(string name)

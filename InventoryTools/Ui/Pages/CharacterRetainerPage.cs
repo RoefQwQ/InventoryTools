@@ -464,10 +464,7 @@ namespace InventoryTools.Ui.Pages
                                                                                         ImGui.OpenPopup("RightClick" + realSlot);
                                                                                     }
 
-                                                                                    if (hoveredRow == realSlot && item.ItemId != 0 && ImGui.IsMouseReleased(ImGuiMouseButton.Left))
-                                                                                    {
-                                                                                        messages.Add(new OpenUintWindowMessage(typeof(ItemWindow), item.ItemId));
-                                                                                    }
+
 
                                                                                     using (var popup = ImRaii.Popup("RightClick" + realSlot))
                                                                                     {

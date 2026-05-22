@@ -2,21 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using CriticalCommonLib;
-using CriticalCommonLib.Addons;
 using CriticalCommonLib.MarketBoard;
 using CriticalCommonLib.Services;
 using CriticalCommonLib.Services.Mediator;
-using CriticalCommonLib.Services.Ui;
 using DalaMock.Host.Mediator;
 using DalaMock.Shared.Interfaces;
-using FFXIVClientStructs.FFXIV.Client.Game;
 using Dalamud.Bindings.ImGui;
 using InventoryTools.Logic;
 using InventoryTools.Ui.Widgets;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Plugin.Services;
-using InventoryTools.Lists;
 using InventoryTools.Mediator;
+using InventoryTools.Lists;
 using InventoryTools.Services;
 using InventoryTools.Services.Interfaces;
 using Microsoft.Extensions.Logging;
@@ -31,19 +28,18 @@ namespace InventoryTools.Ui
         private readonly ICharacterMonitor _characterMonitor;
         private readonly IUniversalis _universalis;
         private readonly IFileDialogManager _fileDialogManager;
-        private readonly IGameUiManager _gameUiManager;
+
         private readonly IFramework _framework;
         private readonly InventoryToolsConfiguration _configuration;
         private readonly ILocalizationService _localizationService;
 
-        public FilterWindow(ILogger<FilterWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, TableService tableService, IListService listService, ICharacterMonitor characterMonitor, IUniversalis universalis, IFileDialogManager fileDialogManager, IGameUiManager gameUiManager, IFramework framework, ILocalizationService localizationService, string name = "Filter Window") : base(logger, mediator, imGuiService, configuration, name)
+        public FilterWindow(ILogger<FilterWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, TableService tableService, IListService listService, ICharacterMonitor characterMonitor, IUniversalis universalis, IFileDialogManager fileDialogManager, IFramework framework, ILocalizationService localizationService, string name = "Filter Window") : base(logger, mediator, imGuiService, configuration, name)
         {
             _tableService = tableService;
             _listService = listService;
             _characterMonitor = characterMonitor;
             _universalis = universalis;
             _fileDialogManager = fileDialogManager;
-            _gameUiManager = gameUiManager;
             _framework = framework;
             _configuration = configuration;
             _localizationService = localizationService;
@@ -64,28 +60,13 @@ namespace InventoryTools.Ui
             }
 
             _settingsMenu = new PopupMenu("configMenu", PopupMenu.PopupMenuButtons.All,
-                new List<PopupMenu.IPopupMenuItem>()
+                new List<PopupMenu.IPopupMenuItem>
                 {
-                    new PopupMenu.PopupMenuItemSelectable(_localizationService["Window_Filter_MenuMobWindow"], "mobs", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(BNpcsWindow))),
-                        _localizationService["Window_Filter_TooltipMobWindow"]),
-                    new PopupMenu.PopupMenuItemSelectable(_localizationService["Window_Filter_MenuNpcsWindow"], "npcs", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(ENpcsWindow))),
-                        _localizationService["Window_Filter_TooltipNpcsWindow"]),
-                    new PopupMenu.PopupMenuItemSelectable(_localizationService["Window_Filter_MenuDutiesWindow"], "duties", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(DutiesWindow))),
-                        _localizationService["Window_Filter_TooltipDutiesWindow"]),
-                    new PopupMenu.PopupMenuItemSelectable(_localizationService["Window_Filter_MenuAirshipsWindow"], "airships", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(AirshipsWindow))),
-                        _localizationService["Window_Filter_TooltipAirshipsWindow"]),
-                    new PopupMenu.PopupMenuItemSelectable(_localizationService["Window_Filter_MenuSubmarinesWindow"], "submarines", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(SubmarinesWindow))),
-                        _localizationService["Window_Filter_TooltipSubmarinesWindow"]),
-                    new PopupMenu.PopupMenuItemSelectable(_localizationService["Window_Filter_MenuRetainerVenturesWindow"], "ventures",_ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(RetainerTasksWindow))),
-                        _localizationService["Window_Filter_TooltipRetainerVenturesWindow"]),
-                    new PopupMenu.PopupMenuItemSeparator(),
                     new PopupMenu.PopupMenuItemSelectable(_localizationService["Window_Filter_MenuHelp"], "help", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow))), _localizationService["Window_Filter_TooltipHelpWindow"]),
                 });
         }
 
-        private HoverButton _editIcon = new();
         private HoverButton _settingsIcon = new();
-        private HoverButton _craftIcon = new();
         private HoverButton _csvIcon = new();
         private HoverButton _clearIcon = new();
         private HoverButton _marketIcon = new();
@@ -140,17 +121,6 @@ namespace InventoryTools.Ui
                             _listService.ToggleActiveUiList(filterConfiguration);
                         });
                     }
-
-                    if (_configuration.SwitchCraftListsAutomatically &&
-                        _configuration.ActiveCraftList != filterConfiguration.Key &&
-                        _configuration.ActiveCraftList != null &&
-                        filterConfiguration.FilterType == FilterType.CraftFilter)
-                    {
-                        _framework.RunOnFrameworkThread(() =>
-                        {
-                            _listService.ToggleActiveCraftList(filterConfiguration);
-                        });
-                    }
                 }
 
                 var table = _tableService.GetListTable(filterConfiguration);
@@ -166,20 +136,11 @@ namespace InventoryTools.Ui
                             _listService.ToggleActiveUiList(filterConfiguration);
                         });
                     }
-                    if (_configuration.SwitchCraftListsAutomatically &&
-                        _configuration.ActiveCraftList != filterConfiguration.Key &&
-                        _configuration.ActiveCraftList != null && filterConfiguration.FilterType == FilterType.CraftFilter)
-                    {
-                        _framework.RunOnFrameworkThread(() =>
-                        {
-                            _listService.ToggleActiveCraftList(filterConfiguration);
-                        });
-                    }
                 }
             }
         }
 
-        public unsafe string DrawFilter(FilterTable itemTable, FilterConfiguration filterConfiguration)
+        public string DrawFilter(FilterTable itemTable, FilterConfiguration filterConfiguration)
         {
             using (var topBarChild = ImRaii.Child("TopBar", new Vector2(0, 40) * ImGui.GetIO().FontGlobalScale, true,
                        ImGuiWindowFlags.NoScrollbar))
@@ -214,17 +175,7 @@ namespace InventoryTools.Ui
             {
                 if (contentChild.Success)
                 {
-                    if (filterConfiguration.FilterType == FilterType.CraftFilter)
-                    {
-                        var craftTable = _tableService.GetCraftTable(filterConfiguration);
-                        MediatorService.Publish(craftTable.Draw(new Vector2(0, -400)));
-                        MediatorService.Publish(itemTable.Draw(new Vector2(0, 0)));
-                    }
-                    else
-                    {
-                        MediatorService.Publish(itemTable.Draw(new Vector2(0, 0)));
-                    }
-
+                    MediatorService.Publish(itemTable.Draw(new Vector2(0, 0)));
                 }
             }
 
@@ -257,57 +208,10 @@ namespace InventoryTools.Ui
                     }
 
                     ImGuiUtil.HoverTooltip(_localizationService["Window_Filter_TooltipExportCsv"]);
-                    if (filterConfiguration.FilterType == FilterType.CraftFilter &&
-                        _gameUiManager.IsWindowVisible(
-                            CriticalCommonLib.Services.Ui.WindowName.SubmarinePartsMenu))
-                    {
-                        var subMarinePartsMenu = _gameUiManager.GetWindow("SubmarinePartsMenu");
-                        if (subMarinePartsMenu != null)
-                        {
-                            ImGui.SameLine();
-                            if (ImGui.Button(_localizationService["Window_Filter_ButtonAddCompanyCraft"]))
-                            {
-                                var subAddon = (SubmarinePartsMenuAddon*)subMarinePartsMenu;
-                                for (byte i = 0; i < 6; i++)
-                                {
-                                    var itemRequired = subAddon->GetItem(i);
-                                    if (itemRequired != null)
-                                    {
-                                        var amountLeft = itemRequired.Value.QtyRemaining;
-                                        if (amountLeft > 0)
-                                        {
-                                            _framework.RunOnFrameworkThread(() =>
-                                            {
-                                                filterConfiguration.CraftList.AddCraftItem(itemRequired.Value.ItemId, amountLeft);
-                                                filterConfiguration.NeedsRefresh = true;
-                                            });
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
                     ImGui.SameLine();
                     ImGuiService.VerticalCenter(_localizationService["Window_Filter_PendingMarketRequests"] + _universalis.QueuedCount);
-                    if (filterConfiguration.FilterType == FilterType.CraftFilter)
-                    {
-                        ImGui.SameLine();
-                        ImGui.TextUnformatted(_localizationService["Window_Filter_TotalCostNQ"] + filterConfiguration.CraftList.MinimumNQCost);
-                        ImGui.SameLine();
-                        ImGui.TextUnformatted(_localizationService["Window_Filter_TotalCostHQ"] + filterConfiguration.CraftList.MinimumHQCost);
-                    }
 
-                    if (filterConfiguration.FilterType == FilterType.CraftFilter)
-                    {
-                        var craftTable = _tableService.GetCraftTable(filterConfiguration);
-                        craftTable.DrawFooterItems();
-                        itemTable.DrawFooterItems();
-                    }
-                    else
-                    {
-                        itemTable.DrawFooterItems();
-                    }
+                    itemTable.DrawFooterItems();
 
                     var width = ImGui.GetWindowSize().X;
                     width -= 30 * ImGui.GetIO().FontGlobalScale;
@@ -339,16 +243,7 @@ namespace InventoryTools.Ui
 
                     ImGuiUtil.HoverTooltip(_localizationService["Window_Filter_TooltipOpenItems"]);
 
-                    ImGui.SetCursorPosY(0);
-                    width -= 30 * ImGui.GetIO().FontGlobalScale;
-                    ImGui.SetCursorPosX(width);
-                    ImGuiService.CenterElement(24 * ImGui.GetIO().FontGlobalScale);
-                    if (_craftIcon.Draw(ImGuiService.GetImageTexture("craft").Handle, "openCraft"))
-                    {
-                        MediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftsWindow)));
-                    }
 
-                    ImGuiUtil.HoverTooltip(_localizationService["Window_Filter_TooltipOpenCraft"]);
 
                     var totalItems =  itemTable.RenderSearchResults.Count + " items";
 

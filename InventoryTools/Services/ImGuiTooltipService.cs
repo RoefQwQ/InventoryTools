@@ -31,9 +31,6 @@ public class ImGuiTooltipService
     private readonly TryOn _tryOn;
     private readonly IChatUtilities _chatUtilities;
 
-    // ReSharper disable once UnassignedGetOnlyAutoProperty
-    public ItemInfoRenderService InfoRenderService { get; set; }
-
     public ImGuiTooltipService(
         InventoryToolsConfiguration configuration,
         IInventoryMonitor inventoryMonitor,
@@ -188,30 +185,6 @@ public class ImGuiTooltipService
                         }
                     }
                     ImGui.Dummy(new Vector2(0, 0));
-                    if (item.Sources.Count > 0)
-                    {
-                        ImGui.NewLine();
-                        ImGui.TextUnformatted("获取途径：");
-                        ImGui.Separator();
-                        ImGui.PushTextWrapPos();
-                        var sources = item.Sources.Select(c => c.Type).Distinct().Select(
-                                              c => this.InfoRenderService.GetSourceTypeName(c).Singular).Select(c => c!);
-                        ImGui.TextUnformatted(string.Join(", ", sources));
-                        ImGui.PopTextWrapPos();
-                    }
-
-
-                    if (item.Uses.Count > 0)
-                    {
-                        ImGui.NewLine();
-                        ImGui.TextUnformatted("用途：");
-                        ImGui.Separator();
-                        ImGui.PushTextWrapPos();
-                        var uses = item.Uses.Select(c => c.Type).Distinct().Select(
-                                              c => this.InfoRenderService.GetUseTypeName(c).Singular).Select(c => c!);
-                        ImGui.TextUnformatted(string.Join(", ", uses));
-                        ImGui.PopTextWrapPos();
-                    }
 
                     var sortMode = _configuration.TooltipAmountOwnedSort;
 

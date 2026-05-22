@@ -6,14 +6,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using AllaganLib.Shared.Interfaces;
 using AllaganLib.Shared.Services;
-using CriticalCommonLib.Crafting;
 using CriticalCommonLib.Interfaces;
 using CriticalCommonLib.Services.Mediator;
 using DalaMock.Host.Mediator;
 using Dalamud.Plugin.Services;
 using Dalamud.Bindings.ImGui;
 using InventoryTools.Logic;
-using InventoryTools.Logic.Filters;
 using InventoryTools.Mediator;
 using InventoryTools.Services.Interfaces;
 using Microsoft.Extensions.Logging;
@@ -24,28 +22,22 @@ public class TableService : DisposableMediatorBackgroundService
 {
     private readonly IListService _listService;
     private readonly IFramework _framework;
-    private readonly Func<FilterConfiguration, CraftItemTable> _craftItemTableFactory;
     private readonly Func<FilterConfiguration, FilterTable> _filterTableFactory;
-    private readonly CraftReverseListDisplayFilter _craftReverseListDisplayFilter;
     private ConcurrentDictionary<string, FilterTable> _itemListTables;
-    private ConcurrentDictionary<string, CraftItemTable> _craftItemTables;
 
     public delegate void TableRefreshedDelegate(RenderTableBase table);
     public event TableRefreshedDelegate TableRefreshed;
     public BackgroundTaskQueue TableQueue { get; }
 
-    public TableService(ILogger<TableService> logger, MediatorService mediatorService, IListService listService, BackgroundTaskQueue.Factory taskQueueFactory, IFramework framework, Func<FilterConfiguration, CraftItemTable> craftItemTableFactory, Func<FilterConfiguration, FilterTable> filterTableFactory, CraftReverseListDisplayFilter craftReverseListDisplayFilter) : base(logger, mediatorService)
+    public TableService(ILogger<TableService> logger, MediatorService mediatorService, IListService listService, BackgroundTaskQueue.Factory taskQueueFactory, IFramework framework, Func<FilterConfiguration, FilterTable> filterTableFactory) : base(logger, mediatorService)
     {
         _listService = listService;
         _framework = framework;
-        _craftItemTableFactory = craftItemTableFactory;
         _filterTableFactory = filterTableFactory;
-        _craftReverseListDisplayFilter = craftReverseListDisplayFilter;
         _listService.ListConfigurationChanged += ListConfigurationChanged;
         _listService.ListTableConfigurationChanged += ListTableConfigurationChanged;
         _listService.ListRefreshed += ListRefreshed;
         _itemListTables = new ConcurrentDictionary<string, FilterTable>();
-        _craftItemTables = new ConcurrentDictionary<string, CraftItemTable>();
         TableQueue = taskQueueFactory.Invoke("Table Queue", 3);
         _framework.Update += OnUpdate;
     }
@@ -58,18 +50,6 @@ public class TableService : DisposableMediatorBackgroundService
     private void OnUpdate(IFramework framework)
     {
         foreach (var filter in _itemListTables)
-        {
-            if (!filter.Value.InitialColumnSetupDone)
-            {
-                filter.Value.RefreshColumns();
-                filter.Value.InitialColumnSetupDone = true;
-            }
-            if (filter.Value is { NeedsRefresh: true, Refreshing: false, FilterConfiguration.AllowRefresh: true })
-            {
-                RequestRefresh(filter.Value);
-            }
-        }
-        foreach (var filter in _craftItemTables)
         {
             if (!filter.Value.InitialColumnSetupDone)
             {
@@ -103,55 +83,6 @@ public class TableService : DisposableMediatorBackgroundService
         }
     }
 
-    public void RefreshCraftColumns(RenderTableBase renderTableBase, CancellationToken cancellationToken)
-    {
-        var filterConfiguration = renderTableBase.FilterConfiguration;
-        renderTableBase.FreezeCols = filterConfiguration.FreezeColumns;
-        if (filterConfiguration.CraftColumns != null)
-        {
-            renderTableBase.Columns = filterConfiguration.CraftColumns.ToList();
-        }
-    }
-
-    public async Task RefreshTable(CraftItemTable craftItemTable, CancellationToken cancellationToken)
-    {
-        var filterConfiguration = craftItemTable.FilterConfiguration;
-
-        RefreshCraftColumns(craftItemTable, cancellationToken);
-
-        if (filterConfiguration.SearchResults != null && filterConfiguration.CraftList.BeenGenerated && filterConfiguration.CraftList.BeenUpdated)
-        {
-            Logger.LogTrace("CraftTable: Refreshing");
-            craftItemTable.CraftItems = filterConfiguration.CraftList.GetFlattenedMergedMaterials().Select(c => new SearchResult(c)).ToList();
-            filterConfiguration.CraftList.ClearGroupCache();
-            var outputList = filterConfiguration.CraftList.GetOutputList();
-            craftItemTable.CraftGroups = outputList.Select(c => (c, GetCraftItems(c))).ToList();
-            if (_craftReverseListDisplayFilter.CurrentValue(filterConfiguration) == true)
-            {
-                craftItemTable.CraftGroups.Reverse();
-            }
-
-            craftItemTable.IsSearching = false;
-            craftItemTable.NeedsRefresh = false;
-            craftItemTable.Refreshing = false;
-            TableRefreshed?.Invoke(craftItemTable);
-        }
-        else
-        {
-            craftItemTable.NeedsRefresh = false;
-            craftItemTable.Refreshing = false;
-        }
-
-        List<SearchResult> GetCraftItems(CraftGrouping c)
-        {
-            if (_craftReverseListDisplayFilter.CurrentValue(filterConfiguration) == true)
-            {
-                return c.CraftItems.Select(d => new SearchResult(d)).Reverse().ToList();
-            }
-            return c.CraftItems.Select(d => new SearchResult(d)).ToList();
-        }
-    }
-
     public async Task RefreshTable(FilterTable filterTable, CancellationToken cancellationToken)
     {
         RefreshColumns(filterTable, cancellationToken);
@@ -161,8 +92,7 @@ public class TableService : DisposableMediatorBackgroundService
         if (filterConfiguration.SearchResults != null)
         {
             if (filterConfiguration.FilterType == FilterType.SearchFilter
-                || filterConfiguration.FilterType == FilterType.SortingFilter
-                || filterConfiguration.FilterType == FilterType.CraftFilter)
+                || filterConfiguration.FilterType == FilterType.SortingFilter)
             {
                 var items = filterConfiguration.SearchResults.AsEnumerable();
                 filterTable.IsSearching = false;
@@ -267,19 +197,6 @@ public class TableService : DisposableMediatorBackgroundService
 
 
 
-    public CraftItemTable GetCraftTable(FilterConfiguration configuration)
-    {
-
-        var filterKey = configuration.Key;
-        if (!_craftItemTables.ContainsKey(filterKey))
-        {
-            CraftItemTable newTable = _craftItemTableFactory.Invoke(configuration);
-            newTable.NeedsRefresh = true;
-            _craftItemTables[filterKey] = newTable;
-        }
-        return _craftItemTables[filterKey];
-    }
-
     public FilterTable GetListTable(FilterConfiguration configuration)
     {
         var filterKey = configuration.Key;
@@ -290,11 +207,6 @@ public class TableService : DisposableMediatorBackgroundService
             _itemListTables[filterKey] = newTable;
         }
         return _itemListTables[filterKey];
-    }
-
-    public bool HasCraftTable(FilterConfiguration configuration)
-    {
-        return _craftItemTables.ContainsKey(configuration.Key);
     }
 
     public bool HasListTable(FilterConfiguration configuration)
@@ -313,11 +225,6 @@ public class TableService : DisposableMediatorBackgroundService
         if (filterTable is { FilterConfiguration.AllowRefresh: true })
         {
             filterTable.NeedsRefresh = true;
-            if (filterConfiguration.FilterType == FilterType.CraftFilter)
-            {
-                var craftItemTable = GetCraftTable(filterConfiguration);
-                craftItemTable.NeedsRefresh = true;
-            }
         }
     }
 
@@ -328,12 +235,6 @@ public class TableService : DisposableMediatorBackgroundService
         {
             filterTable.NeedsRefresh = true;
             filterTable.InitialColumnSetupDone = false;
-            if (filterConfiguration.FilterType == FilterType.CraftFilter)
-            {
-                var craftItemTable = GetCraftTable(filterConfiguration);
-                craftItemTable.NeedsRefresh = true;
-                craftItemTable.InitialColumnSetupDone = false;
-            }
         }
     }
 
@@ -348,16 +249,6 @@ public class TableService : DisposableMediatorBackgroundService
         return Task.CompletedTask;
     }
 
-    public Task RequestRefresh(CraftItemTable craftItemTable)
-    {
-        if (craftItemTable is { NeedsRefresh: true, Refreshing: false, FilterConfiguration.AllowRefresh: true })
-        {
-            craftItemTable.Refreshing = true;
-            return TableQueue.QueueBackgroundWorkItemAsync(token => Task.Run(() => RefreshTable(craftItemTable, token), token));
-        }
-
-        return Task.CompletedTask;
-    }
 
     private async Task BackgroundProcessing(CancellationToken stoppingToken)
     {

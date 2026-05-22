@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AllaganLib.GameSheets.Sheets;
-using CriticalCommonLib.Crafting;
 using CriticalCommonLib.Enums;
 using CriticalCommonLib.Services;
 using Dalamud.Game.Text.SeStringHandling;
@@ -10,9 +8,7 @@ using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Component.GUI;
-using InventoryTools.Logic;
 using InventoryTools.Logic.Settings;
-using InventoryTools.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace InventoryTools.Tooltips;
@@ -20,15 +16,13 @@ namespace InventoryTools.Tooltips;
 public class LocationDisplayTooltip : BaseTooltip
 {
     private readonly TooltipAmountToRetrieveColorSetting _colorSetting;
-    private readonly IListService _listService;
 
-    public LocationDisplayTooltip(ILogger<LocationDisplayTooltip> logger, TooltipAmountToRetrieveColorSetting colorSetting, ItemSheet itemSheet, InventoryToolsConfiguration configuration, IGameGui gameGui, IListService listService, IChatGui chatGui) : base(6904, logger, itemSheet, configuration, gameGui, chatGui)
+    public LocationDisplayTooltip(ILogger<LocationDisplayTooltip> logger, TooltipAmountToRetrieveColorSetting colorSetting, ItemSheet itemSheet, InventoryToolsConfiguration configuration, IGameGui gameGui, IChatGui chatGui) : base(6904, logger, itemSheet, configuration, gameGui, chatGui)
     {
         _colorSetting = colorSetting;
-        _listService = listService;
     }
     public override bool IsEnabled =>
-        Configuration.DisplayTooltip && Configuration.TooltipDisplayRetrieveAmount;
+        Configuration.DisplayTooltip;
     public override unsafe void OnGenerateItemTooltip(NumberArrayData* numberArrayData, StringArrayData* stringArrayData)
     {
         if (!ShouldShow()) return;
@@ -72,51 +66,6 @@ public class LocationDisplayTooltip : BaseTooltip
 
             if (seStr.Payloads.Count > 0)
             {
-                if (Configuration.TooltipDisplayRetrieveAmount)
-                {
-                    var filterConfiguration = _listService.GetActiveList();
-                    if (filterConfiguration != null)
-                    {
-                        if (filterConfiguration.FilterType == FilterType.CraftFilter)
-                        {
-                            var hoverItemFlags = HoverItemFlags;
-                            var hoverItemId = HoverItemId;
-                            var craftItem = filterConfiguration.CraftList.GetItemById(hoverItemId, hoverItemFlags);
-                            if (craftItem != null)
-                            {
-                                var filterResult = filterConfiguration.SearchResults;
-                                var missingOverall = craftItem.QuantityMissingOverall;
-                                var willRetrieve = craftItem.QuantityWillRetrieve;
-                                if (missingOverall != 0 || willRetrieve != 0)
-                                {
-                                    var missingText = "缺少：";
-                                    if (craftItem.IngredientPreference.Type is IngredientPreferenceType.Buy
-                                        or IngredientPreferenceType.Item or IngredientPreferenceType.HouseVendor)
-                                    {
-                                        missingText = "购买：";
-                                    }
-                                    var needText = missingText + missingOverall;
-                                    if (filterResult != null)
-                                    {
-                                        var sortedItems = filterResult.Where(c => c.InventoryItem != null &&
-                                            c.InventoryItem.ItemId == hoverItemId && c.InventoryItem.Flags == hoverItemFlags).ToList();
-                                        if (sortedItems.Any())
-                                        {
-                                            var sortedItem = sortedItems.First();
-                                            if (sortedItem.InventoryItem!.Quantity != 0)
-                                            {
-                                                needText += " / (" + Math.Min(willRetrieve,sortedItem.InventoryItem!.Quantity) + " should be retrieved)";
-                                            }
-                                        }
-                                    }
-
-                                    textLines.Add(needText + "\n");
-                                }
-                            }
-                        }
-                    }
-                }
-
                 var newText = "";
                 if (textLines.Count != 0)
                 {

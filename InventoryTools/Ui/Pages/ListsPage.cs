@@ -33,7 +33,6 @@ namespace InventoryTools.Ui.Pages
         private string? _draggedItemKey;
         private string? _draggedSection;
         private string _itemListImportError = string.Empty;
-        private string _craftListImportError = string.Empty;
         private Dictionary<FilterConfiguration, PopupMenu> _popupMenus = new();
 
         public override void Initialize() { }
@@ -91,32 +90,18 @@ namespace InventoryTools.Ui.Pages
             }
         }
 
-        private void ImportFromClipboard(bool isCraftList)
+        private void ImportFromClipboard()
         {
             var text = _clipboardService.PasteFromClipboard();
             if (!string.IsNullOrWhiteSpace(text) && _importExportService.FromBase64(text, out var config))
             {
                 _listService.AddList(config);
-                if (isCraftList)
-                {
-                    _craftListImportError = string.Empty;
-                }
-                else
-                {
-                    _itemListImportError = string.Empty;
-                }
+                _itemListImportError = string.Empty;
             }
             else
             {
                 var error = "剪贴板中的列表数据无效或不兼容。";
-                if (isCraftList)
-                {
-                    _craftListImportError = error;
-                }
-                else
-                {
-                    _itemListImportError = error;
-                }
+                _itemListImportError = error;
             }
         }
 
@@ -204,15 +189,11 @@ namespace InventoryTools.Ui.Pages
                 .Where(c => c.FilterType != FilterType.CraftFilter)
                 .ToList();
 
-            var craftLists = _listService.Lists
-                .Where(c => c.FilterType == FilterType.CraftFilter && !c.CraftListDefault)
-                .ToList();
-
             if (ImGui.CollapsingHeader("物品列表", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 if (ImGui.Button("从剪贴板导入##itemlist"))
                 {
-                    ImportFromClipboard(false);
+                    ImportFromClipboard();
                 }
 
                 if (!string.IsNullOrEmpty(_itemListImportError))
@@ -240,37 +221,6 @@ namespace InventoryTools.Ui.Pages
             }
 
             ImGui.Spacing();
-
-            if (ImGui.CollapsingHeader("制作列表", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
-            {
-                if (ImGui.Button("从剪贴板导入##craftlist"))
-                {
-                    ImportFromClipboard(true);
-                }
-
-                if (!string.IsNullOrEmpty(_craftListImportError))
-                {
-                    ImGui.SameLine();
-                    using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudRed))
-                    {
-                        ImGui.TextUnformatted(_craftListImportError);
-                    }
-                }
-
-                ImGui.Spacing();
-
-                if (craftLists.Count == 0)
-                {
-                    ImGui.TextUnformatted("尚未创建制作列表！");
-                }
-                else
-                {
-                    for (var i = 0; i < craftLists.Count; i++)
-                    {
-                        DrawListRow(craftLists, i, "##CraftListReorder", false);
-                    }
-                }
-            }
 
             return messages;
         }

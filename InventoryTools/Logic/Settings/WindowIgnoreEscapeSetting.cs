@@ -59,21 +59,9 @@ public class WindowIgnoreEscapeSetting<T> : BooleanSetting where T : Window
     public override string Version => "1.7.0.0";
 }
 
- public class CraftWindowIgnoreEscapeSetting : WindowIgnoreEscapeSetting<CraftsWindow>
- {
-     public CraftWindowIgnoreEscapeSetting(ILogger<CraftWindowIgnoreEscapeSetting> logger,MediatorService mediatorService, ImGuiService imGuiService, ILocalizationService localizationService, CraftsWindow windowFactory) : base(logger,mediatorService, imGuiService, localizationService, windowFactory)
-     {
-     }
- }
  public class FiltersWindowIgnoreEscapeSetting : WindowIgnoreEscapeSetting<FiltersWindow>
  {
      public FiltersWindowIgnoreEscapeSetting(ILogger<FiltersWindowIgnoreEscapeSetting> logger,MediatorService mediatorService, ImGuiService imGuiService, ILocalizationService localizationService, FiltersWindow windowFactory) : base(logger,mediatorService, imGuiService, localizationService, windowFactory)
-     {
-     }
- }
- public class ItemWindowIgnoreEscapeSetting : WindowIgnoreEscapeSetting<ItemWindow>
- {
-     public ItemWindowIgnoreEscapeSetting(ILogger<ItemWindowIgnoreEscapeSetting> logger,MediatorService mediatorService, ImGuiService imGuiService, ILocalizationService localizationService, ItemWindow windowFactory) : base(logger,mediatorService, imGuiService, localizationService, windowFactory)
      {
      }
  }

@@ -11,9 +11,6 @@ using CriticalCommonLib.Services;
 using CriticalCommonLib.Services.Mediator;
 using DalaMock.Host.Mediator;
 using InventoryTools.Attributes;
-using InventoryTools.Compendium.Interfaces;
-using InventoryTools.Compendium.Windows;
-using InventoryTools.EquipmentSuggest;
 using InventoryTools.Mediator;
 using InventoryTools.Services;
 using InventoryTools.Services.Interfaces;
@@ -29,17 +26,15 @@ namespace InventoryTools.Commands
         private readonly IChatUtilities _chatUtilities;
         private readonly ItemSheet _itemSheet;
         private readonly IListService _listService;
-        private readonly IEnumerable<ICompendiumType> _compendiumTypes;
         private readonly ILocalizationService _localizationService;
 
-        public PluginCommands(MediatorService mediatorService, IChatUtilities chatUtilities, ItemSheet itemSheet, IListService listService, ILogger<PluginCommands> logger, IEnumerable<ICompendiumType> compendiumTypes, ILocalizationService localizationService)
+        public PluginCommands(MediatorService mediatorService, IChatUtilities chatUtilities, ItemSheet itemSheet, IListService listService, ILogger<PluginCommands> logger, ILocalizationService localizationService)
         {
             Logger = logger;
             _mediatorService = mediatorService;
             _chatUtilities = chatUtilities;
             _itemSheet = itemSheet;
             _listService = listService;
-            _compendiumTypes = compendiumTypes;
             _localizationService = localizationService;
         }
 
@@ -50,63 +45,6 @@ namespace InventoryTools.Commands
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(FiltersWindow)));
         }
-        [Command("/duties")]
-        [Aliases("/atduties")]
-        [HelpMessage("显示 Allagan Tools 任务窗口。")]
-        public void ShowHideDutiesWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(DutiesWindow)));
-        }
-        [Command("/mobs")]
-        [Aliases("/atmobs")]
-        [HelpMessage("显示 Allagan Tools 怪物窗口。")]
-        public void ShowHideMobsWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(BNpcsWindow)));
-        }
-        [Command("/atnpcs")]
-        [HelpMessage("显示 Allagan Tools NPC窗口。")]
-        public void ShowHideNpcsWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(ENpcsWindow)));
-        }
-
-        [Command("/compendium")]
-        [Aliases("/atc")]
-        [HelpMessage("显示 Allagan Tools 百科窗口。")]
-        public void ShowCompendiumWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(CompendiumTypesWindow)));
-        }
-
-        [Command("/compendiumlist")]
-        [Aliases("/atclt")]
-        [HelpMessage("切换指定的百科列表窗口。")]
-        public void ToggleCompendiumListWindow(string command, string args)
-        {
-            if (args == string.Empty)
-            {
-                var message = _localizationService.GetString("请输入百科类型的名称，可用的类型如下：\n");
-                message += string.Join("\n", _compendiumTypes.Where(c => c.ShowInListing).Select(c => c.Plural));
-                _chatUtilities.Print(message);
-            }
-            else
-            {
-                var name = args.ToLowerInvariant();
-                var compendiumType = _compendiumTypes.FirstOrDefault(c =>
-                    c.Singular.ToLowerInvariant() == name || c.Plural.ToLowerInvariant() == name);
-                if (compendiumType != null)
-                {
-                    _mediatorService.Publish(new ToggleCompendiumListMessage(compendiumType));
-                }
-                else
-                {
-                    _chatUtilities.PrintError(args + _localizationService.GetString(" 不是有效的百科类型。"));
-                }
-            }
-        }
-
-
         [Command("/athighlight")]
         [Aliases("/atf")]
         [HelpMessage("切换指定列表的高亮显示开/关，同时关闭其他高亮显示。")]
@@ -144,34 +82,6 @@ namespace InventoryTools.Commands
                     _chatUtilities.PrintError(_localizationService.GetString("找不到具有该名称的列表。"));
                 }
             }
-        }
-
-        [Command("/crafts")]
-        [HelpMessage("打开 Allagan Tools 制作窗口")]
-        public  void OpenCraftsWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftsWindow)));
-        }
-
-        [Command("/airships")]
-        [HelpMessage("打开 Allagan Tools 飞艇窗口")]
-        public  void ToggleAirshipsWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(AirshipsWindow)));
-        }
-
-        [Command("/submarines")]
-        [HelpMessage("打开 Allagan Tools 潜水艇窗口")]
-        public  void ToggleSubmarinesWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(SubmarinesWindow)));
-        }
-
-        [Command("/retainerventures")]
-        [HelpMessage("打开 Allagan Tools 雇员探险窗口")]
-        public  void ToggleToggleRetainerTasksWindow(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(RetainerTasksWindow)));
         }
 
         [Command("/atconfig")]
@@ -230,52 +140,7 @@ namespace InventoryTools.Commands
             CloseFilterWindows(command,args);
         }
 
-        [Command("/craftoverlay")]
-        [HelpMessage("切换制作覆盖窗口。")]
-        public void CraftOverlay(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftOverlayWindow)));
-        }
 
-        [Command("/atrecommend", "/atr")]
-        [HelpMessage("切换装备推荐窗口。")]
-        public void EquipmentRecommendation(string command, string args)
-        {
-            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(EquipmentSuggestWindow)));
-        }
-
-        [Command("/moreinfo")]
-        [Aliases("/itemwindow")]
-        [HelpMessage("打开指定物品的详细信息窗口。提供物品名称或物品ID。")]
-        public void MoreInformation(string command, string args)
-        {
-            args = args.Trim();
-            if(args == "")
-            {
-                return;
-            }
-
-            ItemRow? item = null;
-            if (UInt32.TryParse(args, out uint itemId))
-            {
-                item = _itemSheet.GetRowOrDefault(itemId);
-            }
-            else
-            {
-                if (_itemSheet.ItemsBySearchString.TryGetValue(args.ToParseable(), out itemId))
-                {
-                    item = _itemSheet.GetRowOrDefault(itemId);
-                }
-            }
-            if (item != null && item.RowId != 0)
-            {
-                _mediatorService.Publish(new OpenUintWindowMessage(typeof(ItemWindow), item.RowId));
-            }
-            else
-            {
-                _chatUtilities.PrintError(_localizationService.GetString("物品 ") + args + _localizationService.GetString(" 未找到。"));
-            }
-        }
 
 
     }

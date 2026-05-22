@@ -4,7 +4,6 @@ using System.Linq;
 using System.Numerics;
 using AllaganLib.GameSheets.Model;
 using CriticalCommonLib;
-using CriticalCommonLib.Crafting;
 using CriticalCommonLib.Enums;
 using CriticalCommonLib.Extensions;
 using CriticalCommonLib.Models;
@@ -206,12 +205,7 @@ namespace InventoryTools.Logic
             if (filterResult != null)
             {
                 HashSet<uint> requiredItems;
-                if (FilterConfiguration.FilterType == FilterType.CraftFilter)
-                {
-                    requiredItems = FilterConfiguration.CraftList.GetFlattenedMergedMaterials().Where(c => c.IngredientPreference.Type is IngredientPreferenceType.Buy or IngredientPreferenceType.Item or IngredientPreferenceType.HouseVendor ).Select(c => c.Item.RowId).Distinct()
-                        .ToHashSet();
-                }
-                else if (filterResult.Count != 0)
+                if (filterResult.Count != 0)
                 {
                     requiredItems = filterResult.Select(c => c.Item.RowId).Distinct().ToHashSet();
                 }
@@ -241,12 +235,7 @@ namespace InventoryTools.Logic
             if (filterResult != null)
             {
                 HashSet<uint> requiredItems;
-                if (FilterConfiguration.FilterType == FilterType.CraftFilter)
-                {
-                    requiredItems = FilterConfiguration.CraftList.GetFlattenedMergedMaterials().Where(c => c.IngredientPreference.Type is IngredientPreferenceType.Buy or IngredientPreferenceType.Item or IngredientPreferenceType.HouseVendor ).Select(c => c.Item.RowId).Distinct()
-                        .ToHashSet();
-                }
-                else if (filterResult.Count != 0)
+                if (filterResult.Count != 0)
                 {
                     requiredItems = filterResult.Select(c => c.Item.RowId).Distinct().ToHashSet();
                 }
@@ -275,12 +264,7 @@ namespace InventoryTools.Logic
             var filterResult = resultOverride ?? FilterResult;
             if (filterResult != null)
             {
-                if (FilterConfiguration.FilterType == FilterType.CraftFilter)
-                {
-                    itemIds = FilterConfiguration.CraftList.GetFlattenedMergedMaterials().Where(c => c.IngredientPreference.Type is IngredientPreferenceType.Buy or IngredientPreferenceType.Item or IngredientPreferenceType.HouseVendor).Select(c => (c.Item.RowId, (uint?)c.QuantityNeeded)).Distinct()
-                        .ToHashSet();
-                }
-                else if (filterResult.Count != 0)
+                if (filterResult.Count != 0)
                 {
                     var filterHighlightWhen = _highlightWhenFilter.CurrentValue(FilterConfiguration);
                     var configurationHighlightWhen = _highlightWhenSetting.CurrentValue(_configuration);

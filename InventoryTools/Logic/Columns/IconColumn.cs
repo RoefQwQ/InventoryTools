@@ -10,9 +10,8 @@ using InventoryTools.Logic.Columns.Abstract;
 using InventoryTools.Logic.Settings;
 using InventoryTools.Mediator;
 using InventoryTools.Services;
-using InventoryTools.Ui;
-
 using Microsoft.Extensions.Logging;
+using InventoryItem = FFXIVClientStructs.FFXIV.Client.Game.InventoryItem;
 
 namespace InventoryTools.Logic.Columns
 {
@@ -68,7 +67,7 @@ namespace InventoryTools.Logic.Columns
                         if (!this._keyState[VirtualKey.CONTROL] && !this._keyState[VirtualKey.SHIFT] &&
                             !this._keyState[VirtualKey.MENU])
                         {
-                            messages.Add(new OpenUintWindowMessage(typeof(ItemWindow), searchResult.Item.RowId));
+                            messages.Add(new ItemSearchRequestedMessage(searchResult.Item.RowId, InventoryItem.ItemFlags.None));
                         }
                     }
 

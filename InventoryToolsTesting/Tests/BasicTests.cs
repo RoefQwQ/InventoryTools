@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -96,10 +96,6 @@ namespace InventoryToolsTesting.Tests
             var inventoryMonitor = Host.Services.GetRequiredService<TestInventoryMonitor>()!;
             var itemSheet = Host.Services.GetRequiredService<ItemSheet>();
             var sourceInventoriesFilter = Host.Services.GetRequiredService < SourceInventoriesFilter>();
-            var destinationInventoriesFilter = Host.Services.GetRequiredService < DestinationInventoriesFilter>();
-
-
-
             var searchFilter = filterConfigFactory.Invoke();
 
             sourceInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
@@ -110,12 +106,6 @@ namespace InventoryToolsTesting.Tests
                 }
             ]);
 
-            destinationInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
-                new InventorySearchScope()
-                {
-                    CharacterTypes = [CharacterType.Retainer]
-                }
-            ]);
             searchFilter.FilterType = FilterType.SortingFilter;
 
             //Flour, just cause
@@ -206,7 +196,6 @@ namespace InventoryToolsTesting.Tests
             var inventoryMonitor = Host.Services.GetRequiredService<TestInventoryMonitor>()!;
             var itemSheet = Host.Services.GetRequiredService<ItemSheet>();
             var sourceInventoriesFilter = Host.Services.GetRequiredService < SourceInventoriesFilter>();
-            var destinationInventoriesFilter = Host.Services.GetRequiredService < DestinationInventoriesFilter>();
 
             var searchFilter = filterConfigFactory.Invoke();
             sourceInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
@@ -223,13 +212,6 @@ namespace InventoryToolsTesting.Tests
             var cinnamon = itemSheet.GetRow(4828)!;
 
 
-            destinationInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
-                new InventorySearchScope()
-                {
-                    Categories = [InventoryCategory.CharacterSaddleBags],
-                    CharacterId = _character.CharacterId
-                }
-            ]);
             characterMonitor.OverrideActiveCharacter(_character.CharacterId);
 
             var inventory = GenerateBlankInventory(_character);
@@ -256,19 +238,12 @@ namespace InventoryToolsTesting.Tests
             var inventoryMonitor = Host.Services.GetRequiredService<TestInventoryMonitor>()!;
             var itemSheet = Host.Services.GetRequiredService<ItemSheet>();
             var sourceInventoriesFilter = Host.Services.GetRequiredService < SourceInventoriesFilter>();
-            var destinationInventoriesFilter = Host.Services.GetRequiredService < DestinationInventoriesFilter>();
 
             var searchFilter = filterConfigFactory.Invoke();
             sourceInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
                 new InventorySearchScope()
                 {
                     CharacterTypes = [CharacterType.Character, CharacterType.Retainer]
-                }
-            ]);
-            destinationInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
-                new InventorySearchScope()
-                {
-                    CharacterTypes = [CharacterType.Retainer]
                 }
             ]);
             searchFilter.FilterType = FilterType.SortingFilter;
@@ -322,7 +297,6 @@ namespace InventoryToolsTesting.Tests
             var itemSheet = Host.Services.GetRequiredService<ItemSheet>();
             var configuration = Host.Services.GetRequiredService < InventoryToolsConfiguration>();
             var sourceInventoriesFilter = Host.Services.GetRequiredService < SourceInventoriesFilter>();
-            var destinationInventoriesFilter = Host.Services.GetRequiredService < DestinationInventoriesFilter>();
 
             var searchFilter = filterConfigFactory.Invoke();
             sourceInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
@@ -370,13 +344,7 @@ namespace InventoryToolsTesting.Tests
             Assert.AreEqual(4, listFilterService.RefreshList(searchFilter).Count(c => c.InventoryItem != null && !c.InventoryItem.IsEmpty));
 
 
-            //Test cross character destination filter setting
-            destinationInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
-                new InventorySearchScope
-                {
-                    Categories = [InventoryCategory.CharacterBags]
-                }
-            ]);
+
             searchFilter.FilterType = FilterType.SortingFilter;
             searchFilter.FilterItemsInRetainersEnum = FilterItemsRetainerEnum.Yes;
             //With a active retainer and filter items in retainers set to yes, only 1 item shows up
@@ -395,14 +363,6 @@ namespace InventoryToolsTesting.Tests
                     Categories = [InventoryCategory.CharacterBags]
                 }
             ]);
-            destinationInventoriesFilter.UpdateFilterConfiguration(searchFilter, [
-                new InventorySearchScope
-                {
-                    ActiveCharacter = true,
-                    Categories = [InventoryCategory.CharacterBags]
-                }
-            ]);
-
             Assert.AreEqual(1, listFilterService.RefreshList(searchFilter).Count(c => c.InventoryItem != null && !c.InventoryItem.IsEmpty));
         }
 
@@ -415,7 +375,6 @@ namespace InventoryToolsTesting.Tests
             var inventoryMonitor = Host.Services.GetRequiredService<TestInventoryMonitor>()!;
             var itemSheet = Host.Services.GetRequiredService<ItemSheet>();
             var sourceInventoriesFilter = Host.Services.GetRequiredService < SourceInventoriesFilter>();
-            var destinationInventoriesFilter = Host.Services.GetRequiredService < DestinationInventoriesFilter>();
 
             var searchFilter = filterConfigFactory.Invoke();
 
@@ -437,14 +396,6 @@ namespace InventoryToolsTesting.Tests
                     Categories = [InventoryCategory.CharacterBags]
                 }
             ]);
-            destinationInventoriesFilter.UpdateFilterConfiguration(sortFilter, [
-                new InventorySearchScope()
-                {
-                    ActiveCharacter = true,
-                    Categories = [InventoryCategory.RetainerBags]
-                }
-            ]);
-
             //Flour, just cause
             var ryeFlour = itemSheet.GetRow(4825)!;
             var wheatFlour = itemSheet.GetRow(4826)!;

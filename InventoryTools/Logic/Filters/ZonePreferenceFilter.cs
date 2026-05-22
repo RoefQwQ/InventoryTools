@@ -39,18 +39,16 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
             return (itemName, null);
         }
 
-        return configuration.CraftList.ZonePreferenceOrder.Distinct().ToDictionary(c => c, GetIngredientPreferenceDetails);
+        return new Dictionary<uint, (string, string?)>();
     }
 
     public override void ResetFilter(FilterConfiguration configuration)
     {
-        configuration.CraftList.ResetIngredientPreferences();
         configuration.NotifyConfigurationChange();
     }
 
     public override void UpdateFilterConfiguration(FilterConfiguration configuration, Dictionary<uint, (string, string?)> newValue)
     {
-        configuration.CraftList.ZonePreferenceOrder = newValue.Select(c => c.Key).ToList();
         configuration.NotifyConfigurationChange();
     }
 
@@ -65,7 +63,7 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
 
     public override bool HasValueSet(FilterConfiguration configuration)
     {
-        return configuration.CraftList.ZonePreferenceOrder.Count != 0;
+        return false;
     }
 
     public override FilterType AvailableIn { get; set; } = FilterType.CraftFilter;

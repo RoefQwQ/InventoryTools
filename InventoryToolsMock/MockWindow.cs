@@ -81,8 +81,6 @@ public class MockWindow : GenericWindow
         WindowName = "Mock Tools";
         Key = "mock";
         _rng = new Random();
-        _activeWorldPicker = new WorldPicker(_worldSheet.Where(c => c.IsPublic).ToList(), false, _otterLogger);
-        _homeWorldPicker = new WorldPicker(_worldSheet.Where(c => c.IsPublic).ToList(), false, _otterLogger);
     }
 
 
@@ -99,8 +97,6 @@ public class MockWindow : GenericWindow
     public override Vector2? MaxSize => new Vector2(2000, 2000);
     public override Vector2? MinSize => new Vector2(200, 200);
     private Random _rng;
-    private WorldPicker _activeWorldPicker;
-    private WorldPicker _homeWorldPicker;
 
     public override void DrawWindow()
     {
@@ -234,7 +230,6 @@ public class MockWindow : GenericWindow
 
             if (ImGui.Button("Test Context Menu"))
             {
-                MediatorService.Publish(new AddToNewCraftListMessage(1, 1, FFXIVClientStructs.FFXIV.Client.Game.InventoryItem.ItemFlags.None, false));
             }
         }
     }
@@ -283,30 +278,8 @@ public class MockWindow : GenericWindow
                 var activeCharacter = _characterMonitor.ActiveCharacter;
                 if (activeCharacter != null)
                 {
-                    int homeWorldId = (int)(activeCharacter.WorldId);
-
-                    if (_homeWorldPicker.Draw("Home World",
-                            _characterMonitor.ActiveCharacter?.World?.Name.ExtractText() ?? "Not Set",
-                            "Set the home world of the active character", ref homeWorldId, 100, 32,
-                            ImGuiComboFlags.None))
-                    {
-                            var newWorld = _homeWorldPicker.Items[homeWorldId];
-                            activeCharacter.WorldId = newWorld.RowId;
-                            _characterMonitor.InvokeCharacterUpdated(activeCharacter);
-                    }
-
-                    int activeWorldId = (int)(activeCharacter.ActiveWorldId);
-
-                    if (_activeWorldPicker.Draw("Active World",
-                            _characterMonitor.ActiveCharacter?.ActiveWorld?.Name.ExtractText() ?? "Not Set",
-                            "Set the active world of the active character", ref activeWorldId, 100, 32,
-                            ImGuiComboFlags.None))
-                    {
-                        var newWorld = _activeWorldPicker.Items[activeWorldId];
-                        activeCharacter.ActiveWorldId = newWorld.RowId;
-                        _characterMonitor.InvokeCharacterUpdated(activeCharacter);
-                    }
-
+                    ImGui.Text("Home World: " + (activeCharacter.World?.Name.ExtractText() ?? "Not Set"));
+                    ImGui.Text("Active World: " + (activeCharacter.ActiveWorld?.Name.ExtractText() ?? "Not Set"));
                 }
 
             }
@@ -366,11 +339,6 @@ public class MockWindow : GenericWindow
     {
         if (ImGui.BeginTabItem("Windows"))
         {
-            if (ImGui.Button("Craft Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-            }
-
             if (ImGui.Button("Items Window"))
             {
                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(FiltersWindow)));
@@ -386,37 +354,6 @@ public class MockWindow : GenericWindow
                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWindow)));
             }
 
-            if (ImGui.Button("Duties Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(DutiesWindow)));
-            }
-
-            if (ImGui.Button("Mobs Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(BNpcsWindow)));
-            }
-
-            if (ImGui.Button("Airships Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(AirshipsWindow)));
-            }
-
-            if (ImGui.Button("Submarines Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(SubmarinesWindow)));
-            }
-
-            if (ImGui.Button("Retainer Ventures Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(RetainerTasksWindow)));
-            }
-
-
-            if (ImGui.Button("NPCs Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(ENpcsWindow)));
-            }
-
             if (ImGui.Button("Icons Window"))
             {
                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(IconBrowserWindow)));
@@ -430,16 +367,6 @@ public class MockWindow : GenericWindow
             if (ImGui.Button("Mock Items Window"))
             {
                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(MockGameItemsWindow)));
-            }
-
-            if (ImGui.Button("Configuration Wizard"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWizard)));
-            }
-
-            if (ImGui.Button("List Debug Window"))
-            {
-                MediatorService.Publish(new OpenGenericWindowMessage(typeof(ListDebugWindow)));
             }
 
             if (ImGui.Button("Allagan Debug Window"))

@@ -13,8 +13,6 @@ using Dalamud.Bindings.ImGui;
 using InventoryTools.Extensions;
 using InventoryTools.Logic;
 using InventoryTools.Logic.Columns;
-using InventoryTools.Logic.Columns.Buttons;
-using InventoryTools.Logic.Columns.Stats;
 using InventoryTools.Logic.Filters;
 using InventoryTools.Mediator;
 using InventoryTools.Services;
@@ -67,8 +65,6 @@ namespace InventoryTools.Lists
             _inventoryMonitor.OnInventoryChanged += InventoryMonitorOnOnInventoryChanged;
             _history.OnHistoryLogged += HistoryOnOnHistoryLogged;
             _mediatorService.Subscribe<ListUpdatedMessage>(this, message => ListUpdated(message.FilterConfiguration) );
-            _mediatorService.Subscribe<AddToCraftListMessage>(this, AddToCraftListMessageRecv );
-            _mediatorService.Subscribe<AddToNewCraftListMessage>(this, AddToNewCraftListMessageRecv );
             _mediatorService.Subscribe<AddToNewCuratedListMessage>(this, AddToNewCuratedListMessageRecv );
             _mediatorService.Subscribe<AddToCuratedListMessage>(this, AddToCuratedListMessageRecv );
             _framework.Update += OnUpdate;
@@ -84,31 +80,16 @@ namespace InventoryTools.Lists
             InvalidateLists();
         }
 
-        private void AddToCraftListMessageRecv(AddToCraftListMessage obj)
-        {
-            var filter = GetListByKey(obj.FilterKey);
-            if (filter != null)
-            {
-                filter.CraftList.AddCraftItem(obj.ItemId, obj.Quantity, obj.Flags);
-            }
-        }
-
         private void AddToCuratedListMessageRecv(AddToCuratedListMessage obj)
         {
             var filter = GetListByKey(obj.FilterKey);
             filter?.AddCuratedItem(new CuratedItem(obj.ItemId, obj.Quantity, obj.Flags));
         }
 
-        private void AddToNewCraftListMessageRecv(AddToNewCraftListMessage obj)
-        {
-            var craftList = AddNewCraftList(null, obj.IsEphemeral);
-            craftList.CraftList.AddCraftItem(obj.ItemId, obj.Quantity, obj.Flags);
-        }
-
         private void AddToNewCuratedListMessageRecv(AddToNewCuratedListMessage obj)
         {
-            var craftList = AddNewCuratedList();
-            craftList.AddCuratedItem(new CuratedItem(obj.ItemId, obj.Quantity, obj.Flags));
+            var curatedList = AddNewCuratedList();
+            curatedList.AddCuratedItem(new CuratedItem(obj.ItemId, obj.Quantity, obj.Flags));
         }
 
         private ConcurrentDictionary<string, FilterConfiguration> LoadListsFromConfiguration()
@@ -144,22 +125,6 @@ namespace InventoryTools.Lists
                 }
             }
 
-            if (list.CraftColumns != null)
-            {
-                List<ColumnConfiguration> invalidColumns = new();
-                foreach (var columnConfiguration in list.CraftColumns)
-                {
-                    if (!SetupColumn(columnConfiguration))
-                    {
-                        invalidColumns.Add(columnConfiguration);
-                    }
-                }
-
-                foreach (var toRemove in invalidColumns)
-                {
-                    list.CraftColumns.Remove(toRemove);
-                }
-            }
         }
 
         private bool SetupColumn(ColumnConfiguration columnConfiguration)
@@ -212,31 +177,13 @@ namespace InventoryTools.Lists
                     }
                 }
 
-                if (filter.Value.CraftColumns != null)
-                {
-                    var isDirty = false;
-                    foreach (var column in filter.Value.CraftColumns)
-                    {
-                        if (column.IsDirty)
-                        {
-                            column.IsDirty = false;
-                            isDirty = true;
-                        }
-                    }
-
-                    if (isDirty)
-                    {
-                        FilterTableConfigurationChanged(filter.Value);
-                    }
-                }
-
                 if (filter.Value is { } configuration)
                 {
                     if (_configuration.ActiveBackgroundFilter == configuration.Key && configuration.NeedsRefresh)
                     {
                         configuration.AllowRefresh = true;
                     }
-                    if ((configuration.NeedsRefresh || configuration.FilterType == FilterType.CraftFilter && configuration.CraftList.NeedsRefresh) && !configuration.Refreshing && configuration.AllowRefresh)
+                    if (configuration.NeedsRefresh && !configuration.Refreshing && configuration.AllowRefresh)
                     {
                         filter.Value.Refreshing = true;
                         MediatorService.Publish(new RequestListUpdateMessage(filter.Value));
@@ -275,13 +222,6 @@ namespace InventoryTools.Lists
             InvalidateLists();
         }
 
-        private void CraftListUpdated(FilterConfiguration filterconfiguration)
-        {
-            //_mediatorService.Publish(new ListModifiedMessage(filterconfiguration));
-            InvalidateList(filterconfiguration);
-            _configuration.IsDirty = true;
-        }
-
         private void FilterTableConfigurationChanged(FilterConfiguration filterConfiguration)
         {
             _mediatorService.Publish(new ListModifiedMessage(filterConfiguration));
@@ -304,32 +244,15 @@ namespace InventoryTools.Lists
         {
             ValidateAndInjectListColumns(configuration);
             var result = _lists.TryAdd(configuration.Key, configuration);
-            if (configuration.FilterType == FilterType.CraftFilter)
+            var filters = _lists.Where(c => c.Value.FilterType != FilterType.CraftFilter).ToList();
+            if (filters.Any())
             {
-                var filters = _lists.Where(c => c.Value.FilterType == FilterType.CraftFilter && !c.Value.CraftListDefault).ToList();
-                if (filters.Any())
-                {
-                    configuration.Order = filters
-                        .Max(c => c.Value.Order) + 1;
-                }
-                else
-                {
-
-                    configuration.Order = 1;
-                }
+                configuration.Order = filters
+                    .Max(c => c.Value.Order) + 1;
             }
             else
             {
-                var filters = _lists.Where(c => c.Value.FilterType != FilterType.CraftFilter).ToList();
-                if (filters.Any())
-                {
-                    configuration.Order = filters
-                        .Max(c => c.Value.Order) + 1;
-                }
-                else
-                {
-                    configuration.Order = 1;
-                }
+                configuration.Order = 1;
             }
             if (result)
             {
@@ -358,34 +281,6 @@ namespace InventoryTools.Lists
             newConfiguration.Name = newName;
             AddList(newConfiguration);
             return newConfiguration;
-        }
-
-        public FilterConfiguration AddNewCraftList(string? newName = null, bool? isEphemeral = false)
-        {
-            var isEphemeralNN = isEphemeral ?? false;
-            var newNameNN = newName ?? (isEphemeralNN ? "新建临时列表" : "新建制作列表");
-
-            var names = Lists.Where(c =>
-                c.FilterType == FilterType.CraftFilter && !c.CraftListDefault &&
-                c.IsEphemeralCraftList == isEphemeralNN).Select(c => c.Name).Distinct().ToHashSet();
-            var count = 1;
-            var fixedName = newNameNN;
-            while (names.Contains(fixedName))
-            {
-                count++;
-                fixedName = newNameNN + " " + count;
-            }
-
-            var clonedFilter = _filterConfigFactory.Invoke();
-            clonedFilter.CopyFrom(GetDefaultCraftList());
-            clonedFilter.Name = fixedName;
-            clonedFilter.GenerateNewTableId();
-            clonedFilter.GenerateNewCraftTableId();
-            clonedFilter.CraftListDefault = false;
-            clonedFilter.Key = Guid.NewGuid().ToString("N");
-            clonedFilter.IsEphemeralCraftList = isEphemeralNN;
-            AddList(clonedFilter);
-            return clonedFilter;
         }
 
         public FilterConfiguration AddNewCuratedList(string? name = null)
@@ -474,19 +369,6 @@ namespace InventoryTools.Lists
             return null;
         }
 
-        public FilterConfiguration? GetActiveCraftList()
-        {
-            if (_configuration.ActiveCraftList != null)
-            {
-                if (_lists.Any(c => c.Value.Key == _configuration.ActiveCraftList))
-                {
-                    return _lists.First(c => c.Value.Key == _configuration.ActiveCraftList).Value;
-                }
-            }
-
-            return null;
-        }
-
         public FilterConfiguration? GetActiveList()
         {
             var activeUiFilter = GetActiveUiList(false);
@@ -512,33 +394,6 @@ namespace InventoryTools.Lists
         public bool HasActiveBackgroundList()
         {
             return _configuration.ActiveBackgroundFilter != null;
-        }
-
-        public bool HasActiveCraftList()
-        {
-            return _configuration.ActiveCraftList != null;
-        }
-
-        public FilterConfiguration GetDefaultCraftList()
-        {
-            if (_lists.Any(c => c.Value.FilterType == FilterType.CraftFilter && c.Value.CraftListDefault))
-            {
-                return _lists.First(c => c.Value.FilterType == FilterType.CraftFilter && c.Value.CraftListDefault).Value;
-            }
-
-            var defaultFilter = GenerateDefaultCraftList();
-            AddList(defaultFilter);
-            return defaultFilter;
-        }
-
-        public bool HasDefaultCraftList()
-        {
-            if (_lists.Any(c => c.Value.FilterType == FilterType.CraftFilter && c.Value.CraftListDefault))
-            {
-                return true;
-            }
-
-            return false;
         }
 
         public FilterConfiguration? GetList(string name)
@@ -652,28 +507,6 @@ namespace InventoryTools.Lists
             return false;
         }
 
-        public bool SetActiveCraftList(FilterConfiguration configuration)
-        {
-            if (_configuration.ActiveCraftList != configuration.Key)
-            {
-                _configuration.ActiveCraftList = configuration.Key;
-                CraftListToggled?.Invoke(configuration, true);
-            }
-
-            return true;
-        }
-
-        public bool SetActiveCraftListByKey(string key)
-        {
-            var filter = GetListByKey(key);
-            if (filter != null)
-            {
-                return SetActiveCraftList(filter);
-            }
-
-            return false;
-        }
-
         public bool ClearActiveUiList()
         {
             if (_configuration.ActiveUiFilter != null)
@@ -699,22 +532,6 @@ namespace InventoryTools.Lists
                 if (activeBackgroundFilter != null)
                 {
                     BackgroundListToggled?.Invoke(activeBackgroundFilter, false);
-                }
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool ClearActiveCraftList()
-        {
-            if (_configuration.ActiveCraftList != null)
-            {
-                var activeCraftList = GetActiveCraftList();
-                _configuration.ActiveCraftList = null;
-                if (activeCraftList != null)
-                {
-                    CraftListToggled?.Invoke(activeCraftList, false);
                 }
                 return true;
             }
@@ -789,33 +606,9 @@ namespace InventoryTools.Lists
             return true;
         }
 
-        public bool ToggleActiveCraftList(FilterConfiguration configuration)
-        {
-            var activeCraftList = GetActiveCraftList();
-            if (activeCraftList != null)
-            {
-                ClearActiveCraftList();
-                if (activeCraftList != configuration)
-                {
-                    SetActiveCraftList(configuration);
-                }
-                return true;
-            }
-            SetActiveCraftList(configuration);
-            return true;
-        }
-
         public bool MoveListUp(FilterConfiguration configuration)
         {
-            List<FilterConfiguration> currentList;
-            if (configuration.FilterType == FilterType.CraftFilter)
-            {
-                currentList = Lists.Where(c => c.FilterType == FilterType.CraftFilter && !c.CraftListDefault).ToList();
-            }
-            else
-            {
-                currentList = Lists.Where(c => c.FilterType != FilterType.CraftFilter).ToList();
-            }
+            var currentList = Lists.Where(c => c.FilterType != FilterType.CraftFilter).ToList();
             currentList = currentList.MoveUp( configuration);
             var order = 0u;
             foreach (var item in currentList)
@@ -836,15 +629,7 @@ namespace InventoryTools.Lists
 
         public bool MoveListDown(FilterConfiguration configuration)
         {
-            List<FilterConfiguration> currentList;
-            if (configuration.FilterType == FilterType.CraftFilter)
-            {
-                currentList = Lists.Where(c => c.FilterType == FilterType.CraftFilter && !c.CraftListDefault).ToList();
-            }
-            else
-            {
-                currentList = Lists.Where(c => c.FilterType != FilterType.CraftFilter).ToList();
-            }
+            var currentList = Lists.Where(c => c.FilterType != FilterType.CraftFilter).ToList();
             currentList = currentList.MoveDown( configuration);
             var order = 0u;
             foreach (var item in currentList)
@@ -889,50 +674,19 @@ namespace InventoryTools.Lists
 
         public void ResetFilter(IEnumerable<IFilter> toReset,FilterConfiguration configuration)
         {
-            if (configuration.CraftListDefault)
+            configuration.Columns = new List<ColumnConfiguration>();
+            foreach (var filter in toReset)
             {
-                configuration.CraftColumns = new List<ColumnConfiguration>();
-                configuration.Columns = new List<ColumnConfiguration>();
-                foreach (var filter in toReset)
-                {
-                    if (filter.AvailableIn.HasFlag(FilterType.CraftFilter))
-                    {
-                        filter.ResetFilter(configuration);
-                    }
-                }
-                AddDefaultColumns(configuration);
-                configuration.ApplyDefaultCraftFilterConfiguration();
-            }
-            else if (configuration.FilterType == FilterType.CraftFilter)
-            {
-                var defaultConfiguration = GetDefaultCraftList();
-                if (configuration == defaultConfiguration)
-                {
-                    ResetFilter(toReset, defaultConfiguration);
-                    return;
-                }
-                configuration.CraftColumns = new List<ColumnConfiguration>();
-                configuration.Columns = new List<ColumnConfiguration>();
-                foreach (var filter in toReset)
-                {
-                    if (filter.AvailableIn.HasFlag(FilterType.CraftFilter))
-                    {
-                        filter.ResetFilter(defaultConfiguration, configuration);
-                    }
-                }
+                filter.ResetFilter(configuration);
             }
         }
 
         public void ResetFilter(IEnumerable<IFilter> toReset, FilterConfiguration configuration, FilterConfiguration existingConfiguration)
         {
-            configuration.CraftColumns = new List<ColumnConfiguration>();
             configuration.Columns = new List<ColumnConfiguration>();
             foreach (var filter in toReset)
             {
-                if (filter.AvailableIn.HasFlag(FilterType.CraftFilter))
-                {
-                    filter.ResetFilter(existingConfiguration, configuration);
-                }
+                filter.ResetFilter(existingConfiguration, configuration);
             }
         }
 
@@ -944,8 +698,6 @@ namespace InventoryTools.Lists
         public event IListService.ListRefreshedDelegate? ListRefreshed;
         public event IListService.ListToggledDelegate? UiListToggled;
         public event IListService.ListToggledDelegate? BackgroundListToggled;
-        public event IListService.ListToggledDelegate? CraftListToggled;
-
         public Task StartAsync(CancellationToken cancellationToken)
         {
             Logger.LogTrace("Starting service {type} ({this})", GetType().Name, this);
@@ -960,25 +712,6 @@ namespace InventoryTools.Lists
             newColumn.Column = column;
             configuration.AddColumn(newColumn, notify);
             return newColumn;
-        }
-
-        public ColumnConfiguration AddCraftColumn(FilterConfiguration configuration, Type columnType, bool notify = true)
-        {
-            var column = _columnTypeFactory.Invoke(columnType);
-            var newColumn = new ColumnConfiguration(columnType.Name);
-            newColumn.Column = column;
-            configuration.AddCraftColumn(newColumn, notify);
-            return newColumn;
-        }
-
-        public FilterConfiguration GenerateDefaultCraftList()
-        {
-            var defaultFilter = _filterConfigFactory.Invoke();
-            defaultFilter.Name = "默认制作列表";
-            defaultFilter.FilterType = FilterType.CraftFilter;
-            AddDefaultColumns(defaultFilter);
-            defaultFilter.ApplyDefaultCraftFilterConfiguration();
-            return defaultFilter;
         }
 
         public void AddRecommendedColumns(IEnumerable<IColumn> columns, FilterConfiguration configuration)
@@ -996,7 +729,6 @@ namespace InventoryTools.Lists
         {
             if (configuration.FilterType == FilterType.SearchFilter)
             {
-                AddColumn(configuration, typeof(FavouritesColumn));
                 AddColumn(configuration,typeof(IconColumn), false);
                 var nameColumn = AddColumn(configuration,typeof(NameColumn), false);
                 AddColumn(configuration,typeof(TypeColumn), false);
@@ -1008,57 +740,21 @@ namespace InventoryTools.Lists
             }
             else if (configuration.FilterType == FilterType.SortingFilter)
             {
-                AddColumn(configuration,typeof(FavouritesColumn), false);
                 AddColumn(configuration,typeof(IconColumn), false);
                 var nameColumn = AddColumn(configuration,typeof(NameColumn), false);
                 AddColumn(configuration,typeof(TypeColumn), false);
                 AddColumn(configuration,typeof(QuantityColumn), false);
                 AddColumn(configuration,typeof(SourceColumn), false);
                 AddColumn(configuration,typeof(LocationColumn), false);
-                AddColumn(configuration,typeof(DestinationColumn),false);
                 configuration.DefaultSortColumn = nameColumn.Key;
                 configuration.DefaultSortOrder = ImGuiSortDirection.Ascending;
             }
             else if (configuration.FilterType == FilterType.GameItemFilter)
             {
-                AddColumn(configuration,typeof(FavouritesColumn), false);
                 AddColumn(configuration,typeof(IconColumn), false);
                 var nameColumn = AddColumn(configuration,typeof(NameColumn), false);
-                AddColumn(configuration,typeof(AcquisitionSourceIconsColumn), false);
-                AddColumn(configuration,typeof(UseIconsColumn), false);
                 AddColumn(configuration,typeof(UiCategoryColumn), false);
-                AddColumn(configuration,typeof(ItemILevelColumn), false);
-                AddColumn(configuration,typeof(ItemLevelColumn), false);
                 AddColumn(configuration,typeof(RarityColumn), false);
-                AddColumn(configuration,typeof(CraftColumn), false);
-                AddColumn(configuration,typeof(IsCraftingItemColumn), false);
-                AddColumn(configuration,typeof(CanBeGatheredColumn), false);
-                AddColumn(configuration,typeof(CanBePurchasedColumn), false);
-                AddColumn(configuration,typeof(AcquiredColumn), false);
-                AddColumn(configuration,typeof(SellToVendorPriceColumn), false);
-                AddColumn(configuration,typeof(BuyFromVendorPriceColumn), false);
-                configuration.DefaultSortColumn = nameColumn.Key;
-                configuration.DefaultSortOrder = ImGuiSortDirection.Ascending;
-            }
-            else if (configuration.FilterType == FilterType.CraftFilter)
-            {
-                AddColumn(configuration,typeof(IconColumn), false);
-                var nameColumn = AddColumn(configuration,typeof(NameColumn), false);
-                AddColumn(configuration,typeof(CraftAmountAvailableColumn), false);
-                AddColumn(configuration,typeof(QuantityColumn), false);
-                AddColumn(configuration,typeof(SourceColumn), false);
-                AddColumn(configuration,typeof(LocationColumn), false);
-                AddCraftColumn(configuration,typeof(IconColumn), false);
-                AddCraftColumn(configuration,typeof(NameColumn), false);
-                AddCraftColumn(configuration,typeof(CraftAmountRequiredColumn), false);
-                AddCraftColumn(configuration,typeof(CraftSettingsColumn), false);
-                AddCraftColumn(configuration,typeof(CraftSimpleColumn), false);
-                AddCraftColumn(configuration,typeof(MarketBoardMinPriceColumn), false);
-                AddCraftColumn(configuration,typeof(MarketBoardMinTotalPriceColumn), false);
-                AddCraftColumn(configuration,typeof(CraftMarketPriceColumn), false);
-                AddCraftColumn(configuration,typeof(AcquisitionSourceIconsColumn), false);
-                AddCraftColumn(configuration,typeof(CraftGatherColumn), false);
-                AddCraftColumn(configuration,typeof(RemoveButtonColumn),false);
                 configuration.DefaultSortColumn = nameColumn.Key;
                 configuration.DefaultSortOrder = ImGuiSortDirection.Ascending;
             }
@@ -1078,14 +774,12 @@ namespace InventoryTools.Lists
             }
             else if (configuration.FilterType == FilterType.CuratedList)
             {
-                AddColumn(configuration, typeof(FavouritesColumn));
                 AddColumn(configuration,typeof(IconColumn), false);
                 var nameColumn = AddColumn(configuration,typeof(NameColumn), false);
                 AddColumn(configuration,typeof(TypeColumn), false);
                 AddColumn(configuration,typeof(QuantityColumn), false);
                 AddColumn(configuration,typeof(SourceColumn), false);
                 AddColumn(configuration,typeof(LocationColumn),false);
-                AddColumn(configuration,typeof(RemoveButtonColumn),false);
                 configuration.DefaultSortColumn = nameColumn.Key;
                 configuration.DefaultSortOrder = ImGuiSortDirection.Ascending;
             }

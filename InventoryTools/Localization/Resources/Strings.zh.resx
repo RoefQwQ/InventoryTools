@@ -3068,4 +3068,113 @@
   <data name=" could not be found." xml:space="preserve">
     <value> 无法找到。</value>
   </data>
+
+  <!-- Tooltip Color Settings -->
+  <data name="Setting_TooltipCofferLootColor_Name" xml:space="preserve">
+    <value>宝箱掉落提示颜色</value>
+  </data>
+  <data name="Setting_TooltipCofferLootColor_HelpText" xml:space="preserve">
+    <value>设置宝箱掉落提示的文本颜色。</value>
+  </data>
+  <data name="Setting_TooltipMarketPricingColor_Name" xml:space="preserve">
+    <value>市场价格提示颜色</value>
+  </data>
+  <data name="Setting_TooltipMarketPricingColor_HelpText" xml:space="preserve">
+    <value>设置市场价格提示的文本颜色。</value>
+  </data>
+  <data name="Setting_TooltipItemUnlockStatusColor_Name" xml:space="preserve">
+    <value>物品解锁状态提示颜色</value>
+  </data>
+  <data name="Setting_TooltipItemUnlockStatusColor_HelpText" xml:space="preserve">
+    <value>设置物品解锁状态提示的文本颜色。</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockSetting_Name" xml:space="preserve">
+    <value>显示解锁状态设置</value>
+  </data>
+  <data name="Setting_TooltipDisplayUnlockSetting_HelpText" xml:space="preserve">
+    <value>配置是否在提示框中显示物品的解锁状态。</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetColor_Name" xml:space="preserve">
+    <value>幻化套装提示颜色</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetColor_HelpText" xml:space="preserve">
+    <value>设置幻化套装提示的文本颜色。</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetAcquiredColor_Name" xml:space="preserve">
+    <value>已获取幻化套装颜色</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetAcquiredColor_HelpText" xml:space="preserve">
+    <value>设置已获取幻化套装的提示颜色。</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetNotAcquiredColor_Name" xml:space="preserve">
+    <value>未获取幻化套装颜色</value>
+  </data>
+  <data name="Setting_TooltipGlamourReadySetNotAcquiredColor_HelpText" xml:space="preserve">
+    <value>设置未获取幻化套装的提示颜色。</value>
+  </data>
+  <data name="Setting_TooltipIngredientPatchTooltipColor_Name" xml:space="preserve">
+    <value>材料补丁提示颜色</value>
+  </data>
+  <data name="Setting_TooltipIngredientPatchTooltipColor_HelpText" xml:space="preserve">
+    <value>设置材料补丁提示的文本颜色。</value>
+  </data>
+  <data name="Setting_TooltipAmountToRetrieveColor_Name" xml:space="preserve">
+    <value>获取数量提示颜色</value>
+  </data>
+  <data name="Setting_TooltipAmountToRetrieveColor_HelpText" xml:space="preserve">
+    <value>设置获取数量提示的文本颜色。</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationColor_Name" xml:space="preserve">
+    <value>来源信息提示颜色</value>
+  </data>
+  <data name="Setting_TooltipSourceInformationColor_HelpText" xml:space="preserve">
+    <value>设置来源信息提示的文本颜色。</value>
+  </data>
+  <data name="Setting_TooltipUseInformationColor_Name" xml:space="preserve">
+    <value>用途信息提示颜色</value>
+  </data>
+  <data name="Setting_TooltipUseInformationColor_HelpText" xml:space="preserve">
+    <value>设置用途信息提示的文本颜色。</value>
+  </data>
+
+  <!-- Context Menu Settings -->
+  <data name="Setting_AutoSaveMinutes_Name" xml:space="preserve">
+    <value>自动保存间隔（分钟）</value>
+  </data>
+  <data name="Setting_AutoSaveMinutes_HelpText" xml:space="preserve">
+    <value>设置自动保存配置的时间间隔（分钟）。</value>
+  </data>
+  <data name="Setting_addToActiveCraftListContextMenu_Name" xml:space="preserve">
+    <value>添加到当前制作列表</value>
+  </data>
+  <data name="Setting_addToActiveCraftListContextMenu_HelpText" xml:space="preserve">
+    <value>在右键菜单中添加"添加到当前制作列表"选项。</value>
+  </data>
+  <data name="Setting_addToActiveCraftListContextMenu_WizardName" xml:space="preserve">
+    <value>添加到当前制作列表（向导）</value>
+  </data>
+  <data name="Setting_addToCraftListContextMenu_Name" xml:space="preserve">
+    <value>添加到制作列表</value>
+  </data>
+  <data name="Setting_addToCraftListContextMenu_HelpText" xml:space="preserve">
+    <value>在右键菜单中添加"添加到制作列表"选项。</value>
+  </data>
+  <data name="Setting_addToCraftListContextMenu_WizardName" xml:space="preserve">
+    <value>添加到制作列表（向导）</value>
+  </data>
+  <data name="Setting_ItemSearchContextMenu_Name" xml:space="preserve">
+    <value>物品搜索</value>
+  </data>
+  <data name="Setting_ItemSearchContextMenu_HelpText" xml:space="preserve">
+    <value>在右键菜单中添加"物品搜索"选项。</value>
+  </data>
+  <data name="Setting_ItemSearchContextMenu_WizardName" xml:space="preserve">
+    <value>物品搜索（向导）</value>
+  </data>
+  <data name="Setting_moreInfoContextMenu_Name" xml:space="preserve">
+    <value>更多信息</value>
+  </data>
+  <data name="Setting_moreInfoContextMenu_HelpText" xml:space="preserve">
+    <value>在右键菜单中添加"更多信息"选项。</value>
+  </data>
 </root>

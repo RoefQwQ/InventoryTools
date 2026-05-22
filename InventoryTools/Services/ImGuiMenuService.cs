@@ -107,24 +107,6 @@ public class ImGuiMenuService
         }
 
         ImGui.Separator();
-
-        if (ImGui.MenuItem("标记为收藏"))
-        {
-            foreach (var item in searchResults)
-            {
-                _configuration.FavouriteItem(item.Item.RowId);
-            }
-        }
-
-        if (ImGui.MenuItem("取消收藏标记"))
-        {
-            foreach (var item in searchResults)
-            {
-                _configuration.UnfavouriteItem(item.Item.RowId);
-            }
-        }
-
-        ImGui.Separator();
         var curatedLists =
             _listService.Lists.Where(c => c.FilterType == FilterType.CuratedList).ToArray();
         if (curatedLists.Length != 0)
@@ -156,55 +138,6 @@ public class ImGuiMenuService
 
             messages.Add(new FocusListMessage(typeof(FiltersWindow), filter));
             filter.NeedsRefresh = true;
-        }
-
-        ImGui.Separator();
-        var craftFilters =
-            _listService.Lists.Where(c =>
-                c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
-        if (craftFilters.Length != 0)
-        {
-            using var menu = ImRaii.Menu("添加到制作列表");
-            if(menu)
-            {
-                foreach (var filter in craftFilters)
-                {
-                    if (!ImGui.MenuItem(filter.Name)) continue;
-                    foreach (var item in searchResults)
-                    {
-                        filter.CraftList.AddCraftItem(item.Item.RowId);
-                    }
-
-                    messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-                    messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-                    filter.NeedsRefresh = true;
-                }
-            }
-        }
-
-        if (ImGui.MenuItem("添加到新建制作列表"))
-        {
-             var filter = _listService.AddNewCraftList();
-             foreach (var item in searchResults)
-             {
-                 filter.CraftList.AddCraftItem(item.Item.RowId);
-             }
-
-             messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-             messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-             filter.NeedsRefresh = true;
-        }
-        if (ImGui.MenuItem("添加到新建临时制作列表"))
-        {
-             var filter = _listService.AddNewCraftList(null,true);
-             foreach (var item in searchResults)
-             {
-                 filter.CraftList.AddCraftItem(item.Item.RowId);
-             }
-
-             messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-             messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-             filter.NeedsRefresh = true;
         }
 
         return messages;
@@ -245,136 +178,6 @@ public class ImGuiMenuService
         {
             filterConfiguration.RemoveCuratedItem(searchResult.CuratedItem);
             filterConfiguration.NeedsRefresh = true;
-        }
-
-        ImGui.Separator();
-        var craftFilters =
-            _listService.Lists.Where(c =>
-                c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
-        if (craftFilters.Length != 0)
-        {
-            using var menu = ImRaii.Menu("添加到制作列表");
-            if(menu)
-            {
-                foreach (var filter in craftFilters)
-                {
-                    if (!ImGui.MenuItem(filter.Name)) continue;
-                    filter.CraftList.AddCraftItem(searchResult.Item.RowId);
-                    messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-                    messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-                    filter.NeedsRefresh = true;
-                }
-            }
-        }
-
-        if (ImGui.MenuItem("添加到新建制作列表"))
-        {
-             var filter = _listService.AddNewCraftList();
-             filter.CraftList.AddCraftItem(searchResult.Item.RowId);
-             messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-             messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-             filter.NeedsRefresh = true;
-        }
-        if (ImGui.MenuItem("添加到新建临时制作列表"))
-        {
-             var filter = _listService.AddNewCraftList(null,true);
-             filter.CraftList.AddCraftItem(searchResult.Item.RowId);
-             messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-             messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-             filter.NeedsRefresh = true;
-        }
-
-
-        if (filterConfiguration != null && searchResult.CraftItem != null)
-        {
-            if (searchResult.CraftItem.IsOutputItem)
-            {
-                if (ImGui.MenuItem("从制作列表移除"))
-                {
-                    filterConfiguration.CraftList.RemoveCraftItem(searchResult.Item.RowId, searchResult.CraftItem.Flags);
-                    filterConfiguration.NeedsRefresh = true;
-                }
-            }
-
-            if (searchResult.Item.CanBeCrafted && searchResult.CraftItem.IsOutputItem && searchResult.Item.HasSourcesByType(ItemInfoType.FreeCompanyCraftRecipe))
-            {
-                ImGui.Separator();
-                if (searchResult.Item.CompanyCraftSequence != null && searchResult.Item.CompanyCraftSequence.CompanyCraftParts.Length > 1)
-                {
-                    if (searchResult.CraftItem.Phase != null && ImGui.MenuItem("切换到全部阶段"))
-                    {
-                        filterConfiguration.CraftList.SetCraftPhase(searchResult.Item.RowId, null, searchResult.CraftItem.Phase);
-                        filterConfiguration.NeedsRefresh = true;
-                    }
-
-                    for (var index = 0u;
-                         index < searchResult.Item.CompanyCraftSequence.CompanyCraftParts
-                             .Length;
-                         index++)
-                    {
-                        var part =
-                            searchResult.Item.CompanyCraftSequence.CompanyCraftParts[index];
-                        if (part.RowId == 0) continue;
-                        if (searchResult.CraftItem.Phase != index)
-                        {
-                            if (ImGui.MenuItem("切换到 " + ((part.Base.CompanyCraftType.ValueNullable?.Name.ExtractText() ?? "") + "（阶段 " + (index + 1) + "）")))
-                            {
-                                filterConfiguration.CraftList.SetCraftPhase(searchResult.Item.RowId, index,
-                                    searchResult.CraftItem.Phase);
-                                filterConfiguration.NeedsRefresh = true;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (!searchResult.CraftItem.IsOutputItem)
-            {
-                if (searchResult.Item.CanBeCrafted && !searchResult.Item.HasSourcesByType(ItemInfoType.FreeCompanyCraftRecipe))
-                {
-                    ImGui.Separator();
-                    using (var menu = ImRaii.Menu("Add " + searchResult.CraftItem.QuantityNeeded + " " +
-                                                  searchResult.Item.NameString + " to craft list"))
-                    {
-                        if (menu)
-                        {
-                            foreach (var filter in craftFilters)
-                            {
-                                if (!ImGui.MenuItem(filter.Name)) continue;
-                                filter.CraftList.AddCraftItem(searchResult.Item.RowId,
-                                    searchResult.CraftItem.QuantityNeeded,
-                                    InventoryItem.ItemFlags.None);
-                                messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-                                messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-                                filterConfiguration.NeedsRefresh = true;
-                            }
-                        }
-                    }
-
-                    if (ImGui.MenuItem("将 " + searchResult.CraftItem.QuantityNeeded + " 个物品添加到新建制作列表"))
-                    {
-                        var filter = _listService.AddNewCraftList();
-                        filter.CraftList.AddCraftItem(searchResult.Item.RowId,
-                            searchResult.CraftItem.QuantityNeeded,
-                            InventoryItem.ItemFlags.None);
-                        messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-                        messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-                        filterConfiguration.NeedsRefresh = true;
-                    }
-
-                    if (ImGui.MenuItem("将 " + searchResult.CraftItem.QuantityNeeded +
-                                         " 个物品添加到新建临时制作列表"))
-                    {
-                        var filter = _listService.AddNewCraftList(null, true);
-                        filter.CraftList.AddCraftItem(searchResult.Item.RowId,
-                            searchResult.CraftItem.QuantityNeeded,
-                            InventoryItem.ItemFlags.None);
-                        messages.Add(new OpenGenericWindowMessage(typeof(CraftsWindow)));
-                        messages.Add(new FocusListMessage(typeof(CraftsWindow), filter));
-                        filterConfiguration.NeedsRefresh = true;
-                    }
-                }
-            }
         }
         return messages;
     }
@@ -439,18 +242,9 @@ public class ImGuiMenuService
             messages.AddRange(actions);
         }
 
-        ImGui.Separator();
-
-        if (ImGui.MenuItem(_configuration.IsFavouriteItem(searchResult.Item.RowId)
-                ? "取消收藏"
-                : "标记收藏"))
-        {
-            _configuration.ToggleFavouriteItem(searchResult.Item.RowId);
-        }
-
         if (ImGui.MenuItem("更多信息"))
         {
-            messages.Add(new OpenUintWindowMessage(typeof(ItemWindow), searchResult.Item.RowId));
+            messages.Add(new ItemSearchRequestedMessage(searchResult.Item.RowId, InventoryItem.ItemFlags.None));
         }
 
         return messages;

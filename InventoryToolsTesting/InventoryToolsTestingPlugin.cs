@@ -17,7 +17,6 @@ using Dalamud.Game.ClientState.Objects;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using InventoryTools;
-using InventoryTools.IPC;
 using InventoryTools.Lists;
 using InventoryTools.Logic;
 using InventoryTools.Services;
@@ -50,10 +49,7 @@ public class InventoryToolsTestingPlugin : InventoryToolsPlugin
     {
         base.PreBuild(hostBuilder);
 
-        this.ReplaceHostedService(typeof(WotsitIpc),typeof(MockWotsitIpc));
-        this.ReplaceHostedService(typeof(CraftMonitor),typeof(MockHostedCraftMonitor));
         this.ReplaceHostedService(typeof(OdrScanner),typeof(MockOdrScanner));
-        this.ReplaceHostedService(typeof(Chat2Ipc),typeof(MockChat2Ipc));
 
         this.seriLog = new LoggerConfiguration()
             .WriteTo.Console(standardErrorFromLevel: LogEventLevel.Verbose)
@@ -70,8 +66,6 @@ public class InventoryToolsTestingPlugin : InventoryToolsPlugin
                 containerBuilder.RegisterType<TestInventoryMonitor>().AsSelf().As<IInventoryMonitor>().SingleInstance();
                 containerBuilder.RegisterType<TestMarketCache>().As<IMarketCache>().SingleInstance();
                 containerBuilder.RegisterType<MockSeTime>().As<ISeTime>().SingleInstance();
-                containerBuilder.RegisterType<MockWotsitIpc>().As<IWotsitIpc>().SingleInstance();
-                containerBuilder.RegisterType<MockHostedCraftMonitor>().As<ICraftMonitor>().SingleInstance();
                 containerBuilder.RegisterType<MockOdrScanner>().As<IOdrScanner>().SingleInstance();
                 containerBuilder.RegisterInstance(seriLog).As<ILogger>().SingleInstance();
             }

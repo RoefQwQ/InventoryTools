@@ -17,7 +17,6 @@ using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using InventoryTools;
-using InventoryTools.IPC;
 using InventoryTools.Services;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -41,12 +40,7 @@ public class InventoryToolsPluginMock : InventoryToolsPlugin
     {
         base.PreBuild(hostBuilder);
 
-        this.ReplaceHostedService(typeof(WotsitIpc),typeof(MockWotsitIpc));
-        this.ReplaceHostedService(typeof(CraftMonitor),typeof(MockHostedCraftMonitor));
         this.ReplaceHostedService(typeof(OdrScanner),typeof(MockOdrScanner));
-        this.ReplaceHostedService(typeof(Chat2Ipc),typeof(MockChat2Ipc));
-        this.ReplaceHostedService(typeof(AcquisitionMonitorService),typeof(MockAcquisitionMonitorService));
-        this.ReplaceHostedService(typeof(AchievementMonitorService),typeof(MockAchievementMonitorService));
 
         this.seriLog = new LoggerConfiguration()
             .WriteTo.Console(standardErrorFromLevel: LogEventLevel.Verbose)
@@ -66,7 +60,6 @@ public class InventoryToolsPluginMock : InventoryToolsPlugin
             container.RegisterType<MockSeTime>().As<ISeTime>().SingleInstance();
             container.RegisterType<MockGameInteropService>().As<IGameInteropService>().SingleInstance();
             container.RegisterType<MockUnlockTrackerService>().As<IUnlockTrackerService>().SingleInstance();
-            container.RegisterType<MockQuestManagerService>().AsImplementedInterfaces().SingleInstance();
             container.RegisterType<MockUIStateService>().AsImplementedInterfaces().SingleInstance();
             container.RegisterType<MockStartup>().AsImplementedInterfaces().SingleInstance();
             container.RegisterType<MockFileDialogManager>().AsImplementedInterfaces().SingleInstance();

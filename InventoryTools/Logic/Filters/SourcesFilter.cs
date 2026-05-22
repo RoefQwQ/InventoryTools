@@ -16,14 +16,12 @@ namespace InventoryTools.Logic.Filters
     public class SourcesFilter : DisplayFilter
     {
         private readonly ICharacterMonitor _characterMonitor;
-        private readonly CraftSourceInventoriesFilter _craftSourceInventoriesFilter;
         private readonly SourceInventoriesFilter _sourceInventoriesFilter;
         private readonly InventoryScopeCalculator _scopeCalculator;
 
-        public SourcesFilter(ILogger<SourcesFilter> logger, ImGuiService imGuiService, ICharacterMonitor characterMonitor, CraftSourceInventoriesFilter craftSourceInventoriesFilter, SourceInventoriesFilter sourceInventoriesFilter, InventoryScopeCalculator scopeCalculator) : base(logger, imGuiService)
+        public SourcesFilter(ILogger<SourcesFilter> logger, ImGuiService imGuiService, ICharacterMonitor characterMonitor, SourceInventoriesFilter sourceInventoriesFilter, InventoryScopeCalculator scopeCalculator) : base(logger, imGuiService)
         {
             _characterMonitor = characterMonitor;
-            _craftSourceInventoriesFilter = craftSourceInventoriesFilter;
             _sourceInventoriesFilter = sourceInventoriesFilter;
             _scopeCalculator = scopeCalculator;
         }
@@ -41,7 +39,7 @@ namespace InventoryTools.Logic.Filters
             return false;
         }
 
-        public override FilterType AvailableIn { get; set; } = FilterType.SearchFilter | FilterType.SortingFilter | FilterType.CraftFilter | FilterType.HistoryFilter;
+        public override FilterType AvailableIn { get; set; } = FilterType.SearchFilter | FilterType.SortingFilter | FilterType.HistoryFilter;
 
         public override void Draw(FilterConfiguration configuration)
         {
@@ -56,12 +54,6 @@ namespace InventoryTools.Logic.Filters
             //Retainer Sources
             List<string> sources = new();
             var sourceInventories = _sourceInventoriesFilter.CurrentValue(configuration);
-            if (configuration.FilterType == FilterType.CraftFilter)
-            {
-                sourceInventories = _craftSourceInventoriesFilter.CurrentValue(configuration);
-            }
-
-
             if (sourceInventories != null)
             {
                 foreach (var retainer in allCharacters)

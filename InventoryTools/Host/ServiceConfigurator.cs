@@ -49,9 +49,6 @@ public class ServiceConfigurator : IHostedService
             _mobTracker.SetEntries(entries);
         }
 
-        _marketCacheConfiguration.AutoRequest = _configuration.AutomaticallyDownloadMarketPrices;
-        _marketCacheConfiguration.CacheMaxAgeHours = _configuration.MarketRefreshTimeHours;
-        _hostedUniversalisConfiguration.SaleHistoryLimit = _configuration.MarketSaleHistoryLimit;
         if (_configuration.HistoryEnabled)
         {
             _hostedInventoryHistory.Enable();

@@ -22,9 +22,6 @@ using AllaganLib.Shared.Time;
 using AllaganLib.Shared.Windows;
 using Autofac;
 using CharacterTools.Logic.Editors;
-using CriticalCommonLib.Crafting;
-using CriticalCommonLib.Ipc;
-using CriticalCommonLib.MarketBoard;
 using CriticalCommonLib.Models;
 using CriticalCommonLib.Resolvers;
 using CriticalCommonLib.Services;
@@ -44,18 +41,8 @@ using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using InventoryTools.Boot;
 using InventoryTools.Commands;
-using InventoryTools.Compendium;
-using InventoryTools.Compendium.Columns;
-using InventoryTools.Compendium.Interfaces;
-using InventoryTools.Compendium.Models;
-using InventoryTools.Compendium.Sections;
-using InventoryTools.Compendium.Services;
-using InventoryTools.Compendium.Types.Extra;
-using InventoryTools.EquipmentSuggest;
-using InventoryTools.Highlighting;
 using InventoryTools.Host;
 using InventoryTools.Hotkeys;
-using InventoryTools.IPC;
 using InventoryTools.Lists;
 using InventoryTools.Localizers;
 using InventoryTools.Logic;
@@ -64,8 +51,6 @@ using InventoryTools.Logic.Columns.Abstract.ColumnSettings;
 using InventoryTools.Logic.Editors;
 using InventoryTools.Logic.Features;
 using InventoryTools.Logic.Filters;
-using InventoryTools.Logic.GenericFilters;
-using InventoryTools.Logic.ItemRenderers;
 using InventoryTools.Logic.Settings.Abstract;
 using InventoryTools.Overlays;
 using InventoryTools.ServiceConfigurations;
@@ -126,7 +111,6 @@ namespace InventoryTools
             builder.RegisterSingletonsSelfAndInterfaces<ISetting>(dataAccess).AsImplementedInterfaces();
             builder.RegisterSingletonsSelfAndInterfaces<ISampleFilter>(dataAccess);
             builder.RegisterSingletonsSelfAndInterfaces<IFeature>(dataAccess);
-            builder.RegisterSingletonsSelfAndInterfaces<IItemInfoRenderer>(dataAccess);
             builder.RegisterSingletonsSelfAndInterfaces<IDebugPane>(typeof(ShopMonitorDebugPane).Assembly); //Register AllaganLib.Monitor debug panes
             builder.RegisterSingletonsSelfAndInterfaces<IDebugPane>(dataAccess); //Register InventoryTools debug panes
             builder.RegisterSingletonsSelfAndInterfaces<IFilter>(dataAccess).Where(c => c.GetInterface("IGenericFilter") == null); //Generic filters should not be registered as IFilters as we don't want them to show up anywhere we want to iterate over all available filters
@@ -139,45 +123,21 @@ namespace InventoryTools
             builder.RegisterExternalTransientsSelfAndInterfaces<UintWindow>(dataAccess, typeof(Window));
             builder.RegisterExternalTransientsSelfAndInterfaces<StringWindow>(dataAccess, typeof(Window));
 
-            //Register our generic filters
-            builder.RegisterTransientSelf<GenericHasSourceFilter>();
-            builder.RegisterTransientSelf<GenericHasSourceCategoryFilter>();
-            builder.RegisterTransientSelf<GenericHasUseFilter>();
-            builder.RegisterTransientSelf<GenericHasUseCategoryFilter>();
-            builder.RegisterTransientSelf<GenericBooleanFilter>();
-            builder.RegisterTransientSelf<GenericIntegerFilter>();
-
             //Hosted service registrations
             this.RegisterHostedService(typeof(BootService));
-            this.RegisterHostedService(typeof(Chat2Ipc));
             this.RegisterHostedService(typeof(ConfigurationManagerService));
-            this.RegisterHostedService(typeof(ContextMenuService));
-            this.RegisterHostedService(typeof(HostedCraftMonitor));
             this.RegisterHostedService(typeof(HostedInventoryHistory));
-            this.RegisterHostedService(typeof(HostedUniversalis));
-            this.RegisterHostedService(typeof(HotkeyService));
-            this.RegisterHostedService(typeof(IPCService));
             this.RegisterHostedService(typeof(InventoryToolsUi));
-            this.RegisterHostedService(typeof(ItemSearchService));
-            this.RegisterHostedService(typeof(LaunchButtonService));
             this.RegisterHostedService(typeof(ListFilterService));
             this.RegisterHostedService(typeof(ListService));
-            this.RegisterHostedService(typeof(MarketCache));
-            this.RegisterHostedService(typeof(MarketRefreshService));
-            this.RegisterHostedService(typeof(MigrationManagerService));
+
             this.RegisterHostedService(typeof(OdrScanner));
             this.RegisterHostedService(typeof(OverlayService));
             this.RegisterHostedService(typeof(PluginCommandManager<PluginCommands>));
             this.RegisterHostedService(typeof(PluginLogic));
             this.RegisterHostedService(typeof(ServiceConfigurator));
             this.RegisterHostedService(typeof(TableService));
-            this.RegisterHostedService(typeof(TeleporterService));
             this.RegisterHostedService(typeof(WindowService));
-            this.RegisterHostedService(typeof(WotsitIpc));
-            this.RegisterHostedService(typeof(ShopMonitorService));
-            this.RegisterHostedService(typeof(AcquisitionMonitorService));
-            this.RegisterHostedService(typeof(AchievementMonitorService));
-            this.RegisterHostedService(typeof(POIService));
 
             //AllaganLib modules
             builder.RegisterModule(new GameSheetManagerModule()
@@ -190,9 +150,6 @@ namespace InventoryTools
             });
             builder.RegisterModule(new GameDataModule());
 
-            //Service configuration
-            builder.RegisterSingletonSelfAndInterfaces<AcquisitionMonitorConfiguration>();
-
             //Dalamud related services
             builder.Register<GameData>(c => c.Resolve<IDataManager>().GameData).SingleInstance().ExternallyOwned();
 
@@ -200,58 +157,35 @@ namespace InventoryTools
             builder.RegisterSingletonSelfAndInterfaces<LocalizationService>();
             builder.RegisterSingletonSelfAndInterfaces<AutofacResolver>();
             builder.RegisterSingletonSelfAndInterfaces<AllaganDebugWindow>();
-            builder.RegisterSingletonSelfAndInterfaces<ChangelogService>();
             builder.RegisterSingletonSelfAndInterfaces<CharacterMonitor>();
             builder.RegisterSingletonSelfAndInterfaces<CharacterRetainerPage>();
             builder.RegisterSingletonSelfAndInterfaces<CharacterScopeCalculator>();
             builder.RegisterSingletonSelfAndInterfaces<ChatUtilities>();
-            builder.RegisterSingletonSelfAndInterfaces<ClassJobService>();
-            builder.RegisterSingletonSelfAndInterfaces<ItemObtainabilityService>();
             builder.RegisterSingletonSelfAndInterfaces<ClipboardService>();
-            builder.RegisterSingletonSelfAndInterfaces<ConfigurationWizardService>();
-            builder.RegisterSingletonSelfAndInterfaces<ConfigurationWizardService>();
             builder.RegisterSingletonSelfAndInterfaces<ContainerAwareCsvLoader>();
             builder.RegisterSingletonSelfAndInterfaces<ListsPage>();
-            builder.RegisterSingletonSelfAndInterfaces<CraftGroupingLocalizer>();
-            builder.RegisterSingletonSelfAndInterfaces<CraftItemLocalizer>();
-            builder.RegisterSingletonSelfAndInterfaces<CraftPricer>();
-            builder.RegisterSingletonSelfAndInterfaces<CraftingCache>();
             builder.RegisterSingletonSelfAndInterfaces<FilterService>();
             builder.RegisterSingletonSelfAndInterfaces<GameInterface>();
             builder.RegisterSingletonSelfAndInterfaces<GameInteropService>();
             builder.RegisterSingletonSelfAndInterfaces<GameUiManager>();
-            builder.RegisterSingletonSelfAndInterfaces<HostedUniversalisConfiguration>();
             builder.RegisterSingletonSelfAndInterfaces<ImGuiMenuService>();
             builder.RegisterSingletonSelfAndInterfaces<ImGuiService>();
             builder.RegisterSingletonSelfAndInterfaces<ImGuiTooltipService>().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
-            builder.RegisterSingletonSelfAndInterfaces<IngredientPatchService>();
-            builder.RegisterSingletonSelfAndInterfaces<IngredientPreferenceLocalizer>();
             builder.RegisterSingletonSelfAndInterfaces<InventoryHistory>();
             builder.RegisterSingletonSelfAndInterfaces<InventoryMonitor>();
             builder.RegisterSingletonSelfAndInterfaces<InventoryScanner>();
             builder.RegisterSingletonSelfAndInterfaces<InventoryScopeCalculator>();
-            builder.RegisterSingletonSelfAndInterfaces<ItemInfoRenderService>();
             builder.RegisterSingletonSelfAndInterfaces<ItemLocalizer>();
             builder.RegisterSingletonSelfAndInterfaces<ListImportExportService>();
             builder.RegisterSingletonSelfAndInterfaces<Logger>();
-            builder.RegisterSingletonSelfAndInterfaces<MarketBoardService>();
-            builder.RegisterSingletonSelfAndInterfaces<MarketCacheConfiguration>();
-            builder.RegisterSingletonSelfAndInterfaces<MarketOrderService>();
             builder.RegisterSingletonSelfAndInterfaces<MinifyResolver>();
-            builder.RegisterSingletonSelfAndInterfaces<MobTracker>();
             builder.RegisterSingletonSelfAndInterfaces<PluginCommands>();
             builder.RegisterSingletonSelfAndInterfaces<PopupService>();
-            builder.RegisterSingletonSelfAndInterfaces<QuestManagerService>();
-            builder.RegisterSingletonSelfAndInterfaces<SeTime>();
-            builder.RegisterSingletonSelfAndInterfaces<ShopHighlighting>();
-            builder.RegisterSingletonSelfAndInterfaces<TeleporterIpc>();
             builder.RegisterSingletonSelfAndInterfaces<TooltipService>();
             builder.RegisterSingletonSelfAndInterfaces<TryOn>();
-            builder.RegisterSingletonSelfAndInterfaces<UnlockTrackerService>();
             builder.RegisterSingletonSelfAndInterfaces<VersionInfo>();
             builder.RegisterSingletonSelfAndInterfaces<CsvLoaderService>();
             builder.RegisterSingletonSelfAndInterfaces<BackgroundTaskCollector>();
-            builder.RegisterSingletonSelfAndInterfaces<AchievementMonitorConfiguration>();
             builder.RegisterSingletonSelfAndInterfaces<UIStateService>();
 
             //Transient registrations
@@ -259,7 +193,6 @@ namespace InventoryTools
             builder.RegisterTransientSelfAndInterfaces<NamedBackgroundTaskQueue>();
             builder.RegisterTransientSelfAndInterfaces<InventoryScopePicker>();
             builder.RegisterTransientSelfAndInterfaces<FilterTable>();
-            builder.RegisterTransientSelfAndInterfaces<CraftItemTable>();
             builder.RegisterTransientSelfAndInterfaces<CharacterScopePicker>();
             builder.RegisterTransientSelfAndInterfaces<StringColumnFilter>();
             builder.RegisterTransientSelfAndInterfaces<ChoiceColumnFilter>();
@@ -267,75 +200,14 @@ namespace InventoryTools
             builder.RegisterTransientSelfAndInterfaces<FilterPage>();
             builder.RegisterTransientSelfAndInterfaces<FilterState>();
             builder.RegisterTransientSelfAndInterfaces<Character>();
-            builder.RegisterTransientSelfAndInterfaces<CraftList>();
-            builder.RegisterTransientSelfAndInterfaces<CraftCalculator>();
             builder.RegisterTransientSelfAndInterfaces<FilterConfiguration>();
             builder.RegisterTransientSelfAndInterfaces<Inventory>();
             builder.RegisterTransientSelfAndInterfaces<InventoryChange>();
-            builder.RegisterTransientSelfAndInterfaces<CraftItem>();
             builder.RegisterTransientSelfAndInterfaces<InventoryItem>();
-
-            //Equipment Recommendation System
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestGrid>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestConfig>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestItem>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestSlotColumn>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestSelectedItemColumn>();
-            builder.RegisterTransientSelfAndInterfaces<EquipmentSuggestSuggestionColumn>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestClassJobFormField>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestSourceTypeField>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestExcludeSourceTypeField>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestLevelFormField>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestFilterStatsField>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestToolModeCategorySetting>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestModeSetting>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestSelectedSecondaryItemColumn>();
-            builder.RegisterSingletonSelfAndInterfaces<EquipmentSuggestService>();
-
-            //Compendium
-            builder.RegisterTransientSelfAndInterfaces<WindowState>();
-            builder.RegisterTransientSelfAndInterfaces<CompendiumViewBuilder>();
-            builder.RegisterSingletonSelfAndInterfaces<CompendiumMenuBuilder>();
-            builder.RegisterSingletonsSelfAndInterfaces<ICompendiumType>(dataAccess);
-            builder.RegisterSingletonsSelfAndInterfaces<ICompendiumTable>(dataAccess);
-            builder.RegisterTransientsSelfAndInterfaces<CompendiumWindow>(dataAccess, typeof(Window)).AsImplementedInterfaces();
-            builder.RegisterTransientsSelfAndInterfaces<IFormField<WindowState>>(dataAccess);
-            builder.RegisterTransientsSelfAndInterfaces<ICompendiumViewSection>(dataAccess);
-            builder.RegisterSingletonSelfAndInterfaces<CompendiumSectionStateService>();
-            builder.RegisterSingletonSelfAndInterfaces<ChocoboItemIterator>();
-            builder.RegisterType<CompendiumTypeFactory>()
-                .As<ICompendiumTypeFactory>()
-                .SingleInstance();
-
-            builder.RegisterGeneric(typeof(GenericStringTableColumn<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(GenericIntegerTableColumn<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(GenericIconTableColumn<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(GenericItemSourcesTableColumn<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(GenericItemsTableColumn<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(GenericBooleanTableColumn<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(GenericItemTableColumn<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(OpenViewTableColumn<>))
-                .AsSelf();
-
-            builder.RegisterGeneric(typeof(CompendiumTable<>))
-                .AsSelf();
-            builder.RegisterGeneric(typeof(CompendiumColumnBuilder<>))
-                .AsSelf();
 
             builder.RegisterAssemblyTypes(dataAccess)
                 .AsClosedTypesOf(typeof(ILocalizer<>))
                 .SingleInstance();
-
-            builder.RegisterAssemblyTypes(dataAccess)
-                .AsClosedTypesOf(typeof(IMenuProvider<>))
-                .InstancePerDependency();
 
             builder.Register<Func<string, ExcelSheet<QuestDialogue>>>(c =>
             {
@@ -345,13 +217,6 @@ namespace InventoryTools
                     var dir = name.Substring(name.Length - 5, 3);
                     return dataManager.GetExcelSheet<QuestDialogue>(name: $"quest/{dir}/{name}");
                 };
-            });
-
-            builder.Register<UniversalisUserAgent>(c =>
-            {
-                var pluginInterface = c.Resolve<IDalamudPluginInterface>();
-                return new UniversalisUserAgent("AllaganTools",
-                    pluginInterface.Manifest.AssemblyVersion.ToString());
             });
 
             builder.Register(provider =>
@@ -393,16 +258,6 @@ namespace InventoryTools
                     var filterTable = context.Resolve<FilterTable>();
                     filterTable.Initialize(filterConfiguration);
                     return filterTable;
-                };
-            });
-            builder.Register<Func<FilterConfiguration, CraftItemTable>>(c =>
-            {
-                var context = c.Resolve<IComponentContext>();
-                return filterConfiguration =>
-                {
-                    var craftItemTable = context.Resolve<CraftItemTable>();
-                    craftItemTable.Initialize(filterConfiguration);
-                    return craftItemTable;
                 };
             });
 
@@ -486,30 +341,6 @@ namespace InventoryTools
                     var filter = (IFilter)context.Resolve(type);
                     return filter;
                 };
-            });
-
-            builder.Register<Func<ItemInfoType, GenericHasSourceFilter>>(c =>
-            {
-                var context = c.Resolve<IComponentContext>();
-                return type => context.Resolve<GenericHasSourceFilter>(new NamedParameter("itemType", type));
-            });
-
-            builder.Register<Func<ItemInfoType, GenericHasUseFilter>>(c =>
-            {
-                var context = c.Resolve<IComponentContext>();
-                return type => context.Resolve<GenericHasUseFilter>(new NamedParameter("itemType", type));
-            });
-
-            builder.Register<Func<ItemInfoRenderCategory, GenericHasSourceCategoryFilter>>(c =>
-            {
-                var context = c.Resolve<IComponentContext>();
-                return renderCategory => context.Resolve<GenericHasSourceCategoryFilter>(new NamedParameter("renderCategory", renderCategory));
-            });
-
-            builder.Register<Func<ItemInfoRenderCategory, GenericHasUseCategoryFilter>>(c =>
-            {
-                var context = c.Resolve<IComponentContext>();
-                return renderCategory => context.Resolve<GenericHasUseCategoryFilter>(new NamedParameter("renderCategory", renderCategory));
             });
         }
 

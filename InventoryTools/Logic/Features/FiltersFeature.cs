@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Autofac;
@@ -7,11 +8,8 @@ namespace InventoryTools.Logic.Features;
 
 public class FiltersFeature : Feature
 {
-    public FiltersFeature(IEnumerable<ISetting> settings) : base(new[]
+    public FiltersFeature(IEnumerable<ISetting> settings) : base(new Type[]
         {
-            typeof(SampleFilter100GillOrLess),
-            typeof(SampleFilterDuplicateItems),
-            typeof(SampleFilterMaterialCleanup),
         },
         settings)
     {
