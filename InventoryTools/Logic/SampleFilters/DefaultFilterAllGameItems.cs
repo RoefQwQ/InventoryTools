@@ -31,11 +31,11 @@ public class DefaultFilterAllGameItems : ISampleFilter
         return allItemsFilter;
     }
 
-    public string Name => "Full Item Catalog";
-    public string SampleDefaultName => "Full Item Catalog";
+    public string Name => "所有游戏物品";
+    public string SampleDefaultName => "所有游戏物品";
 
     public string SampleDescription =>
-        "This will add a list that will be preconfigured to show all of the game's items.";
+        "添加一个预配置列表，显示游戏中的所有物品";
 
     public SampleFilterType SampleFilterType => SampleFilterType.Default;
 }

@@ -39,11 +39,11 @@ public class DefaultFilterFreeCompany : ISampleFilter
         return allItemsFilter;
     }
 
-    public string Name => "Free Company";
-    public string SampleDefaultName => "Free Company";
+    public string Name => "部队";
+    public string SampleDefaultName => "部队";
 
     public string SampleDescription =>
-        "This will add a list that will be preconfigured to show all the items in your free company chest for your active character.";
+        "添加一个预配置列表，显示当前角色部队箱中的所有物品";
 
     public SampleFilterType SampleFilterType => SampleFilterType.Default;
 }

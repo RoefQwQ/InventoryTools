@@ -39,11 +39,11 @@ public class DefaultFilterAll : ISampleFilter
         return allItemsFilter;
     }
 
-    public string Name => "All";
-    public string SampleDefaultName => "All";
+    public string Name => "全部";
+    public string SampleDefaultName => "全部";
 
     public string SampleDescription =>
-        "This will add a list that will be preconfigured to show all the items in bags related to your character. This includes owned retainers, free company, saddle bags, etc";
+        "添加一个预配置列表，显示与角色相关的所有物品，包括雇员、部队、陆行鸟鞍囊等";
 
     public SampleFilterType SampleFilterType => SampleFilterType.Default;
 }
