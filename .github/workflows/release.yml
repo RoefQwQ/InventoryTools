@@ -29,9 +29,10 @@ jobs:
     - name: Checkout OtterGui
       uses: actions/checkout@v4
       with:
-        repository: Ottermandias/OtterGui
+        repository: RoefQwQ/OtterGui
         path: OtterGui
         ref: main
+        submodules: true
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
