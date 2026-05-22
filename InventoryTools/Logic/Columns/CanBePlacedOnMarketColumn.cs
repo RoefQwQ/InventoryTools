@@ -14,7 +14,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.CanBePlacedOnMarket;
         }
-        public override string Name { get; set; } = "Can be Placed on Market?";
+        public override string Name { get; set; } = "可上架市场？";
         public override float Width { get; set; } = 90.0f;
         public override string HelpText { get; set; } = "该物品能否上架市场板？";
         public override bool HasFilter { get; set; } = true;

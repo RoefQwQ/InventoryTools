@@ -63,10 +63,10 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
     }
 
     public override string Key { get; set; } = "CraftIngredientPreference";
-    public override string Name { get; set; } = "Default Ingredient Sourcing";
+    public override string Name { get; set; } = "默认材料来源";
 
     public override string HelpText { get; set; } =
-        "When generating the materials for a craft, the 'Ingredient Sourcing' setting determines the preferred method of acquisition. The craft list will refer to this sorted list to determine the appropriate method. Please note that this assumes the item in the craft list can be obtained through this method. If not, the next item in the ingredient sourcing list will be considered.";
+        "生成制作材料时，「材料来源」设置决定首选获取方式。制作列表将参考此排序列表确定适当方式。请注意，这假设制作列表中的物品可通过此方式获取，否则将考虑列表中的下一种方式。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.IngredientSourcing;
     public override Dictionary<(IngredientPreferenceType, uint?), (string, string?)> DefaultValue { get; set; } = new();

@@ -23,7 +23,7 @@ public class DelayColumn : DecimalColumn
         return (decimal)searchResult.Item.Base.Delayms / 1000;
     }
 
-    public override string Name { get; set; } = "Delay";
+    public override string Name { get; set; } = "延迟";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "自动攻击间隔时间（秒）";
 }

@@ -19,7 +19,7 @@ namespace InventoryTools.Logic.Columns
         {
             return _pluginLogic.GetLastSeenTime(searchResult.Item.RowId)?.ToHumanReadableString() ?? "";
         }
-        public override string Name { get; set; } = "Last Seen Date/Time";
+        public override string Name { get; set; } = "最后出现时间";
         public override string RenderName => "最后可见";
         public override float Width { get; set; } = 100;
         public override string HelpText { get; set; } = "显示物品最后可见时间";

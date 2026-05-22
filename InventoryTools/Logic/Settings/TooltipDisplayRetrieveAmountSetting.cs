@@ -18,12 +18,12 @@ public partial class TooltipDisplayRetrieveAmountSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "DisplayRetrievalAmount";
-    public override string Name { get; set; } = "Add Amount to Retrieve";
+    public override string Name { get; set; } = "显示取回数量";
 
     public override string WizardName { get; } = "取回数量";
 
     public override string HelpText { get; set; } =
-        "Should the amount required to be retrieved be shown in the tooltip?";
+        "是否在工具提示中显示需要取回的数量？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.AmountToRetrieve;

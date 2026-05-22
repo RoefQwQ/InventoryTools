@@ -21,7 +21,7 @@ public class HasBeenGatheredColumn : CheckboxColumn
         return _gameInterface.IsItemGathered(searchResult.Item.RowId);
     }
 
-    public override string Name { get; set; } = "Logged in Gathering Log?";
+    public override string Name { get; set; } = "已采集过？";
     public override string RenderName => "已记录？";
     public override float Width { get; set; } = 80;
 

@@ -27,13 +27,13 @@ public class CustomLinkButtonColumn : ButtonColumn
         Settings.Add(_buttonText);
         Settings.Add(_actionSetting);
     }
-    public override string Name { get; set; } = "Custom Link Button";
+    public override string Name { get; set; } = "自定义链接按钮";
     public override float Width { get; set; } = 50;
 
     public override bool HasFilter { get; set; } = false;
 
     public override string HelpText { get; set; } =
-        "A custom button letting you open a webpage with the item's name or ID optionally embedded into the link.";
+        "自定义按钮，可打开网页并将物品名称或ID嵌入链接中。";
 
     public override List<MessageBase>? Draw(FilterConfiguration configuration, ColumnConfiguration columnConfiguration, SearchResult searchResult,
         int rowIndex, int columnIndex)

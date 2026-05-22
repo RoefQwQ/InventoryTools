@@ -14,7 +14,7 @@ public class PatchColumn : DecimalColumn
     {
         return searchResult.Item.Patch;
     }
-    public override string Name { get; set; } = "Patch Added";
+    public override string Name { get; set; } = "添加版本";
     public override string RenderName => "版本";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "显示物品添加的版本";

@@ -10,7 +10,7 @@ public class DyeCountColumn : IntegerColumn
     {
     }
 
-    public override string Name { get; set; } = "Dye Count";
+    public override string Name { get; set; } = "染色数量";
     public override float Width { get; set; } = 90;
     public override string HelpText { get; set; } = "该物品拥有或支持的染色槽位数";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Stats;

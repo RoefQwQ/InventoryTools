@@ -15,7 +15,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.HasUsesByType(ItemInfoType.Aquarium);
         }
-        public override string Name { get; set; } = "Is Aquarium Item?";
+        public override string Name { get; set; } = "水族箱物品？";
         public override float Width { get; set; } = 100;
         public override string HelpText { get; set; } = "该物品能否放入水族箱？";
         public override bool HasFilter { get; set; } = true;

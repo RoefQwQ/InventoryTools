@@ -19,12 +19,12 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "TooltipDisplayOwned";
-        public override string Name { get; set; } = "Add Item Locations";
+        public override string Name { get; set; } = "添加物品位置";
 
         public override string WizardName { get; } = "添加物品位置";
 
         public override string HelpText { get; set; } =
-            "When hovering an item, should the tooltip show the locations of any copies of the item you currently own?";
+            "悬停物品时，工具提示是否显示您当前拥有的该物品的位置？";
 
         public override uint? Order { get; } = 0;
 

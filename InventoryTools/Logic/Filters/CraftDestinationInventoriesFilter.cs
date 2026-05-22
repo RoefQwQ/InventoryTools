@@ -14,10 +14,10 @@ public class CraftDestinationInventoriesFilter : InventoryScopeFilter
     }
 
     public override string Key { get; set; } = "CraftDestinationInventories";
-    public override string Name { get; set; } = "Inventories to Retrieve To";
+    public override string Name { get; set; } = "取回目标背包";
 
     public override string HelpText { get; set; } =
-        "Which inventories should the crafting list attempt to sort the items found in 'Inventories to Retrieve From' to? ";
+        "制作列表应将「取回来源背包」中的物品排序到哪些背包中？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Inventories;
 

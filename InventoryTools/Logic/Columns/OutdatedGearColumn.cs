@@ -16,7 +16,7 @@ public class OutdatedGearColumn : CheckboxColumn
         _gameInteropService = gameInteropService;
     }
 
-    public override string Name { get; set; } = "Outdated Gear?";
+    public override string Name { get; set; } = "过时装备";
     public override float Width { get; set; } = 50;
     public override string HelpText { get; set; } = "显示所有过时装备";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Tools;

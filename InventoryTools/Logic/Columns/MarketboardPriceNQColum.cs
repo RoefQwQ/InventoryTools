@@ -98,7 +98,7 @@ namespace InventoryTools.Logic.Columns
 
             return Loading;
         }
-        public override string Name { get; set; } = "Market Board Average Price NQ";
+        public override string Name { get; set; } = "市场板均价 NQ";
         public override string RenderName => "板子均价 NQ";
         public override string HelpText { get; set; } =
             "显示物品NQ形式的平均价格。如未选择世界，则使用您的出生世界。数据来源于universalis。";

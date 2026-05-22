@@ -47,7 +47,7 @@ namespace InventoryTools.Logic.Columns
             }
             return qty;
         }
-        public override string Name { get; set; } = "Total Quantity Available";
+        public override string Name { get; set; } = "可用总数量";
         public override string RenderName => "可用量";
         public override float Width { get; set; } = 100;
 

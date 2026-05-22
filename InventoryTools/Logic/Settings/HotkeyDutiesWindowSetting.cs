@@ -11,10 +11,10 @@ namespace InventoryTools.Logic.Settings
         public override ModifiableHotkey DefaultValue { get; set; } = new(VirtualKey.NO_KEY);
         public static string AsKey => "HotkeyDutiesWindow";
         public override string Key { get; set; } = AsKey;
-        public override string Name { get; set; } = "Toggle Duties Window";
+        public override string Name { get; set; } = "切换任务窗口";
 
         public override string HelpText { get; set; } =
-            "The hotkey to toggle the duties window.";
+            "切换任务窗口的快捷键。";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.Hotkeys;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

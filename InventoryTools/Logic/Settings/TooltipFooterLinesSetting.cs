@@ -18,10 +18,10 @@ public class TooltipFooterLinesSetting : IntegerSetting
     }
 
     public override string Key { get; set; } = "TooltipFooterLines";
-    public override string Name { get; set; } = "Footer New Lines";
+    public override string Name { get; set; } = "页脚空行";
 
     public override string HelpText { get; set; } =
-        "How many new lines should be added below any tooltip modifications made by this plugin?";
+        "此插件对工具提示进行的修改下方应添加多少空行？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Visuals;

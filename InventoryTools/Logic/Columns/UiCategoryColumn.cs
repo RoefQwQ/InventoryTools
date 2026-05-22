@@ -22,7 +22,7 @@ namespace InventoryTools.Logic.Columns
             return itemItemUiCategory?.Name.ExtractText() ?? "";
         }
 
-        public override string Name { get; set; } = "Category (Basic)";
+        public override string Name { get; set; } = "类别（基础）";
         public override string RenderName => "Category";
         public override float Width { get; set; } = 200.0f;
         public override string HelpText { get; set; } = "物品分类";

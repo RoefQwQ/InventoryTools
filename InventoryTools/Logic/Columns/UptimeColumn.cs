@@ -30,7 +30,7 @@ public class UptimeColumn : TimeIntervalColumn
         _mapSheet = mapSheet;
     }
 
-    public override string Name { get; set; } = "Next Gather Uptime";
+    public override string Name { get; set; } = "下次采集时间";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "显示物品可采集的时间";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Basic;

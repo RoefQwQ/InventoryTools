@@ -21,7 +21,7 @@ public class HistoryChangeAmountColumn : TextColumn
         return null;
     }
 
-    public override string Name { get; set; } = "History Event Amount";
+    public override string Name { get; set; } = "历史变更数量";
     public override string RenderName => "数量";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "变化的数量（如适用）";

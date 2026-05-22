@@ -51,7 +51,7 @@ public class RemoveButtonColumn : ButtonColumn
     }
 
     public override bool HideHeaderLabel => true;
-    public override string Name { get; set; } = "Remove";
+    public override string Name { get; set; } = "移除按钮";
     public override float Width { get; set; } = 60;
     public override string HelpText { get; set; } = "添加一个快速从列表中移除物品的按钮";
 }

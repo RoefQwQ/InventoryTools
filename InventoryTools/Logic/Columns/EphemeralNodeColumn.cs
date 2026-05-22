@@ -18,7 +18,7 @@ namespace InventoryTools.Logic.Columns
             return searchResult.Item.HasSourcesByCategory(ItemInfoCategory.EphemeralGathering);
         }
 
-        public override string Name { get; set; } = "Is From Ephemeral Node?";
+        public override string Name { get; set; } = "临时采集点？";
         public override string RenderName => "幻象节点？";
         public override float Width { get; set; } = 125.0f;
         public override string HelpText { get; set; } = "该物品是否在幻象节点可获得？";

@@ -79,7 +79,7 @@ public class NameIconColumn : TextIconColumn
         return null;
     }
 
-    public override string Name { get; set; } = "Name & Icon";
+    public override string Name { get; set; } = "名称";
     public override string RenderName => "名称";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "物品名称（带图标）";

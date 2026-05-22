@@ -25,7 +25,7 @@ namespace InventoryTools.Logic.Columns
             return false;
 
         }
-        public override string Name { get; set; } = "In Gearset?";
+        public override string Name { get; set; } = "已加入套装？";
         public override float Width { get; set; } = 80;
         public override string HelpText { get; set; } = "该物品是否属于套装？";
         public override bool HasFilter { get; set; } = true;

@@ -13,10 +13,10 @@ namespace InventoryTools.Logic.Filters
         public override FilterType AvailableIn { get; set; } =
             FilterType.SearchFilter | FilterType.CraftFilter | FilterType.SortingFilter | FilterType.GameItemFilter | FilterType.HistoryFilter | FilterType.CuratedList;
         public override string Key { get; set; } = "HighlightDestinationColor";
-        public override string Name { get; set; } = "Highlight Destination Color";
+        public override string Name { get; set; } = "高亮去向颜色";
 
         public override string HelpText { get; set; } =
-            "The color to set any items in the destination that match your source filter(assuming highlight destination duplicates is on).";
+            "设置去向中与来源筛选匹配的物品的高亮颜色（需开启高亮去向重复项）。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Display;
 

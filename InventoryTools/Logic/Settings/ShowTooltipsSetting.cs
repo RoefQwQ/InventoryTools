@@ -18,10 +18,10 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "ShowTooltips";
-        public override string Name { get; set; } = "Enable Tooltip Tweaks?";
+        public override string Name { get; set; } = "启用工具提示调整？";
 
         public override string HelpText { get; set; } =
-            "Disable/enable the entire tooltip modification system for the plugin. If this is off, no changes will be made to your item's tooltips.";
+            "禁用/启用插件的整个工具提示修改系统。关闭后，物品工具提示将不会有任何更改。";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

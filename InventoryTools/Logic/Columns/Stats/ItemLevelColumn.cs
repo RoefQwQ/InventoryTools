@@ -14,7 +14,7 @@ namespace InventoryTools.Logic.Columns.Stats
         {
             return searchResult.Item.Base.LevelEquip;
         }
-        public override string Name { get; set; } = "Required Level";
+        public override string Name { get; set; } = "等级要求";
         public override float Width { get; set; } = 80.0f;
         public override string HelpText { get; set; } = "装备该物品所需的等级";
         public override bool HasFilter { get; set; } = true;

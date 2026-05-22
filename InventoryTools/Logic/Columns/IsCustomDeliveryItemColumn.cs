@@ -11,7 +11,7 @@ public class IsCustomDeliveryItemColumn : CheckboxColumn
     {
     }
 
-    public override string Name { get; set; } = "Is custom delivery item?";
+    public override string Name { get; set; } = "天穹物品？";
     public override string? RenderName { get; } = "定制交付物品？";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "该物品是否用于定制交付？";

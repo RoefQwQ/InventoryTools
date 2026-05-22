@@ -44,7 +44,7 @@ public class FavouritesColumn : CheckboxColumn
         return null;
     }
 
-    public override string Name { get; set; } = "Favourite?";
+    public override string Name { get; set; } = "已收藏？";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "该物品是否在收藏列表中？";
 

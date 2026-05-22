@@ -18,10 +18,10 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "HighlightDestination";
-        public override string Name { get; set; } = "Highlight Destination?";
+        public override string Name { get; set; } = "高亮去向？";
 
         public override string HelpText { get; set; } =
-            "Should the destination for items be highlighted? This can be overridden in the filter configuration.";
+            "是否高亮物品的去向？可在筛选器配置中覆盖此设置。";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.Highlighting;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

@@ -48,7 +48,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Destination";
+        public override string Name { get; set; } = "去向";
         public override float Width { get; set; } = 100.0f;
         public override string HelpText { get; set; } = "显示物品应移至何处";
         public override bool HasFilter { get; set; } = true;

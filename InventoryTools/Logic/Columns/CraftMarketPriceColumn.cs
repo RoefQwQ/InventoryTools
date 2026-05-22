@@ -112,7 +112,7 @@ public class CraftMarketPriceColumn : GilColumn
         return new List<MessageBase>();
     }
 
-    public override string Name { get; set; } = "Market Pricing";
+    public override string Name { get; set; } = "制作市场价";
     public override float Width { get; set; } = 150;
     public override string HelpText { get; set; } = "该物品的当前市场价格";
 

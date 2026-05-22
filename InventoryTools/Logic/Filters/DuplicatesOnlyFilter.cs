@@ -10,10 +10,10 @@ namespace InventoryTools.Logic.Filters
     public class DuplicatesOnlyFilter : BooleanFilter
     {
         public override string Key { get; set; } = "DuplicatesOnly";
-        public override string Name { get; set; } = "Duplicates Only?";
+        public override string Name { get; set; } = "仅重复物品？";
 
         public override string HelpText { get; set; } =
-            "Filter out any items that do not appear in both the source and destination?";
+            "是否筛选掉未同时出现在来源和去向中的物品？";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Searching;
         public override FilterType AvailableIn { get; set; } = FilterType.SortingFilter | FilterType.SearchFilter;

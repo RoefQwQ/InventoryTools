@@ -193,7 +193,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
         public override FilterType AvailableIn { get; } = Logic.FilterType.CraftFilter;
-        public override string Name { get; set; } = "Amount Required";
+        public override string Name { get; set; } = "需制作数量";
         public override string RenderName => "需求量";
         public override float Width { get; set; } = 60;
         public override bool? CraftOnly => true;

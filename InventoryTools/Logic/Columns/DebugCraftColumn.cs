@@ -37,7 +37,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Debug - Craft";
+        public override string Name { get; set; } = "调试制作";
         public override float Width { get; set; } = 200;
         public override string HelpText { get; set; } = "显示制作调试信息";
         public override bool HasFilter { get; set; } = true;

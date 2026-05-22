@@ -58,7 +58,7 @@ public class ScopePickerColumnSetting : ColumnSetting<List<InventorySearchScope>
     }
 
     public override string Key { get; set; } = "ScopePicker";
-    public override string Name { get; set; } = "Inventory Search Scope";
+    public override string Name { get; set; } = "范围选择器";
     public override string HelpText { get; set; } = "选择要搜索的背包";
     public override List<InventorySearchScope>? DefaultValue { get; set; } = null;
 

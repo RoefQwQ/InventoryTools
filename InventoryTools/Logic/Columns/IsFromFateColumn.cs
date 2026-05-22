@@ -12,7 +12,7 @@ public class IsFromFateColumn : CheckboxColumn
 
     }
 
-    public override string Name { get; set; } = "Is From Fate?";
+    public override string Name { get; set; } = "FATE掉落？";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "该物品是否从FATE获得？";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Basic;

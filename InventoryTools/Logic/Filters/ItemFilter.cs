@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using AllaganLib.GameSheets.Sheets;
 using AllaganLib.GameSheets.Sheets.Rows;
@@ -19,10 +19,10 @@ public class ItemFilter : UintMultipleChoiceFilter
     }
 
     public override string Key { get; set; } = "ItemFilter";
-    public override string Name { get; set; } = "Name (Selector)";
+    public override string Name { get; set; } = "物品筛选";
 
     public override string HelpText { get; set; } =
-        "Select a list of items and the filter will only display these items. You are better served using a Curated List but this filter will still work.";
+        "选择一组物品，筛选器将仅显示这些物品。建议使用精选列表，但此筛选器仍然可用。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Basic;
     public override List<uint> DefaultValue { get; set; } = new();

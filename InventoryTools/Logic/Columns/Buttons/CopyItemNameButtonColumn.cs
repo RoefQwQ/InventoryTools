@@ -8,7 +8,7 @@ namespace InventoryTools.Logic.Columns.Buttons;
 
 public class CopyItemNameButtonColumn(IClipboardService clipboardService) : ButtonColumn
 {
-    public override string Name { get; set; } = "Copy Item Name Button";
+    public override string Name { get; set; } = "复制物品名按钮";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "将物品名称复制到剪贴板";
 

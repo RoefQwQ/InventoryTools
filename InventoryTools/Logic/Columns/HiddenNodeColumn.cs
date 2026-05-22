@@ -16,7 +16,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.HasSourcesByCategory(ItemInfoCategory.HiddenGathering);
         }
-        public override string Name { get; set; } = "Is From Hidden Node?";
+        public override string Name { get; set; } = "隐藏采集点？";
         public override string RenderName => "隐藏节点？";
         public override float Width { get; set; } = 125.0f;
         public override string HelpText { get; set; } = "该物品是否在隐藏节点可获得？";

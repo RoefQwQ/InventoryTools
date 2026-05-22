@@ -27,7 +27,7 @@ public class ExpertDeliverySealsColumn : IntegerColumn
         return null;
     }
 
-    public override string Name { get; set; } = "Expert Delivery Reward Seal Count";
+    public override string Name { get; set; } = "专家交付军票";
     public override float Width { get; set; } = 90;
 
     public override string HelpText { get; set; } =

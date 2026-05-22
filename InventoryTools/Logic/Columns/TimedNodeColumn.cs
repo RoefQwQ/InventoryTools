@@ -15,7 +15,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.HasSourcesByCategory(ItemInfoCategory.TimedGathering);
         }
-        public override string Name { get; set; } = "Is From Timed Node?";
+        public override string Name { get; set; } = "限时采集点？";
         public override string RenderName => "限时节点？";
         public override float Width { get; set; } = 125.0f;
         public override string HelpText { get; set; } = "该物品是否在限时节点可获得？";

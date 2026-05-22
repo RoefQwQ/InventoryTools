@@ -19,7 +19,7 @@ public class HistoryChangeReasonColumn : TextColumn
 
         return null;
     }
-    public override string Name { get; set; } = "History Event Reason";
+    public override string Name { get; set; } = "历史变更原因";
     public override string RenderName => "事件";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "变化发生的原因";

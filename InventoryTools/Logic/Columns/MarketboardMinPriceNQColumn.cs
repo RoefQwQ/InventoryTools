@@ -101,7 +101,7 @@ namespace InventoryTools.Logic.Columns
 
             return Loading;
         }
-        public override string Name { get; set; } = "Market Board Minimum Price NQ";
+        public override string Name { get; set; } = "市场板最低价（NQ）";
         public override string RenderName => "板子最低价 NQ";
         public override string HelpText { get; set; } =
             "显示物品NQ形式的最低价格。如未选择世界，则使用所在主世界。数据来源于universalis。";

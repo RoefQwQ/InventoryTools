@@ -18,10 +18,10 @@ public class TooltipDisplayHeaderSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "TooltipDisplayHeader";
-    public override string Name { get; set; } = "Add Plugin Name";
+    public override string Name { get; set; } = "添加插件名称";
 
     public override string HelpText { get; set; } =
-        "Should [Allagan Tools] be displayed in the tooltip above any tooltip modifications?";
+        "是否在工具提示修改上方显示 [Allagan Tools]？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

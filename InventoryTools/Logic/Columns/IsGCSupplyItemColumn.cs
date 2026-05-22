@@ -12,7 +12,7 @@ public class IsGCSupplyItemColumn : CheckboxColumn
     {
     }
 
-    public override string Name { get; set; } = "Is GC Turn-in item?";
+    public override string Name { get; set; } = "部队补给物品？";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "该物品是否用于军团补给任务？";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Basic;

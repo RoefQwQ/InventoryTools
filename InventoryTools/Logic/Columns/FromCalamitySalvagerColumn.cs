@@ -11,7 +11,7 @@ public class FromCalamitySalvagerColumn : CheckboxColumn
     {
     }
 
-    public override string Name { get; set; } = "Is from Calamity Salvager?";
+    public override string Name { get; set; } = "灾厄回收商？";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "该物品是否可在灾祸救济商处获得？";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Basic;

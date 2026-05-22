@@ -32,10 +32,10 @@ public class TrackMobSpawnSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "TrackMobSpawns";
-    public override string Name { get; set; } = "Track Mob Spawns";
+    public override string Name { get; set; } = "追踪怪物刷新";
 
     public override string HelpText { get; set; } =
-        "Should the plugin track where mobs spawn as you move around. This data is not used by the plugin yet but once you have collected enough you can hit the button next to the checkbox to export a file containing those positions. If you upload those CSVs and send a url to via feedback I can use that spawn data to provide accurate mob spawns for everyone.";
+        "插件是否应追踪怪物的刷新位置。此数据目前尚未被插件使用，但收集足够后可点击复选框旁的按钮导出包含位置的文件。如上传CSV并发送链接，可为所有人提供准确的怪物刷新数据。";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.MobSpawnTracker;
 

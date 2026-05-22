@@ -27,7 +27,7 @@ namespace InventoryTools.Logic.Columns
             return "";
         }
         
-        public override string Name { get; set; } = "Gearset Number";
+        public override string Name { get; set; } = "套装";
         public override string RenderName => "套装";
         public override float Width { get; set; } = 100;
         public override string HelpText { get; set; } = "显示包含该物品的套装";

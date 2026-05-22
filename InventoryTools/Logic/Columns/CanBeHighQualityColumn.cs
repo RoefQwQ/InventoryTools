@@ -14,7 +14,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.Base.CanBeHq;
         }
-        public override string Name { get; set; } = "Can be High Quality?";
+        public override string Name { get; set; } = "可高品质？";
         public override float Width { get; set; } = 90.0f;
         public override string HelpText { get; set; } = "该物品能否为高品质？";
         public override bool HasFilter { get; set; } = true;

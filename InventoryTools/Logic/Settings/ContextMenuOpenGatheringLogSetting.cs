@@ -25,12 +25,12 @@ public class ContextMenuOpenGatheringLogSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "OpenGatheringLogContextMenu";
-    public override string Name { get; set; } = "Context Menu - Open Gathering Log";
+    public override string Name { get; set; } = "右键菜单 - 打开采集笔记";
 
     public override string WizardName { get; } = "打开采集笔记";
 
     public override string HelpText { get; set; } =
-        "Add a context menu item to open the gathering log for any item that can be gathered?";
+        "在可采集物品的右键菜单中添加打开采集笔记的选项？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ContextMenu;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

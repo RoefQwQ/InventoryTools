@@ -86,7 +86,7 @@ namespace InventoryTools.Commands
         {
             if (args == string.Empty)
             {
-                var message = _localizationService.GetString("Please enter the name of a compendium type, the following are available:\n");
+                var message = _localizationService.GetString("请输入百科类型的名称，可用的类型如下：\n");
                 message += string.Join("\n", _compendiumTypes.Where(c => c.ShowInListing).Select(c => c.Plural));
                 _chatUtilities.Print(message);
             }
@@ -101,7 +101,7 @@ namespace InventoryTools.Commands
                 }
                 else
                 {
-                    _chatUtilities.PrintError(args + _localizationService.GetString(" is not a valid compendium type."));
+                    _chatUtilities.PrintError(args + _localizationService.GetString(" 不是有效的百科类型。"));
                 }
             }
         }
@@ -116,7 +116,7 @@ namespace InventoryTools.Commands
             Logger.LogTrace(args);
             if (args.Trim() == "")
             {
-                _chatUtilities.PrintError(_localizationService.GetString("You must enter the name of an list."));
+                _chatUtilities.PrintError(_localizationService.GetString("必须输入列表的名称。"));
             }
             else
             {
@@ -130,7 +130,7 @@ namespace InventoryTools.Commands
         {
             if (args.Trim() == "")
             {
-                _chatUtilities.PrintError(_localizationService.GetString("You must enter the name of a list."));
+                _chatUtilities.PrintError(_localizationService.GetString("必须输入列表的名称。"));
             }
             else
             {
@@ -141,7 +141,7 @@ namespace InventoryTools.Commands
                 }
                 else
                 {
-                    _chatUtilities.PrintError(_localizationService.GetString("Could not find a list with that name."));
+                    _chatUtilities.PrintError(_localizationService.GetString("找不到具有该名称的列表。"));
                 }
             }
         }
@@ -273,7 +273,7 @@ namespace InventoryTools.Commands
             }
             else
             {
-                _chatUtilities.PrintError(_localizationService.GetString("The item ") + args + _localizationService.GetString(" could not be found."));
+                _chatUtilities.PrintError(_localizationService.GetString("物品 ") + args + _localizationService.GetString(" 未找到。"));
             }
         }
 

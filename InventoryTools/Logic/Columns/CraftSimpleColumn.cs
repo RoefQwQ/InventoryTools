@@ -159,7 +159,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Next Step in Craft";
+        public override string Name { get; set; } = "简易制作";
         public override string RenderName => "下一步";
 
         public override float Width { get; set; } = 200;

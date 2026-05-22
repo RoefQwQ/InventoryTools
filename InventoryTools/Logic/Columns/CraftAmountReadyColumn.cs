@@ -49,7 +49,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Amount in Character Inventory";
+        public override string Name { get; set; } = "已准备数量";
         public override string RenderName => "Inventory";
         public override float Width { get; set; } = 60;
         public override bool? CraftOnly => true;

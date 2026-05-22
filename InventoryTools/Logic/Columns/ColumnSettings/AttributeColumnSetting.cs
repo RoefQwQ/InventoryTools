@@ -36,7 +36,7 @@ public class AttributeColumnSetting : ChoiceColumnSetting<uint?>
     }
 
     public override string Key { get; set; } = "Attribute";
-    public override string Name { get; set; } = "Attribute";
+    public override string Name { get; set; } = "属性列";
     public override string HelpText { get; set; } = "要显示的属性";
     public override uint? DefaultValue { get; set; } = 1;
     public override List<uint?> GetChoices(ColumnConfiguration configuration)

@@ -20,7 +20,7 @@ public class DesynthesisClassColumn : TextColumn
 
         return searchResult.Item.Base.ClassJobRepair.ValueNullable?.Name.ToString().ToTitleCase() ?? "Unknown";
     }
-    public override string Name { get; set; } = "Desynthesis Class";
+    public override string Name { get; set; } = "分解职业";
     public override string RenderName  => "分解职业";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "与该物品分解相关的职业是什么？";

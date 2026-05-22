@@ -26,13 +26,13 @@ public class CustomButtonColumn : ButtonColumn
         Settings.Add(_buttonText);
         Settings.Add(_actionSetting);
     }
-    public override string Name { get; set; } = "Custom Button";
+    public override string Name { get; set; } = "自定义按钮";
     public override float Width { get; set; } = 50;
 
     public override bool HasFilter { get; set; } = false;
 
     public override string HelpText { get; set; } =
-        "A custom button letting you specify a custom command you wish to run with the item's name or ID ";
+        "自定义按钮，可指定要运行的自定义命令并使用物品名称或ID。";
 
     public override List<MessageBase>? Draw(FilterConfiguration configuration, ColumnConfiguration columnConfiguration, SearchResult searchResult,
         int rowIndex, int columnIndex)

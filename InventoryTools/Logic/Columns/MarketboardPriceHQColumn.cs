@@ -98,7 +98,7 @@ namespace InventoryTools.Logic.Columns
             return Loading;
         }
 
-        public override string Name { get; set; } = "Market Board Average Price HQ";
+        public override string Name { get; set; } = "市场板价格（HQ）";
         public override string RenderName => "板子均价 HQ";
         public override float Width { get; set; } = 250.0f;
         public override string HelpText { get; set; } =

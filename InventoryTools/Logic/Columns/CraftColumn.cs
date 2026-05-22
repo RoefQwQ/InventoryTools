@@ -15,7 +15,7 @@ namespace InventoryTools.Logic.Columns
             return searchResult.Item.CanBeCrafted;
         }
 
-        public override string Name { get; set; } = "Is Craftable?";
+        public override string Name { get; set; } = "制作";
         public override float Width { get; set; } = 125.0f;
         public override string HelpText { get; set; } = "该物品能否制作？";
         public override bool HasFilter { get; set; } = true;

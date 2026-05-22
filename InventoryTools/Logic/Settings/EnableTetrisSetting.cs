@@ -18,10 +18,10 @@ public class EnableTetrisSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "TetrisEnabled";
-    public override string Name { get; set; } = "Enable Tetris?";
+    public override string Name { get; set; } = "启用俄罗斯方块？";
 
     public override string HelpText { get; set; } =
-        "Should tetris be enabled? If enabled a new 'Tetris' option will show up in the hamburger menus in the plugin.";
+        "是否启用俄罗斯方块？启用后，插件的汉堡菜单中将出现新的「俄罗斯方块」选项。";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.Misc;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

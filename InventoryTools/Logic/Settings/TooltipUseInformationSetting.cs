@@ -257,12 +257,12 @@ public class TooltipUseInformationSetting : Setting<Dictionary<ItemInfoType, Too
     }
 
     public override string Key { get; set; } = "TooltipUseInformation";
-    public override string Name { get; set; } = "Use Information Configuration";
+    public override string Name { get; set; } = "用途信息配置";
 
     public override uint? Order { get; } = 3;
 
     public override string HelpText { get; set; } =
-        "If the use information tooltip is enabled, how should the various uses be ordered/displayed/etc?";
+        "如果启用了用途信息工具提示，各种用途应如何排序/显示？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.UseInformation;

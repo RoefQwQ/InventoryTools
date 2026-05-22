@@ -14,7 +14,7 @@ namespace InventoryTools.Logic.Columns
         {
             return (int)searchResult.Item.RowId;
         }
-        public override string Name { get; set; } = "Item ID";
+        public override string Name { get; set; } = "物品ID";
         public override float Width { get; set; } = 100.0f;
         public override string HelpText { get; set; } = "显示物品的内部ID";
         public override bool HasFilter { get; set; } = true;

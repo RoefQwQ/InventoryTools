@@ -17,7 +17,7 @@ public class RecipeTotalColumn : IntegerColumn
         return searchResult.Item.RecipesAsRequirement.Count;
     }
 
-    public override string Name { get; set; } = "Recipe Total Count";
+    public override string Name { get; set; } = "配方总计数量";
     public override float Width { get; set; } = 100;
     public override string HelpText { get; set; } = "该物品作为材料的配方数量";
 }

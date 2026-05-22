@@ -36,10 +36,10 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "BackgroundFilter";
-        public override string Name { get; set; } = "Background List Highlighting";
+        public override string Name { get; set; } = "后台列表高亮";
 
         public override string HelpText { get; set; } =
-            "This is the list that is currently being highlighted when the allagan tools window is not visible. This list can be toggled with the associated slash commands.";
+            "这是当 Allagan Tools 窗口不可见时当前高亮的列表。可通过相关斜杠命令切换。";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.Lists;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.ActiveLists;
@@ -48,7 +48,7 @@ namespace InventoryTools.Logic.Settings
         {
             get
             {
-                var filterItems = new Dictionary<string, string> {{"", "None"}};
+                var filterItems = new Dictionary<string, string> {{"", "无"}};
                 foreach (var config in _listService.Lists.Where(c => !c.CraftListDefault))
                 {
                     filterItems.Add(config.Key, config.Name);

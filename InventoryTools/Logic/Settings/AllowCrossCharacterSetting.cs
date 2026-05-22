@@ -18,11 +18,11 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "DisplayCrossCharacter";
-        public override string Name { get; set; } = "Show Cross-Character Inventories in Lists?";
+        public override string Name { get; set; } = "在列表中显示跨角色背包？";
         public override string WizardName { get; } = "跨角色背包？";
 
         public override string HelpText { get; set; } =
-            "Should characters not currently logged in and their associated retainers be available to view/search and filter against? Each list can have it's sources/destinations configured to include/exclude retainers/free companies that are related to the currently logged in character.";
+            "是否显示未登录角色及其关联雇员的背包以供查看/搜索和筛选？每个列表可配置来源/去向以包含/排除与当前登录角色相关的雇员/部队。";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.Lists;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

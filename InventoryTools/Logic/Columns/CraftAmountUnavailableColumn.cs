@@ -42,7 +42,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
         public override FilterType AvailableIn { get; } = Logic.FilterType.CraftFilter;
-        public override string Name { get; set; } = "Amount Missing";
+        public override string Name { get; set; } = "制作数量不足";
         public override string RenderName => "Missing";
         public override float Width { get; set; } = 60;
         public override bool? CraftOnly => true;

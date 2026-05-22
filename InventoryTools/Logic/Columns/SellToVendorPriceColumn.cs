@@ -19,7 +19,7 @@ namespace InventoryTools.Logic.Columns
             }
             return (int)searchResult.Item.Base.PriceLow;
         }
-        public override string Name { get; set; } = "Sell to Vendor Price";
+        public override string Name { get; set; } = "商店售价";
         public override float Width { get; set; } = 100.0f;
         public override string HelpText { get; set; } = "该物品卖给商人的价格（金币）";
         public override bool HasFilter { get; set; } = true;

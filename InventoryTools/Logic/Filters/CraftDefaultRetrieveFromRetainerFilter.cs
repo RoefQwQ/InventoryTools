@@ -29,10 +29,10 @@ public class CraftDefaultRetrieveFromRetainerFilter : ChoiceFilter<CraftRetainer
     }
 
     public override string Key { get; set; } = "CraftDefaultRetrieveFromRetainerOutput";
-    public override string Name { get; set; } = "Retainer Retrieval";
+    public override string Name { get; set; } = "雇员取回";
 
     public override string HelpText { get; set; } =
-        "What should the default 'Retrieve from Retainer' setting be for 'Non-output' items?";
+        "「非产出」物品的默认「从雇员取回」设置应是什么？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
     public override CraftRetainerRetrieval DefaultValue { get; set; } = CraftRetainerRetrieval.Yes;

@@ -17,7 +17,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.HasUsesByType(ItemInfoType.CraftRecipe);
         }
-        public override string Name { get; set; } = "Is Craft Component?";
+        public override string Name { get; set; } = "制作物品？";
         public override string RenderName => "是制作材料？";
         public override float Width { get; set; } = 100;
         public override string HelpText { get; set; } = "该物品能否用于制作其他物品？";

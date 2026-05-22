@@ -55,7 +55,7 @@ public class CharacterScopePickerColumnSetting : ColumnSetting<List<CharacterSea
     }
 
     public override string Key { get; set; } = "CharacterScopePicker";
-    public override string Name { get; set; } = "Character Search Scope";
+    public override string Name { get; set; } = "角色范围选择器";
     public override string HelpText { get; set; } = "选择要搜索的角色";
     public override List<CharacterSearchScope>? DefaultValue { get; set; } = null;
 

@@ -12,9 +12,9 @@ public class EquipmentSuggestFilterStatsField : BooleanFormField<EquipmentSugges
 
     public override bool DefaultValue { get; set; } = true;
     public override string Key { get; set; } = "FilterStats";
-    public override string Name { get; set; } = "Filter Stats";
+    public override string Name { get; set; } = "筛选属性";
 
     public override string HelpText { get; set; } =
-        "Should items be filtered on their stats, this means when a crafter is selected only items with crafting related stats show, etc";
+        "是否根据属性筛选物品，例如选择制作职业时只显示具有制作相关属性的物品";
     public override string Version { get; set; } = "1.12.0.10";
 }

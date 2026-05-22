@@ -15,7 +15,7 @@ public class GatherButtonColumn : ButtonColumn
     {
         _gameInterface = gameInterface;
     }
-    public override string Name { get; set; } = "Gathering Log Button";
+    public override string Name { get; set; } = "采集按钮";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "显示打开物品采集/钓鱼日志的按钮";
 

@@ -14,7 +14,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.CabinetCategory != null;
         }
-        public override string Name { get; set; } = "Is Armoire Item?";
+        public override string Name { get; set; } = "在衣柜中？";
         public override string RenderName => "衣柜？";
         public override float Width { get; set; } = 100;
         public override string HelpText { get; set; } = "显示该物品是否属于衣柜";

@@ -202,10 +202,10 @@ public class DesynthesisSkillDeltaColumn : Column<(decimal, DesynthResult)?>
     }
 
 
-    public override string Name { get; set; } = "Desynthesis Skill Delta";
+    public override string Name { get; set; } = "分解技能差值";
     public override float Width { get; set; } = 100;
 
     public override string HelpText { get; set; } =
-        "Shows the difference between the iLvl of the item and your desynthesis skill and if desynthesis is optimal";
+        "显示物品品级与分解技能的差值以及分解是否最优";
 
 }

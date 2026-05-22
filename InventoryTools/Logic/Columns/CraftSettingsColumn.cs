@@ -55,7 +55,7 @@ public class CraftSettingsColumn : IColumn
     private HoverButton _settingsIcon = new();
 
 
-    public string Name { get; set; } = "Settings";
+    public string Name { get; set; } = "制作设置";
     public float Width { get; set; } = 120;
     public string HelpText { get; set; } = "在此列中修改每个物品的制作设置";
     public string FilterText { get; set; } = "";

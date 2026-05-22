@@ -17,7 +17,7 @@ public class CraftButtonColumn : ButtonColumn
         _gameInterface = gameInterface;
         _chatUtilities = chatUtilities;
     }
-    public override string Name { get; set; } = "Craft Button";
+    public override string Name { get; set; } = "制作按钮";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "打开物品制作日志的按钮";
 

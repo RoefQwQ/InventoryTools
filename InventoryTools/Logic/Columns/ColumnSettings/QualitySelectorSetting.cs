@@ -46,7 +46,7 @@ public class QualitySelectorSetting : MultiChoiceColumnSetting<(FFXIVClientStruc
 
 
     public override string Key { get; set; } = "QualitySelector";
-    public override string Name { get; set; } = "Qualities";
+    public override string Name { get; set; } = "品质选择器";
     public override string HelpText { get; set; } = "应计算哪种品质的物品？";
     public override List<(InventoryItem.ItemFlags,string)>? DefaultValue { get; set; } = null;
     public override List<(InventoryItem.ItemFlags,string)> GetChoices(ColumnConfiguration configuration)

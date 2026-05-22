@@ -15,7 +15,7 @@ public class StoreColumn : CheckboxColumn
     {
         return searchResult.Item.HasSourcesByType(ItemInfoType.CashShop);
     }
-    public override string Name { get; set; } = "Is sold in Square Store?";
+    public override string Name { get; set; } = "商城出售？";
     public override string RenderName => "是商城物品？";
     public override float Width { get; set; } = 80;
     public override string HelpText { get; set; } = "该物品是否在商城出售？";

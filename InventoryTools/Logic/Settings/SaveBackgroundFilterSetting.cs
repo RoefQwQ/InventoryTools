@@ -18,10 +18,10 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "SaveBackgroundFilter";
-        public override string Name { get; set; } = "Keep Background List Highlighting?";
+        public override string Name { get; set; } = "保留后台列表高亮？";
 
         public override string HelpText { get; set; } =
-            "Should the active background list be saved when exiting the game or disabling/re-enabling the plugin?";
+            "退出游戏或禁用/重新启用插件时，是否保存当前后台列表？";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.Lists;
 

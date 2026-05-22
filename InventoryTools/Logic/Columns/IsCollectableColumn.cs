@@ -14,7 +14,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.IsCollectable;
         }
-        public override string Name { get; set; } = "Is Collectable?";
+        public override string Name { get; set; } = "收藏品？";
         public override float Width { get; set; } = 90.0f;
         public override string HelpText { get; set; } = "该物品是否为收藏品？";
         public override bool HasFilter { get; set; } = true;

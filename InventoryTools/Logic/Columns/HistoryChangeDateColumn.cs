@@ -27,7 +27,7 @@ public class HistoryChangeDateColumn : DateTimeColumn
         return CurrentValue(columnConfiguration, searchResult)?.ToString(CultureInfo.InvariantCulture) ?? "";
     }
 
-    public override string Name { get; set; } = "History Event Date/Time";
+    public override string Name { get; set; } = "历史变更日期";
     public override string RenderName => "日期/时间";
     public override float Width { get; set; } = 50;
     public override string HelpText { get; set; } = "历史库存事件发生的时间";

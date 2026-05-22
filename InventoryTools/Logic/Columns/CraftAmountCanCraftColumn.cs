@@ -61,7 +61,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Amount can Craft";
+        public override string Name { get; set; } = "可制作数量";
         public override string RenderName => "可制作";
         public override float Width { get; set; } = 60;
         public override bool? CraftOnly => true;

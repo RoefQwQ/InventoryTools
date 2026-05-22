@@ -25,12 +25,12 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "addToCraftListContextMenu";
-        public override string Name { get; set; } = "Context Menu - Add to Craft List";
+        public override string Name { get; set; } = "右键菜单 - 添加到制作列表";
 
         public override string WizardName { get; } = "添加到制作列表";
 
         public override string HelpText { get; set; } =
-            "Add a submenu to add the item to a craft list?";
+            "在右键菜单中添加将物品添加到制作列表的子菜单？";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.ContextMenu;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.General;

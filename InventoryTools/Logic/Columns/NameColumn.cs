@@ -19,7 +19,7 @@ namespace InventoryTools.Logic.Columns
                 searchResult.InventoryItem?.FormattedName ?? searchResult.Item.NameString,
                 searchResult.InventoryItem?.ItemColour ?? ImGuiColors.DalamudWhite);
         }
-        public override string Name { get; set; } = "Name";
+        public override string Name { get; set; } = "名称";
         public override float Width { get; set; } = 250.0f;
         public override string HelpText { get; set; } = "物品名称";
         public override bool HasFilter { get; set; } = true;

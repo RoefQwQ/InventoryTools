@@ -352,7 +352,7 @@ namespace InventoryTools.Logic.Columns.Buttons
         }
 
         public override string RenderName { get; } = "Gather/Purchase";
-        public override string Name { get; set; } = "Gather/Purchase/Buy";
+        public override string Name { get; set; } = "制作/采集按钮";
         public override float Width { get; set; } = 100;
         public override string HelpText { get; set; } = "显示链接到Gatherbuddy的/gather功能的按钮";
         public override bool HasFilter { get; set; } = false;

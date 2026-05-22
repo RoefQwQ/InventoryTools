@@ -15,7 +15,7 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.HasSourcesByType(ItemInfoType.GilShop, ItemInfoType.CalamitySalvagerShop);
         }
-        public override string Name { get; set; } = "Is Purchasable?";
+        public override string Name { get; set; } = "可购买？";
         public override float Width { get; set; } = 70.0f;
         public override string HelpText { get; set; } = "该物品能否用金币购买？";
         public override bool HasFilter { get; set; } = true;

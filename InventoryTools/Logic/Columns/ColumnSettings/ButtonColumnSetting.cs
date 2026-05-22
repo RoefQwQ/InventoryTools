@@ -37,7 +37,7 @@ public class ButtonColumnSetting : MultiChoiceColumnSetting<ButtonType?>
     }
 
     public override string Key { get; set; } = "ButtonTypes";
-    public override string Name { get; set; } = "Button Types";
+    public override string Name { get; set; } = "按钮列";
     public override string HelpText { get; set; } = "要显示的按钮";
 
     public override List<ButtonType?> DefaultValue { get; set; } = new();

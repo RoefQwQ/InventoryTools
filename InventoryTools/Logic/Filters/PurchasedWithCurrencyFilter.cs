@@ -24,10 +24,10 @@
          }
 
          public override string Key { get; set; } = "PurchaseWithCurrency";
-         public override string Name { get; set; } = "Purchased with Currency";
+         public override string Name { get; set; } = "货币购买";
 
          public override string HelpText { get; set; } =
-             "Filter items based on the currency they can be purchased with.";
+             "根据物品可使用的货币进行筛选。";
 
          public override FilterCategory FilterCategory { get; set; } = FilterCategory.Acquisition;
 
