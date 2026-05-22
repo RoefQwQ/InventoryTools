@@ -26,7 +26,7 @@ jobs:
       run: dotnet restore InventoryTools.sln
       
     - name: Build Release
-      run: dotnet build InventoryTools.sln --configuration Release --no-restore
+      run: dotnet build InventoryTools/InventoryTools.csproj --configuration Release --no-restore -p:GeneratePackageOnBuild=false -p:CopyOutputSymbolsToPublishDirectory=false
       
     - name: Get version from tag
       id: version
