@@ -108,7 +108,7 @@ namespace InventoryTools.Logic.Filters.Abstract
                 if (combo.Success)
                 {
                     var searchString = SearchString;
-                    ImGui.InputText("Start typing to search..##ItemSearch", ref searchString, 50);
+                    ImGui.InputText("输入搜索..##ItemSearch", ref searchString, 50);
                     if (_searchString != searchString)
                     {
                         SearchString = searchString;
@@ -154,7 +154,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             if (HasValueSet(configuration) && ShowReset)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button("重置##" + Key + "Reset"))
                 {
                     ResetFilter(configuration);
                     _cachedChoices = null;

@@ -62,7 +62,7 @@ public abstract class GenericColorSetting : Setting<Vector4?>
         if (disableReset != true && HasValueSet(configuration))
         {
             ImGui.SameLine();
-            if (ImGui.Button("Reset##" + Key + "Reset"))
+            if (ImGui.Button("重置##" + Key + "Reset"))
             {
                 Reset(configuration);
             }

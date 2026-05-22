@@ -22,8 +22,8 @@ public class ItemSkybuilderInspectionUseRenderer : ItemSkybuilderInspectionSourc
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text($"Reward: {asSource.Item.NameString}");
-        ImGui.Text($"Required: {asSource.InspectionData.AmountRequired}");
+        ImGui.Text($"奖励：{asSource.Item.NameString}");
+        ImGui.Text($"需要：{asSource.InspectionData.AmountRequired}");
     };
 }
 

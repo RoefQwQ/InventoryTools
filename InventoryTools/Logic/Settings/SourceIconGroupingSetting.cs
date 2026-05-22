@@ -116,7 +116,7 @@ public class SourceIconGroupingSetting : Setting<Dictionary<Type, bool>?>
                 if (disableReset != true && hasValueSet)
                 {
                     ImGui.SameLine();
-                    if (ImGui.Button("Reset##Reset"))
+                    if (ImGui.Button("重置##Reset"))
                     {
                         currentSettings.Remove(sourceRenderer.Key);
                         UpdateFilterConfiguration(configuration, currentSettings);

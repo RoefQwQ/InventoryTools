@@ -63,7 +63,7 @@ public class TooltipGlamourReadySetScopeSetting : Setting<List<InventorySearchSc
         if (disableReset != true && HasValueSet(configuration))
         {
             ImGui.SameLine();
-            if (ImGui.Button("Reset##" + Key + "Reset"))
+            if (ImGui.Button("重置##" + Key + "Reset"))
             {
                 Reset(configuration);
             }
