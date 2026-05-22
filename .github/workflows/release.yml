@@ -1,63 +1,89 @@
-name: Release
+name: Build and Release
 
 on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
 
 jobs:
   build-and-release:
     runs-on: windows-latest
-    permissions:
-      contents: write
-      
+
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v4
       with:
         submodules: recursive
-      
-    - name: Setup .NET
+        fetch-depth: 0
+
+    - name: Setup .NET 9
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0.x'
-        
+
     - name: Restore dependencies
-      run: dotnet restore InventoryTools.sln
-      
+      run: dotnet restore InventoryTools/InventoryTools.csproj
+
     - name: Build Release
-      run: dotnet build InventoryTools.sln --configuration Debug --no-restore
-      
-    - name: Get version from tag
-      id: version
-      shell: bash
-      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-      
-    - name: Create plugin package
+      run: dotnet build InventoryTools/InventoryTools.csproj --configuration Release --no-restore
+
+    - name: Locate plugin zip
+      id: find_zip
       shell: pwsh
       run: |
-        $version = "${{ steps.version.outputs.VERSION }}"
-        $outputDir = "plugin-output"
-        New-Item -ItemType Directory -Path $outputDir -Force
-        
-        # Copy DLL and related files
-        Copy-Item "InventoryTools/bin/Debug/net9.0/InventoryTools.dll" -Destination $outputDir
-        Copy-Item "InventoryTools/bin/Debug/net9.0/InventoryTools.json" -Destination $outputDir -ErrorAction SilentlyContinue
-        
-        # Create zip
-        Compress-Archive -Path "$outputDir/*" -DestinationPath "InventoryTools-$version.zip"
-        
+        $zip = Get-ChildItem -Path "InventoryTools/bin/Release" -Recurse -Filter "latest.zip" |
+          Select-Object -First 1
+        if (-not $zip) {
+          Write-Host "Contents of InventoryTools/bin/Release:"
+          Get-ChildItem "InventoryTools/bin/Release" -Recurse | Select-Object FullName | Format-List
+          throw "Could not find latest.zip under InventoryTools/bin/Release -- DalamudPackager may not have run."
+        }
+        Write-Host "Found zip: $($zip.FullName)"
+        echo "ZIP_PATH=$($zip.FullName)" >> $env:GITHUB_OUTPUT
+
+    - name: Parse version from tag
+      id: version
+      shell: pwsh
+      run: |
+        $tag = "${{ github.ref_name }}"
+        $ver = $tag.TrimStart('v')
+        $parts = $ver.Split('.')
+        while ($parts.Count -lt 4) { $parts += '0' }
+        $full = $parts -join '.'
+        echo "SHORT=$ver"   >> $env:GITHUB_OUTPUT
+        echo "FULL=$full"   >> $env:GITHUB_OUTPUT
+
+    - name: Rename zip for release
+      id: rename_zip
+      shell: pwsh
+      run: |
+        $src  = "${{ steps.find_zip.outputs.ZIP_PATH }}"
+        $dest = Join-Path (Split-Path $src) "InventoryTools.zip"
+        Rename-Item $src $dest
+        Write-Host "Renamed to: $dest"
+        echo "RELEASE_ZIP=$dest" >> $env:GITHUB_OUTPUT
+
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        files: InventoryTools-${{ steps.version.outputs.VERSION }}.zip
-        generate_release_notes: true
-        prerelease: false
-        
+        tag_name: ${{ github.ref_name }}
+        name: "InventoryTools ${{ steps.version.outputs.SHORT }}"
+        body: |
+          ### InventoryTools ${{ steps.version.outputs.SHORT }}
+
+          **安装：** 在 Dalamud 中添加自定义仓库地址，然后安装「InventoryTools」。
+          **更新：** 在 Dalamud 插件安装器中点击更新按钮。
+        files: ${{ steps.rename_zip.outputs.RELEASE_ZIP }}
+        fail_on_unmatched_files: true
+
     - name: Trigger DalamudPlugins update
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.REPO_SYNC_TOKEN }}
         repository: RoefQwQ/DalamudPlugins
         event-type: update-plugin
-        client-payload: '{"version": "${{ steps.version.outputs.VERSION }}"}'
+        client-payload: '{"version": "${{ steps.version.outputs.FULL }}", "tag": "${{ github.ref_name }}"}'
