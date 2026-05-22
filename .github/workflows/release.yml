@@ -25,11 +25,22 @@ jobs:
       with:
         dotnet-version: '9.0.x'
 
+    - name: Download Dalamud
+      shell: pwsh
+      run: |
+        $out = "${{ github.workspace }}\dalamud"
+        New-Item -ItemType Directory -Force -Path $out | Out-Null
+        Invoke-WebRequest -Uri "https://github.com/goatcorp/dalamud-distrib/raw/main/latest.zip" `
+          -OutFile "$out\dalamud.zip"
+        Expand-Archive -Path "$out\dalamud.zip" -DestinationPath $out -Force
+        Remove-Item "$out\dalamud.zip"
+        echo "DALAMUD_HOME=$out" >> $env:GITHUB_ENV
+
     - name: Restore dependencies
-      run: dotnet restore InventoryTools/InventoryTools.csproj
+      run: dotnet restore InventoryTools.sln
 
     - name: Build Release
-      run: dotnet build InventoryTools/InventoryTools.csproj --configuration Release --no-restore
+      run: dotnet build InventoryTools.sln --configuration Release --no-restore
 
     - name: Locate plugin zip
       id: find_zip
